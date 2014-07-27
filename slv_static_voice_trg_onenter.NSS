@@ -1,0 +1,712 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  System Name : ACR Configuration File
+//     Filename : acf_trg_onenter.nss
+//    $Revision:: 236        $ current version of the file
+//        $Date:: 2007-01-21#$ date the file was created or modified
+//       Author : Cipher
+//
+//    Var Prefix:
+//  Dependencies:
+//
+//  Description
+//  This script calls the ACR's OnEnter code for triggers, and any
+//  custom code a server may need. It is not updated in ACR updates.
+//
+//  Revision History
+//  2007/01/20  Cipher  Inception
+//  Feb 2009 -- Wynna All Dean's Exam (deandragon) quest trigger onenters
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// Includes ////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+#include "acr_trigger_i"
+#include "acr_quest_i"
+#include "acr_spawn_i"
+#include "dmfi_inc_langexe" 
+
+
+
+void main()
+{
+    ACR_TriggerOnEnter();
+
+    // Custom code goes here.
+	
+//deandragon quests
+
+//deanddragon_b 
+ if((GetTag(OBJECT_SELF) == "fey_chocolate_activate") && (ACR_RetrieveQuestState("slv_deandragon_b", GetEnteringObject()) >= 5)&& (ACR_RetrieveQuestState("slv_deandragon_b", GetEnteringObject()) <= 6))
+ 	{object oMyTree = GetLocalObject(OBJECT_SELF, "oMyTree");
+	 if(oMyTree == OBJECT_INVALID)
+	 	{oMyTree = GetObjectByTag("fey_chocolate_tree");
+		 SetLocalObject(OBJECT_SELF, "oMyTree", oMyTree);
+		} 
+	 object oWP = GetLocalObject(OBJECT_SELF, "oWP");
+	 if(oWP == OBJECT_INVALID)
+		{oWP = GetNearestObjectByTag("ACR_SPAWN_WP", OBJECT_SELF);
+		 SetLocalObject(OBJECT_SELF, "oWP", oWP);
+		}
+	object oFlute = GetLocalObject(OBJECT_SELF, "flute");
+	if(oFlute == OBJECT_INVALID)
+		{oFlute = GetObjectByTag("fey_dance_flute");
+		 SetLocalObject(OBJECT_SELF, "flute", oFlute);
+		 }
+	if(GetLocalInt(OBJECT_SELF, "Spawned") == 0)
+		{SetUseableFlag(oMyTree, TRUE);
+	     SoundObjectPlay(oFlute);
+		 SendMessageToPC(GetEnteringObject(), "A faint musical piping blows on the breeze. The urge to dance is almost irresistable.");
+		 ACR_AddPersistentJournalQuestEntry("slv_deandragon_b", 6, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+		 ACR_SpawnGroup("fey_quest", oWP);
+		 ACR_ForceSpawn(oWP);
+		 SetLocalInt(OBJECT_SELF, "Spawned", 1);
+		 DelayCommand(600.0, SetLocalInt(OBJECT_SELF, "Spawned", 0));
+		 DelayCommand(3.0, AssignCommand(GetNearestObjectByTag("003_cr_hu_brownie_quest", oWP, 0), ActionRandomWalk()));
+		 DelayCommand(4.0, AssignCommand(GetNearestObjectByTag("003_cr_hu_brownie_quest", oWP, 1), ActionRandomWalk()));
+		 DelayCommand(5.0, AssignCommand(GetNearestObjectByTag("003_cr_hu_brownie_quest", oWP, 2), ActionRandomWalk()));
+		 DelayCommand(3.0, AssignCommand(GetNearestObjectByTag("003_cr_fy_jermlaine_quest", oWP, 0), ActionRandomWalk()));
+		 DelayCommand(4.0, AssignCommand(GetNearestObjectByTag("003_cr_fy_jermlaine_quest", oWP, 1), ActionRandomWalk()));
+		 DelayCommand(5.0, AssignCommand(GetNearestObjectByTag("003_cr_fy_jermlaine_quest", oWP, 2), ActionRandomWalk()));
+		 }
+	}
+	
+
+//deanddragon_d 	
+ if((GetTag(OBJECT_SELF) == "deandragon_berry_bump") && (ACR_RetrieveQuestState("slv_deandragon_d", GetEnteringObject()) >= 4)&& (ACR_RetrieveQuestState("slv_deandragon_b", GetEnteringObject()) <= 5))
+ 	{object oBerry1 = GetLocalObject(OBJECT_SELF, "oBerry1");
+	 if(oBerry1 == OBJECT_INVALID)	
+	 	{oBerry1 = GetObjectByTag("deandragon_e_dragonberry");
+		 SetLocalObject(OBJECT_SELF, "oBerry1", oBerry1);
+		 }	
+	 object oBerry2 = GetLocalObject(OBJECT_SELF, "oBerry2");
+	 if(oBerry2 == OBJECT_INVALID)	
+	 	{oBerry2 = GetObjectByTag("deandragon_e_dragonberry2");
+		 SetLocalObject(OBJECT_SELF, "oBerry2", oBerry2);
+		 }	
+	 ACR_AddPersistentJournalQuestEntry("slv_deandragon_d", 5, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+	 if(ACR_RetrieveQuestState("slv_deandragon_d", GetEnteringObject()) == 4)
+	 	{SetUseableFlag(oBerry1, TRUE);
+		 SetUseableFlag(oBerry2, FALSE);
+		}
+	 if(ACR_RetrieveQuestState("slv_deandragon_d", GetEnteringObject()) == 5)
+	 	{SetUseableFlag(oBerry1, FALSE);
+		 SetUseableFlag(oBerry2, TRUE);
+		}
+	 }
+	
+
+//deanddragon_e 			
+if((GetTag(OBJECT_SELF) == "slv_deandragon_e") && (ACR_RetrieveQuestState("slv_deandragon_e", GetEnteringObject()) > 0)&& (ACR_RetrieveQuestState("slv_deandragon_e", GetEnteringObject()) < 8))
+ 	{object oIncinderWP = GetLocalObject(OBJECT_SELF, "oIncinderWP");
+	 if(oIncinderWP == OBJECT_INVALID)
+	 	{oIncinderWP = GetWaypointByTag("slv_deansdragon_e_incinder");
+		 SetLocalObject(OBJECT_SELF, "oIncinderWP", oIncinderWP);
+		}
+	 object oMyIncinder = GetLocalObject(OBJECT_SELF, "oMyIncinder");
+	 if(oMyIncinder == OBJECT_INVALID)
+	 	{oMyIncinder = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_incinder", GetLocation(oIncinderWP));
+		 SetLocalObject(OBJECT_SELF, "oMyIncinder", oMyIncinder);
+	 	 DestroyObject(oMyIncinder, 600.00);
+		 DelayCommand(600.0, SetLocalObject(OBJECT_SELF, "oMyIncinder", OBJECT_INVALID));
+	 	 SendMessageToPC(GetEnteringObject(), "The smell of brimstone and the muted crackle of flames attract your eye to the creature flapping before the Weave Shrine.");
+		 } 
+	}
+
+//deanddragon_e_air
+if((GetTag(OBJECT_SELF) == "slv_deandragon_e_ice_activate") && (ACR_RetrieveQuestState("slv_deandragon_e_air", GetEnteringObject()) == 2))
+ 	{object oMyIce = GetLocalObject(OBJECT_SELF, "oMyIce");
+	 if(oMyIce == OBJECT_INVALID)
+	 	{oMyIce = GetObjectByTag("slv_deandragon_e_ice");
+		 SetLocalObject(OBJECT_SELF, "oMyIce", oMyIce);
+		} 
+	 SetUseableFlag(oMyIce, TRUE);
+	}
+	
+if((GetTag(OBJECT_SELF) == "slv_deandragon_e_listener") && (GetTag(GetEnteringObject()) != "003_cr_slv_deanvoice"))
+	  {object oMyWP = GetLocalObject(OBJECT_SELF, "oMyWP");
+	   if(oMyWP == OBJECT_INVALID)
+		 	{oMyWP = GetWaypointByTag("slv_el_air_wp4");
+			 SetLocalObject(OBJECT_SELF, "oMyWP", oMyWP);
+			}
+	   object oMyListener = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_deanvoice", GetLocation(oMyWP));
+	   SetLocalObject(GetEnteringObject(), "oMyListener", oMyListener);
+	   SetLocalObject(oMyListener, "oStudent", GetEnteringObject());
+	   object oStudent = GetLocalObject(oMyListener, "oStudent");
+	   SendMessageToPC(oStudent, "oStudent local object");
+	   SendMessageToPC(oStudent, "oMyListener = " + GetTag(oMyListener));
+	   object oGoTo2 = GetLocalObject(OBJECT_SELF, "oGoTo2");
+	   if(oGoTo2 == OBJECT_INVALID)
+			 {oGoTo2 = GetWaypointByTag("slv_el_air_wp2");
+			  SetLocalObject(OBJECT_SELF, "oGoTo2", oGoTo2);
+			 }
+	   object oGoTo3 = GetLocalObject(OBJECT_SELF, "oGoTo3");
+	   if(oGoTo3 == OBJECT_INVALID)
+			 {oGoTo3 = GetWaypointByTag("slv_el_air_wp3");
+			  SetLocalObject(OBJECT_SELF, "oGoTo3", oGoTo3);
+			 }
+	   object oGoTo4 = GetLocalObject(OBJECT_SELF, "oGoTo4");
+	   if(oGoTo4 == OBJECT_INVALID)
+			 {oGoTo4 = GetWaypointByTag("slv_el_air_wp4");
+			  SetLocalObject(OBJECT_SELF, "oGoTo4", oGoTo4);
+			 }
+	   location lGoTo2 = GetLocation(oGoTo2);
+	   location lGoTo3 = GetLocation(oGoTo3);
+	   location lGoTo4 = GetLocation(oGoTo4);
+	   if(GetLocalInt(oStudent, "ColdRep") != 0)
+			{SetLocalInt(oStudent, "ColdRep", 1);
+			 DelayCommand(30.0, SendMessageToPC(oStudent, "The wrenching sense of teleportation is followed almost immediately by the reorientation of arrival. But something is wrong. You are falling. You are falling UP. By the time you recognize that your arrival had been in mid-air over a frozen landscape, you are already a significant distance higher...and it is bitterly cold."));
+			 DelayCommand(35.0, AssignCommand(oStudent, ActionJumpToLocation(lGoTo2)));
+			 DelayCommand(45.5, SendMessageToPC(oStudent, "You continue to fall upward helplessly, clearly in the grip of some arcane trap. It feels as if gravity has reversed!"));
+			 DelayCommand(50.0, AssignCommand(oStudent, ActionJumpToLocation(lGoTo3)));
+			 DelayCommand(60.5, SendMessageToPC(oStudent, "You continue to fall upward helplessly, away from the snow and ice that glitter as if strewn with diamonds."));
+			 DelayCommand(65.0, AssignCommand(oStudent, ActionJumpToLocation(lGoTo4)));
+			 DelayCommand(70.5, SendMessageToPC(oStudent, "You stop suddenly, as if you had hit an incorporeal barrier. Oscillating gently, you hang suspended 50 meters in the air! You can only hope that gravity doesn't right itself, because a fall back DOWN from this height would maim or kill you before the cold has a chance to."));
+			 DelayCommand(75.0, ExecuteScript("slv_static_voice_cr_pc", oStudent));
+			}
+	   }
+	
+
+	 if((GetTag(OBJECT_SELF) == "slv_deandragon_e_flightend") && (GetIsPC(GetEnteringObject())))
+ 	 	{object oCollWP = GetLocalObject(OBJECT_SELF, "oCollWP");
+		 if(oCollWP == OBJECT_INVALID)
+		    {oCollWP = GetWaypointByTag("slv_deandragon_e_air_collboxWP");
+			 SetLocalObject(OBJECT_SELF, "oCollWP", oCollWP);
+			 }
+		 object oMyCollisionBox = GetLocalObject(oCollWP, "oMyCollisionBox");
+		 if(oMyCollisionBox == OBJECT_INVALID)
+			  {oMyCollisionBox = GetObjectByTag("slv_deandragon_e_air_collbox");
+			   SetLocalObject(oCollWP, "oMyCollisionBox", oMyCollisionBox);
+			   if(oMyCollisionBox == OBJECT_INVALID)
+				  {oMyCollisionBox = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_deandragon_e_air_collbox", GetLocation(oCollWP));
+				   SetLocalObject(oCollWP, "oMyCollisionBox", oMyCollisionBox);
+				  }
+			  }
+		}	 
+	 
+//deanddragon_e_fire
+if((GetTag(OBJECT_SELF) == "deandragon_firetrap_activate") && (GetIsPC(GetEnteringObject())) && (ACR_RetrieveQuestState("slv_deandragon_e_fire", GetEnteringObject()) >=1))
+ 	{object oMyTrap = GetLocalObject(OBJECT_SELF, "oMyTrap");
+	 if(oMyTrap == OBJECT_INVALID)
+	 	{oMyTrap = GetObjectByTag("slv_deandragon_e_firetrap");
+		 SetLocalObject(OBJECT_SELF, "oMyTrap", oMyTrap);
+		} 
+	 SetUseableFlag(oMyTrap, TRUE);
+	 if(GetLocalInt(OBJECT_SELF, "MephitMsg") !=1)
+	 	{SendMessageToPC(GetEnteringObject(), "The mephits spot you and dive into the mouth of the trap, vanishing from sight except for a glow between the teeth of the dragon-shaped fire trap!");
+	 	 SetLocalInt(OBJECT_SELF, "MephitMsg", 1);
+		 object oMephit1 = GetNearestObjectByTag("003_cr_mephit_fire", OBJECT_SELF, 1);
+		 object oMephit2 = GetNearestObjectByTag("003_cr_mephit_fire", OBJECT_SELF, 2);
+		 DestroyObject(oMephit1);
+		 DestroyObject(oMephit2);	 
+		}
+	 }
+	
+	if((GetTag(OBJECT_SELF) == "deandragon_heatloop") && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject())))) 
+	 	{if(GetLocalInt(GetEnteringObject(), "HeatRep") == 0)
+				{SetLocalInt(GetEnteringObject(), "HeatRep", 1);
+				 DelayCommand(1.0, ExecuteScript("slv_static_voice_cr_pc", GetEnteringObject()));
+				}
+		}
+		
+	if((GetTag(OBJECT_SELF) == "deandragon_coldloop") && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+	 	{if(GetLocalInt(GetEnteringObject(), "ColdRep") == 0)
+				{SetLocalInt(GetEnteringObject(), "ColdRep", 1);
+				 DelayCommand(1.0, ExecuteScript("slv_static_voice_cr_pc", GetEnteringObject()));
+				}
+		}
+
+//deandragon_j
+
+if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringObject())) && (ACR_RetrieveQuestState("slv_deandragon_j", GetEnteringObject()) >=3))
+ 	{ACR_AddPersistentJournalQuestEntry("slv_deandragon_j", 4, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+	 }
+
+// Deandragon_K toggle on archway with inscription
+	if((GetTag(OBJECT_SELF) == "deandragon_k_inscription") && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+ 	 {object oMyGateway = GetLocalObject(OBJECT_SELF, "oMyGateway");
+	  if(oMyGateway == OBJECT_INVALID)
+			 	{oMyGateway = GetObjectByTag(GetTag(OBJECT_SELF) + "_plc");
+				 SetLocalObject(OBJECT_SELF, "oMyGateway", oMyGateway);
+				 }
+		  
+	   if(GetLocalInt(OBJECT_SELF, "Useable") != 1)
+		 	 {SetLocalInt(OBJECT_SELF, "Useable", 1);
+			  SetUseableFlag(oMyGateway, TRUE);
+		      DelayCommand(600.0, SetUseableFlag(oMyGateway, FALSE));
+		   	  DelayCommand(601.0, SetLocalInt(OBJECT_SELF, "Useable", 0));
+		   	 }
+		
+	   string sLang = GetLocalString(oMyGateway, "SJC_PLC_LANG");
+       if(ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 2)
+		   	{if(DMFI_IsLanguageKnown(GetEnteringObject(), sLang) == TRUE)
+				{ACR_AddPersistentJournalQuestEntry("slv_deandragon_k", 4, GetEnteringObject(), FALSE, FALSE, FALSE, 0);
+				}
+			 else if(DMFI_IsLanguageKnown(GetEnteringObject(), sLang) == FALSE)
+				{ACR_AddPersistentJournalQuestEntry("slv_deandragon_k", 3, GetEnteringObject(), FALSE, FALSE, FALSE, 0);
+				}
+			}
+	   SendMessageToPC(GetEnteringObject(), "Fresh scratchings through the moss of a nearby stalagtite arch catch your eye.");
+	   }
+	 
+	 // Deandragon_K toggle silence
+	if((GetTag(OBJECT_SELF) == "deandragon_k_silence") && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+	 	{effect eSilence = EffectSilence();
+		 ApplyEffectToObject(DURATION_TYPE_PERMANENT, eSilence, GetEnteringObject());
+		}
+	 
+	 	// Deandragon_K create huts
+	if((GetTag(OBJECT_SELF) == "deandragon_k_huts")  && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+ 	 {if((ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 3) || (ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 4) ||(ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 5))
+		  {object oMyWaypoint1 = GetLocalObject(OBJECT_SELF, "oMyWaypoint1");
+		  if(oMyWaypoint1 == OBJECT_INVALID)
+				 	{oMyWaypoint1 = GetWaypointByTag("deandragon_k_leomund_1_WP");
+					 SetLocalObject(OBJECT_SELF, "oMyWaypoint1", oMyWaypoint1);
+					 }
+		   object oHut1 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_leomund_sshelter", GetLocation(oMyWaypoint1));	  
+		   object oMyWaypoint2 = GetLocalObject(OBJECT_SELF, "oMyWaypoint2");
+		   if(oMyWaypoint2 == OBJECT_INVALID)
+				 	{oMyWaypoint2 = GetWaypointByTag("deandragon_k_leomund_2_WP");
+					 SetLocalObject(OBJECT_SELF, "oMyWaypoint2", oMyWaypoint2);
+					 }
+			  
+		   object oHut2 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_leomund_sshelter", GetLocation(oMyWaypoint2));	  
+		   object oMyWaypoint3 = GetLocalObject(OBJECT_SELF, "oMyWaypoint3");
+		   if(oMyWaypoint3 == OBJECT_INVALID)
+				 	{oMyWaypoint3 = GetWaypointByTag("deandragon_k_leomund_3_WP");
+					 SetLocalObject(OBJECT_SELF, "oMyWaypoint3", oMyWaypoint3);
+					 }
+			  
+		   object oHut3 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_leomund_sshelter", GetLocation(oMyWaypoint3));	  
+		   object oMyWaypoint4 = GetLocalObject(OBJECT_SELF, "oMyWaypoint4");
+		   if(oMyWaypoint4 == OBJECT_INVALID)
+				 	{oMyWaypoint4 = GetWaypointByTag("deandragon_k_leomund_4_WP");
+					 SetLocalObject(OBJECT_SELF, "oMyWaypoint4", oMyWaypoint4);
+					 }
+			  
+		   object oHut4 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_leomund_sshelter", GetLocation(oMyWaypoint4));	  
+		   object oMyWaypoint5 = GetLocalObject(OBJECT_SELF, "oMyWaypoint5");
+		   if(oMyWaypoint5 == OBJECT_INVALID)
+				 	{oMyWaypoint5 = GetWaypointByTag("deandragon_k_leomund_5_WP");
+					 SetLocalObject(OBJECT_SELF, "oMyWaypoint5", oMyWaypoint5);
+					 }
+			  
+		   	object oHut5 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_leomund_sshelter", GetLocation(oMyWaypoint5));	  
+		    object oMyWaypointRandom = GetWaypointByTag("deandragon_k_leomund_" + IntToString(Random(5) + 1) + "_WP");
+			SetLocalInt(oMyWaypointRandom, "Deandragon_k_spawn", 1);
+			object oDoor1 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door1_WP")));
+			object oDoor2 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door2_WP")));
+			object oDoor3 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door3_WP")));
+			object oDoor4 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door4_WP")));
+			object oDoor5 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door5_WP")));
+			
+			SetLockLockable(oDoor1, TRUE);
+			SetLockLockable(oDoor2, TRUE);
+			SetLockLockable(oDoor3, TRUE);
+			SetLockLockable(oDoor4, TRUE);
+			SetLockLockable(oDoor5, TRUE);
+			
+			SetLocked(oDoor1, TRUE);
+			SetLocked(oDoor2, TRUE);
+			SetLocked(oDoor3, TRUE);
+			SetLocked(oDoor4, TRUE);
+			SetLocked(oDoor5, TRUE);
+			
+			
+			
+			
+		    ACR_AddPersistentJournalQuestEntry("slv_deandragon_k", 5, GetEnteringObject());
+			SendMessageToPC(GetEnteringObject(), "A bizarre sight greets you. Inside the large cavern chamber, huts seem to have sprouted out of the walls and floor, huts complete with locked doors and shuttered windows.");
+	       }
+		 DelayCommand(7.0, SendMessageToPC(GetEnteringObject(), "The silence is so thick it seems like another roof and set of walls around you."));
+	       	
+	 }
+	 // Listening Triggers for Deandragon_k
+	 if((FindSubString(GetTag(OBJECT_SELF), "deandragon_k_leomund") != -1)  && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+ 	 {    object oMyWaypoint = GetLocalObject(OBJECT_SELF, "oMyWaypoint1");
+		  if(oMyWaypoint == OBJECT_INVALID)
+				 	{oMyWaypoint = GetWaypointByTag(GetTag(OBJECT_SELF) + "_WP");
+					 SetLocalObject(OBJECT_SELF, "oMyWaypoint", oMyWaypoint);
+					 }
+		    object oDoor = GetNearestObjectByTag("leomund_shelter_door", OBJECT_SELF, 1);
+			SetLockLockable(oDoor, TRUE);
+			SetLocked(oDoor, TRUE);
+					
+		   
+			if(GetLocalInt(oMyWaypoint, "Deandragon_k_spawn") == 0)
+				{string sName = GetName(GetEnteringObject());
+				 if(GetLocalObject(OBJECT_SELF, sName) != GetEnteringObject())
+				 	 {SetLocalObject(OBJECT_SELF, sName, GetEnteringObject());
+					 if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_LISTEN, Random(10) + 20, TRUE)) 
+					   	{DelayCommand(1.0, SendMessageToPC(GetEnteringObject(), "You hear furtive movement from within this hut."));
+						 }
+				     else 
+				   		{DelayCommand(1.0, SendMessageToPC(GetEnteringObject(), "You hear only silence from within this hut."));
+						}
+					 }			   
+		   		 if(GetLocalInt(OBJECT_SELF, "Spawned") != 1)
+				 	 {SetLocalInt(OBJECT_SELF, "Spawned", 1);
+					 string sSpawn;
+					 int iSpawn = Random(5) + 1;
+					 if((iSpawn >= 1) && (iSpawn <=3))
+					 	{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter02", GetLocation(oMyWaypoint));
+						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(oMyWaypoint));
+						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(oMyWaypoint));
+						}
+					 else if(iSpawn == 4)
+					 	{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldelite01", GetLocation(oMyWaypoint));
+						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter03", GetLocation(oMyWaypoint));
+						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(oMyWaypoint));
+						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(oMyWaypoint));
+						}
+					 else if(iSpawn == 5)
+					 	{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldshaman", GetLocation(oMyWaypoint));
+						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldcaptain", GetLocation(oMyWaypoint));
+						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(oMyWaypoint));
+						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(oMyWaypoint));
+						}
+					 			
+					 
+					 }
+				}
+			else if(GetLocalInt(oMyWaypoint, "Deandragon_k_spawn") ==1 )
+				{object oBox = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_deandragon_lockbox_plc", GetLocation(oMyWaypoint));
+				 SetLocked(oBox, FALSE);
+				 object oRock = CreateItemOnObject("slv_deandragon_k_keepsake", oBox, 1);
+				 object oScales = CreateItemOnObject("slv_deandragon_k_scales", oBox, 1);
+				 if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_LISTEN, 25, TRUE))
+				   	{DelayCommand(1.0, SendMessageToPC(GetEnteringObject(), "You hear only silence from within this hut."));
+					}
+			    else 
+			   		{DelayCommand(1.0, SendMessageToPC(GetEnteringObject(), "You hear only silence from within this hut."));
+					}			   
+		   		}
+	 }
+	 
+	 //deanddragon_q 			
+if((GetTag(OBJECT_SELF) == "slv_deandragon_q_3") && (ACR_RetrieveQuestState("slv_deandragon_q", GetEnteringObject()) == 3))
+ 	{object oBeetleWP = GetWaypointByTag("deandragon_q_beetle");
+	 object oBeetle = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_vm_beetle_fire", GetLocation(oBeetleWP));
+	 object oGland = CreateItemOnObject("003_it_harvest_btl_fgland", oBeetle, 1);
+	 SetPlotFlag(oGland, TRUE);
+	}
+	
+		 //deanddragon_x 			
+if((GetTag(OBJECT_SELF) == "slv_deandragon_x") && (ACR_RetrieveQuestState("slv_deandragon_x", GetEnteringObject()) > 0)&& (ACR_RetrieveQuestState("slv_deandragon_x", GetEnteringObject()) < 9))
+ 	{object oAlastrarraWP = GetLocalObject(OBJECT_SELF, "oAlastrarraWP");
+	 if(oAlastrarraWP == OBJECT_INVALID)
+	 	{oAlastrarraWP = GetWaypointByTag("slv_deansdragon_x_Alastrarra");
+		 SetLocalObject(OBJECT_SELF, "oAlastrarraWP", oAlastrarraWP);
+		}
+	 object oAlastrarra = GetLocalObject(OBJECT_SELF, "oAlastrarra");
+	 if(oAlastrarra == OBJECT_INVALID)
+		 {DestroyObject(GetObjectByTag("003_slv_cr_procenc2"));
+	 	 oAlastrarra = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_procenc2", GetLocation(oAlastrarraWP));
+		 SetLocalObject(OBJECT_SELF, "oAlastrarra", oAlastrarra);
+		 DestroyObject(oAlastrarra, 1800.0);
+		 }
+	 } 
+	
+
+	 
+	 // Xan's speech for Deandragon_x
+	 if((GetTag(OBJECT_SELF) == "slv_deandragon_x_xan")  && (ACR_RetrieveQuestState("slv_deandragon_x", GetEnteringObject()) == 3) && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+ 	 	{ACR_AddPersistentJournalQuestEntry("slv_deandragon_x", 4, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+		 object oXanWP = GetWaypointByTag("slv_deandragon_x_dream");
+		 object oWakeWP = GetWaypointByTag("slv_deandragon_x_wake");
+		 object oXan = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_xan", GetLocation(oXanWP));
+		 object oDreamRoom = CreateObject(OBJECT_TYPE_PLACED_EFFECT, "slv_tra100_steamroom", GetLocation(oXanWP));
+		 effect eSleep = EffectSleep();
+		 effect eParalyse = EffectParalyze(50, SAVING_THROW_WILL, FALSE);
+		 DestroyObject(oXan, 125.0);
+		 DestroyObject(oDreamRoom, 301.0);
+		 FloatingTextStringOnCreature("Are you dreaming? Is this an elven revery? You cannot move. The surroundings have changed and have an odd, dreamlike quality. An elf stands before you, studying the surroundings morosely.", oXan, FALSE, 12.0);		 
+		 DelayCommand(12.0, AssignCommand(oXan, ActionSpeakString("So I was right. We were all doomed. Or at least just me. *Muttered to himself*", TALKVOLUME_TALK)));
+		 DelayCommand(24.0, AssignCommand(oXan, ActionSpeakString("Lost Occidian. *Musingly* This is how I saw it, touring with the noble elven Sage. We conversed then on the tragedies of civilizations lost. Now...Occidian is but Evereska, writ in elder runes. Or ruins, as they both are today.", TALKVOLUME_TALK)));
+		 DelayCommand(36.0, AssignCommand(oXan, ActionSpeakString("Thank you for activating my kiira. At least somebody wants to dream me alive, to hear something I have to say.  A hollow victory over death. *Glum*  You should all just give up now and save yourselves whatever effort you are involved in.", TALKVOLUME_TALK)));
+		 DelayCommand(48.0, AssignCommand(oXan, ActionSpeakString("So, since we dream Occidian, I presume you seek information I may have gathered on my trip through here on my way to ignominy, incarceration and ultimately unpleasant decapitation. It's useless, of course, but I will tell what I know.", TALKVOLUME_TALK)));
+		 DelayCommand(60.0, AssignCommand(oXan, ActionSpeakString("What can I tell you, though? You already have passed the test of friendly knowledge by selecting the correct dragonkin to enter; you must have earned the Sage's trust..difficult enough with his constant distraction with carving the history and feeding his pet baby giant.", TALKVOLUME_TALK)));
+		 DelayCommand(72.0, AssignCommand(oXan, ActionSpeakString("What? Wait? I see it in your own knowledge.... You've been sent on some sort of test by that frivolous old human who last activated my kiira? You had to determine the correct dragonkin yourself...because /she/ is the new Sage? It is worse than even I thought.", TALKVOLUME_TALK)));
+		 DelayCommand(84.0, AssignCommand(oXan, ActionSpeakString("Very well, then, since you know absolutely nothing.... *Looks around*  Here was the Xorn Tunnel, created by the Sage -- the /previous/ Sage -- (You truly are doomed, you know?) to reach the buried knowledge of Occidian. Clever chap. I suppose the Xorn aren't behaving very well if he has gone to Labelas' side?", TALKVOLUME_TALK)));
+		 DelayCommand(96.0, AssignCommand(oXan, ActionSpeakString("I don't dream any sign of activity here, at least, and though the Xorn leave no trace, others would.  *Shakes head sadly.* She must not know enough to honor her predecessor's bargain with the Xorn.", TALKVOLUME_TALK)));
+		 DelayCommand(108.0, AssignCommand(oXan, ActionSpeakString("Well, that's it, then. All is lost from ancient Occidian's marvels, all buried. You will never get through the miles of accreted history -- and by that I mean dirt -- that separate Occidian from the present.", TALKVOLUME_TALK)));
+		 DelayCommand(120.0, AssignCommand(oXan, ActionSpeakString("There's no sense in trying and you have wasted the entire dream learning that. Goodbye. You will now wake up.", TALKVOLUME_TALK)));
+		 DelayCommand(130.0, JumpPartyToArea(GetEnteringObject(), oWakeWP)); 
+		 object oParty = GetFirstFactionMember(GetEnteringObject(), TRUE);
+		 while(oParty != OBJECT_INVALID)
+			{DelayCommand(125.0, FadeToBlack(GetEnteringObject(), FADE_SPEED_MEDIUM, 10.0));
+			 DelayCommand(135.0, FadeFromBlack(GetEnteringObject(), FADE_SPEED_MEDIUM));
+			 DelayCommand(136.0, RemoveEffect(GetEnteringObject(), eParalyse));
+			 DelayCommand(137.0, RemoveEffect(GetEnteringObject(), eSleep));
+		 	 oParty = GetNextFactionMember(GetEnteringObject(), TRUE);
+			}
+		}
+	 
+	 // Xorn appearance for Deandragon_x
+	 if((GetTag(OBJECT_SELF) == "slv_deandragon_x_xorn")  && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+		  	{if(ACR_RetrieveQuestState("slv_deandragon_x", GetEnteringObject()) == 6) 
+		 	 	{ACR_AddPersistentJournalQuestEntry("slv_deandragon_x", 7, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+				 }
+			 if(GetLocalInt(OBJECT_SELF, "Xorn") != 1)
+				{SetLocalInt(OBJECT_SELF, "Xorn", 1);
+				 DelayCommand(300.0, SetLocalInt(OBJECT_SELF, "Xorn", 0));
+				 object oXornCrownWP = GetWaypointByTag("xorn_crown");
+				 object oXornBodyWP = GetWaypointByTag("xorn_body");
+				 object oXornArm1WP = GetWaypointByTag("xorn_arm_1");
+				 object oXornArm2WP = GetWaypointByTag("xorn_arm_2");
+				 object oXornArm3WP = GetWaypointByTag("xorn_arm_3");
+				 object oXornEye2WP = GetWaypointByTag("xorn_eye_2");
+				 object oXornEye3WP = GetWaypointByTag("xorn_eye_3");
+				 object oXornEye4WP = GetWaypointByTag("xorn_eye_4");
+				 object oXornEye5WP = GetWaypointByTag("xorn_eye_5");
+				 object oXornEye6WP = GetWaypointByTag("xorn_eye_6");
+				 
+				 object oXornBody = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_body", GetLocation(oXornBodyWP));
+				 object oXornCrown = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_crown", GetLocation(oXornCrownWP));
+				 object oXornArm1 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_xorn_arm", GetLocation(oXornArm1WP), FALSE, "003_cr_xorn_arm_1");
+				 object oXornArm2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_xorn_arm", GetLocation(oXornArm2WP), FALSE, "003_cr_xorn_arm_2");
+				 object oXornArm3 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_xorn_arm", GetLocation(oXornArm3WP), FALSE, "003_cr_xorn_arm_3");
+				 object oXornEye2 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye2WP), FALSE, "003_plc_xorn_eyes_2");
+				 object oXornEye3 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye3WP), FALSE, "003_plc_xorn_eyes_3");
+				 object oXornEye4 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye4WP), FALSE, "003_plc_xorn_eyes_4");
+				 object oXornEye5 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye5WP), FALSE, "003_plc_xorn_eyes_5");
+				 object oXornEye6 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye6WP), FALSE, "003_plc_xorn_eyes_6");
+				 
+				 DestroyObject(oXornBody, 300.0);
+				 DestroyObject(oXornCrown, 300.0);
+				 DestroyObject(oXornArm1, 300.0);
+				 DestroyObject(oXornArm2, 300.0);
+				 DestroyObject(oXornArm3, 300.0);
+				 DestroyObject(oXornEye2, 300.0);
+				 DestroyObject(oXornEye3, 300.0);
+				 DestroyObject(oXornEye4, 300.0);
+				 DestroyObject(oXornEye5, 300.0);
+				 DestroyObject(oXornEye6, 300.0);
+				 
+				 DelayCommand(5.0, AssignCommand(oXornArm1, ActionSpeakString("The bargain was made and will be honored. The price is two stone of high quality nourishment, without taint of carbon/water derivatives, dropped into the nourishment access before you.", TALKVOLUME_TALK)));
+				 }
+			 }
+		
+	//slv_deandragon 'Y' 
+	
+	if((GetTag(OBJECT_SELF) == "slv_deandragon_y") && (GetLocalInt(OBJECT_SELF, "Spawned" ) != 1))
+		{if(ACR_RetrieveQuestState("slv_deandragon_y", GetEnteringObject()) == 1)
+			 {SetLocalInt(OBJECT_SELF, "Spawned", 1);
+			  effect eParalyze = EffectParalyze();
+			  object oPotionWP = GetWaypointByTag("deandragon_y_wp");
+			  object oDeanWP = GetWaypointByTag("deandragon_y_dean");
+			  object oAbjWP = GetWaypointByTag("deandragon_y_abj");
+			  object oConWP = GetWaypointByTag("deandragon_y_con");
+			  object oDivWP = GetWaypointByTag("deandragon_y_div");
+			  object oEncWP = GetWaypointByTag("deandragon_y_enc");
+			  object oEvoWP = GetWaypointByTag("deandragon_y_evo");
+			  object oIllWP = GetWaypointByTag("deandragon_y_ill");
+			  object oNecWP = GetWaypointByTag("deandragon_y_nec");
+			  object oTraWP = GetWaypointByTag("deandragon_y_tra");
+			  
+			  object oPotion = CreateObject(OBJECT_TYPE_ITEM, "slv_deandragon_y_potion", GetLocation(oPotionWP));
+			  object oDean = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_dean", GetLocation(oDeanWP));
+			  object oAbj = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profabj", GetLocation(oAbjWP));
+			  object oCon = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profcon", GetLocation(oConWP));
+			  object oDiv = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profdiv", GetLocation(oDivWP));
+			  object oEnc = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profenc", GetLocation(oEncWP));
+			  object oEvo = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profevo", GetLocation(oEvoWP));
+			  object oIll = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profill", GetLocation(oIllWP));
+			  object oNec = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profnec", GetLocation(oNecWP));
+			  object oTra = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_proftra", GetLocation(oTraWP));
+			  
+			  SetLocalInt(oDean, "Walk_Off", 1);
+			  SetLocalInt(oAbj, "Walk_Off", 1);
+			  SetLocalInt(oCon, "Walk_Off", 1);
+			  SetLocalInt(oDiv, "Walk_Off", 1);
+			  SetLocalInt(oEnc, "Walk_Off", 1);
+			  SetLocalInt(oEvo, "Walk_Off", 1);
+			  SetLocalInt(oIll, "Walk_Off", 1);
+			  SetLocalInt(oNec, "Walk_Off", 1);
+			  SetLocalInt(oTra, "Walk_Off", 1);
+			  
+			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oAbj, 600.0));
+			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oCon, 600.0));
+			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oDiv, 600.0));
+			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oEnc, 600.0));
+			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oEvo, 600.0));
+			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oIll, 600.0));
+			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oNec, 600.0));
+			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oTra, 600.0));
+			  
+			  DestroyObject(oPotion, 1800.0);
+			  DestroyObject(oDean, 1800.0);
+			  DestroyObject(oAbj, 1800.0);
+			  DestroyObject(oCon, 1800.0);
+			  DestroyObject(oDiv, 1800.0);
+			  DestroyObject(oEnc, 1800.0);
+			  DestroyObject(oEvo, 1800.0);
+			  DestroyObject(oIll, 1800.0);
+			  DestroyObject(oNec, 1800.0);
+			  DestroyObject(oTra, 1800.0);
+			  
+			  ACR_AddPersistentJournalQuestEntry("slv_deandragon_y", 2, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+			  
+			  }
+		}	
+		
+		
+	//deandragon_z maze Ocean currents
+	
+if(GetTag(OBJECT_SELF) == "deandragon_z_swim")
+	{effect eCold = EffectDamage(Random(6) + 1, DAMAGE_TYPE_COLD, DAMAGE_POWER_NORMAL, FALSE);
+	 effect eDrown = EffectDamage(Random(6) + 1, DAMAGE_TYPE_ALL, DAMAGE_POWER_NORMAL, FALSE);
+	 effect eBatter = EffectDamage(Random(10) + 1, DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE);
+	 effect eSwim = EffectKnockdown();
+	 effect eUnconscious = EffectStunned();
+	 object oSuccess = GetLocalObject(OBJECT_SELF, "oSuccess");
+	 if(oSuccess == OBJECT_INVALID)
+			{oSuccess = GetWaypointByTag("deandragon_z_pearl_WP");
+			 SetLocalObject(OBJECT_SELF, "oSuccess", oSuccess);
+			}
+	 int nWeight = GetWeight(GetEnteringObject()); 
+	 int nWeightPenalty = nWeight / 50;
+	 SetLocalInt(GetEnteringObject(), "Swimming", 1);
+	 SendMessageToPC(GetEnteringObject(), "You dive through the mysterious standing wall of water, swimming, and find the currents treacherous on the other side!");
+	 
+	 if(GetLocalInt(GetEnteringObject(), "Swimming") == 1)	
+		 {int nUnconscious = GetLocalInt(GetEnteringObject(), "nUnconscious");	
+					 
+			if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_SWIM, 10 + nUnconscious + nWeightPenalty, TRUE) == TRUE)
+							{SendMessageToPC(GetEnteringObject(), "You manage to avoid all hazards.");
+							 AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oSuccess)));
+							 SendMessageToPC(GetEnteringObject(), "Swimming strongly, you make for the way out. If you swim upward hard and fast, you may haul yourself out of the water before you are swept away again.");
+							 SetLocalInt(GetEnteringObject(), "Drowning", 0);
+							 SetLocalInt(GetEnteringObject(), "Swimming", 0);
+							 SetLocalInt(GetEnteringObject(), "nUnconscious", 0);
+						     RemoveEffect(GetEnteringObject(), eSwim);
+				
+							}
+			else 
+				{if(Random(3) == 0)
+					{SendMessageToPC(GetEnteringObject(), "The swirling current slams you against a wall!");
+					 ApplyEffectToObject(DURATION_TYPE_INSTANT, eBatter, GetEnteringObject());
+					 }
+				else if(Random(3) == 1)
+					{SendMessageToPC(GetEnteringObject(), "The bone-numbing cold takes its toll.");
+					 ApplyEffectToObject(DURATION_TYPE_INSTANT, eCold, GetEnteringObject());
+					 }
+				else if(Random(3) == 2)
+					{SendMessageToPC(GetEnteringObject(), "You choke on a mouthful of brackish water, asphyxiating.");
+					  ApplyEffectToObject(DURATION_TYPE_INSTANT, eDrown, GetEnteringObject());
+						}
+				object oSwim = GetNearestObjectByTag("alfa_swim_hard", GetEnteringObject(), Random(3) +1);
+				 SendMessageToPC(GetEnteringObject(), "You are not strong enough to reach safety. You are swept away!");
+				 AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oSwim)));
+				 int nHoldBreath = GetAbilityScore(GetEnteringObject(), ABILITY_CONSTITUTION, FALSE) * 2;
+				 if(Random(20) + 1 + GetAbilityModifier(ABILITY_CONSTITUTION, GetEnteringObject()) < 10) 
+					{SetLocalInt(GetEnteringObject(), "Drowning", GetLocalInt(GetEnteringObject(), "Drowning") + 1);
+					 int nDrowning = GetLocalInt(GetEnteringObject(), "Drowning");
+					 if(nDrowning == 1)
+						{SendMessageToPC(GetEnteringObject(), "You go underwater and lose your sense of which direction is up! Thoughts of drowning fill your mind.");
+						}
+					 if((nHoldBreath < 42) && (nHoldBreath >= 20))
+						{if(nDrowning == 2)
+							{SendMessageToPC(GetEnteringObject(), "You have been underwater too long. You start to black out! You are in danger of drowning.");
+							 if((nHoldBreath < 42) && (nHoldBreath >= 30))
+								{if(nDrowning == 3)
+									{SendMessageToPC(GetEnteringObject(), "Spots swim before your eyes. Drowning is imminent.");
+									}
+								 if(nDrowning == 4)
+									{SendMessageToPC(GetEnteringObject(), "You are unconscious, unable to swim. You are drowning!");
+									 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, GetEnteringObject(), 60.0);
+									 SetLocalInt(GetEnteringObject(), "nUnconscious", 10);
+									}
+								 }
+							  if((nHoldBreath < 30) && (nHoldBreath >=20))
+									{if(nDrowning == 3)
+										{SendMessageToPC(GetEnteringObject(), "You are unconscious, unable to swim. You are drowning!");
+									     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, GetEnteringObject(), 60.0);
+										 SetLocalInt(GetEnteringObject(), "nUnconscious", 10);
+									    }
+									}
+								}
+							 }
+						if(nHoldBreath < 20)
+							{if(nDrowning == 2)
+							  	{SendMessageToPC(GetEnteringObject(), "You are unconscious, unable to swim. You are drowning!");
+								 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, GetEnteringObject(), 60.0);
+								 SetLocalInt(GetEnteringObject(), "nUnconscious", 10);
+								 }
+							}
+						}
+						else
+							{SetLocalInt(GetEnteringObject(), "Drowning", 0);
+							 SendMessageToPC(GetEnteringObject(), "You break through the surface of the water, taking in a welcome lungful of air! You stave off drowning for now, but the water holds other hazards.");
+							 SetLocalInt(GetEnteringObject(), "nUnconscious", 0);
+							 RemoveEffect(GetEnteringObject(), eUnconscious);
+							 }
+						if(nWeightPenalty > 1)
+							{DelayCommand(3.0, SendMessageToPC(GetEnteringObject(), "Lightening your load would make swimming easier."));
+							}
+					}
+		 DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSwim, GetEnteringObject(), IntToFloat(Random(10))));
+		 DelayCommand(60.0, ExecuteScript("slv_static_voice_trg_onenter", GetEnteringObject()));
+		 	}
+	 	 			
+		 
+		}
+	
+
+//deandragon_z_portal
+if(GetTag(OBJECT_SELF) == "deandragon_z_portal")
+	{if((ACR_RetrieveQuestState("slv_deandragon_z", GetEnteringObject()) == 1) || (ACR_RetrieveQuestState("slv_deandragon_z", GetEnteringObject()) == 2))
+		{JumpPartyToArea(GetEnteringObject(), GetWaypointByTag("slv_deandragon_z_portal"));
+		 }
+	 if(ACR_RetrieveQuestState("slv_deandragon_z", GetEnteringObject()) == 1)	
+		 {ACR_AddPersistentJournalQuestEntry("slv_deandragon_z", 2, GetEnteringObject(), FALSE, FALSE, FALSE, 0);
+		 }
+	}
+//deandragon_z_ini
+if((GetTag(OBJECT_SELF) == "deandragon_z_ini") && (GetLocalInt(OBJECT_SELF, "Init") != 1))
+	{SetLocalInt(OBJECT_SELF, "Init", 1);
+	 location lCenter = GetLocation(GetWaypointByTag("deandragon_z_center"));
+	 object oDoor = GetFirstObjectInShape(SHAPE_CUBE, 50.0, lCenter, FALSE, OBJECT_TYPE_DOOR);
+	 while(oDoor != OBJECT_INVALID)
+	 	{ SetLockUnlockDC(oDoor, 35 + Random(10) - Random(10));
+		  if(Random(3) == 1)
+		  	{CreateTrapOnObject(4 * Random(10) + 1, oDoor, STANDARD_FACTION_HOSTILE);
+			  SetTrapDetectable(oDoor, TRUE);
+			  SetTrapDisarmable(oDoor, TRUE);
+			  SetTrapDetectDC(oDoor, 25 + Random(10) - Random(10));
+			  SetTrapDisarmDC(oDoor, 25 + Random(10) - Random(10));
+		  	}
+		  
+		  oDoor = GetNextObjectInShape(SHAPE_CUBE, 50.0, lCenter, FALSE, OBJECT_TYPE_DOOR);
+	 
+		}
+	 object oChest = GetFirstObjectInShape(SHAPE_CUBE, 50.0, lCenter, FALSE, OBJECT_TYPE_PLACEABLE);
+	 while(oChest != OBJECT_INVALID)
+	 	{ if(GetTag(oChest) != "slv_maze_crystal")
+		 { SetLocked(oChest, TRUE);
+		  SetLockUnlockDC(oChest, 35 + Random(10) - Random(10));
+		  CreateTrapOnObject(4 * Random(10) + 1, oChest, STANDARD_FACTION_HOSTILE);
+		  SetTrapDetectable(oChest, TRUE);
+		  SetTrapDisarmable(oChest, TRUE);
+		  SetTrapDetectDC(oChest, 25 + Random(10) - Random(10));
+		  SetTrapDisarmDC(oChest, 30 + Random(10) - Random(10));
+		  oChest = GetNextObjectInShape(SHAPE_CUBE, 50.0, lCenter, FALSE, OBJECT_TYPE_PLACEABLE);
+	 	  }
+	 	}
+	 }
+	 
+	//deandragon_Z crystal ball
+   if((GetTag(OBJECT_SELF) == "slv_maze_crystal_trg") && (GetLocalInt(OBJECT_SELF, "Sprung") != 1) && (ACR_RetrieveQuestState("slv_deandragon_z", GetEnteringObject()) == 2))
+      	{SetLocalInt(OBJECT_SELF, "Sprung", 1);
+		 object oBall = GetObjectByTag("slv_maze_crystal");
+		 AssignCommand(oBall, ActionSpeakString("Congratulations! *Dean Vihuel's voice* You have successfully marched to the end of the research stage of your campaign for knowledge.", TALKVOLUME_TALK));
+		 DelayCommand(10.0, AssignCommand(oBall, ActionSpeakString("As you are standing here, you have worked out the complete key phrase that you are to give to the gatekeeper. When you have provided it to her, she will summon her rocky steed to carry you further.", TALKVOLUME_TALK)));
+		 DelayCommand(20.0, AssignCommand(oBall, ActionSpeakString("You may march on now in Oghma's vanguard to the fieldwork stage of your quest, or you may provision and seek your own way to the gatekeeper at a later time.", TALKVOLUME_TALK)));
+		 DelayCommand(30.0, AssignCommand(oBall, ActionSpeakString("It is Occidian we seek, of course, and the Elestar Patterns. Both have waited long enough and may wait a little longer, despite an old man's growing excitement.", TALKVOLUME_TALK)));
+		 DelayCommand(40.0, AssignCommand(oBall, ActionSpeakString("The end of decades of preparation is in sight. The final step has been assembling the right crew of scholars to assist in this triumph, and you have proven yourself, finding your way through the same maze of clues and false paths that I have followed for so long.", TALKVOLUME_TALK)));
+		 DelayCommand(50.0, AssignCommand(oBall, ActionSpeakString("The moment I see you set out, I shall go ahead of you, and be there to greet you. Until then, know that I still work on final details. Avaunt and awake, troops, for tomorrow we charge the barricades of ignorance!", TALKVOLUME_TALK)));
+		 DelayCommand(50.0, ACR_AddPersistentJournalQuestEntry("slv_deandragon_z", 3,GetEnteringObject(),  FALSE, FALSE, FALSE, FALSE));
+		}
+
+		 
+}
