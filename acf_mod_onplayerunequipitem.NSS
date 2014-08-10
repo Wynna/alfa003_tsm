@@ -22,6 +22,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include "acr_mod_events_i"
+#include "nw_i0_spells"
 
 ////////////////////////////////////////////////////////////////////////////////
 // Constants ///////////////////////////////////////////////////////////////////
@@ -47,4 +48,9 @@ void main() {
     ACR_ModuleOnPlayerUnequip();
 
     // Custom code goes below this line.
+	
+	// For Argos's Karach blade. Remove after vilquari campaign concludes:
+	object oItem = GetPCItemLastUnequipped();
+	if(GetTag(oItem) == "ronan_vilquari_karach_blade")
+		RemoveEffectsFromSpell(GetPCItemLastUnequippedBy(), 995);
 }

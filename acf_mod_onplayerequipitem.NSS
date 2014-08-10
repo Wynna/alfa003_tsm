@@ -45,6 +45,17 @@
 
 void main() {
     ACR_ModuleOnPlayerEquip();
-
+	
     // Custom code goes below this line.
+	
+	// For Argos's Karach blade. Remove after vilquari campaign concludes:
+	string KARACH_TAG = "ronan_vilquari_karach_blade";
+	object oPC = GetPCItemLastUnequippedBy();
+	effect eSwordStandIn;
+	if (GetTag(GetItemInSlot(INVENTORY_SLOT_RIGHTHAND, oPC)) == KARACH_TAG)		
+		eSwordStandIn = EffectNWN2SpecialEffectFile("fx_ssword_fake_anim.sef");
+	else if (GetTag(GetItemInSlot(INVENTORY_SLOT_LEFTHAND, oPC)) == KARACH_TAG)	
+		eSwordStandIn = EffectNWN2SpecialEffectFile("fx_ssword_fake_anim_offh.sef");
+
+	ApplyEffectToObject(DURATION_TYPE_PERMANENT, SetEffectSpellId(eSwordStandIn, 995), oPC);
 }
