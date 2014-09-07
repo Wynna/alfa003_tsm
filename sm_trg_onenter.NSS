@@ -346,16 +346,6 @@ if((GetTag(OBJECT_SELF) == "mask_entry") && (GetItemPossessedBy(GetEnteringObjec
 	 DestroyObject(oGrate, 60.0);
 	 }
 
-// Silvy Quest 3 to turn sewer entrance placeable useable on approach	 	 
- if(GetTag(OBJECT_SELF) == "silvy_quest3_sewer") 
- 	{object oSewer = GetLocalObject(OBJECT_SELF, "Sewer");
-	 if(oSewer == OBJECT_INVALID)
-	 	{oSewer = GetObjectByTag("03_plc_sewer_quest3");
-		}
-	 SetUseableFlag(oSewer, TRUE);
-		
-	}
-
 // Sylune's Headstone portals in Palace and Silvy Catacombs Level 1. Triggering invisible listener for voice commands.
 	  
 
