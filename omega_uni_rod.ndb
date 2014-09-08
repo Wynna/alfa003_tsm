@@ -1,5 +1,5 @@
 NDB V1.0
-0000018 0000004 0001123 0000107 0000355
+0000018 0000004 0001134 0000107 0000355
 n00 silvy_univ_inc
 n01 acr_tools_i
 n02 ginc_debug
@@ -618,12 +618,14 @@ f ffffffff ffffffff 000 i MEMBER_PROTECTION_LEVEL_QUARANTINE
 f ffffffff ffffffff 000 i MEMBER_PROTECTION_LEVEL_QUARANTINE_DM_ONLY_TELLS
 f ffffffff ffffffff 000 i MEMBER_PROTECTION_LEVEL_BOOT_5S_DELAY
 f ffffffff ffffffff 000 i MEMBER_PROTECTION_LEVEL_BOOT_IMMEDIATELY
+f ffffffff ffffffff 000 i BASE_ITEM_POTIONS_USABLE_ON_OTHERS
 f ffffffff ffffffff 000 i BASE_ITEM_TRADE_GOODS
 f ffffffff ffffffff 000 i BASE_ITEM_SHORT_MAGICSTAFF
 f ffffffff ffffffff 000 i BASE_ITEM_SMALL_SPEAR
 f ffffffff ffffffff 000 i CLASS_BLADESINGER
 f ffffffff ffffffff 000 i CLASS_LOREMASTER
 f ffffffff ffffffff 000 i CLASS_MYSTICTHEURGE
+f ffffffff ffffffff 000 i RACIAL_TYPE_PLANETOUCHED
 f ffffffff ffffffff 000 i RACIAL_TYPE_PLANT
 f ffffffff ffffffff 000 i ACTION_MODE_DARKVISION
 f ffffffff ffffffff 000 i CHAT_MODE_SILENT_TALK
@@ -855,6 +857,9 @@ f ffffffff ffffffff 000 i FEAT_SKILL_FOCUS_CRFT_ALCH
 f ffffffff ffffffff 000 i FEAT_SKILL_FOCUS_CRFT_ARM
 f ffffffff ffffffff 000 i FEAT_SKILL_FOCUS_CRFT_BOW
 f ffffffff ffffffff 000 i FEAT_SKILL_FOCUS_CRFT_WPN
+f ffffffff ffffffff 000 i FEAT_WEAPON_PROFICIENCY_EXOTIC_WARAXE
+f ffffffff ffffffff 000 i FEAT_WEAPON_PROFICIENCY_EXOTIC_BASTARD_SWORD
+f ffffffff ffffffff 000 i FEAT_WEAPON_PROFICIENCY_DWARF
 f ffffffff ffffffff 000 i FEAT_CRAFT
 f ffffffff ffffffff 000 i FEAT_CRAFT_CONSTRUCT
 f ffffffff ffffffff 000 i FEAT_FORGE_RING
@@ -955,6 +960,8 @@ f ffffffff ffffffff 000 i FEAT_SLIME_DOMAIN_POWER
 f ffffffff ffffffff 000 i FEAT_SPIDER_DOMAIN_POWER
 f ffffffff ffffffff 000 i FEAT_A_THOUSAND_FACES
 f ffffffff ffffffff 000 i FEAT_TIMELESS_BODY
+f ffffffff ffffffff 000 i FEAT_RIDE
+f ffffffff ffffffff 000 i FEAT_PALADIN_WARHORSE
 f ffffffff ffffffff 000 i IP_CONST_FEAT_DARKVISION
 f ffffffff ffffffff 000 i IP_CONST_FEAT_LOWLIGHTVISION
 f ffffffff ffffffff 000 i IPRP_FEATS_ALERTNESS
@@ -1078,8 +1085,9 @@ fp s
 f ffffffff ffffffff 002 e2 GetLocationInDifferentArea
 fp e2
 fp o
-f ffffffff ffffffff 003 v SetHitPoints
+f ffffffff ffffffff 004 v SetHitPoints
 fp o
+fp i
 fp i
 fp i
 f ffffffff ffffffff 003 i ApplyIntegerLimit
@@ -1169,6 +1177,8 @@ f ffffffff ffffffff 000 i GenerateRandomSeed
 f ffffffff ffffffff 001 i GetIsItemShield
 fp o
 f ffffffff ffffffff 001 i GetIsPlayer
+fp o
+f ffffffff ffffffff 001 i ACR_GetIsDMControlled
 fp o
 f ffffffff ffffffff 001 s ACR_CleanCreatureNameTextForPlayers
 fp s
@@ -1594,6 +1604,7 @@ f ffffffff ffffffff 000 i ACR_SERVER_MISC_GET_SALTED_MD5
 f ffffffff ffffffff 000 i ACR_SERVER_MISC_GET_HAS_DATABASE_STORE
 f ffffffff ffffffff 000 i ACR_SERVER_MISC_DELETE_DATABASE_STORE
 f ffffffff ffffffff 000 i ACR_SERVER_MISC_DELETE_DATABASE_STORE_AT_INDEX
+f ffffffff ffffffff 000 i ACR_SERVER_MISC_SHOW_COMPILER_LOG
 f ffffffff ffffffff 000 i ACR_ExecuteServerUpdaterScript
 f ffffffff ffffffff 003 v ACR_DictionarySet
 fp s
@@ -1646,6 +1657,8 @@ fp s
 f ffffffff ffffffff 002 i ACR_DeleteDatabaseStoreAtIndex
 fp s
 fp i
+f ffffffff ffffffff 001 i ACR_ShowCompilerLog
+fp o
 f ffffffff ffffffff 008 i ACR_CallServerMiscScript
 fp i
 fp i
@@ -1862,6 +1875,7 @@ f ffffffff ffffffff 000 s ACR_QST_TABLE
 f ffffffff ffffffff 000 s ACR_QST_NAME
 f ffffffff ffffffff 000 s ACR_QST_LOWER_STATE
 f ffffffff ffffffff 000 s ACR_QST_UPPER_STATE
+f ffffffff ffffffff 000 s ACR_QST_FORCED_STATE
 f ffffffff ffffffff 000 s ACR_QST_PARTY
 f ffffffff ffffffff 000 s ACR_QST_PC
 f ffffffff ffffffff 000 s ACR_QST_CUSTOM_DESPAWN
@@ -2387,17 +2401,17 @@ l08 0002003 00002e59 00002e85
 l08 0002004 00002e8b 00002e93
 l08 0000760 00002e93 00002ed6
 l08 0000761 00002ed6 00002ede
-l16 0000402 00002ede 00002ee4
-l16 0000405 00002ee4 00002ef1
-l16 0000408 00002ef7 00002f22
-l16 0000410 00002f28 00002f67
-l16 0000411 00002f6d 00002f6f
-l16 0000413 00002f6f 00003006
-l16 0000415 00003006 0000301b
-l16 0000416 00003042 00003073
-l16 0000417 00003073 000030a6
-l16 0000421 000030a6 000030c2
-l16 0000422 000030c8 000030d0
+l16 0000410 00002ede 00002ee4
+l16 0000413 00002ee4 00002ef1
+l16 0000416 00002ef7 00002f22
+l16 0000418 00002f28 00002f67
+l16 0000419 00002f6d 00002f6f
+l16 0000421 00002f6f 00003006
+l16 0000423 00003006 0000301b
+l16 0000424 00003042 00003073
+l16 0000425 00003073 000030a6
+l16 0000429 000030a6 000030c2
+l16 0000430 000030c8 000030d0
 l07 0000069 000030d0 000030f8
 l08 0001018 000030fa 00003126
 l08 0001019 00003126 0000312e
