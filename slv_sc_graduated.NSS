@@ -16,7 +16,7 @@ int StartingConditional()
     sMostRecentRegistered = GetSilvyUniversityCurrentSchoolRegistration(
         oStudent, sInfo.nSchool);
 
-    if (sInfo.nCourseLevel == SilvyUniversityGraduateLvl)
+    if (sInfo.nCourseLevel >= SilvyUniversityGraduateLvl)
     {
         iResult = 1;
     }

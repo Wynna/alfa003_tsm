@@ -72,7 +72,7 @@ void main()
              sMiddleName = GetName(oStudent);
              sMiddleName2 = GetName(oStudent);
              }
-				 
+	
 	if((nMatch >= 5061) && (nMatch <= 5063) && (ACR_RetrieveQuestState("slv_deandragon_e_air", oPC) == 2))
 		{if(GetLocalObject(oPC, "oMyListener") == OBJECT_SELF)
 			{object oCollWP = GetLocalObject(OBJECT_SELF, "oCollWP");
@@ -100,15 +100,16 @@ void main()
 			 	{sDeity = "THE GODDESS OF MAGIC.";
 				 sFollowUp = "MYSTRA'S POWER OVER MAGIC IS ABSOLUTE, AND HER MERCY VAST.";
 				 }
-			 SpeakString("*A powerful voice speaks in your mind, inaudible, although you have no doubt that any nearby can also 'hear' it.* 'YOU HAVE SHOWN WISDOM IN CALLING ON " + sDeity );
+			 SpeakString("*A powerful voice speaks in your mind, inaudible, although you have no doubt that any nearby can also 'hear' it. It does not shake you as a god's voice would. It does not feel deific, but merely powerful.*");
+			 DelayCommand(5.0, SpeakString("YOU HAVE SHOWN WISDOM IN CALLING ON " + sDeity));
 			 DestroyObject(oMyCollisionBox);
 			 SetLocalObject(oCollWP, "oMyCollisionBox", OBJECT_INVALID);
-			 DelayCommand(2.0, AssignCommand(oPC, ActionForceMoveToObject(oCollWP, TRUE, 0.0)));
-			 DelayCommand(5.0, ActionJumpToObject(oEndWP, FALSE));
-			 DelayCommand(5.0, SendMessageToPC(oPC, "Gravity rights itself and you immediately plunge towards the icy glacier!"));
-			 DelayCommand(7.0, AssignCommand(oPC, ActionJumpToLocation(GetLocation(oEndWP))));
-			 DelayCommand(9.0, SendMessageToPC(oPC, "At the height of two tall men above the ice, however, your descent abruptly slows. You land upon the glacier with the gentleness of a falling snowflake."));
-			 DelayCommand(10.0, SpeakString(sFollowUp, TALKVOLUME_TALK));
+			 DelayCommand(6.0, AssignCommand(oPC, ActionForceMoveToObject(oCollWP, TRUE, 0.0)));
+			 DelayCommand(7.0, ActionJumpToObject(oEndWP, FALSE));
+			 DelayCommand(10.0, SendMessageToPC(oPC, "Gravity rights itself and you immediately plunge towards the icy glacier!"));
+			 DelayCommand(10.0, AssignCommand(oPC, ActionJumpToLocation(GetLocation(oEndWP))));
+			 DelayCommand(12.0, SendMessageToPC(oPC, "At the height of two tall men above the ice, however, your descent abruptly slows. You land upon the glacier with the gentleness of a falling snowflake."));
+			 DelayCommand(15.0, SpeakString(sFollowUp, TALKVOLUME_TALK));
 			 }
 		}
 	

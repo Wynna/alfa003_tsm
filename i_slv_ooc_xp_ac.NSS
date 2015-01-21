@@ -22,7 +22,7 @@ void main()
  
     string sTag = GetTag(OBJECT_SELF);
 	
-	GiveXPToCreature(oUser, 50000);
+	GiveXPToCreature(oUser, 500);
    
        
 }

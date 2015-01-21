@@ -108,7 +108,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="8E3E54217D8A67DD69FE113A201D52866B3056F3" downloadHash="1312CC650FA7F9676D96F29724E7C83C6E87B13D" name="6d_int_silvy_hi_upperfloor.trx" dlsize="647444" size="830284" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="CF9A76EED931D03886BE45D783380D6D51D7CA24" downloadHash="2144C6B7161409B3636B7092F671C7FCA0044449" name="6d_int_silvy_hi_upperfloor.trx" dlsize="639519" size="642427" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -211,12 +211,6 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="EF25D2DDB42CC6BB775F2AB0F8C3CD30F21E4A15" downloadHash="F8E42A2F8DEBDCD13555FA60B1E9B29D6CB99C63" name="6d_int_rwkeep_lastchance.trx" dlsize="147620" size="148443" critical="false" exclude="false" urlOverride="">
-    <server-ref>
-      <string>0</string>
-      <string>2</string>
-    </server-ref>
-  </resource>
-  <resource type="DirectoryEntry" hash="263D378BA8A321471B6B6EE5BDB1C9CEF9208048" downloadHash="22DC032A53E590C637B3F7D2DED6A7AECFA43210" name="7d_ext_silverwood2.trx" dlsize="3307899" size="18343118" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -426,7 +420,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="A9510C318388170F5BC3F5257BBB25A0126812C2" downloadHash="7FF00FB2178A134B652712FC7D7AF1110F3666FE" name="6d_int_silvy_hi_chapel.trx" dlsize="516499" size="521246" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="5BD9394F8CE887BFBB0B9D26271449AD48E87F2F" downloadHash="910A255532A44F4EA397DEE3F62EF50C3B0EF4A9" name="6d_int_silvy_hi_chapel.trx" dlsize="400946" size="408350" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -714,12 +708,6 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="E2825D21695B89871648D6B8F66F4FB5167EFF6C" downloadHash="0E1DE34A165C43464C70EFFDCB244F117E288A4A" name="7d_ext_silverwood1.trx" dlsize="4295734" size="24487501" critical="false" exclude="false" urlOverride="">
-    <server-ref>
-      <string>0</string>
-      <string>2</string>
-    </server-ref>
-  </resource>
   <resource type="DirectoryEntry" hash="DEF2A07F5B6B3692117230E9BC7244FF38CD28FB" downloadHash="4466397FB4A8E36607E2D094D3E336D4187B7C6B" name="6d_int_silvy_mornbrights.trx" dlsize="87399" size="130172" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
@@ -834,7 +822,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="2837EA31AE956EBD38685B9D57D392DFB4672B78" downloadHash="6AF6359130BB7A80EC2D6F0F47B02ED20CF933E0" name="6d_int_silvy_sewer_north.trx" dlsize="1048858" size="1086050" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="A3EBE9F712C2E76F3699C5300259A723D1B500C7" downloadHash="7C5E195AE104D354CD3EB6779E4AC10DA357A3DE" name="6d_int_silvy_sewer_north.trx" dlsize="1027571" size="1066103" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1080,7 +1068,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="D8C9C49C47CF938568848B6ECC699B3C882119EA" downloadHash="50BD3D464DA31F4EBE2D53B57E5F0BE9BD8B52CB" name="6d_int_silvy_hi_crypt.trx" dlsize="280774" size="506045" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="15E8DF8F0483FE025773C3EECA4943BF9A6887A2" downloadHash="843578213532350C7A11D4881B30EEDBC51100D3" name="6d_int_silvy_hi_crypt.trx" dlsize="288229" size="513345" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1098,7 +1086,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="17E5DD616B85FA3BD767704A7CF69A900A1804D1" downloadHash="B7E29D8293A7C0DC2B3B4D27BF6B784AD061CE3A" name="6d_int_silvy_hi_topfloor.trx" dlsize="272559" size="315824" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="BDDEAA0DEE493BDA56AE578B5B9147DF0B8420EE" downloadHash="ACD57075F3058886F99B4FEAC17BC7A6AA2103FA" name="6d_int_silvy_hi_topfloor.trx" dlsize="287583" size="330615" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1494,19 +1482,19 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="Hak" hash="8C47225CC4CF3A8F8E797AB75DCD780F7439A718" downloadHash="BF6479F770E0EAD9CE0482AC8AE422D70C7E42AB" name="alfa2_2da.hak" dlsize="356031" size="17248800" critical="false" exclude="false" urlOverride="">
+  <resource type="Hak" hash="A22A5B338AEBDA653A8E27163C47B5C02265C0B0" downloadHash="A9C3F2B168BAA39072773C020B438A3BB97A0F5D" name="alfa2_2da.hak" dlsize="374578" size="18258543" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>1</string>
       <string>3</string>
     </server-ref>
   </resource>
-  <resource type="Hak" hash="8B35E257E77CB26EBC812B6DE8E7965D3000288F" downloadHash="642FA8FF9FF34052FD8AAFD20FBEF7901030DF9B" name="alfa2_acr.hak" dlsize="2863377" size="111801350" critical="false" exclude="false" urlOverride="">
+  <resource type="Hak" hash="8BA3FAE79D50DEF513125348C9573CA5B84CFA05" downloadHash="8E875AF926148AC134A776A5E95DF42A107530BB" name="alfa2_acr.hak" dlsize="4077842" size="119668506" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>1</string>
       <string>3</string>
     </server-ref>
   </resource>
-  <resource type="Hak" hash="AB64D898605ECEE3CD288623E4AC2307D0AB4760" downloadHash="0DFEBB51CDFD21481ED087D99DA8928C49E39965" name="alfa_creatures.hak" dlsize="163489505" size="534483636" critical="false" exclude="false" urlOverride="">
+  <resource type="Hak" hash="E3EC29FBC1DBC86F3096336AA4069BD8ADFFEDB0" downloadHash="55D6B1114B2DF2363EA9E87E055F4618B05A51B5" name="alfa_creatures.hak" dlsize="162786981" size="532249462" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>1</string>
       <string>3</string>
@@ -1518,7 +1506,7 @@
       <string>3</string>
     </server-ref>
   </resource>
-  <resource type="Hak" hash="141BD8A40816D003F36074BEC86B73EDFD4CE760" downloadHash="DFCB1DDC07FA93B38F37B03F3FAEEE8BA433A22B" name="alfa2_gui.hak" dlsize="10112312" size="42292776" critical="false" exclude="false" urlOverride="">
+  <resource type="Hak" hash="0927DD7C3DCB4D0419E2BC68952837E2D34464E3" downloadHash="2D0A079EC5B8BC5C9367718C7B1F8ED1A44ACBB8" name="alfa2_gui.hak" dlsize="10121027" size="42362859" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>1</string>
       <string>3</string>
@@ -1548,13 +1536,13 @@
       <string>3</string>
     </server-ref>
   </resource>
-  <resource type="Tlk" hash="C406DA505610AC23C24A4C8E2762E27FC29DFF1B" downloadHash="3AC1DBAB0EEF856513F8E8199BF3648C093FE39B" name="alfa_acr02.tlk" dlsize="146552" size="1182620" critical="false" exclude="false" urlOverride="">
+  <resource type="Tlk" hash="3F98D2A98D702EAA7771159BC63645B0FE9F30FB" downloadHash="D9050BCB49B9474D7F7FEE1516441FEAF047C71B" name="alfa_acr02.tlk" dlsize="148273" size="1191162" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>1</string>
       <string>3</string>
     </server-ref>
   </resource>
-  <resource type="Hak" hash="0429BA6D797C2E6E01787428CAD5A0661ACC844B" downloadHash="C971C71CC081DB0317A4103E723D6FB72D019581" name="alfa2_pr.hak" dlsize="20049862" size="479626458" critical="false" exclude="false" urlOverride="">
+  <resource type="Hak" hash="B0B3DE47FD8303A1B2A9DE861DD3FF14FD78B2A5" downloadHash="94D3734903857724E43B122A9E59F5AD58D08E75" name="alfa2_pr.hak" dlsize="20042853" size="473866366" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>1</string>
       <string>3</string>
@@ -1566,7 +1554,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="Hak" hash="380AF1DC01A557C48F2EC37E6C085DD89C3517B0" downloadHash="6C826FECB60688C2FE506DDCBF8A5C4856EB5F10" name="alfa2_templates.hak" dlsize="188995" size="8452870" critical="false" exclude="false" urlOverride="">
+  <resource type="Hak" hash="F54A854CC2837F091F27FCA688783805AC9FBED7" downloadHash="5D66F6DA3E3A3BD735409EE0B86A672DE710E481" name="alfa2_templates.hak" dlsize="190865" size="8634817" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>1</string>
       <string>3</string>
@@ -1792,6 +1780,11 @@
     <server-ref>
       <string>0</string>
       <string>2</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="C79461B0DAFE5DB886E597AA9E2CDB601251F71D" downloadHash="61E2CD414ED3CF573E316B02DCF087DA90127B64" name="6d_int_silvy_hi_undercrypt.trx" dlsize="299747" size="301880" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
     </server-ref>
   </resource>
 </content>

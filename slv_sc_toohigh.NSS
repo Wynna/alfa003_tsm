@@ -22,28 +22,28 @@ int StartingConditional()
     switch (nCourseLevel)
     {
     case 100:
-        if ((nMageLevel > 2) && (GetLocalInt(oStudent, "HallPass") != 1))
+        if ((nMageLevel > 10) && (GetLocalInt(oStudent, "HallPass") != 1))
         {
             iResult = 1;
         }
         break;
 
     case 200:
-        if ((nMageLevel > 3)  && (GetLocalInt(oStudent, "HallPass") != 1))
+        if ((nMageLevel > 10)  && (GetLocalInt(oStudent, "HallPass") != 1))
         {
             iResult = 1;
         }
         break;
 
     case 300:
-        if ((nMageLevel > 4)  && (GetLocalInt(oStudent, "HallPass") != 1))
+        if ((nMageLevel > 10)  && (GetLocalInt(oStudent, "HallPass") != 1))
         {
             iResult = 1;
         }
         break;
 
     case 400:
-        if ((nMageLevel > 5)  && (GetLocalInt(oStudent, "HallPass") != 1))
+        if ((nMageLevel > 20)  && (GetLocalInt(oStudent, "HallPass") != 1))
         {
             iResult = 1;
         }

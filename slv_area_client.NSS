@@ -17,15 +17,7 @@ void main()
 	object oArea = OBJECT_SELF;
 	object oStudent = GetEnteringObject();
 	
-	if(GetPCPlayerName(oStudent) == "Wynna-Player")
-		{SetLocalInt(oArea, "Wynna", 1);
-		 DelayCommand(1800.0, SetLocalInt(oArea, "Wynna", 0));
-		 }
-	if((GetLocalInt(oArea, "oPC") == 0) && (GetPCPlayerName(oStudent) != "Wynna-Player"))
-		{SetLocalInt(oArea, "oPC", 1);
-		 DelayCommand(1800.0, SetLocalInt(oArea, "oPC", 0));
-		 }
-			    
+		    
 	 //Query persistent variables to set locals on entering student
 if((GetIsPC(oStudent)) && (GetLocalInt(oStudent, "Classes") != 1)) 
 	{SetLocalInt(GetEnteringObject(), "Classes", 1);

@@ -49,13 +49,15 @@ void main()
 		}
     
 	    nSchool = GetSilvyUniversitySchool(oProfessor);
-        int nCourseLevel = GetSilvyUniversitySchoolLevel(oStudent, nSchool);
+        sSchool = SchoolToString(nSchool);
+		int nCourseLevel = GetSilvyUniversitySchoolLevel(oStudent, nSchool);
         sCurrentCourse = GetSilvyUniversityCurrentSchoolRegistration(oStudent, nSchool);
         SetCampaignString("SLV_UNI", sCurrentCourse, sCurrentCourse, oStudent);
-        SetCampaignString("SLV_UNI", sCurrentCourse + "Info", "Graduated by " + GetName(OBJECT_SELF), oStudent);
-        DestroyObject(GetItemPossessedBy(oStudent, "slv_grad_credit"));
+        SetCampaignString("SLV_UNI", "Senior " +sSchool + "Info", "Passed by " + GetName(OBJECT_SELF), oStudent);
+        SetCampaignString("SLV_UNI", "Graduation " +sSchool + "Info", "Graduated by " + GetName(OBJECT_SELF), oStudent);
+         DestroyObject(GetItemPossessedBy(oStudent, "slv_grad_credit"));
 		object oDiploma = CreateItemOnObject("slv_grad_diploma", oStudent, 1);
-		SetFirstName(oDiploma, GetName(oDiploma) + " - " + sSchool);
+		SetFirstName(oDiploma, GetName(oDiploma) + " - " + sSchool + " - " + GetName(oStudent));
 		if(GetTag(OBJECT_SELF) == "003_cr_slv_registrar")
 			{if(nCourseLevel == 100)
 				{DestroyObject(GetItemPossessedBy(oStudent, "slv_dean_credit_01"));

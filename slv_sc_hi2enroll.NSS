@@ -12,7 +12,7 @@ int StartingConditional()
     object oStudent = GetPCSpeaker();
     int nMageLevel = GetSilvyUniversityMageLevel(oStudent);
 
-    if (nMageLevel > 2)
+    if (nMageLevel > 5)
     {
         iResult = 1;
     }

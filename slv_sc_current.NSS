@@ -25,6 +25,6 @@ int StartingConditional()
         iResult = 1;
         SetCustomToken(SilvyUniversityCourseNameToken, sCurrentCourse);
     }
-
+	//SendMessageToPC(oStudent, "sCurrentCourse=" + sCurrentCourse);
     return iResult;
 }

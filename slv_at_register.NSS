@@ -58,16 +58,21 @@ void main()
 		int nCourseLevel = GetSilvyUniversitySchoolLevel(oStudent, nSchool);
         SetCampaignString("SLV_UNI", sCurrentCourse + "Info", "Registered by " + GetName(OBJECT_SELF), oStudent);
         sInfo = GetSilvyUniversityCurrentSchoolCourse(oStudent, oProfessor);
-        if(GetTag(OBJECT_SELF) != "003_cr_slv_registrar")
+		//SendMessageToPC(oStudent, "Senior" +sSchool + "Info");
+		if((GetTag(OBJECT_SELF) != "003_cr_slv_registrar") && (nCourseLevel < 400))
 			{if(GetLocalInt(oStudent, "Startdlg2") != 1)
 			 	{ActionStartConversation(oStudent, sInfo.sQuestDialog);
 				}
 			else {SetLocalInt(oStudent, "Startdlg2", 0);
-				}
+				 }
+			}
+		else if(nCourseLevel > 300)
+			{SetCampaignString("SLV_UNI", "Senior " + sSchool + "Info", "Registered by " + GetName(OBJECT_SELF), oStudent);
 			}
 		
-
-
+		
+		
+	
     // Take the registration fee
     if(GetLocalInt(oStudent, "HallPass") != 1)
         {TakeGoldFromCreature(sInfo.nFee, oStudent, TRUE);

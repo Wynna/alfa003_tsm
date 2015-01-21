@@ -5,7 +5,7 @@
 #include "acr_placeable_i"
 #include "acr_xp_i"
 #include "acr_quest_i"
-
+#include "003_silverymoon_i"
 
 
 
@@ -16,7 +16,7 @@ void main()
 	ACR_PlaceableOnUsed();
 
 	object oUser = GetLastUsedBy();
-	
+	RemoveSilverymoonWards(oUser);
 
 	// Teleport for deandragon_e Elementals tests
 	 if(FindSubString(GetTag(OBJECT_SELF), "slv_el_") != -1)
@@ -76,7 +76,7 @@ void main()
 					 DelayCommand(35.0, AssignCommand(oUser, ActionJumpToLocation(lGoTo3)));
 			 	     DelayCommand(40.5, SendMessageToPC(oUser, "You continue to fall upward helplessly, away from the snow and ice that glitter as if strewn with diamonds."));
 					 DelayCommand(45.0, AssignCommand(oUser, ActionJumpToLocation(lGoTo4)));
-			 	     DelayCommand(50.5, SendMessageToPC(oUser, "You stop suddenly, as if you had hit an incorporeal barrier. Oscillating gently, you hang suspended 50 meters in the air! You can only hope that gravity doesn't right itself, because a fall back DOWN from this height would maim or kill you before the cold has a chance to."));
+			 	     DelayCommand(50.5, SendMessageToPC(oUser, "You stop suddenly, as if you had hit an incorporeal barrier. Oscillating gently, you hang suspended 1000 meters in the air! You can only hope that gravity doesn't right itself, because a fall back DOWN from this height would maim or kill you before the cold has a chance to."));
 					 DelayCommand(61.0, ExecuteScript("slv_static_voice_cr_pc", oUser));
 					}
 			}

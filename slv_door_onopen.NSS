@@ -27,7 +27,6 @@ else if(GetTag(OBJECT_SELF) == "Dean_Secret_Door")
 		}			 
 else if(GetTag(OBJECT_SELF) == "slv_enc_giant_door") 
 		{DelayCommand(4.0, ActionCloseDoor(OBJECT_SELF));
-		 DelayCommand(5.0, SetLocked(OBJECT_SELF, TRUE));
 		}	 
 else if((GetTag(OBJECT_SELF) == "slv_door_Enchantment1") && (nLevel == 200))
 		{object oMyProctor2WP = GetLocalObject(OBJECT_SELF, "oMyProctor2WP");

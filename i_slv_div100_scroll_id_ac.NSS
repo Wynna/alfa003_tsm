@@ -71,7 +71,7 @@ void main()
               {DelayCommand(5.0, SendMessageToPC(oStudent, "'Necromancy 201:  A good scare can leave you weak."));
               }
          else if((sSchool == "Transmutation") && (nLevel == 200)) 
-              {DelayCommand(5.0, SendMessageToPC(oStudent, "Step up and fire when ready."));
+              {DelayCommand(5.0, SendMessageToPC(oStudent, "Knock the rust off your materials. Proper care can enhance results."));
               }
 		 else if(nLevel == 300)
               {DelayCommand(5.0, SendMessageToPC(oStudent, sSchool + " 301:  Sorry, all written tests must be taken without cheat sheets."));

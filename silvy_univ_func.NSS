@@ -183,7 +183,7 @@ void AdvanceSilvyUniversityStudent(object oStudent,
 
 
    //  Award XP 
-    ACR_AwardStaticQuestXP(oStudent, sInfo.sCourseName, sInfo.nXP);
+   // ACR_AwardStaticQuestXP(oStudent, sInfo.sCourseName, sInfo.nXP);
 	}
 
 

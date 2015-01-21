@@ -141,7 +141,7 @@ void main()
 								{oMyMirrorBlack = GetObjectByTag("slv_ill200_mirrorblack");
 								 SetLocalObject(oMyTrigAll, "oMyMirrorBlack", oMyMirrorBlack);
 								  }
-						  DestroyObject(oMyCollBox2);
+						  //DestroyObject(oMyCollBox2);
 						  SetLocalObject(OBJECT_SELF, "oMyCollBox2", OBJECT_INVALID);
 						  SetLocalObject(oMyTrigAll, "oMyCollBox2", OBJECT_INVALID);
 						  SetLocalObject(oMyTrig2, "oMyCollBox2", OBJECT_INVALID);

@@ -1,4 +1,4 @@
-//Silvy Uni Item onAcquire.  
+//Silvy Uni Item onActivate.  
 //Wynna February 2008
 
  
@@ -22,10 +22,12 @@ void main()
 					 	
 				
 		//Elementary Transmutation
-				if(GetTag(oTarget) == "slv_tra100_brazier")
+				if((GetTag(oTarget) == "slv_tra100_brazier") && ((GetHasSpellEffect(SPELL_EXPEDITIOUS_RETREAT, oStudent)) || (GetHasSpellEffect(SPELL_HASTE, oStudent))))
 				    {SendMessageToPC(oStudent, "You managed to reach the brazier before the water evaporated! Steam bursts upward from the searingly hot coals.");
 					 DestroyObject(oItem);
-					 
+					  if(ACR_RetrieveQuestState("slv_tra100", oStudent) == 1)
+						{DelayCommand(12.0, ACR_AddPersistentJournalQuestEntry("slv_tra100", 2, oStudent, 0, 0, 0, 0));}
+		
 					 object oFire1 = GetLocalObject(oMyTrigAll, "oFire1");
 					 if(oFire1 == OBJECT_INVALID)
 					 	{oFire1 = GetObjectByTag("slv_tra100_fire1");
@@ -70,7 +72,7 @@ void main()
 					 DelayCommand(8.0, SendMessageToPC(oStudent, "Engraved on the nozzle of the fire pipe where the words had been obscured by the flames is the inscription: 'Sometimes opposites attract, sometimes they cancel each other and sometimes they cause a wonderful explosion. Know thy materials."));
 					 DelayCommand(10.0, DestroyObject(oSteamRoom));
 					 SetLocalObject(oMyTrigAll, "oSteamRoom", OBJECT_INVALID);
-					 }
+					}
 					 
 					else
 					{SendMessageToPC(oStudent, "Your bucket is empty.");

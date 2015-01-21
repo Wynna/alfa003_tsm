@@ -18,7 +18,28 @@ void main()
     effect ePoison = EffectDamage(1, DAMAGE_TYPE_ACID, DAMAGE_POWER_NORMAL);
     effect eGas = EffectVisualEffect(VFX_COM_CHUNK_GREEN_SMALL);
     
-
+	
+	
+	//Standard Conjuration
+	 if((GetTag(OBJECT_SELF) == "slv_con200_lever") && (GetLastSpell() == 66 ))
+	 	{if(GetLocalInt(oStudent, "Greased") != 1)
+			{SendMessageToPC(oStudent, "The area is slippery and dripping with grease.");
+			 SetLocalInt(oStudent, "Greased", 1);
+			 DelayCommand(60.0, SetLocalInt(oStudent, "Greased", 0));
+			  }
+		}
+	
+	//Elementary Divination
+	
+	 if((GetTag(OBJECT_SELF) == "slv_div100_sigil") &&  (GetIsPC(oStudent)) && (GetLastSpell() == SPELL_IDENTIFY))
+       {
+	   SetCampaignString("SLV_UNI", "Elementary Divination", "Elementary Divination", oStudent);
+       object PCScroll = CreateItemOnObject("slv_div100_scroll_id", oStudent, 1);
+       DelayCommand( 2.0, SendMessageToPC(oStudent, "Suddenly, without seeing it arrive, you are holding a scroll in your hand."));
+      if(ACR_RetrieveQuestState("slv_div100", oStudent) == 1)
+		{DelayCommand(15.0, ACR_AddPersistentJournalQuestEntry("slv_div100", 2, oStudent, 0, 0, 0, 0));
+		}
+		}
 	  //Elementary Evocation
 
      if((GetTag(OBJECT_SELF) == "slv_evo100_crystalball") &&  (GetIsPC(oStudent)) && (GetLastSpell() == SPELL_SHOCKING_GRASP))
@@ -81,7 +102,7 @@ void main()
 
     //Standard Evocation
 
-      if(GetTag(OBJECT_SELF) == "slv_evo200_bellows") 
+      if(GetTag(OBJECT_SELF) == "slv_evo200_bellows2") 
 		   {object oWindowWP = GetLocalObject(OBJECT_SELF, "oWindowWP");
 		    if(oWindowWP == OBJECT_INVALID)
 			   {oWindowWP = GetWaypointByTag("Evo_All_Quests_Window_WP");
@@ -99,7 +120,7 @@ void main()
 				}
 			object oMyPoisonCircle = GetLocalObject(OBJECT_SELF, "oMyPoisonCircle");
 			if(oMyPoisonCircle == OBJECT_INVALID)
-			   	{oMyPoisonCircle = GetObjectByTag("slv_enc200_poisoncircle");
+			   	{oMyPoisonCircle = GetObjectByTag("slv_evo200_poisoncircle");
 				 SetLocalObject(OBJECT_SELF, "oMyPoisonCircle", oMyPoisonCircle);
 				}
 			object oMyCurtainPull = GetLocalObject(OBJECT_SELF, "oMyCurtainPull");
@@ -107,7 +128,7 @@ void main()
 				{oMyCurtainPull = GetObjectByTag("slv_evo200_curtainpull");
 				SetLocalObject(OBJECT_SELF, "oMyCurtainPull", oMyCurtainPull);
 				 }
-			 if(GetLastSpell() == SPELL_GEDLEES_ELECTRIC_LOOP)
+			 if((GetLastSpell() == SPELL_LESSER_ORB_OF_ELECTRICITY) || (GetLastSpell() == SPELL_GEDLEES_ELECTRIC_LOOP) || (GetLastSpell() == SPELL_CALL_LIGHTNING) || (GetLastSpell() == SPELL_LIGHTNING_BOLT))
 		          {SetLocalInt(oStudent, "slv_evo200_Emulsion", 1);
 		           SendMessageToPC(oStudent, "A crackling in the air rapidly becomes a storm of lightning, caught up by the magical conductor and zipping through the wires to the wall behind the window. The entire wall glows electric blue.");
 		           DelayCommand(1.0, SendMessageToPC(oStudent, "The panes of glass in the Kossuthian window shatter, spraying shards and oily liquid across the area!"));
@@ -133,8 +154,10 @@ void main()
 		           DelayCommand(4.8, AssignCommand(oMyIncinder, SpeakString("Ssssurvivessss firsssst ssstep.  *Mutters, seemingly disappointed*  Issss only firssssst.  What doessss meat do next?", TALKVOLUME_TALK)));
 				   SetUseableFlag(oMyPoisonCircle, TRUE);		         
 				  }
-	       else if ((GetLastSpell() != SPELL_GEDLEES_ELECTRIC_LOOP) && (GetLastSpell() != SPELL_FLARE) && (GetLastSpell() != SPELL_LIGHT)&& (GetLastSpell() != SPELL_RESISTANCE)&& (GetLastSpell() != SPELL_ENDURE_ELEMENTS)&& (GetLastSpell() != SPELL_DAZE)&& (GetLastSpell() != SPELL_CHARM_PERSON)&& (GetLastSpell() != SPELL_GREASE) && (GetLastSpell() != SPELL_SCARE)&& (GetLastSpell() != SPELL_PROTECTION_FROM_GOOD)&& (GetLastSpell() != SPELL_PROTECTION_FROM_EVIL))
-	          {SetLocalInt(oStudent, "slv_evo200_Emulsion", 2);
+				  
+				  
+	      else if ((GetLastSpell() == SPELL_MAGIC_MISSILE)  || (GetLastSpell() == SPELL_ACID_SPLASH)|| (GetLastSpell() == SPELL_BALAGARNSIRONHORN)||  (GetLastSpell() == SPELL_FIREBALL)|| (GetLastSpell() == SPELL_FIREBURST)|| (GetLastSpell() == SPELL_MELFS_ACID_ARROW)|| (GetLastSpell() == SPELL_SOUND_BURST)|| (GetLastSpell() == SPELL_LESSER_ORB_OF_ACID)|| (GetLastSpell() == SPELL_LESSER_ORB_OF_SOUND))
+	         {SetLocalInt(oStudent, "slv_evo200_Emulsion", 2);
 	           object oEmulsion = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_enc200_emulsion", GetLocation(oWindowWP));
 			   SendMessageToPC(oStudent, "The wires seem to catch and multiply the spell's power, hurling it along the cables at the wall. The fragile sheet of glass bubbles fractures unevenly.  The windows drop to the floor before shattering, spraying shards and oily liquid across the room.");
 	           ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_COM_CHUNK_YELLOW_SMALL), GetLocation(GetObjectByTag("slv_evo200_man", 0)), 2.0);
@@ -147,17 +170,19 @@ void main()
 	             else {DelayCommand(2.0, SendMessageToPC(oStudent, "A cloud of poisonous vapor swirls through the entire room, parting around the symbol of Talona but clinging to exposed face and skin.  It burns!"));
 	                   ApplyEffectToObject(DURATION_TYPE_INSTANT, ePoison, oStudent);
 	                  }
-	           DelayCommand(3.8, AssignCommand(oMyIncinder, SpeakString("Ssstupid!  Breakssss wrong! Can't /touch any one point/, even with spell, or breaks unevenly.", TALKVOLUME_TALK)));
+	           DelayCommand(3.8, AssignCommand(oMyIncinder, SpeakString("Ssstupid!  Breakssss wrong! Can't be sssound attack! Breaksss glasss too early. Can't be acid or fire or force attack! Powersss from such spells weakens glasss so it breaks unevenly!", TALKVOLUME_TALK)));
 	           DelayCommand(3.8, SendMessageToPC(oStudent, "A mottled sheet of blank parchment is revealed, spotted unevenly with oily liquid from inside the broken windows of glass bubbles."));
 	           DestroyObject(oMyWindow, 4.0);
 			   }
 			 else
-			 {SendMessageToPC(oStudent, "Nothing happens. The spell has no effect on either coils or window.");}
+			 {SendMessageToPC(oStudent, "Nothing happens. The coils begin to glow, but fade again.");}
           
 		}
 
-     if((GetTag(OBJECT_SELF) == "slv_evo200_poisoncircle") && ((GetLastSpell() == SPELL_LIGHT) || (GetLastSpell() == SPELL_FLARE)))
-         {object oWindowWP = GetLocalObject(OBJECT_SELF, "oWindowWP");
+     if(GetTag(OBJECT_SELF) == "slv_evo200_poisoncircle")
+         {SendMessageToPC(oStudent, "onspell");
+		  if((GetLastSpell() == SPELL_LIGHT)|| (GetLastSpell() == SPELL_FLARE)) 
+		 {object oWindowWP = GetLocalObject(OBJECT_SELF, "oWindowWP");
 		    if(oWindowWP == OBJECT_INVALID)
 			   {oWindowWP = GetWaypointByTag("Evo_All_Quests_Window_WP");
 				SetLocalObject(OBJECT_SELF, "oWindowWP", oWindowWP);
@@ -217,24 +242,15 @@ void main()
 	                }
 	           SetUseableFlag(OBJECT_SELF, FALSE);
           		}      
-	     
-				
-		if((GetTag(OBJECT_SELF) == "slv_evo200_poisoncircle") && (GetLastSpell() != SPELL_LIGHT)) 
-         		{ object oMyIncinder = GetLocalObject(OBJECT_SELF, "oMyIncinder");
-				  if (oMyIncinder == OBJECT_INVALID)
-						{oMyIncinder = GetObjectByTag("003_cr_slv_incinder");
-						 SetLocalObject(OBJECT_SELF, "oMyIncinder", oMyIncinder);
-						}
-				  DelayCommand(5.0, AssignCommand(oMyIncinder, SpeakString("Ssssstupid meat.  Sssssee Massssster.", TALKVOLUME_TALK)));
-                  DestroyObject(oMyIncinder, 13.0);
-                  SetUseableFlag(OBJECT_SELF, FALSE);
-          		}
+	     	}	
+			
+	
         	
 		 
 	//Standard Illusion
     if((GetTag(OBJECT_SELF) == "slv_ill200_mirrorblack") || (GetTag(OBJECT_SELF) == "slv_ill200_mirrorwhite"))  
         {string sClue = "Really old yellow gold brings intentions violent.";
-		 if (GetTag(OBJECT_SELF) == "slv_ill200_black")
+		 if (GetTag(OBJECT_SELF) == "slv_ill200_mirrorblack")
 		 	{sClue = "Rabid ogre, yipping goblin, biting inside victims.";
 			}
 		 object oBoyLeave2WP = GetLocalObject(OBJECT_SELF, "oBoyLeave2WP");
@@ -252,8 +268,8 @@ void main()
 		 SetLocalObject(OBJECT_SELF, "oBoy", oBoy);
 								
 		 if(WillSave(oStudent, 18, SAVING_THROW_TYPE_MIND_SPELLS, oStudent))
-                  {AssignCommand(oBoy, SpeakString("*Giggle* Mirror, mirror on the floor, lucky you walks out the door...unless you wish to try some more?", TALKVOLUME_TALK));
-                   DelayCommand(1.0, SendMessageToPC(oStudent, "The spell that springs from your hands goes right through the mirror."));
+                  {DelayCommand(1.0, SendMessageToPC(oStudent, "The spell that springs from your hands goes right through the mirror."));
+                   DelayCommand(2.0, AssignCommand(oBoy, SpeakString("*Giggle* Mirror, mirror on the floor, lucky you walks out the door...unless you wish to try some more?", TALKVOLUME_TALK)));
                   }
 				 else
                   {DelayCommand(1.0, SendMessageToPC(oStudent, "The spell that sprays from your hands reflect off the mirror and springs back at YOU as a blast of colored lights, a moment before the mirror itself vanishes!  You hear a giggle and applause as you are sprayed with dazzling lights."));
@@ -275,7 +291,7 @@ void main()
       
 
 
-     if(GetTag(OBJECT_SELF) == "slv_ill200_prism") 
+     if(GetTag(OBJECT_SELF) == "slv_ill200_mirrorprism") 
 	 	{object oBoyLeave2WP = GetLocalObject(OBJECT_SELF, "oBoyLeave2WP");
 		 if (oBoyLeave2WP == OBJECT_INVALID)
 					{oBoyLeave2WP = GetWaypointByTag("Ill_All_Quests_BoyLeave2_WP");
@@ -283,7 +299,8 @@ void main()
 					}
 		 object oBoy = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_ill100boy", GetLocation(oBoyLeave2WP));
 		 DestroyObject(oBoy, 10.0);			
-					 
+		 object oBear = GetObjectByTag("003_cr_slv_ill100cub");	
+		 DestroyObject(oBear, 10.0);		 
 		 if(GetLastSpell() == SPELL_COLOR_SPRAY)
            {SetCampaignString("SLV_UNI", "Standard Illusion", "Standard Illusion", oStudent);
             ACR_AddPersistentJournalQuestEntry("slv_ill200", 2, oStudent, 0, 0, 0, 0);
@@ -300,10 +317,12 @@ void main()
 		 else if (GetLastSpell() != SPELL_COLOR_SPRAY)
 			{DelayCommand(2.0, SpeakString("Recognizing obvious yields gets best Illusion victory.", TALKVOLUME_TALK));
           	}
-           } 		
+           } 
+		   
+ 
     //Elementary Necromancy
 
-     if((GetTag(OBJECT_SELF) == "slv_nec100_corpse") &&  (GetIsPC(oStudent)) && (GetLastSpell() == SPELL_TOUCH_OF_FATIGUE) && (GetLocalInt(oStudent, "Wash") == 1) && (GetLocalInt(oStudent, "Embalm") == 1))
+     if((GetTag(OBJECT_SELF) == "slv_nec100_corpse")  && ((GetLastSpell() == SPELL_TOUCH_OF_FATIGUE) || (GetLastSpell() == SPELL_GHOUL_TOUCH)) && (GetLocalInt(oStudent, "Wash") == 1) && (GetLocalInt(oStudent, "Embalm") == 1))
        {SendMessageToPC(oStudent, "Slowly, the clenched fingers of the corpse open to lie flat.  A chill steals across your skin.  An invisible gong booms, echoing through the room.");
         DelayCommand( 3.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, EffectVisualEffect(VFX_IMP_PULSE_NEGATIVE, FALSE), OBJECT_SELF));
         DelayCommand( 4.0, PlaySound("as_cv_gongring3"));
@@ -320,13 +339,13 @@ void main()
         }
        {}
 
-    if((GetTag(OBJECT_SELF) == "slv_nec100_corpse") &&  (GetIsPC(oStudent)) && (GetLastSpell() != SPELL_TOUCH_OF_FATIGUE))
+    if((GetTag(OBJECT_SELF) == "slv_nec100_corpse") &&  (GetIsPC(oStudent)) && (GetLastSpell() != SPELL_TOUCH_OF_FATIGUE)&& (GetLastSpell() != SPELL_GHOUL_TOUCH))
        {DelayCommand(2.0, SendMessageToPC(oStudent, "Nothing happens.  The body just lies there."));
 	   }
        
         //Standard Transmutation
 
-        if((GetTag(OBJECT_SELF) == "slv_tra200_forge") &&  (GetLastSpell() == SPELL_BURNING_HANDS))
+        if(GetTag(OBJECT_SELF) == "slv_tra200_forge")
          {SetLocalObject(OBJECT_SELF, "oStudent", oStudent);
 		  object oMyTrigAll = GetLocalObject(OBJECT_SELF, "oMyTrigAll");
 		  if(oMyTrigAll == OBJECT_INVALID)
@@ -357,11 +376,12 @@ void main()
 		  object oMyFlame = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_fire", GetLocation(oMyFlameWP));
 		  SetLocalObject(oMyTrigAll, "oMyFlame", oMyFlame);
 		  SetLocalObject(OBJECT_SELF, "oMyFlame", oMyFlame);
-		  SendMessageToPC(oStudent, "The forge roars to life, the ingots melting before your eyes with magical ease.");
+		  SendMessageToPC(oStudent, "The forge roars to life.");
 		  DelayCommand( 1.0, AssignCommand(oMyFlame, PlaySound("furnace")));
           if(GetFirstItemInInventory(OBJECT_SELF) != OBJECT_INVALID)
             {int nCount = 0;
 			 int nAlloy = 0;
+			 int nDagger = 0;
 			 int nOther = 0;
 		     object oOre = GetFirstItemInInventory(OBJECT_SELF);
 		     while (GetIsObjectValid(oOre))
@@ -376,7 +396,17 @@ void main()
 			            {nAlloy = nAlloy +1;
 			             DestroyObject(oOre);
 						 oOre = GetNextItemInInventory(OBJECT_SELF);
-			             DelayCommand(IntToFloat(nAlloy * 5), SendMessageToPC(oStudent, "Alloy melts, adding its properties to the molten liquid."));
+			             DelayCommand(IntToFloat(nAlloy * 3), SendMessageToPC(oStudent, "Alloy melts, adding its properties to the molten liquid."));
+			             }
+						 else if(GetTag(oOre) == "slv_tra200_rustydagger")
+			            {if(GetItemHasItemProperty(oOre, ITEM_PROPERTY_ENHANCEMENT_BONUS))
+							 {nDagger = nDagger +1;
+				              DelayCommand(IntToFloat(nAlloy * 3), SendMessageToPC(oStudent, "The rusty dagger melts, adding the enhancements it bears to the molten liquid."));
+				              }
+					     else
+						 	{DelayCommand(IntToFloat(nAlloy * 3), SendMessageToPC(oStudent, "The rusty dagger melts, sparks flying as the corrosion on it burns."));}
+						 DestroyObject(oOre);
+						 oOre = GetNextItemInInventory(OBJECT_SELF);
 			             }
 						else 
 			            {nOther = nOther +1;
@@ -396,7 +426,7 @@ void main()
 			     DelayCommand(21.0, SendMessageToPC(oStudent, "Cooling water pours into the shaping trough."));
 			     DelayCommand(30.0, DestroyObject(oMyFlame));
 			             
-				 if((nCount == 4) && (nAlloy == 1) && (nOther == 0))
+				 if((nCount == 3) && (nAlloy == 1)&& (nDagger == 1) && (nOther == 0))
 						{DelayCommand(25.0, SetLocalInt(OBJECT_SELF, "Steel", 1));
 						 DelayCommand(30.0, ExecuteScript("slv_plc_execute", OBJECT_SELF));
 			             if(GetCampaignString("SLV_UNI", "Elementary Transmutation", oStudent) == "Elementary Transmutation")

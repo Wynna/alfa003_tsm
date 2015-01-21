@@ -9,6 +9,8 @@
 #include "acr_tools_i"
 #include "bbs_include"
 
+
+
 void main()
 {	
 	ACR_TriggerOnEnter();
@@ -16,6 +18,7 @@ void main()
     object oMod = GetModule();
 		
 	
+				
 //Elementary Illusion
 
 		if((GetName(OBJECT_SELF) == "Ill_Boy_Destroy") && (GetLocalInt(oStudent, "Destroy") == 1))

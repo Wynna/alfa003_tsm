@@ -195,7 +195,7 @@ void main()
          s1c = "Bigby's Grasping Hand";
          s1d = "Bigby's Clenched Fist";
 		 s1e = "Bigby's Crushing Hand";
-		 s2a = "Burst of Glacial Wrath";
+		 s2a = "Orb of Cold";
          s2b = "Cone of Cold";
          s2c = "Elemental Shield";
          s2d = "Ice Storm";
@@ -208,7 +208,7 @@ void main()
          s3a = "Chain Lightning";
          s3b = "Gedlee's Electric Loop";
          s3c = "Lightning Bolt";
-         s3d = "Scintillating Sphere";
+         s3d = "Orb of Electricity";
          s3e = "Shocking Grasp";
          sNum1 = "five";
          sNum2 = "five";
@@ -358,7 +358,7 @@ void main()
       if(GetItemPossessedBy(OBJECT_SELF, "slv_test") != OBJECT_INVALID) 
 	  		{if(FindSubString(sQuestion, sSchool) == -1)
 		  		{if((FindSubString(sQuestion, "Abjuration") != -1) || (FindSubString(sQuestion, "Conjuration") != -1) || (FindSubString(sQuestion, "Divination") != -1) || (FindSubString(sQuestion, "Enchantment") != -1) || (FindSubString(sQuestion, "Evocation") != -1) || (FindSubString(sQuestion, "Illusion") != -1) || (FindSubString(sQuestion, "Necromancy") != -1) || (FindSubString(sQuestion, "Transmutation") != -1))
-		     		{SpeakString("Thick as a board. This is the " + sSchool + " room, but you seem to guessing at that. If this is truly a test for another secretary desk in another school's classroom, take it there, but don't bother me with it.", TALKVOLUME_TALK);
+		     		{SpeakString("Thick as a board. This is the " + sSchool + " room, but you seem to be guessing at that. If this is truly a test for another secretary desk in another school's classroom, take it there, but don't bother me with it.", TALKVOLUME_TALK);
 	            	 return;
 		    		}
 				 else {SpeakString("Look, that's really studious of you and all, but what in the Nine Hells am I supposed to be checking...since you haven't confirmed for me what school this is for?  Leave your mother's laundry list, knothead, and check the next one for spelling!", TALKVOLUME_TALK);

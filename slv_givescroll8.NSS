@@ -3,15 +3,15 @@
 
 void main()
 {
-
+object oScroll;
 if(GetTag(OBJECT_SELF) == "003_cr_slv_profevo")
-  {CreateItemOnObject("abr_scroll_2_gedleeelectloop", GetPCSpeaker(), 1);}
+  {oScroll = CreateItemOnObject("abr_scroll_2_gedleeelectloop", GetPCSpeaker(), 1);}
 
 if(GetTag(OBJECT_SELF) == "003_cr_slv_profcon")
-  {CreateItemOnObject("abr_scroll_2_web", GetPCSpeaker(), 1);}
+  {oScroll = CreateItemOnObject("abr_scroll_2_web", GetPCSpeaker(), 1);}
 
 if(GetTag(OBJECT_SELF) == "003_cr_slv_profnec")
-  {CreateItemOnObject("abr_scroll_2_ghoultouch", GetPCSpeaker(), 1);}
+  {oScroll = CreateItemOnObject("abr_scroll_2_ghoultouch", GetPCSpeaker(), 1);}
 
-
+SetIdentified(oScroll, 1);
 }

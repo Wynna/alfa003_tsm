@@ -74,7 +74,32 @@ object oNearest = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_NOT_
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Hello.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 24)
+			      else if(Random(100) < 18)
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("I know it says it's working for a couple of professors, but, really, do you trust a mephit?" , TALKVOLUME_TALK));
+				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
+				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
+				     }
+			     else if(Random(100) < 20)
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Funny, every candle in the ritual kept guttering out.", TALKVOLUME_TALK));
+				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
+				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
+				     }
+			      else if(Random(100) < 21)
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Are you going to go for the Dean's Quest if they offer it this year?", TALKVOLUME_TALK));
+				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
+				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
+				     }
+			      else if(Random(100) < 22)
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Yes, I said Hornblade. He was visiting the Dean, only this morning!", TALKVOLUME_TALK));
+				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
+				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
+				     }
+			      else if(Random(100) < 23)
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("There's something strange about that kid I see around Illusion so often.", TALKVOLUME_TALK));
+				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
+				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
+				     }
+			      else if(Random(100) < 24)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Good " + sDay, TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
@@ -112,7 +137,7 @@ object oNearest = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_NOT_
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
 			     else if(Random(100) < 32)
-				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Greetings.", TALKVOLUME_TALK));
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Did you hear about Lani, that elven divination student? Shame, isn't it.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
 			      else if((Random(100) < 33) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
@@ -128,7 +153,7 @@ object oNearest = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_NOT_
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
 			      else if(Random(100) < 36)
-				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Awful, isn't it?", TALKVOLUME_TALK));
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Sorry I'm late. I had trouble with keeping a fire lit this morning and it's too cold without one!", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
 			

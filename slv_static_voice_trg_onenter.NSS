@@ -28,6 +28,7 @@
 
 
 
+
 void main()
 {
     ACR_TriggerOnEnter();
@@ -161,7 +162,7 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_e_listener") && (GetTag(GetEnteringOb
 			 DelayCommand(50.0, AssignCommand(oStudent, ActionJumpToLocation(lGoTo3)));
 			 DelayCommand(60.5, SendMessageToPC(oStudent, "You continue to fall upward helplessly, away from the snow and ice that glitter as if strewn with diamonds."));
 			 DelayCommand(65.0, AssignCommand(oStudent, ActionJumpToLocation(lGoTo4)));
-			 DelayCommand(70.5, SendMessageToPC(oStudent, "You stop suddenly, as if you had hit an incorporeal barrier. Oscillating gently, you hang suspended 50 meters in the air! You can only hope that gravity doesn't right itself, because a fall back DOWN from this height would maim or kill you before the cold has a chance to."));
+			 DelayCommand(70.5, SendMessageToPC(oStudent, "You stop suddenly, as if you had hit an incorporeal barrier. Oscillating gently, you hang suspended 1000 meters in the air! You can only hope that gravity doesn't right itself, because a fall back DOWN from this height would maim or kill you before the cold has a chance to."));
 			 DelayCommand(75.0, ExecuteScript("slv_static_voice_cr_pc", oStudent));
 			}
 	   }
@@ -193,7 +194,7 @@ if((GetTag(OBJECT_SELF) == "deandragon_firetrap_activate") && (GetIsPC(GetEnteri
 		} 
 	 SetUseableFlag(oMyTrap, TRUE);
 	 if(GetLocalInt(OBJECT_SELF, "MephitMsg") !=1)
-	 	{SendMessageToPC(GetEnteringObject(), "The mephits spot you and dive into the mouth of the trap, vanishing from sight except for a glow between the teeth of the dragon-shaped fire trap!");
+	 	{SendMessageToPC(GetEnteringObject(), "The mephits dive into the mouth of the trap, vanishing from sight except for a glow between the teeth of the dragon-shaped fire trap!");
 	 	 SetLocalInt(OBJECT_SELF, "MephitMsg", 1);
 		 object oMephit1 = GetNearestObjectByTag("003_cr_mephit_fire", OBJECT_SELF, 1);
 		 object oMephit2 = GetNearestObjectByTag("003_cr_mephit_fire", OBJECT_SELF, 2);
@@ -391,6 +392,13 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_q_3") && (ACR_RetrieveQuestState("slv
 	 SetPlotFlag(oGland, TRUE);
 	}
 	
+	
+ //deanddragon_u 			
+if((GetTag(OBJECT_SELF) == "slv_deandragon_u") && (ACR_RetrieveQuestState("slv_deandragon_u", GetEnteringObject()) == 1))
+ 	{object oFlitWP = GetWaypointByTag("slv_deandragon_u_flit_WP");
+	 object oFlit = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_flit", GetLocation(oFlitWP));
+	 }
+	
 		 //deanddragon_x 			
 if((GetTag(OBJECT_SELF) == "slv_deandragon_x") && (ACR_RetrieveQuestState("slv_deandragon_x", GetEnteringObject()) > 0)&& (ACR_RetrieveQuestState("slv_deandragon_x", GetEnteringObject()) < 9))
  	{object oAlastrarraWP = GetLocalObject(OBJECT_SELF, "oAlastrarraWP");
@@ -504,7 +512,7 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_x") && (ACR_RetrieveQuestState("slv_d
 			  object oNecWP = GetWaypointByTag("deandragon_y_nec");
 			  object oTraWP = GetWaypointByTag("deandragon_y_tra");
 			  
-			  object oPotion = CreateObject(OBJECT_TYPE_ITEM, "slv_deandragon_y_potion", GetLocation(oPotionWP));
+			  object oPotion = CreateObject(OBJECT_TYPE_ITEM, "slv_deandragon_y_censor", GetLocation(oPotionWP));
 			  object oDean = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_dean", GetLocation(oDeanWP));
 			  object oAbj = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profabj", GetLocation(oAbjWP));
 			  object oCon = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profcon", GetLocation(oConWP));

@@ -4,15 +4,15 @@
 
 #include "acr_creature_i"
 #include "acr_quest_i"
+#include "silvy_univ_inc"
+#include "silvy_univ_func"
 
 void main()
 {
 	object oStudent = GetPCSpeaker();
     effect eKnockdown = EffectKnockdown();
 	effect eStruck = EffectDamage(1, DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE);			
-
-
-	
+   
 	SetLocalString(OBJECT_SELF, "Conversation", "Yes");
 	SetLocalString(OBJECT_SELF, "PC_Speaker", GetName(oStudent));
 	DelayCommand(300.00, SetLocalString(OBJECT_SELF, "Conversation", "No"));
@@ -21,6 +21,9 @@ void main()
 		{SetLocalString(oStudent, "Professor", GetTag(OBJECT_SELF));
 		 SetLocalString(OBJECT_SELF, "Professor", GetTag(OBJECT_SELF));
 		 }
+	     	
+		 
+		 
 	//Standard Enchantment
     if(GetTag(OBJECT_SELF) == "003_cr_slv_procenc2")
 
@@ -65,14 +68,20 @@ void main()
 					DelayCommand(8.5, ChangeToStandardFaction(OBJECT_SELF, STANDARD_FACTION_HOSTILE));
 					DelayCommand(8.75, ClearAllActions(TRUE));
 					DelayCommand(9.0, ActionForceMoveToObject(oEye1, TRUE, 0.0));
-					DelayCommand(10.0, SpeakString("*Elvish* Stupid eye constructs! Do not defend the student! I only pretend! If the scholar gets scratched, that is not my fault! */E*", TALKVOLUME_TALK));
+				    if(GetLocalInt(OBJECT_SELF, "Charmed") != 1)
+						{DelayCommand(10.0, SpeakString("Stupid eye beasts! Do not defend the student! I only pretend! If the scholar gets scratched, that is not my fault!", TALKVOLUME_TALK));
+						}
 					DelayCommand(19.75, ClearAllActions(TRUE));
-					DelayCommand(20.1, ActionForceMoveToObject(oProfessor, TRUE, 0.0));
+					DelayCommand(20.0, ActionUnlockObject(oExit));
+            	    DelayCommand(20.1, ActionForceMoveToObject(oExit, TRUE, 0.0));
 					DelayCommand(21.0, ChangeToStandardFaction(OBJECT_SELF, STANDARD_FACTION_COMMONER));
-					DelayCommand(25.0, SpeakString("The student's insolence and clumsiness caused any harm taken, Master Silverbrook!", TALKVOLUME_TALK));
-					DelayCommand(30.1, ActionForceMoveToObject(oMyMirrorWP, TRUE, 0.0));
-					
-				   }
+					DelayCommand(24.0, ActionOpenDoor(oExit));
+					 if(GetLocalInt(OBJECT_SELF, "Charmed") != 1)
+						{DelayCommand(25.0, SpeakString("The student's insolence and clumsiness caused any harm taken, Master Silverbrook!", TALKVOLUME_TALK));
+						}
+					DelayCommand(28.0, SpeakString("Yes, Master, I'll find something to engage myself elsewhere. Thank you for the teleport lesson and dispensation.", TALKVOLUME_TALK));
+				    DelayCommand(30.0, ActionJumpToLocation(GetLocation(GetWaypointByTag("Grove_WP"))));
+					}
 				   
 // 300 Level scribe for all classes		
 	if(GetTag(OBJECT_SELF) == "003_cr_slv_300_quill")

@@ -20,7 +20,7 @@ void main()
 			 SetLocalString(oStudent, "sSchool", "Enchantment");
 			 }
 			    
-						 
+					 
 	//Destroy the collision box keeping the appropriately advanced student from the next test
 					if((FindSubString(GetTag(OBJECT_SELF), "2_trig") != -1) || (FindSubString(GetTag(OBJECT_SELF), "3_trig") != -1))
 				    	{int nSchool = GetSilvyUniversitySchool(OBJECT_SELF);
@@ -233,8 +233,8 @@ void main()
 					 
 						if(oStudent == oMyGiant3)
 							{SetLocked(oMyGiantDoor, FALSE);
-							 DestroyObject(oMyCollBox2);
-						     DestroyObject(oMyCollBox3);
+							// DestroyObject(oMyCollBox2);
+						    // DestroyObject(oMyCollBox3);
 						     SetLocalObject(OBJECT_SELF, "oMyCollBox2", OBJECT_INVALID);
 						     SetLocalObject(OBJECT_SELF, "oMyCollBox3", OBJECT_INVALID);
 						     SetLocalObject(oMyTrig3, "oMyCollBox2", OBJECT_INVALID);

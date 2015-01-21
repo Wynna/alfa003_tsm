@@ -109,7 +109,10 @@ void main()
 	
 		
 	else if (GetTag(OBJECT_SELF) == "TM_Auril")
-		{object oPartyMember = GetFirstFactionMember(oTraveller, TRUE);
+		{if(GetIsDM(GetEnteringObject()))
+			{AssignCommand(oTraveller, ActionJumpToObject(oDestination));}
+		else {
+		object oPartyMember = GetFirstFactionMember(oTraveller, TRUE);
 		 while (oPartyMember != OBJECT_INVALID)
 		 	{if((GetIsSkillSuccessful(oPartyMember, SKILL_SPOT, 25, FALSE)) || (GetIsSkillSuccessful(oPartyMember, SKILL_SEARCH, 25, FALSE))|| (GetIsSkillSuccessful(oPartyMember, SKILL_SURVIVAL, 20, FALSE)) || (GetDeity(oPartyMember) == "Auril"))
 				{if(GetLocalInt(GetArea(OBJECT_SELF), GetName(OBJECT_SELF)) != 1)
@@ -158,7 +161,7 @@ void main()
 			WriteTimestampedLogEntry(GetName(oPartyMember) + " ATing via TSM_TRAVEL_TRG_AT_SECRET.NSS through " + GetName(OBJECT_SELF) + " to " + GetName(oDestination) + " with " + GetName(oTraveller) + " as party leader.");
 			JumpPartyToArea(oTraveller, oDestination);
 		}
-		
+	}
 		
 		
 	else if (GetTag(OBJECT_SELF) == "TM_Delzoun")
@@ -264,8 +267,4 @@ void main()
 			JumpPartyToArea(oTraveller, oDestination);
 		}
 		
-		
-	
-	
-
 }

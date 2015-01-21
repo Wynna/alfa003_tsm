@@ -28,7 +28,8 @@ void main()
 				if((GetTag(GetModuleItemAcquired()) == "slv_nec200_skull") && (GetTag(GetArea(oStudent)) == "6d_int_silvy_ladycol_class_lvl"))
                     {SendMessageToPC(oStudent, "As you pick up the skull, you see a very fine inscription engraved into the browbone that reads: 'Property of College of Necromancy. Please return to Mistress Ostelle.'");
                     SetCampaignString("SLV_UNI", "Standard Necromancy", "Standard Necromancy", oStudent);
-                    }
+                    DelayCommand(5.0, ACR_AddPersistentJournalQuestEntry("slv_nec200", 2, oStudent, 0, 0, 0, 0));
+		     		}
 					
 
 }			  

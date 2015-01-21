@@ -769,7 +769,7 @@ if((GetTag(OBJECT_SELF) == "slv_dragonquest_init")  && (GetLocalInt(oStudent, "D
 				 SetLocalObject(OBJECT_SELF, "oTeleport", oTeleport);
 				 }
 			 SendMessageToPC(oStudent, "These flames exhude neither heat nor even light beyond their own flickering tendrils. Their mesmerizing dance, however, takes on more and more meaning the longer you watch. It would be easy to become lost in the elemental power of pure, rarified Fire.");
-			 if((ACR_RetrieveQuestState("slv_deandragon_e", oStudent) > 0) && (ACR_RetrieveQuestState("slv_deandragon_e_fire", oStudent) < 3))
+			 if((ACR_RetrieveQuestState("slv_deandragon_e", oStudent) > 0) && (ACR_RetrieveQuestState("slv_deandragon_e_fire", oStudent) < 4))
 			 	{SetUseableFlag(oTeleport, TRUE);
 				}
 			 }

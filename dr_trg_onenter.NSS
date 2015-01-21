@@ -234,10 +234,10 @@ if(FindSubString(GetTag(OBJECT_SELF), "dr_swimdown_trg") != -1)
 	 effect eCold = EffectDamage(Random(6) + 1, DAMAGE_TYPE_COLD, DAMAGE_POWER_NORMAL, FALSE);
 	 effect eDrown = EffectDamage(Random(6) + 1, DAMAGE_TYPE_ALL, DAMAGE_POWER_NORMAL, FALSE);
 	 effect eBatter = EffectDamage(Random(10) + 1, DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE);
-	 effect eSwim = EffectKnockdown();
+	 effect eSwim;
 	 effect eUnconscious = EffectStunned();
 	 object oWaterFloorWP = GetWaypointByTag("dr_water_4_WP");
-	 object oSuccess = GetLocalObject(OBJECT_SELF, "oSuccess");
+	 object oSuccess = GetWaypointByTag(GetLocalString(OBJECT_SELF, "oSuccess"));
 	 if(oSuccess == OBJECT_INVALID)
 			{oSuccess = GetWaypointByTag("dr_current_10_WP");
 			 SetLocalObject(OBJECT_SELF, "oSuccess", oSuccess);
@@ -251,14 +251,14 @@ if(FindSubString(GetTag(OBJECT_SELF), "dr_swimdown_trg") != -1)
 	 else 
 		 {nSwimLevel = 6;}
 	 SetLocalInt(GetEnteringObject(), "nSwimLevel", nSwimLevel);
-	 if(nLevel > 0)
+	 if(nLevel > 3)
 	 	{SetLocalInt(GetEnteringObject(), "Swimming", 1);
 	     SendMessageToPC(GetEnteringObject(), "You strike out into the water, swimming.");
 	 	}
-	 if((nLevel > 0) && (nLevel < 10))	
+	 if((nLevel > 3) && (nLevel < 10))	
 		 {int nUnconscious = GetLocalInt(GetEnteringObject(), "nUnconscious");	
 					 
-						{if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_SWIM, 5 + nLevel + nUnconscious, TRUE) == FALSE)
+					if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_SWIM, 5 + nLevel + nUnconscious, TRUE) == FALSE)
 							{if(Random(3) == 0)
 								{SendMessageToPC(GetEnteringObject(), "The swirling current slams you against a rock!");
 								 ApplyEffectToObject(DURATION_TYPE_INSTANT, eBatter, GetEnteringObject());
@@ -276,84 +276,70 @@ if(FindSubString(GetTag(OBJECT_SELF), "dr_swimdown_trg") != -1)
 							 {SendMessageToPC(GetEnteringObject(), "You manage to avoid all hazards.");
 							 }
 						
-		if((nLevel > 8) && (Random(20) + 1 + GetAbilityModifier(ABILITY_STRENGTH, GetEnteringObject()) - nWeightPenalty > 15))
-				{AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oSuccess)));
-				 SendMessageToPC(GetEnteringObject(), "Swimming strongly, you make for the overhead dock. If you swim upward hard and fast, you may haul yourself out of the water before you are swept away again.");
+		if((nLevel > 3) && (Random(20) + 1 + GetAbilityModifier(ABILITY_STRENGTH, GetEnteringObject()) - nWeightPenalty > 15))
+				{object oSwim;
+				if((nLevel > 8) && (Random(2) ==1))
+				 	{oSwim = GetObjectByTag("dr_current_10_WP");}
+				 else 
+				 	{oSwim = GetNearestObjectByTag("alfa_swim_hard", GetEnteringObject(), Random(3));}
+				 AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oSwim)));
+				 SendMessageToPC(GetEnteringObject(), "Swimming strongly, you make for the nearest rock or handhold.");
 				 SetLocalInt(GetEnteringObject(), "SwimmingSuccess", 1);
 				 SetLocalInt(GetEnteringObject(), "Drowning", 0);
 				 SetLocalInt(GetEnteringObject(), "Swimming", 0);
 				 SetLocalInt(GetEnteringObject(), "nUnconscious", 0);
-			     RemoveEffect(GetEnteringObject(), eSwim);
-				}
-			else if(nLevel > 0)
-				{object oSwim = GetNearestObjectByTag("alfa_swim_hard", GetEnteringObject(), Random(10));
-				 SendMessageToPC(GetEnteringObject(), "You are not strong enough to reach dry ground. You are swept away!");
+			     }
+			else if(nLevel > 3)
+				{object oSwim = GetNearestObjectByTag("alfa_swim_hard", GetEnteringObject(), Random(8));
+				 SendMessageToPC(GetEnteringObject(), "You are not strong enough to reach or hang on to your intended handhold. You are swept away!");
 				 AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oSwim)));
-				 int nHoldBreath = GetAbilityScore(GetEnteringObject(), ABILITY_CONSTITUTION, FALSE) * 2;
 				 if(Random(20) + 1 + GetAbilityModifier(ABILITY_CONSTITUTION, GetEnteringObject()) < 10) 
 					{SetLocalInt(GetEnteringObject(), "Drowning", GetLocalInt(GetEnteringObject(), "Drowning") + 1);
 					 int nDrowning = GetLocalInt(GetEnteringObject(), "Drowning");
 					 if(nDrowning == 1)
 						{SendMessageToPC(GetEnteringObject(), "You go underwater and lose your sense of which direction is up! Thoughts of drowning fill your mind.");
 						}
-					 if((nHoldBreath < 42) && (nHoldBreath >= 20))
-						{if(nDrowning == 2)
+					if(nDrowning == 2)
 							{SendMessageToPC(GetEnteringObject(), "You have been underwater too long. You start to black out! You are in danger of drowning.");
-							 if((nHoldBreath < 42) && (nHoldBreath >= 30))
-								{if(nDrowning == 3)
-									{SendMessageToPC(GetEnteringObject(), "Spots swim before your eyes. Drowning is imminent.");
-									}
-								 if(nDrowning == 4)
-									{SendMessageToPC(GetEnteringObject(), "You are unconscious, unable to swim. You are drowning!");
-									 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, GetEnteringObject(), 60.0);
-									 SetLocalInt(GetEnteringObject(), "nUnconscious", 10);
-									}
-								 }
-							  if((nHoldBreath < 30) && (nHoldBreath >=20))
-									{if(nDrowning == 3)
-										{SendMessageToPC(GetEnteringObject(), "You are unconscious, unable to swim. You are drowning!");
-									     ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, GetEnteringObject(), 60.0);
-										 SetLocalInt(GetEnteringObject(), "nUnconscious", 10);
-									    }
-									}
-								}
-							 }
-						if(nHoldBreath < 20)
-							{if(nDrowning == 2)
-							  	{SendMessageToPC(GetEnteringObject(), "You are unconscious, unable to swim. You are drowning!");
-								 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, GetEnteringObject(), 60.0);
-								 SetLocalInt(GetEnteringObject(), "nUnconscious", 10);
-								 }
 							}
-						}
-						else
-							{SetLocalInt(GetEnteringObject(), "Drowning", 0);
-							 SendMessageToPC(GetEnteringObject(), "You break through the surface of the water, taking in a welcome lungful of air! You stave off drowning for now, but the water holds other hazards.");
-							 SetLocalInt(GetEnteringObject(), "nUnconscious", 0);
-							 RemoveEffect(GetEnteringObject(), eUnconscious);
-							 }
-						if(nWeightPenalty > 1)
-							{DelayCommand(3.0, SendMessageToPC(GetEnteringObject(), "Lightening your load would make swimming easier."));
+					if(nDrowning == 3)
+							{SendMessageToPC(GetEnteringObject(), "Spots swim before your eyes. Drowning is imminent.");
 							}
+					if(nDrowning == 4)
+							{SendMessageToPC(GetEnteringObject(), "You are unconscious, unable to swim. You are drowning!");
+							ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, GetEnteringObject(), 60.0);
+						 	SetLocalInt(GetEnteringObject(), "nUnconscious", 10);
+							}
+					}
+					
+				else
+					{SetLocalInt(GetEnteringObject(), "Drowning", 0);
+					 SendMessageToPC(GetEnteringObject(), "You break through the surface of the water, taking in a welcome lungful of air! You stave off drowning for now, but the water holds other hazards.");
+					 SetLocalInt(GetEnteringObject(), "nUnconscious", 0);
+					 RemoveEffect(GetEnteringObject(), eUnconscious);
+					 }
+				if(nWeightPenalty > 1)
+					{DelayCommand(3.0, SendMessageToPC(GetEnteringObject(), "Lightening your load would make swimming easier."));
+					}
 			}
 	 	 			
-		 DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSwim, GetEnteringObject(), IntToFloat(Random(50))));
 		 SetLocalInt(GetEnteringObject(), "SwimmingSuccess", 0);
 		 SetLocalInt(GetEnteringObject(), "SwimmingSucceeded", 0);
 		 }
-		 }
+		 
 	else if(nLevel <= 0)
-		{if((GetDistanceBetween(GetEnteringObject(), oWaterFloorWP) > 8.0) && (GetTag(OBJECT_SELF) != "dr_swimdown_trg_high"))
-		 	{AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oWaterFloorWP)));
-			}
-		 else if(GetTag(OBJECT_SELF) == "dr_swimdown_trg_high")
-		 	{object oSplashdown = GetNearestObjectByTag("alfa_swim_hard", OBJECT_SELF, 1);
-			 SendMessageToPC(GetEnteringObject(), "You throw yourself into the air, plummeting towards the water.");
-		 	 DelayCommand(3.0, SendMessageToPC(GetEnteringObject(), "Your splash is impressive but you hardly see it, plunging deeply into the freezing water."));
-		 	 DelayCommand(5.0, AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oSplashdown))));
-			 DelayCommand(20.0, SendMessageToPC(GetEnteringObject(), "You finally drag yourself up and out onto the central platform."));
-		 	 DelayCommand(20.0, AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oWaterFloorWP))));
-			 if(ReflexSave(GetEnteringObject(), 15, SAVING_THROW_TYPE_NONE, OBJECT_SELF) == 0) 
+			{if((GetTag(OBJECT_SELF) != "dr_swimdown_trg_high") && (GetTag(OBJECT_SELF) != "dr_swimdown_trg_central"))
+			 	{AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oWaterFloorWP)));
+				SendMessageToPC(GetEnteringObject(), "The still waters allow you to reach the base of the platform, and climb it safely.");
+			 	 }
+			 else if(GetTag(OBJECT_SELF) != "dr_swimdown_trg_central") 
+			 	{object oSplashdown = GetNearestObjectByTag("alfa_swim_hard", OBJECT_SELF, 1);
+				 SendMessageToPC(GetEnteringObject(), "The water is far below but quiet. You throw yourself into the air, plummeting towards the still water.");
+			 	 DelayCommand(3.0, SendMessageToPC(GetEnteringObject(), "Your splash is impressive but you hardly see it, plunging deeply into the freezing water."));
+			 	 DelayCommand(5.0, AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oSplashdown))));
+				 DelayCommand(20.0, SendMessageToPC(GetEnteringObject(), "You finally drag yourself up and out onto the central platform."));
+			 	 DelayCommand(20.0, AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oWaterFloorWP))));
+				 if(ReflexSave(GetEnteringObject(), 15, SAVING_THROW_TYPE_NONE, OBJECT_SELF) == 0) 
 							{if(Random(3) == 0)
 								{DelayCommand(6.0, SendMessageToPC(GetEnteringObject(), "Rocks lie just under the surface!"));
 								 AssignCommand(GetEnteringObject(), ApplyEffectToObject(DURATION_TYPE_INSTANT, eBatter, GetEnteringObject()));
@@ -371,12 +357,16 @@ if(FindSubString(GetTag(OBJECT_SELF), "dr_swimdown_trg") != -1)
 							 {DelayCommand(6.0, SendMessageToPC(GetEnteringObject(), "You manage to avoid all hazards."));
 							 }
 					}
-		 else
-		 	{SendMessageToPC(GetEnteringObject(), "The surface of the water is too far below. Climbing or swimming to the overhead dock would require the water level to be higher.");
-		 	}
-		 }
+					
+				else if(GetTag(OBJECT_SELF)=="dr_swimdown_trg_central")
+					{SendMessageToPC(GetEnteringObject(), "It is certain death to leap into the water seething around exposed rocks. Wait until the waters are higher.");}
+				}
+			
+		
+		 
+		
 	else if(nLevel >= 10)
-		{if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_SWIM, 20, TRUE) == TRUE)
+		{if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_SWIM, 15, TRUE) == TRUE)
 			{SendMessageToPC(GetEnteringObject(), "The deep, rippling water allows you to swim over the jagged rocks and ruins safely.");
 			 if(GetDistanceBetween(oSuccess, OBJECT_SELF) > 5.0)
 			 	{AssignCommand(GetEnteringObject(), ActionJumpToLocation(GetLocation(oSuccess)));
@@ -404,7 +394,15 @@ if(FindSubString(GetTag(OBJECT_SELF), "dr_swimdown_trg") != -1)
 			}
 				
 		}
+	
+	else if(GetTag(OBJECT_SELF)=="dr_swimdown_trg_central")
+		{SendMessageToPC(GetEnteringObject(), "It is certain death to leap into the water seething around exposed rocks. You won't even be able to get in until the waters are higher.");
+		}
+	else 
+		{SendMessageToPC(GetEnteringObject(), "You may yet be /ripped/ from your perch, but choosing to leap into the water seething around exposed rocks is likely to end in your death. Wait until the waters still.");
+		}
 	}
+
 if(GetTag(OBJECT_SELF) == "dr_swimsucceeded_trg") 
 	{SetLocalInt(GetEnteringObject(), "SwimmingSuccess", 1);
 	 SetLocalInt(GetEnteringObject(), "SwimmingSucceeded", 1);
@@ -420,19 +418,19 @@ if((GetTag(OBJECT_SELF) == "dr_gems") && (GetLocalInt(OBJECT_SELF, "Populated") 
 	 object oVein5 = GetObjectByTag("elemental_watergem_vein_5");
 	 
 	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_gem_083b", oVein1, Random(20));
+	 	{CreateItemOnObject("abr_it_gem_083b", oVein1, Random(5));
 		}
 	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_gem_083b", oVein2, Random(20));
+	 	{CreateItemOnObject("abr_it_gem_083b", oVein2, Random(5));
 		}
 	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_gem_083b", oVein3, Random(20));
+	 	{CreateItemOnObject("abr_it_gem_083b", oVein3, Random(5));
 		}
 	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_gem_083b", oVein4, Random(20));
+	 	{CreateItemOnObject("abr_it_gem_083b", oVein4, Random(5));
 		}
 	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_gem_083b", oVein5, Random(20));
+	 	{CreateItemOnObject("abr_it_gem_083b", oVein5, Random(5));
 		}
 	 if(Random(2) == 1)
 	 	{CreateItemOnObject("003_it_harvest_moss_blue", oVein1, Random(5));

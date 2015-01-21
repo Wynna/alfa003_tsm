@@ -68,9 +68,11 @@ void main()
 				}
 			 
 			}
+			
 		sInfo = GetSilvyUniversityCurrentSchoolCourse(oStudent, oProfessor);
         AdvanceSilvyUniversityStudent(oStudent, sInfo);
-           
+		
+	   
 
 
 

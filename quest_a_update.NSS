@@ -40,8 +40,8 @@
 // Function Definitions ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-void main(string sQuest, int nState, int bAllPartyMembers=TRUE, int bAllPlayers=FALSE, int bAllowOverrideHigher=FALSE, int nXP=0)
+void main(string sQuest, int nState, int bPartyWide, int nXP, float fCR)
 {
-	// add the quest to the player and his party
-    ACR_AddPersistentJournalQuestEntry(sQuest, nState, GetPCSpeaker(), bAllPartyMembers, bAllPlayers, bAllowOverrideHigher, nXP);
+	// Update the quest to the player and his party
+    ACR_AddPersistentJournalQuestEntry(sQuest, nState, GetPCSpeaker(), bPartyWide, FALSE, FALSE, nXP, fCR);
 }

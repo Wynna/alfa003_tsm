@@ -1,4 +1,4 @@
-//Silvy Uni Item onAcquire.  
+//Silvy Uni Item onActivate.  
 //Wynna February 2008
 
 

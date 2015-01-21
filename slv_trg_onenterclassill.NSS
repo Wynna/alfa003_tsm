@@ -241,12 +241,12 @@ void main()
 								 	 SetLocalObject(oMyBoyLeave2WP, "oMyBoy", oMyBoy);
 									 }
 								 SetLocalObject(oMyIllAllTrig, "oMyBoy", oMyBoy);
-								 object oMyBear = GetLocalObject(oMyBoyLeave2WP, "oMyBear");
-								 if(oMyBear == OBJECT_INVALID)
-								 	{oMyBear = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_ill100cub", GetLocation(oMyBoyLeave2WP));
-								 	 SetLocalObject(oMyBoyLeave2WP, "oMyBear", oMyBear);
-									 }
-								 SetLocalObject(oMyIllAllTrig, "oMyBear", oMyBear);
+								// object oMyBear = GetLocalObject(oMyBoyLeave2WP, "oMyBear");
+								// if(oMyBear == OBJECT_INVALID)
+								// 	{oMyBear = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_ill100cub", GetLocation(oMyBoyLeave2WP));
+								 //	 SetLocalObject(oMyBoyLeave2WP, "oMyBear", oMyBear);
+								//	 }
+								// SetLocalObject(oMyIllAllTrig, "oMyBear", oMyBear);
 								 }
 						 object oMyForcewall01_trig = GetLocalObject(OBJECT_SELF, "oMyForcewall01_trig");
 						 if (oMyForcewall01_trig == OBJECT_INVALID)

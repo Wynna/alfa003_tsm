@@ -127,7 +127,7 @@ void main()
 					 DelayCommand(35.0, AssignCommand(oUser, ActionJumpToLocation(lGoTo3)));
 			 	     DelayCommand(40.5, SendMessageToPC(oUser, "You continue to fall upward helplessly, away from the snow and ice that glitter as if strewn with diamonds."));
 					 DelayCommand(45.0, AssignCommand(oUser, ActionJumpToLocation(lGoTo4)));
-			 	     DelayCommand(50.5, SendMessageToPC(oUser, "You stop suddenly, as if you had hit an incorporeal barrier. Oscillating gently, you hang suspended 50 meters in the air! You can only hope that gravity doesn't right itself, because a fall back DOWN from this height would maim or kill you before the cold has a chance to."));
+			 	     DelayCommand(50.5, SendMessageToPC(oUser, "You stop suddenly, as if you had hit an incorporeal barrier. Oscillating gently, you hang suspended 1000 meters in the air! You can only hope that gravity doesn't right itself, because a fall back DOWN from this height would maim or kill you before the cold has a chance to."));
 					 DelayCommand(61.0, ExecuteScript("slv_static_voice_cr_pc", oUser));
 					}
 			}
@@ -190,14 +190,14 @@ void main()
 				 
 			if((iArchitecture > 2) || (GetRacialType(oUser) == RACIAL_TYPE_DWARF) || (GetRacialType(oUser) == RACIAL_TYPE_GNOME)) 
 			 	{iModify = iModify + 10;}
-			SendMessageToPC(oUser, "iModify = " + IntToString(iModify));
+			//SendMessageToPC(oUser, "iModify = " + IntToString(iModify));
 			object oRubble = GetFirstObjectInShape(SHAPE_SPHERE, 7.5, GetLocation(OBJECT_SELF), FALSE, OBJECT_TYPE_PLACEABLE);
 			while(oRubble != OBJECT_INVALID)
 			 		{if((FindSubString(GetName(oRubble), "Dirt") != -1) || (FindSubString(GetName(oRubble), "Rock") != -1)|| (FindSubString(GetName(oRubble), "Rubble") != -1)) 
 						{DestroyObject(oRubble);
 						 SendMessageToPC(oUser, "The area is a littler clearer.");
 						 int iQuake = Random(20);
-			 			 SendMessageToPC(oUser, "iQuake =" + IntToString(iQuake));
+			 			 //SendMessageToPC(oUser, "iQuake =" + IntToString(iQuake));
 			 			 object oEndangered = GetFirstObjectInShape(SHAPE_SPHERE, 10.0, GetLocation(OBJECT_SELF), FALSE, OBJECT_TYPE_CREATURE);
 				 			 
 						 if(iQuake + iModify < 10)
@@ -258,7 +258,7 @@ void main()
 	     effect eCutScene = EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY); 
 	     effect eSun = EffectVisualEffect(VFX_FNF_SUNBEAM, FALSE);
 	     effect eDeath = EffectDeath(TRUE);
-	
+		 
 	     SetLocalInt(OBJECT_SELF, "Used", 1);
 		 DelayCommand(1800.0, SetLocalInt(OBJECT_SELF, "Used", 0));
 		 object oEnter = GetLocalObject(OBJECT_SELF, "oEnter");

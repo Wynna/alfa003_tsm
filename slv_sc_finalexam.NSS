@@ -15,7 +15,7 @@ int StartingConditional()
     int iInfo = GetSilvyUniversitySchool(oProfessor);
     int iLevel = GetSilvyUniversitySchoolLevel(oStudent, iInfo);
 
-    if (iLevel > 300)
+    if (iLevel == 300)
     {
         iResult = TRUE;
 

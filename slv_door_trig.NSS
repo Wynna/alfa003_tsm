@@ -119,25 +119,34 @@ void main()
 			else
 				{AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter)));
 				}
-			DelayCommand(2.0, AssignCommand(oProfEvo, ClearAllActions(TRUE)));
-			DelayCommand(2.0, AssignCommand(oProfTra, ClearAllActions(TRUE)));
+			
+			object oMirror = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_h_artifice_mirror", GetLocation(oMirrorWP));
+			SetUseableFlag(oMirror, TRUE);
+			AssignCommand(oMyDoor, ActionSpeakString(GetName(oStudent) + " has arrived, masters. *Auroneous and Arcadavera turn from their discussion before a mirror carved of ivory or bone.", TALKVOLUME_TALK));
 			SetLocalObject(oProfEvo, "GoTo", oEnter);
 			SetLocalObject(oProfTra, "GoTo", oEnter);
 			SetLocalInt(oProfEvo, "Walk_Off",1);
 			SetLocalInt(oProfTra, "Walk_Off",1);
+			DelayCommand(2.0, AssignCommand(oProfEvo, ClearAllActions(TRUE)));
+			DelayCommand(2.0, AssignCommand(oProfTra, ClearAllActions(TRUE)));
 			DelayCommand(6.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
 			DelayCommand(6.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
 			DelayCommand(10.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
 			DelayCommand(10.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
-			object oMirror = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_h_artifice_mirror", GetLocation(oMirrorWP));
-			SetUseableFlag(oMirror, TRUE);
-			AssignCommand(oMyDoor, ActionSpeakString(GetName(oStudent) + " has arrived, masters. *Auroneous and Arcadavera turn from their discussion before a mirror carved of ivory or bone.", TALKVOLUME_TALK));
-			DelayCommand(5.0, AssignCommand(oProfTra, ActionSpeakString("Ah, excellent. Do come in, " + GetName(oStudent) + ". Arky and I were just discussing temporal matters. You'll have to wait a moment --", TALKVOLUME_TALK)));
+		DelayCommand(5.0, AssignCommand(oProfTra, ActionSpeakString("Ah, excellent. Do come in, " + GetName(oStudent) + ". Arky and I were just discussing temporal matters. You'll have to wait a moment --", TALKVOLUME_TALK)));
+			DelayCommand(12.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
+			DelayCommand(12.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
 			DelayCommand(15.0, AssignCommand(oProfEvo, ActionSpeakString("A moment!  *Roars with laughter, pushing Auroneous's shoulder appreciatively.* A moment as ephemeral as forever and as long as the sine wave of a t-field, eh? Eh? Gadzooks! THAT'S IT! *Turns to the mirror and puts his face against it, eyes open, gazing into the reflection unblinkingly while muttering to himself.", TALKVOLUME_TALK)));
+			DelayCommand(28.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
+			DelayCommand(28.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
 			DelayCommand(30.0, AssignCommand(oProfTra, ActionSpeakString("*Not bothered by the other professor's odd behaviour, Auroneous raises his voice.*", TALKVOLUME_TALK)));
 			DelayCommand(35.0, AssignCommand(oProfTra, ActionSpeakString("--while we perfect a minor detail about the past.", TALKVOLUME_TALK)));
+			DelayCommand(43.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
+			DelayCommand(43.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
 			DelayCommand(45.0, AssignCommand(oProfEvo, ActionSpeakString("Yes, YES!  *Arcadavera beckons you over excitedly.* It must be the hand of one who knows nothing, just as the first lot of proctors! Else the equation is tainted. You, come here, " + GetName(oStudent) + ". Hurry!", TALKVOLUME_TALK)));
 			DelayCommand(50.0, AssignCommand(oProfTra, ActionSpeakString("*Interested lift of his brow as he observes Arcadavera's excitement.*  You'd best do as he asks. He's a genius, of course. I think you'll find what you see...instructive. We sent in the current proctors to recover this mirror for their own Dean's Exam field quest, of course.", TALKVOLUME_TALK)));
+			DelayCommand(58.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
+			DelayCommand(58.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
 			DelayCommand(60.0, AssignCommand(oProfEvo, ActionSpeakString("You, Scholar! Use this mirror. Gaze into it! USE it!", TALKVOLUME_TALK)));
 			DelayCommand(1800.0, ActionCloseDoor(oMyDoor));
 			DelayCommand(1802.0, SetLocked(oMyDoor, TRUE));

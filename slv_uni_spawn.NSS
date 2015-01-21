@@ -19,25 +19,18 @@ void main()
 	
 	SetActionMode(OBJECT_SELF, ACTION_MODE_DETECT, TRUE);	
 
-	object oWynna = GetLocalObject(OBJECT_SELF, "Wynna");
 	object oArea = GetArea(OBJECT_SELF);
-	int nWynna = GetLocalInt(oArea, "Wynna");
 	int nAreaPC = GetLocalInt(oArea, "oPC");
 	object oAreaPC = GetLocalObject(OBJECT_SELF, "oAreaPC");
-	if(((oAreaPC == OBJECT_INVALID) && (nAreaPC == 1))|| ((oWynna == OBJECT_INVALID) && (nWynna == 1)))
+	if((oAreaPC == OBJECT_INVALID) && (nAreaPC == 1))
 		{oAreaPC = GetFirstPC(TRUE);
 		 while(oAreaPC != OBJECT_INVALID)
 			{if(GetArea(oAreaPC) == (GetArea(OBJECT_SELF)))
 			 	{SetLocalObject(OBJECT_SELF, "oAreaPC", oAreaPC);
 				 }
-			 if(GetPCPlayerName(oAreaPC) == "Wynna-Player")
-			 	{SetLocalObject(OBJECT_SELF, "Wynna", oAreaPC);
-			 	 }
-			 oAreaPC = GetNextPC(TRUE);
+			  oAreaPC = GetNextPC(TRUE);
 			}
-	
-	  oWynna = GetLocalObject(OBJECT_SELF, "Wynna");
-	    }
+	  }
 
 SetLocalString(OBJECT_SELF, "MyTag", GetTag(OBJECT_SELF));		 
 
@@ -105,6 +98,7 @@ if((GetTag(OBJECT_SELF) != "003_cr_slv_registrar") && (GetTag(OBJECT_SELF) != "0
 		    }
 
 		}  	 
+		
 	
     // Specify the magic school for this creature.  Constants are in
     // silvy_univ_inc
@@ -403,7 +397,14 @@ if((GetTag(OBJECT_SELF) != "003_cr_slv_registrar") && (GetTag(OBJECT_SELF) != "0
 					}
 				}
 			}
+				
 			
+	if(GetTag(OBJECT_SELF) == "003_cr_slv_registrar")
+		{SetLocalInt(OBJECT_SELF, "Walk_Off", 1);
+		 ClearAllActions(TRUE);
+		 return;
+		 }
+
 			if(((((GetTag(oArea) == "6d_int_silvy_ladycol_grd_lvl")||(GetTag(oArea) == "6d_int_silvy_ladycol_master_lvl")) && ((nHour == nTime100) || (nHour == nTime200)|| (nHour == nTime300) || (nHour == nTime400)))) || (oGoTo == oClass))
 					{if((oGoTo != oClass) && (GetTag(OBJECT_SELF) != "003_cr_slv_arken") && (GetTag(OBJECT_SELF) != "003_cr_slv_miresk")&& (GetTag(OBJECT_SELF) != "003_cr_slv_dean"))
 						{SpeakString("Excuse me, I need to get to class.", TALKVOLUME_TALK);
@@ -589,9 +590,10 @@ if(FindSubString(GetTag(OBJECT_SELF), "_Wand") == -1)
 	{if((FindSubString(GetTag(OBJECT_SELF), "pro") != -1) || (FindSubString(GetTag(OBJECT_SELF), "stud") != -1)|| (FindSubString(GetTag(OBJECT_SELF), "Spellguard") != -1)|| (FindSubString(GetTag(OBJECT_SELF), "augustine") != -1)
 	|| (FindSubString(GetTag(OBJECT_SELF), "dean") != -1)|| (FindSubString(GetTag(OBJECT_SELF), "arken") != -1)|| (FindSubString(GetTag(OBJECT_SELF), "miresk") != -1))				 			  	
 		  { DelayCommand(fTime2, ExecuteScript("slv_uni_walk", OBJECT_SELF));
-	   		SendMessageToPC(oWynna, GetName(OBJECT_SELF) + " spawned in "+ GetName(GetArea(OBJECT_SELF)) + "; oGoTo = " + GetName(oGoTo) + ". My next move is in "+ FloatToString(fTime2));
-			}
+	   		}
 	 }  
  	
+	 
+
 	
 }

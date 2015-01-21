@@ -181,7 +181,7 @@ if(GetTag(OBJECT_SELF) == "slv_CurtainPull")
 	//Standard Conjuration
     if((GetTag(OBJECT_SELF) == "slv_con200_lever") && (GetLocalInt(oStudent, "Greased") == 1))
 	   	{SendMessageToPC(oStudent, "The Grease does it. The lever slips into place under its own weight.");
-			 SendMessageToPC(oStudent, "An area of floor camouflaged to look like holly leaves rolls away, revealing a tiny toy drum on the floor.");
+			 SendMessageToPC(oStudent, "An area of floor camouflaged to look like holly leaves rolls away, revealing a tiny toy drum underneath the lever.");
 			 object oToy = CreateObject(OBJECT_TYPE_ITEM, "slv_con200_toy", GetLocation(OBJECT_SELF));
 			 SetCampaignString("SLV_UNI", "Standard Conjuration", "Standard Conjuration", oStudent);
 			 if(ACR_RetrieveQuestState("slv_con200", oStudent) == 1)
@@ -632,6 +632,15 @@ if(GetTag(OBJECT_SELF) == "slv_CurtainPull")
 		 DestroyObject(OBJECT_SELF);
 		}
 	
+	 if(FindSubString(GetTag(OBJECT_SELF), "slv_tra200_plc_rustydagger") != -1)
+	   	{object oTraAll = GetLocalObject(OBJECT_SELF, "Tra_All");
+		 SetLocalObject(oTraAll, GetTag(OBJECT_SELF), OBJECT_INVALID);
+		 object oIngotItem = CreateItemOnObject("slv_tra200_rustydagger", oStudent, 1);
+		 SetLocalObject(oIngotItem, "oTra_All", oTraAll);
+		 SetLocalString(oIngotItem, "PLCTag", GetTag(OBJECT_SELF));
+		 DestroyObject(OBJECT_SELF);
+		}
+	
 	 if(GetTag(OBJECT_SELF) == "slv_tra200_ingot_alloy")
 	   	{object oTraAll = GetLocalObject(OBJECT_SELF, "Tra_All");
 		 SetLocalObject(oTraAll, GetTag(OBJECT_SELF), OBJECT_INVALID);
@@ -665,19 +674,19 @@ if(GetTag(OBJECT_SELF) == "slv_CurtainPull")
 		 if((GetTag(OBJECT_SELF) == "slv_tra200_stool_human") || (GetTag(OBJECT_SELF) == "slv_tra200_stool_elf"))
 			{if(GetHasSpellEffect(SPELL_ENLARGE_PERSON, oStudent))
 				{if((nRace == RACIAL_TYPE_GNOME) || (nRace == RACIAL_TYPE_HALFLING))
-					{sMessage = "With the help of your enlarge person spell and a lucky jump, you are able to snatch the ingots from the shelf one by one!";
+					{sMessage = "With the help of your enlarge person spell and a lucky jump, you are able to snatch the materials from the shelf one by one!";
 		 			}
 				 if(nRace == RACIAL_TYPE_DWARF)
-				    {sMessage = "With the help of your enlarge person spell, you are barely able to reach the ingots on the shelf by standing on your tip toes!";
+				    {sMessage = "With the help of your enlarge person spell, you are barely able to reach the materials on the shelf by standing on your tip toes!";
 		 			}
 				 if((nRace == RACIAL_TYPE_ELF) || (nRace == RACIAL_TYPE_HALFELF) || (nRace == RACIAL_TYPE_HALFORC) || (nRace == RACIAL_TYPE_HUMAN))
-					{sMessage = "With the help of your enlarge person spell, you are able to reach the ingots on the shelf!";
+					{sMessage = "With the help of your enlarge person spell, you are able to reach the materials on the shelf!";
 		 			}
 				 SetUseableFlag(oMyIngot, TRUE);
 		 		 SendMessageToPC(oStudent, sMessage);
 				}
 				else
-				 	{SendMessageToPC(oStudent, "Even with the stool, you are unable to reach the shelf to lift down the heavy ingots."); 
+				 	{SendMessageToPC(oStudent, "Even with the stool, you are unable to reach the shelf to lift down the heavy materials."); 
 					} 
 			  }	 
 				 
@@ -727,6 +736,118 @@ if(GetTag(OBJECT_SELF) == "slv_CurtainPull")
 				 }
 				 
 			}
+			
+		if(GetTag(OBJECT_SELF) == "slv_tra200_cauldron")
+			{object oMyForge = GetObjectByTag("slv_tra200_forge");
+			 if(GetIsObjectValid(oMyForge))
+				{ActionCastSpellAtObject(SPELL_FLARE, oMyForge, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE); 
+				}
+				
+		  SetLocalObject(OBJECT_SELF, "oStudent", oStudent);
+		  object oMyTrigAll = GetLocalObject(OBJECT_SELF, "oMyTrigAll");
+		  if(oMyTrigAll == OBJECT_INVALID)
+		  	{oMyTrigAll = GetNearestObjectByTag("slv_22.00", OBJECT_SELF);
+			 SetLocalObject(OBJECT_SELF, "oMyTrigAll", oMyTrigAll);
+			 }
+		  object oMyFlameWP = GetLocalObject(OBJECT_SELF, "oMyFlameWP");
+		  if (oMyFlameWP == OBJECT_INVALID)
+			 {oMyFlameWP = GetWaypointByTag("Tra_All_Quests_Fire3_WP");
+			  SetLocalObject(OBJECT_SELF, "oMyFlameWP", oMyFlameWP);
+			 }
+		  object oMySteelWP = GetLocalObject(OBJECT_SELF, "oMySteelWP");
+		  if (oMySteelWP == OBJECT_INVALID)
+			 {oMySteelWP = GetWaypointByTag("Tra_All_Quests_Steel_WP");
+			  SetLocalObject(OBJECT_SELF, "oMySteelWP", oMySteelWP);
+			 }
+		  object oMyTrough = GetLocalObject(OBJECT_SELF, "oMyTrough");
+		  if (oMyTrough == OBJECT_INVALID)
+			 {oMyTrough = GetObjectByTag("slv_tra200_trough");
+			  SetLocalObject(OBJECT_SELF, "oMyTrough", oMyTrough);
+			}
+		  object oMySteamWP = GetLocalObject(OBJECT_SELF, "oMySteamWP");
+		  if (oMySteamWP == OBJECT_INVALID)
+			 {oMySteamWP = GetWaypointByTag("Tra_All_Quests_Steam2_WP");
+			  SetLocalObject(OBJECT_SELF, "oMySteamWP", oMySteamWP);
+			 }
+		  effect eSplatDamage = EffectDamage(Random(5), DAMAGE_TYPE_FIRE, DAMAGE_POWER_NORMAL);
+		  object oMyFlame = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_fire", GetLocation(oMyFlameWP));
+		  SetLocalObject(oMyTrigAll, "oMyFlame", oMyFlame);
+		  SetLocalObject(OBJECT_SELF, "oMyFlame", oMyFlame);
+		  SendMessageToPC(oStudent, "The forge roars to life.");
+		  DelayCommand( 1.0, AssignCommand(oMyFlame, PlaySound("furnace")));
+          if(GetFirstItemInInventory(oMyForge) != OBJECT_INVALID)
+            {int nCount = 0;
+			 int nAlloy = 0;
+			 int nDagger = 0;
+			 int nOther = 0;
+		     object oOre = GetFirstItemInInventory(oMyForge);
+		     while (GetIsObjectValid(oOre))
+		
+		           {if(GetTag(oOre) == "slv_tra200_iron")
+			            {nCount = nCount +1;
+			             DestroyObject(oOre);
+						 oOre = GetNextItemInInventory(oMyForge);
+			             DelayCommand(IntToFloat(nCount * 3), SendMessageToPC(oStudent, "The number " + IntToString(nCount) +" chunk of iron ore melts away."));
+			             }
+			            else if(GetTag(oOre) == "slv_tra200_alloy")
+			            {nAlloy = nAlloy +1;
+			             DestroyObject(oOre);
+						 oOre = GetNextItemInInventory(oMyForge);
+			             DelayCommand(IntToFloat(nAlloy * 3), SendMessageToPC(oStudent, "Alloy melts, adding its properties to the molten liquid."));
+			             }
+						 else if(GetTag(oOre) == "slv_tra200_rustydagger")
+			            {if(GetItemHasItemProperty(oOre, ITEM_PROPERTY_ENHANCEMENT_BONUS))
+							 {nDagger = nDagger +1;
+				              DelayCommand(IntToFloat(nAlloy * 3), SendMessageToPC(oStudent, "The rusty dagger melts, adding the enhancements it bears to the molten liquid."));
+				              }
+					     else
+						 	{DelayCommand(IntToFloat(nAlloy * 3), SendMessageToPC(oStudent, "The rusty dagger melts, sparks flying as the corrosion on it burns."));}
+						 DestroyObject(oOre);
+						 oOre = GetNextItemInInventory(oMyForge);
+			             }
+						else 
+			            {nOther = nOther +1;
+			             DestroyObject(oOre);
+						 oOre = GetNextItemInInventory(oMyForge);
+			             DelayCommand(IntToFloat(nOther * 7), SendMessageToPC(oStudent, "An unspecified material adds an impurity to the mix!"));
+			             } 
+				     }
+		       
+				DelayCommand(15.0, SendMessageToPC(oStudent, "A sluice opens up on the side of the forge and molten metal pours out into the shaping trough."));
+			    DestroyInventory(oMyForge);
+			    DelayCommand(15.0, AssignCommand(oMyTrough, PlaySound("steamlarge")));
+			    DelayCommand(16.0, ExecuteScript("slv_plc_execute", oMyForge));
+			      
+			     DelayCommand(18.0, SendMessageToPC(oStudent, "When the shaping trough is full, the forge sluice closes and the molten steel settles, forming a skin as it starts to harden into a large ingot."));
+			     DelayCommand(20.5, AssignCommand(oMyTrough, PlaySound("waterpump")));
+			     DelayCommand(21.0, SendMessageToPC(oStudent, "Cooling water pours into the shaping trough."));
+			     DelayCommand(30.0, DestroyObject(oMyFlame));
+			             
+				 if((nCount == 3) && (nAlloy == 1)&& (nDagger == 1) && (nOther == 0))
+						{DelayCommand(25.0, SetLocalInt(oMyForge, "Steel", 1));
+						 DelayCommand(30.0, ExecuteScript("slv_plc_execute", oMyForge));
+			             if(GetCampaignString("SLV_UNI", "Elementary Transmutation", oStudent) == "Elementary Transmutation")
+						 	{SetCampaignString("SLV_UNI", "Standard Transmutation", "Standard Transmutation", oStudent);
+							}
+			             if(ACR_RetrieveQuestState("slv_tra200", oStudent) == 1)
+								{ACR_AddPersistentJournalQuestEntry("slv_tra200", 2, oStudent, 0, 0, 0, 0);
+								}
+							DelayCommand(31.0, SendMessageToPC(oStudent, "The trough now holds a recognizable bar of steel, cooling rapidly."));
+					     }
+					
+			else if((nCount != 4) || (nAlloy != 1) || (nOther != 0))
+						{DelayCommand(30.0, SetUseableFlag(oMyTrough, TRUE));
+						 DelayCommand(31.0, SendMessageToPC(oStudent, "The trough now holds an amorphous blob of slag.  Something must have gone wrong with the transmutation!"));
+					     CreateItemOnObject("slv_tra200_slag", oMyTrough, 1);
+					  	}
+			}
+             else
+             {DelayCommand(2.0, SendMessageToPC(oStudent, "There is nothing in the forge."));
+              DelayCommand(30.0, DestroyObject(oMyFlame));
+             }
+          }
+		  
+	
 		 
 	 //All Advanced Level courses work the same way, with a quill to write down test answers and a secretary desk to check them
 	 

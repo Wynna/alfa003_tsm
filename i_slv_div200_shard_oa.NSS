@@ -29,7 +29,8 @@ void main()
              if(GetTag(GetModuleItemAcquired()) == "slv_div200_shard")
                     {FloatingTextStringOnCreature("The shard of obsidian feels warm to your touch. In tiny, black reflection, you seem to see Master Clarvue's smiling face briefly, before it fades.", oStudent, FALSE);
                      SetCampaignString("SLV_UNI", "Standard Divination", "Standard Divination", oStudent);
-                     }
+                     DelayCommand(5.0, ACR_AddPersistentJournalQuestEntry("slv_div200", 2, oStudent, 0, 0, 0, 0));
+		      }
 					
 
 }			  

@@ -20,7 +20,7 @@ void main()
 	
 	
 
- if((GetIsDM(oDM)) || (GetIsDMPossessed(oDM)))
+ if((GetIsDM(oDM)) || (GetIsDMPossessed(oDM)) || GetIsPC(oDM))
 		{if((IsStudentEnrolledInSilvyUniversity(oStudent)) && (GetIsPC(oStudent)))
 		    {SendMessageToPC(oDM, "***");
 			SendMessageToPC(oDM, "ALL COURSE INFO FOR " + GetName(oStudent) + ":");
@@ -56,6 +56,14 @@ void main()
 			SendMessageToPC(oDM, "Senior Illusion = " + GetCampaignString("SLV_UNI", "Senior IllusionInfo", oStudent));
 			SendMessageToPC(oDM, "Senior Necromancy = " + GetCampaignString("SLV_UNI", "Senior NecromancyInfo", oStudent));
 			SendMessageToPC(oDM, "Senior Transmutation = " + GetCampaignString("SLV_UNI", "Senior TransmutationInfo", oStudent));
+			SendMessageToPC(oDM, "Abjuration Graduation =" + GetCampaignString("SLV_UNI", "Graduation AbjurationInfo", oStudent));
+			SendMessageToPC(oDM, "Conjuration Graduation = " + GetCampaignString("SLV_UNI", "Graduation ConjurationInfo", oStudent));
+			SendMessageToPC(oDM, "Divination Graduation  = " + GetCampaignString("SLV_UNI", "Graduation DivinationInfo", oStudent));
+			SendMessageToPC(oDM, "Enchantment Graduation = " + GetCampaignString("SLV_UNI", "Graduation EnchantmentInfo", oStudent));
+			SendMessageToPC(oDM, "Evocation Graduation = " + GetCampaignString("SLV_UNI", "Graduation EvocationInfo", oStudent));
+			SendMessageToPC(oDM, "Illusion Graduation  = " + GetCampaignString("SLV_UNI", "Graduation IllusionInfo", oStudent));
+			SendMessageToPC(oDM, "Necromancy Graduation = " + GetCampaignString("SLV_UNI", "Graduation NecromancyInfo", oStudent));
+			SendMessageToPC(oDM, "Transmutation Graduation = " + GetCampaignString("SLV_UNI", "Graduation TransmutationInfo", oStudent));
 			}
 			
 		string sCampaignNamed = GetLocalString(oStudent, "sCampaignNamed");;

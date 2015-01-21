@@ -1079,6 +1079,12 @@ if((GetStringLeft(GetTag(OBJECT_SELF), 6) == "slv_in") && (GetTag(oStudent) != "
 							  SetLocalObject(OBJECT_SELF, "oMyForge", oMyForge);
 							 }
 						  SetUseableFlag(oMyForge, FALSE);
+						  object oMyCauldron = GetLocalObject(OBJECT_SELF, "oMyCauldron");
+						  if (oMyCauldron == OBJECT_INVALID)
+							 {oMyCauldron = GetObjectByTag("slv_tra200_cauldron");
+							  SetLocalObject(OBJECT_SELF, "oMyCauldron", oMyCauldron);
+							 }
+						  SetUseableFlag(oMyCauldron, FALSE);
 						  object oMyTrough = GetLocalObject(OBJECT_SELF, "oMyTrough");
 						  if (oMyTrough == OBJECT_INVALID)
 							 {oMyTrough = GetObjectByTag("slv_tra200_trough");

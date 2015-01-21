@@ -31,9 +31,14 @@ void main()
 	//deandragon_e_air cold damage loop
 	
 			if(GetLocalInt(OBJECT_SELF, "ColdRep") == 1)
-				{int nRepCold = GetLocalInt(OBJECT_SELF, "nRepCold");
+				{float fTimeLoop = 91.0;
+				 int nRepCold = GetLocalInt(OBJECT_SELF, "nRepCold");
 				 if(GetTag(GetArea(OBJECT_SELF)) == "5b_ext_frosthills_glacier")
-					{float fTimeLoop = 91.0;
+					{object oMyListener = GetLocalObject(OBJECT_SELF, "oMyListener");
+					 if(oMyListener == OBJECT_INVALID)
+						 	{oMyListener = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_deanvoice", GetLocation(OBJECT_SELF));
+	   						 SetLocalObject(OBJECT_SELF, "oMyListener", oMyListener);
+							 }
 					 if(FindSubString(GetName(GetItemInSlot(INVENTORY_SLOT_CLOAK, OBJECT_SELF)), "Greatcloak") != -1)
 						{SendMessageToPC(OBJECT_SELF, "Cloak Slot = " +  GetName(GetItemInSlot(INVENTORY_SLOT_CLOAK, OBJECT_SELF)));
 						 fTimeLoop = 540.0;
@@ -49,38 +54,46 @@ void main()
 							 ACR_NLD_ReportTotal(OBJECT_SELF, OBJECT_SELF, 0);
 							 }
 						 }
+					else {SendMessageToPC(OBJECT_SELF, "You feel your elemental protection spell keeping the worst of the cold at bay.");
+					     }
+					}
 					SetLocalInt(OBJECT_SELF, "Survival", 0);
 					nRepCold++;
 					SetLocalInt(OBJECT_SELF, "nRepCold", nRepCold);
-					DelayCommand(fTimeLoop, ExecuteScript("slv_static_voice_cr_pc", OBJECT_SELF));
+					if(GetTag(GetArea(OBJECT_SELF)) == "5b_ext_frosthills_glacier")
+						{DelayCommand(fTimeLoop, ExecuteScript("slv_static_voice_cr_pc", OBJECT_SELF));}
 					}
 				 else {SetLocalInt(OBJECT_SELF, "ColdRep", 0);
 				 	   SetLocalInt(OBJECT_SELF, "nRepCold", 0);
 					  }
 					
-				}
+				
 				
 		//deandragon_e_fire heat damage loop
 	 	if(GetLocalInt(OBJECT_SELF, "HeatRep") == 1)
-				{float fTimeLoop = 91.0;
-				 if(GetIsSkillSuccessful(OBJECT_SELF, SKILL_SURVIVAL, 15, TRUE))
-						{SetLocalInt(OBJECT_SELF, "Survival", 4);}
-					int nRep = GetLocalInt(OBJECT_SELF, "nRepHot");
-					if ((!GetHasSpellEffect(SPELL_ENDURE_ELEMENTS, OBJECT_SELF)) && (!GetHasSpellEffect(SPELL_RESIST_ENERGY, OBJECT_SELF))&& (!GetHasSpellEffect(SPELL_PROTECTION_FROM_ENERGY, OBJECT_SELF)))
-				         {
-						 if(!FortitudeSave(OBJECT_SELF, 15 + nRep - GetLocalInt(OBJECT_SELF, "Survival"), SAVING_THROW_TYPE_FIRE, OBJECT_SELF))
-							{ACR_ApplyNLDDamageToCreature(OBJECT_SELF, d6());
-							 SendMessageToPC(OBJECT_SELF, "The excrutiating heat takes its toll!");
-							 ACR_NLD_ReportTotal(OBJECT_SELF, OBJECT_SELF, 0);
+				{if(GetTag(GetArea(OBJECT_SELF)) == "5h_int_sundabar_everfire")
+					{float fTimeLoop = 91.0;
+					 if(GetIsSkillSuccessful(OBJECT_SELF, SKILL_SURVIVAL, 15, TRUE))
+							{SetLocalInt(OBJECT_SELF, "Survival", 4);}
+						int nRep = GetLocalInt(OBJECT_SELF, "nRepHot");
+						if ((!GetHasSpellEffect(SPELL_ENDURE_ELEMENTS, OBJECT_SELF)) && (!GetHasSpellEffect(SPELL_RESIST_ENERGY, OBJECT_SELF))&& (!GetHasSpellEffect(SPELL_PROTECTION_FROM_ENERGY, OBJECT_SELF)))
+					         {
+							 if(!FortitudeSave(OBJECT_SELF, 15 + nRep - GetLocalInt(OBJECT_SELF, "Survival"), SAVING_THROW_TYPE_FIRE, OBJECT_SELF))
+								{ACR_ApplyNLDDamageToCreature(OBJECT_SELF, d6());
+								 SendMessageToPC(OBJECT_SELF, "The excrutiating heat takes its toll!");
+								 ACR_NLD_ReportTotal(OBJECT_SELF, OBJECT_SELF, 0);
+								 }
 							 }
-						 }
-					SetLocalInt(OBJECT_SELF, "Survival", 0);
-					nRep++;
-					SetLocalInt(OBJECT_SELF, "nRepHot", nRep);
-					DelayCommand(fTimeLoop, ExecuteScript("slv_static_voice_cr_pc", OBJECT_SELF));
-					}
+						else {SendMessageToPC(OBJECT_SELF, "You feel your elemental protection spell keeping the worst of the heat at bay.");
+							}
+						
+						SetLocalInt(OBJECT_SELF, "Survival", 0);
+						nRep++;
+						SetLocalInt(OBJECT_SELF, "nRepHot", nRep);
+						DelayCommand(fTimeLoop, ExecuteScript("slv_static_voice_cr_pc", OBJECT_SELF));
+						}
 			
-				
+				}
 			 
 			
 }

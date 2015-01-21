@@ -21,14 +21,13 @@ void main()
 { float fTime2 = IntToFloat(Random(600) + 300);
   object oHome = GetLocalObject(OBJECT_SELF, "Home");
 		
-			
-	object oWynna = GetLocalObject(OBJECT_SELF, "Wynna");
+	object oWynna;	
 	object oArea = GetArea(OBJECT_SELF);
 	int nWynna = GetLocalInt(oArea, "Wynna");
 	if((oWynna == OBJECT_INVALID) && (nWynna == 1))
 		{oWynna = GetFirstPC(TRUE);
 			 while(oWynna != OBJECT_INVALID)
-				{if(GetPCPlayerName(oWynna) == "Wynna-Player")
+				{if(GetPCPlayerName(oWynna) == "Wynna")
 				 	{SetLocalObject(OBJECT_SELF, "Wynna", oWynna);
 				 	 break;
 					 }

@@ -5,6 +5,7 @@
 #include "acr_creature_i"
 #include "acr_db_persist_i"
 #include "acr_quest_i"
+#include "003_silverymoon_i"
 					
 					
 void main()
@@ -13,8 +14,19 @@ void main()
     object oStudent = GetLastSpellCaster();
     object oArea = GetArea(OBJECT_SELF);
 
+//Elementary Enchantment
+if(((GetTag(OBJECT_SELF) == "003_cr_slv_enc100eyes")|| (GetTag(OBJECT_SELF)== "003_cr_slv_enc100giant")) && (GetIsPC(oStudent))  && ((GetLastSpell()== SPELL_SLEEP) || (GetLastSpell()== SPELL_DEEP_SLUMBER)))
+       			{RemoveSilverymoonWards( OBJECT_SELF );
+				  if(GetLocalInt(oStudent, "Slept")!= 1)
+					{AssignCommand(GetObjectByTag("003_cr_slv_enc100giant"), ActionPlayAnimation(ANIMATION_FIREFORGET_LAYDOWN, 1.0f, 30.0f));
+					 SendMessageToPC(oStudent, "Your low level Enchantment [Mind Affecting] spell functions. A hollow voice speaks softly from no place you can discern: 'Student dispensation granted.'");
+			    	 DelayCommand(2.0, SendMessageToPC(oStudent, "The giant rolls over, peacefully asleep. One by one the floating eyes narrow to slits, exactly as if eyelids were drooping over them. They seem to sleep."));
+			  		 SetLocalInt(oStudent, "Slept", 1);
+					 }
+			    }
 
-		if((GetTag(OBJECT_SELF) == "003_cr_slv_procenc2") && (GetIsPC(oStudent))  )
+//Standard Enchantment
+if((GetTag(OBJECT_SELF) == "003_cr_slv_procenc2") && (GetIsPC(oStudent)) && ((GetLastSpell()== SPELL_CHARM_PERSON)) || (GetLastSpell()== SPELL_CHARM_MONSTER)  )
 
                {   object oExit = GetLocalObject(OBJECT_SELF, "oExit");
 				    if(oExit == OBJECT_INVALID)
@@ -41,6 +53,7 @@ void main()
 						}
 							
 				 ClearAllActions(TRUE);
+				 SetLocalInt(OBJECT_SELF, "Charmed", 1);
 				 ChangeToStandardFaction(OBJECT_SELF, STANDARD_FACTION_COMMONER);
 				 SetCampaignString("SLV_UNI", "Standard Enchantment", "Standard Enchantment", oStudent);
 				 if(ACR_RetrieveQuestState("slv_enc200", oStudent) == 1)
@@ -55,7 +68,7 @@ void main()
 						
 			}
 				   
-		//Elementary Evocation	 
+		//Standard Evocation	 
 		 
 	if(GetTag(OBJECT_SELF) == "003_cr_slv_incinder")
         {ClearAllActions(TRUE);
@@ -98,15 +111,29 @@ void main()
          {ClearAllActions(TRUE);
           DestroyObject(OBJECT_SELF);
           }
+	
 		  
+
+		   	  
+		  	  
 	 //Standard Necromancy
-    if((GetTag(OBJECT_SELF) == "003_cr_slv_nec200rat") && (GetLastSpell() == SPELL_SCARE))
+    if(GetTag(OBJECT_SELF) == "003_cr_slv_nec200rat") 
         {ActionMoveToObject(GetWaypointByTag("Nec_All_Quests_RatDestroy_WP"), TRUE, 0.0);
         }
-        
-
-     if((GetTag(OBJECT_SELF) == "003_cr_slv_nec200zombie") && (GetLastSpell() == SPELL_RAY_OF_ENFEEBLEMENT) && (GetLocalInt(oStudent, "Zombie") !=1 ))
-        {object oMyCorpseDownWP = GetLocalObject(OBJECT_SELF, "oMyCorpseDownWP");
+    
+	if(GetTag(OBJECT_SELF) == "003_cr_slv_nec200zombie") 
+        {if((GetLastSpell() == 3001) || (GetLastSpell() ==3006))
+			{ClearAllActions(TRUE);
+			 ActionMoveToObject(GetWaypointByTag("Nec_All_Quests_Skull_WP"), TRUE, 0.0);
+         	 SendMessageToPC(oStudent, "The zombie drops the body!  It falls, striking the lever on the way down. The lever drops into the closed position and the gate rattles down.");
+			}
+		
+	     if(GetLastSpell() == SPELL_RAY_OF_ENFEEBLEMENT)
+	        {ClearAllActions(TRUE);
+			 SendMessageToPC(oStudent, "The zombie can't hold the weight of the body!  It falls, striking the lever on the way down. The lever drops into the closed position and the gate rattles down.");
+			ActionMoveToObject(GetWaypointByTag("Nec_All_Quests_Zombie_WP"), TRUE, 0.0);
+         	}
+		object oMyCorpseDownWP = GetLocalObject(OBJECT_SELF, "oMyCorpseDownWP");
 		 if (oMyCorpseDownWP == OBJECT_INVALID)
 			 {oMyCorpseDownWP = GetWaypointByTag("Nec_All_Quests_Corpse2Down_WP");
 			  SetLocalObject(OBJECT_SELF, "oMyCorpseDownWP", oMyCorpseDownWP);
@@ -120,9 +147,7 @@ void main()
 		 	{oMyLever = GetObjectByTag("Nec_All_Quests_Lever3");
 			 SetLocalObject(OBJECT_SELF, "oMyLever", oMyLever);
 			 }
-		 SetLocalInt(oStudent, "Zombie", 1);
-         SendMessageToPC(oStudent, "The zombie cannot hold the weight of the body!  It falls, striking the lever on the way down. The lever drops into the closed position and the gate rattles down, trapping the zombie within.");
-
+		 
          DestroyObject(oMyCorpse);
          int nState = GetLocalInt(oMyLever, "State");
 		 object oMyGate = GetLocalObject(oMyLever, "oMyGate");
@@ -145,7 +170,6 @@ void main()
 		 SetLocalObject(oMyLever, "oMyGate", oMyGateNew);
 		 object oMyCorpseDown = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_nec200_corpse2", GetLocation(oMyCorpseDownWP));
          SetLocalObject(OBJECT_SELF, "oMyCorpseDown", oMyCorpseDown);
-		 ChangeToStandardFaction(OBJECT_SELF, STANDARD_FACTION_HOSTILE);
 		 }
 
 		 

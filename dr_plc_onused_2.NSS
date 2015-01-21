@@ -83,7 +83,7 @@ void main() {
 	  effect eDrown = EffectDamage(Random(6) + 1, DAMAGE_TYPE_ALL, DAMAGE_POWER_NORMAL, FALSE);
 	  effect eBatter = EffectDamage(Random(6) + 1, DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE);
 	  effect eCold = EffectDamage(Random(6) + 1, DAMAGE_TYPE_COLD, DAMAGE_POWER_NORMAL, FALSE);
-	  effect eSwim = EffectKnockdown();
+	  effect eSwim;
 	  effect eUnconscious = EffectStunned();
 	  object oSuccess = GetLocalObject(OBJECT_SELF, "oSuccess");
 	  if(oSuccess == OBJECT_INVALID)
@@ -142,7 +142,20 @@ void main() {
 			}
 		object oPC = GetFirstObjectInShape(SHAPE_SPHERE, 20.0, GetLocation(oWaterFloorWP), FALSE, OBJECT_TYPE_CREATURE); 
 		int nSwimLevel;
-		int nDistance;
+		int nSwimSize = 83 + nLevel-5;
+				 if(nLevel >= 4) 
+					{if(GetObjectByTag("DR_Swim_Well") != OBJECT_INVALID)
+						{DestroyObject(GetObjectByTag("DR_Swim_Well"));
+					 	}
+					 ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, EffectAreaOfEffect(nSwimSize, "abr_trg_swimonenter", "", "abr_trg_swimonexit", "DR_Swim_Well"), GetLocation(GetWaypointByTag("DR_AOE_WP")), 3600.0);
+					 SetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC", 10 + nLevel);
+					 if(nLevel == 10)
+					 	{SetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC", 10);
+					 }
+					
+					 
+				 }
+		    int nDistance;
 			while((oPC != OBJECT_INVALID) && ((GetIsPC(oPC))  ||!(GetIsPC(oPC)) || (GetMaster(oPC) != OBJECT_INVALID) || (GetIsDMPossessed(oPC))))
 			 	{int nWeight = GetWeight(oPC); 
 				 int nWeightPenalty = nWeight / 50;
@@ -162,13 +175,24 @@ void main() {
 				 	{nDistance = 7;}
 				 if(GetDistanceBetween(oPC, oWaterFloorWP) < 3.95)
 				 	{nDistance = 4;}
+					
+					 if(nRising == 1)
+				 	{SendMessageToPC(oPC, "The water is rising!");}
+				 
+		 	     if(nRising == 2)
+					 {SendMessageToPC(oPC, "The water level is falling!");}
+			    
 				 SetLocalInt(oPC, "nDistance", nDistance);
 				 if((GetLocalInt(oPC, "SwimmingSuccess") != 1) && (GetLocalInt(oPC, "SwimmingSucceeded") != 1))
 				 	{if((nLevel >= 5) && (GetLocalInt(oPC, "Swimming") != 1))
 							{if((nLevel >= 5) && (GetLocalInt(oPC, "nSwimLevel") == 5) && (GetLocalInt(oPC, "nDistance") == 4))
 								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
 							     SetLocalInt(oPC, "Swimming", 1);
-								 if(GetMaster(oPC) != OBJECT_INVALID)
+								if(GetMaster(oPC) != OBJECT_INVALID)
+								 	{SendMessageToPC(GetMaster(oPC), "Your familiar is swept away!");
+									 AssignCommand(GetMaster(oPC),ActionSpeakStringByStrRef(ASSOCIATE_COMMAND_UNSUMMONFAMILIAR, TALKVOLUME_TALK) );
+									}
+								if(GetMaster(oPC) != OBJECT_INVALID)
 								 	{SendMessageToPC(GetMaster(oPC), "Your familiar is swept away!");
 									 AssignCommand(GetMaster(oPC),ActionSpeakStringByStrRef(ASSOCIATE_COMMAND_UNSUMMONFAMILIAR, TALKVOLUME_TALK) );
 									}
@@ -176,45 +200,17 @@ void main() {
 							if((nLevel >= 5) && (GetLocalInt(oPC, "nSwimLevel") == 5) && (GetLocalInt(oPC, "nDistance") == 7))
 								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
 							     SetLocalInt(oPC, "Swimming", 1);
-								 }
-							if((nLevel >= 7) && (GetLocalInt(oPC, "nSwimLevel") == 5) && (GetLocalInt(oPC, "nDistance") == 10))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								 }
-							if((nLevel >= 9) && (GetLocalInt(oPC, "nSwimLevel") == 5) && (GetLocalInt(oPC, "nDistance") == 13))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								 }
-							if((nLevel >= 9) && (GetLocalInt(oPC, "nSwimLevel") == 5) && (GetLocalInt(oPC, "nDistance") == 18))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								 }
+								 if(GetMaster(oPC) != OBJECT_INVALID)
+								 	{SendMessageToPC(GetMaster(oPC), "Your familiar is swept away!");
+									 AssignCommand(GetMaster(oPC),ActionSpeakStringByStrRef(ASSOCIATE_COMMAND_UNSUMMONFAMILIAR, TALKVOLUME_TALK) );
+									}
+								}
 						
-							if((nLevel >= 6) && (GetLocalInt(oPC, "nSwimLevel") == 6) && (GetLocalInt(oPC, "nDistance") == 4))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								 }
-							if((nLevel >= 6) && (GetLocalInt(oPC, "nSwimLevel") == 6) && (GetLocalInt(oPC, "nDistance") == 7))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								 }
-							if((nLevel >= 8) && (GetLocalInt(oPC, "nSwimLevel") == 6) && (GetLocalInt(oPC, "nDistance") == 10))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								 }
-							if((nLevel >= 10) && (GetLocalInt(oPC, "nSwimLevel") == 6) && (GetLocalInt(oPC, "nDistance") == 13))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								 }
-							if((nLevel >= 10) && (GetLocalInt(oPC, "nSwimLevel") == 6) && (GetLocalInt(oPC, "nDistance") == 18))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								 }
 							}	 
 							 
 						if(GetLocalInt(oPC, "Swimming") == 1)
 							{int nUnconscious = GetLocalInt(oPC, "nUnconscious");	
-							if(FortitudeSave(oPC, 5 + nLevel + nUnconscious, SAVING_THROW_TYPE_NONE, oWater) == 0) 
+							 if(FortitudeSave(oPC, 5 + nLevel + nUnconscious, SAVING_THROW_TYPE_NONE, oWater) == 0) 
 									{int nRandom = Random(3);
 									 if(nRandom == 0)
 										{SendMessageToPC(oPC, "The swirling current slams you against a rock!");
@@ -253,36 +249,21 @@ void main() {
 									 if(nDrowning == 1)
 									 	{SendMessageToPC(oPC, "You go under water and lose your sense of which direction is up! Thoughts of drowning fill your mind.");
 										}
-									 if((nHoldBreath < 42) && (nHoldBreath >= 20))
-									 	{if(nDrowning == 2)
-										 	{SendMessageToPC(oPC, "You have been under water too long. You start to black out! You are in danger of drowning.");
-											if((nHoldBreath < 42) && (nHoldBreath >= 30))
-											 	{if(nDrowning == 3)
-												 	{SendMessageToPC(oPC, "Spots swim before your eyes. Drowning is imminent.");
-													}
-												 if(nDrowning == 4)
-												 	{SendMessageToPC(oPC, "You are unconscious, unable to swim. You are drowning!");
-													 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, oPC, 60.0);
-													 SetLocalInt(oPC, "nUnconscious", 10);
-													 }
-												}
-											if((nHoldBreath < 30) && (nHoldBreath >=20))
-												 {if(nDrowning == 3)
-													 {SendMessageToPC(oPC, "You are unconscious, unable to swim. You are drowning!");
-													 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, oPC, 60.0);
-													 SetLocalInt(oPC, "nUnconscious", 10);
-													 }
-												  }
-											 }
-									 	 }
-									  if(nHoldBreath < 20)
-										 {if(nDrowning == 2)
-											 {SendMessageToPC(oPC, "You are unconscious, unable to swim. You are drowning!");
-										 	  ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, oPC, 60.0);
-											 SetLocalInt(oPC, "nUnconscious", 10);
-											}
-									 	 }
-								 }
+									 if(nDrowning == 2)
+										{SendMessageToPC(oPC, "You have been under water too long. You start to black out! You are in danger of drowning.");
+										}
+									 if(nDrowning == 3)
+										{SendMessageToPC(oPC, "Spots swim before your eyes. Drowning is imminent.");
+										}
+									 if(nDrowning == 4)
+										{SendMessageToPC(oPC, "You are unconscious, unable to swim. You are drowning!");
+										ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eUnconscious, oPC, 60.0);
+										SetLocalInt(oPC, "nUnconscious", 10);
+										 }
+									}
+										
+											
+								 
 								 else
 								 	{SetLocalInt(oPC, "Drowning", 0);
 									 SendMessageToPC(oPC, "You break through the surface of the water, taking in a welcome lungful of air. You stave off drowning for now, but the water holds other hazards.");
@@ -294,7 +275,6 @@ void main() {
 									}
 								 
 								
-							DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSwim, oPC, IntToFloat(Random(50))));
 							}
 						}
 				 }		 
@@ -302,10 +282,10 @@ void main() {
 					{AssignCommand(oPC, ActionJumpToLocation(GetLocation(oSuccess)));
 					 }
 			if(nLevel <= 0)
-			{if((GetLocalInt(oPC, "SwimmingSuccess") != 1)  && (nRising > 0) && (GetLocalInt(oPC, "Swimming") == 1))
+				{if((GetLocalInt(oPC, "SwimmingSuccess") != 1)  && (nRising > 0) && (GetLocalInt(oPC, "Swimming") == 1))
 					{AssignCommand(oPC, ActionJumpToLocation(GetLocation(oWaterFloorWP)));
-			 		 }
-			}
+			 		 SendMessageToPC(oPC, "Thanks to the still waters, you scramble up onto the central platform.");}
+				}
 			 oPC = GetNextObjectInShape(SHAPE_SPHERE, 20.0, GetLocation(oWaterFloorWP), FALSE, OBJECT_TYPE_CREATURE); 
 			 }
 		
@@ -341,12 +321,13 @@ void main() {
 			}
 	    		
 		if(nLevel == 10)
-			{if((GetLocalInt(oPC, "SwimmingSuccess") == 1) && (GetLocalInt(oPC, "SwimmingSucceeded") != 1))
-					{AssignCommand(oPC, ActionJumpToLocation(GetLocation(oSuccess)));
-			 		}
-			 if(GetLocalInt(oPC, "SwimmingSuccess") != 1)  
-					{AssignCommand(oPC, ActionJumpToLocation(GetLocation(oWaterFloorWP)));
-			 		 SendMessageToPC(oPC, "As the pit stops filling and the currents slow, you are washed onto the central platform");
+		  {if(Random(2)==1) 	
+			{AssignCommand(oPC, ActionJumpToLocation(GetLocation(oSuccess)));
+			 	SendMessageToPC(oPC, "As the pit stops filling and the currents slow, you are washed onto the high platform");
+						}
+			else 
+					{AssignCommand(oPC, ActionJumpToLocation(GetLocation(GetWaypointByTag("dr_rowboat_land_a_WP"))));
+			 		 SendMessageToPC(oPC, "As the pit stops filling and the currents slow, you are washed onto the ramp of the platform");
 					}
 			 SpeakString("The water stops draining and the currents quickly settle into placidly lapping water.", TALKVOLUME_TALK);
 			 SetLocalInt(oMasterWP, "nRising", 0);

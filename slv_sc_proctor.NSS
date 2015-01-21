@@ -34,7 +34,7 @@ int StartingConditional()
 		{return TRUE; }
 	else if(((GetTag(oProfessor) == "003_cr_slv_procill") ||(GetTag(oProfessor) == "003_cr_slv_ill100boy") ||(GetTag(oProfessor) == "003_cr_slv_ill100cub")) && ((FindSubString(GetCampaignString("SLV_UNI", "Advanced IllusionInfo", oStudent), "Register") != -1)&& (GetCampaignString("SLV_UNI", "Advanced Illusion", oStudent) != "Advanced Illusion")))
 		{return TRUE; }
-	else if(((GetTag(oProfessor) == "003_cr_slv_procnec") ||(GetTag(oProfessor) == "003_cr_slv_studnec") ||(GetTag(oProfessor) == "003_cr_slv_nec200zombie")) && ((FindSubString(GetCampaignString("SLV_UNI", "Advanced NecromancyInfo", oStudent), "Register") != -1)&& (GetCampaignString("SLV_UNI", "Advanced Necromancy", oStudent) != "Advanced Necromancy")))
+	else if(((GetTag(oProfessor) == "003_cr_slv_procnec") ||(GetTag(oProfessor) == "003_cr_slv_studnec") ||(GetTag(oProfessor) == "003_cr_slv_nec200zombie2")) && ((FindSubString(GetCampaignString("SLV_UNI", "Advanced NecromancyInfo", oStudent), "Register") != -1)&& (GetCampaignString("SLV_UNI", "Advanced Necromancy", oStudent) != "Advanced Necromancy")))
 		{return TRUE; }
 	else if(((GetTag(oProfessor) == "003_cr_slv_proctra") ||(GetTag(oProfessor) == "003_cr_slv_studtra") ||(GetTag(oProfessor) == "003_cr_slv_belad")) && ((FindSubString(GetCampaignString("SLV_UNI", "Advanced TransmutationInfo", oStudent), "Register") != -1)&& (GetCampaignString("SLV_UNI", "Advanced Transmutation", oStudent) != "Advanced Transmutation")))
 		{return TRUE; }

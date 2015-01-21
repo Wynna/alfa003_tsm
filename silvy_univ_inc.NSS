@@ -34,7 +34,7 @@ const int SilvyUniversitySchoolToken = 804;
 const int SilvyUniversityCourseHourToken = 805;
 
 // Special 'sentinel' constants
-const int SilvyUniversityGraduateLvl = 400;
+const int SilvyUniversityGraduateLvl = 500;
 const string SilvyUniversityCourseComplete = "";
 const string SilvyUniversityFinalExam = "Final Exam";
 
