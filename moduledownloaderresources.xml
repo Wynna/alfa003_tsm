@@ -762,7 +762,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="5D854AE5F469A0CDC541B325F009874BCA5C5075" downloadHash="7E025F71F4AF33B5253CF2E99A6FCCDE54CEB8D1" name="5b_int_fourthpeak_caveruins.trx" dlsize="860897" size="11683737" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="ED9DBBBBBA74E3B3D0C97FA0B09A8E57D00DBF03" downloadHash="28DFAAF8687313A4869BDCF4F45AEEAAD2DBF523" name="5b_int_fourthpeak_caveruins.trx" dlsize="827313" size="11640675" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -840,7 +840,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="3E6287F78591F558D26A63D8B44E2B56A67C401B" downloadHash="74D2D09A2208E29FC9F4DAFF56D80EE99AB5D7CE" name="6d_int_silvy_ladycol_class_lvl.trx" dlsize="903635" size="954304" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="A327987B9AB76C11F59DC96D41D6E03D3D7A99AD" downloadHash="DF2B654F4700A2D05514ABF77E74A3B81E1551CC" name="6d_int_silvy_ladycol_class_lvl.trx" dlsize="893713" size="945483" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
