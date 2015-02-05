@@ -972,7 +972,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="88DB54447A26C6A848D9984551903512E699D818" downloadHash="D9F1E227CAFAA1FF06C9614827F7F857F15DC2D4" name="6c_ext_northroad2_tm.trx" dlsize="1192857" size="9615357" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="5357329537156604AD1945832889D3FD841EDCE7" downloadHash="5AAAD2C8C62255C2D2F059148AACBB02E437B8C7" name="6c_ext_northroad2_tm.trx" dlsize="2035033" size="14069655" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1290,7 +1290,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="D2AB447ADBC1A4DFF0DD8CEFC418BC6F4B2591B3" downloadHash="EEF0B8FBDF4448CC9C2C08C0CDD56156FCE625D3" name="5g_int_felbarr_lowroad_03.trx" dlsize="671897" size="683523" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="4D01543E3B63FE3BD253DE90ABEB3672BDC458B4" downloadHash="4BEF993F2369DBEDBB182F2464D08F40CA0955BF" name="5g_int_felbarr_lowroad_03.trx" dlsize="687905" size="699376" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1783,6 +1783,21 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="C79461B0DAFE5DB886E597AA9E2CDB601251F71D" downloadHash="61E2CD414ED3CF573E316B02DCF087DA90127B64" name="6d_int_silvy_hi_undercrypt.trx" dlsize="299747" size="301880" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="120FEAF25F68362CC6AB57010B63F1172DFF4343" downloadHash="BC072BBAA952859A2CCFBB65BD25A27FA11F84D9" name="5g_ext_silvypass_east_auvwild_tm.trx" dlsize="898779" size="6230621" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="98F65FC0851CFA9E0D84BB922E885247699D9FAA" downloadHash="F8BFCA04FE03AB790128CA9C44D0544960DCE98C" name="5c_ext_moonwood_north.trx" dlsize="2221347" size="11003376" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="4E93A84A2A01AB453CFA28AFE021BAEE8339434F" downloadHash="FFD6EFF6608215036F9EB9DB5CF3C88FA43704EC" name="5g_int_felbarr_tr_cave.trx" dlsize="1110808" size="1130401" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
