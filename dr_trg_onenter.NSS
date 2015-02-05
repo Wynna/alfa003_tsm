@@ -152,7 +152,8 @@ if((GetTag(OBJECT_SELF) == "dr_lock_trg") && (GetLocalInt(GetEnteringObject(), "
 	{SendMessageToPC(GetEnteringObject(), "The roar of water is nearly deafening. Water pours from a crack in the ceiling, streams down the walls, thunders through a broken, rusty grate in the ground. An eerie blue light ripples on the walls, apparently emanating from a glowing blue fungus or moss growing there.");
 	 if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_LISTEN, 10))
 		{SendMessageToPC(GetEnteringObject(), "Beneath the general roar, you can discern the sound of water thudding on metal, beneath your feet.");
-	    }
+	     SetLocalInt(GetEnteringObject(), "dr_lock_message", 1);
+		 }
 	 }
 
 if(FindSubString(GetTag(OBJECT_SELF), "dr_rowboat") != -1)
@@ -273,7 +274,7 @@ if(FindSubString(GetTag(OBJECT_SELF), "dr_swimdown_trg") != -1)
 								 }
 							}
 						 else 
-							 {SendMessageToPC(GetEnteringObject(), "You manage to avoid all hazards.");
+							 {DelayCommand(3.0, SendMessageToPC(GetEnteringObject(), "You manage to avoid all hazards."));
 							 }
 						
 		if((nLevel > 3) && (Random(20) + 1 + GetAbilityModifier(ABILITY_STRENGTH, GetEnteringObject()) - nWeightPenalty > 15))
@@ -286,7 +287,6 @@ if(FindSubString(GetTag(OBJECT_SELF), "dr_swimdown_trg") != -1)
 				 SendMessageToPC(GetEnteringObject(), "Swimming strongly, you make for the nearest rock or handhold.");
 				 SetLocalInt(GetEnteringObject(), "SwimmingSuccess", 1);
 				 SetLocalInt(GetEnteringObject(), "Drowning", 0);
-				 SetLocalInt(GetEnteringObject(), "Swimming", 0);
 				 SetLocalInt(GetEnteringObject(), "nUnconscious", 0);
 			     }
 			else if(nLevel > 3)
@@ -400,6 +400,8 @@ if(FindSubString(GetTag(OBJECT_SELF), "dr_swimdown_trg") != -1)
 		}
 	else 
 		{SendMessageToPC(GetEnteringObject(), "You may yet be /ripped/ from your perch, but choosing to leap into the water seething around exposed rocks is likely to end in your death. Wait until the waters still.");
+		 ExitWater(OBJECT_SELF, GetEnteringObject());
+				 
 		}
 	}
 
@@ -407,47 +409,43 @@ if(GetTag(OBJECT_SELF) == "dr_swimsucceeded_trg")
 	{SetLocalInt(GetEnteringObject(), "SwimmingSuccess", 1);
 	 SetLocalInt(GetEnteringObject(), "SwimmingSucceeded", 1);
 	 }
-
-	 
-if((GetTag(OBJECT_SELF) == "dr_gems") && (GetLocalInt(OBJECT_SELF, "Populated") != 1))
-	{SetLocalInt(OBJECT_SELF, "Populated", 1);
-	 object oVein1 = GetObjectByTag("elemental_watergem_vein_1");
-	 object oVein2 = GetObjectByTag("elemental_watergem_vein_2");
-	 object oVein3 = GetObjectByTag("elemental_watergem_vein_3");
-	 object oVein4 = GetObjectByTag("elemental_watergem_vein_4");
-	 object oVein5 = GetObjectByTag("elemental_watergem_vein_5");
-	 
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_it_gem_083b", oVein1, Random(5));
+ 
+if((GetTag(OBJECT_SELF) == "slv_deandragon_e_water_3") && (GetLocalInt(OBJECT_SELF, "Triggered") != 1))
+	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
+	object oVein1 = GetObjectByTag("elemental_watergem_vein_1");
+	object oVein2 = GetObjectByTag("elemental_watergem_vein_2");
+	object oVein3 = GetObjectByTag("elemental_watergem_vein_3");
+	object oVein4 = GetObjectByTag("elemental_watergem_vein_4");
+	object oVein5 = GetObjectByTag("elemental_watergem_vein_5");
+	if(Random(2)==1)
+		{CreateItemOnObject("abr_it_gem_007", oVein1, Random(3));
 		}
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_it_gem_083b", oVein2, Random(5));
+	if(Random(2)==1)
+		{CreateItemOnObject("abr_it_gem_030", oVein2, Random(3));
 		}
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_it_gem_083b", oVein3, Random(5));
+	if(Random(2)==1)
+		{CreateItemOnObject("abr_it_gem_083", oVein3, Random(3));
 		}
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_it_gem_083b", oVein4, Random(5));
+	if(Random(2)==1)
+		{CreateItemOnObject("003_it_harvest_moss_blue", oVein4, Random(3));
 		}
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("abr_it_gem_083b", oVein5, Random(5));
+	if(Random(2)==1)
+		{CreateItemOnObject("003_it_harvest_moss_blue", oVein5, Random(3));
 		}
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("003_it_harvest_moss_blue", oVein1, Random(5));
+	if(Random(5)==1)
+		{CreateItemOnObject("abr_it_gem_038", oVein1, 1);
 		}
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("003_it_harvest_moss_blue", oVein2, Random(5));
+	if(Random(5)==1)
+		{CreateItemOnObject("abr_it_gem_038", oVein2, 1);
 		}
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("003_it_harvest_moss_blue", oVein3, Random(5));
+	if(Random(5)==1)
+		{CreateItemOnObject("abr_it_gem_038", oVein3, 1);
 		}
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("003_it_harvest_moss_blue", oVein4, Random(5));
+	if(Random(5)==1)
+		{CreateItemOnObject("abr_it_gem_038", oVein4, 1);
 		}
-	 if(Random(2) == 1)
-	 	{CreateItemOnObject("003_it_harvest_moss_blue", oVein5, Random(5));
+	if(Random(5)==1)
+		{CreateItemOnObject("abr_it_gem_038", oVein5, 1);
 		}
-	 
 	}
-
 }

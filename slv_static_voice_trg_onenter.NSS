@@ -25,6 +25,7 @@
 #include "acr_quest_i"
 #include "acr_spawn_i"
 #include "dmfi_inc_langexe" 
+#include "acr_hazards_i"
 
 
 
@@ -252,8 +253,13 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 	 
 	 // Deandragon_K toggle silence
 	if((GetTag(OBJECT_SELF) == "deandragon_k_silence") && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
-	 	{effect eSilence = EffectSilence();
-		 ApplyEffectToObject(DURATION_TYPE_PERMANENT, eSilence, GetEnteringObject());
+	 	{if((ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 3) || (ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 4) ||(ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 5))
+			 {SetLocalInt(OBJECT_SELF, "Toggle", 1);}
+		 if(GetLocalInt(OBJECT_SELF, "Toggle") == 1)	 
+			  {effect eSilence = EffectSilence();
+			   if(!WillSave(GetEnteringObject(), 15, SAVING_THROW_TYPE_MIND_SPELLS, OBJECT_SELF))
+			 	{ApplyEffectToObject(DURATION_TYPE_PERMANENT, eSilence, GetEnteringObject());}
+			  }
 		}
 	 
 	 	// Deandragon_K create huts
@@ -331,7 +337,8 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 					 }
 		    object oDoor = GetNearestObjectByTag("leomund_shelter_door", OBJECT_SELF, 1);
 			SetLockLockable(oDoor, TRUE);
-			SetLocked(oDoor, TRUE);
+			SetLocked(oDoor, FALSE);
+			DelayCommand(3.0, ActionOpenDoor(oDoor));
 					
 		   
 			if(GetLocalInt(oMyWaypoint, "Deandragon_k_spawn") == 0)
@@ -349,6 +356,7 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 				 	 {SetLocalInt(OBJECT_SELF, "Spawned", 1);
 					 string sSpawn;
 					 int iSpawn = Random(5) + 1;
+					 SendMessageToPC(GetEnteringObject(), "The door bursts open wide!");
 					 if((iSpawn >= 1) && (iSpawn <=3))
 					 	{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter02", GetLocation(oMyWaypoint));
 						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(oMyWaypoint));
@@ -374,7 +382,6 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 				{object oBox = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_deandragon_lockbox_plc", GetLocation(oMyWaypoint));
 				 SetLocked(oBox, FALSE);
 				 object oRock = CreateItemOnObject("slv_deandragon_k_keepsake", oBox, 1);
-				 object oScales = CreateItemOnObject("slv_deandragon_k_scales", oBox, 1);
 				 if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_LISTEN, 25, TRUE))
 				   	{DelayCommand(1.0, SendMessageToPC(GetEnteringObject(), "You hear only silence from within this hut."));
 					}
@@ -418,35 +425,29 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_x") && (ACR_RetrieveQuestState("slv_d
 
 	 
 	 // Xan's speech for Deandragon_x
-	 if((GetTag(OBJECT_SELF) == "slv_deandragon_x_xan")  && (ACR_RetrieveQuestState("slv_deandragon_x", GetEnteringObject()) == 3) && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
- 	 	{ACR_AddPersistentJournalQuestEntry("slv_deandragon_x", 4, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+	 if((GetTag(OBJECT_SELF) == "slv_deandragon_x_xan")  && (GetLocalInt(OBJECT_SELF, "Triggered") != 1) && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+ 	 	{if(ACR_RetrieveQuestState("slv_deandragon_x", GetEnteringObject()) == 3)
+			{ACR_AddPersistentJournalQuestEntry("slv_deandragon_x", 4, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);}
+		 SetLocalInt(OBJECT_SELF, "Triggered", 1);
+		 DelayCommand(3600.0, SetLocalInt(OBJECT_SELF, "Triggered", 0));
 		 object oXanWP = GetWaypointByTag("slv_deandragon_x_dream");
-		 object oWakeWP = GetWaypointByTag("slv_deandragon_x_wake");
 		 object oXan = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_xan", GetLocation(oXanWP));
-		 object oDreamRoom = CreateObject(OBJECT_TYPE_PLACED_EFFECT, "slv_tra100_steamroom", GetLocation(oXanWP));
-		 effect eSleep = EffectSleep();
-		 effect eParalyse = EffectParalyze(50, SAVING_THROW_WILL, FALSE);
 		 DestroyObject(oXan, 125.0);
-		 DestroyObject(oDreamRoom, 301.0);
-		 FloatingTextStringOnCreature("Are you dreaming? Is this an elven revery? You cannot move. The surroundings have changed and have an odd, dreamlike quality. An elf stands before you, studying the surroundings morosely.", oXan, FALSE, 12.0);		 
 		 DelayCommand(12.0, AssignCommand(oXan, ActionSpeakString("So I was right. We were all doomed. Or at least just me. *Muttered to himself*", TALKVOLUME_TALK)));
-		 DelayCommand(24.0, AssignCommand(oXan, ActionSpeakString("Lost Occidian. *Musingly* This is how I saw it, touring with the noble elven Sage. We conversed then on the tragedies of civilizations lost. Now...Occidian is but Evereska, writ in elder runes. Or ruins, as they both are today.", TALKVOLUME_TALK)));
+		 DelayCommand(24.0, AssignCommand(oXan, ActionSpeakString("We could converse on the tragedies of civilizations lost. Now...Occidian is but Evereska, writ in elder runes. Or ruins, as they both are today.", TALKVOLUME_TALK)));
 		 DelayCommand(36.0, AssignCommand(oXan, ActionSpeakString("Thank you for activating my kiira. At least somebody wants to dream me alive, to hear something I have to say.  A hollow victory over death. *Glum*  You should all just give up now and save yourselves whatever effort you are involved in.", TALKVOLUME_TALK)));
-		 DelayCommand(48.0, AssignCommand(oXan, ActionSpeakString("So, since we dream Occidian, I presume you seek information I may have gathered on my trip through here on my way to ignominy, incarceration and ultimately unpleasant decapitation. It's useless, of course, but I will tell what I know.", TALKVOLUME_TALK)));
+		 DelayCommand(48.0, AssignCommand(oXan, ActionSpeakString("So, since we dream this cave, I presume you seek information I may have gathered on my trip through here on my way to ignominy, incarceration and ultimately unpleasant decapitation. It's useless, of course, but I will tell what I know.", TALKVOLUME_TALK)));
 		 DelayCommand(60.0, AssignCommand(oXan, ActionSpeakString("What can I tell you, though? You already have passed the test of friendly knowledge by selecting the correct dragonkin to enter; you must have earned the Sage's trust..difficult enough with his constant distraction with carving the history and feeding his pet baby giant.", TALKVOLUME_TALK)));
-		 DelayCommand(72.0, AssignCommand(oXan, ActionSpeakString("What? Wait? I see it in your own knowledge.... You've been sent on some sort of test by that frivolous old human who last activated my kiira? You had to determine the correct dragonkin yourself...because /she/ is the new Sage? It is worse than even I thought.", TALKVOLUME_TALK)));
-		 DelayCommand(84.0, AssignCommand(oXan, ActionSpeakString("Very well, then, since you know absolutely nothing.... *Looks around*  Here was the Xorn Tunnel, created by the Sage -- the /previous/ Sage -- (You truly are doomed, you know?) to reach the buried knowledge of Occidian. Clever chap. I suppose the Xorn aren't behaving very well if he has gone to Labelas' side?", TALKVOLUME_TALK)));
-		 DelayCommand(96.0, AssignCommand(oXan, ActionSpeakString("I don't dream any sign of activity here, at least, and though the Xorn leave no trace, others would.  *Shakes head sadly.* She must not know enough to honor her predecessor's bargain with the Xorn.", TALKVOLUME_TALK)));
-		 DelayCommand(108.0, AssignCommand(oXan, ActionSpeakString("Well, that's it, then. All is lost from ancient Occidian's marvels, all buried. You will never get through the miles of accreted history -- and by that I mean dirt -- that separate Occidian from the present.", TALKVOLUME_TALK)));
-		 DelayCommand(120.0, AssignCommand(oXan, ActionSpeakString("There's no sense in trying and you have wasted the entire dream learning that. Goodbye. You will now wake up.", TALKVOLUME_TALK)));
-		 DelayCommand(130.0, JumpPartyToArea(GetEnteringObject(), oWakeWP)); 
+		 DelayCommand(72.0, AssignCommand(oXan, ActionSpeakString("What? Wait? I see it in your own knowledge.... There is no Sage? Not anymore? Not even my kiira anymore? What wizardry is this? What am I? But a reflection? A captured memory? It is worse than even I thought.", TALKVOLUME_TALK)));
+		 DelayCommand(84.0, AssignCommand(oXan, ActionSpeakString("Very well, then, since you know absolutely nothing.... *Looks around*  Here was the xorn tunnel, created by the Sage -- the /previous/ Sage -- (You truly are doomed, you know?) to reach the buried knowledge of Occidian. Clever chap. I suppose the xorn aren't behaving very well if he has gone to Labelas' side?", TALKVOLUME_TALK)));
+		 DelayCommand(96.0, AssignCommand(oXan, ActionSpeakString("I don't dream any sign of activity here, at least, and though the xorn leave no trace, others would.  *Shakes head sadly.* They do not know enough to honor their predecessor's bargain with the xorn.", TALKVOLUME_TALK)));
+		 DelayCommand(108.0, AssignCommand(oXan, ActionSpeakString("Well, that's it, then. All is lost from my lifetime and yours, all buried. Only a xorn can pass through the miles of accreted history -- and by that I mean dirt -- that separate any destination from any embarkation.", TALKVOLUME_TALK)));
+		 DelayCommand(120.0, AssignCommand(oXan, ActionSpeakString("There's no sense in trying and you have wasted my entire dream learning that. Goodbye. I will now wake up.", TALKVOLUME_TALK)));
 		 object oParty = GetFirstFactionMember(GetEnteringObject(), TRUE);
 		 while(oParty != OBJECT_INVALID)
 			{DelayCommand(125.0, FadeToBlack(GetEnteringObject(), FADE_SPEED_MEDIUM, 10.0));
 			 DelayCommand(135.0, FadeFromBlack(GetEnteringObject(), FADE_SPEED_MEDIUM));
-			 DelayCommand(136.0, RemoveEffect(GetEnteringObject(), eParalyse));
-			 DelayCommand(137.0, RemoveEffect(GetEnteringObject(), eSleep));
-		 	 oParty = GetNextFactionMember(GetEnteringObject(), TRUE);
+			 oParty = GetNextFactionMember(GetEnteringObject(), TRUE);
 			}
 		}
 	 

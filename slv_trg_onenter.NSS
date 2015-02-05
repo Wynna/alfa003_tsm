@@ -489,6 +489,20 @@ if((GetIsPC(oStudent)) && (GetLocalInt(oStudent, "Classes") != 1))
 			}
 		}
 
+	if((GetTag(OBJECT_SELF) == "slv_vala_secret_phoenix") && ((GetIsPC(oStudent)) || (GetIsDMPossessed(oStudent))))
+			{object oBookcase = GetLocalObject(OBJECT_SELF, "oBookcase");
+		 if(oBookcase == OBJECT_INVALID)
+		 	{oBookcase = GetObjectByTag("slv_vala_bookcase_phoenix");
+			 SetLocalObject(OBJECT_SELF, "oBookcase", oBookcase);
+			 }
+		int nUseable = GetUseableFlag(oBookcase);
+		if(nUseable == FALSE)
+			{if(GetItemPossessedBy(oStudent, "slv_deanphoenix") != OBJECT_INVALID)
+				{SetUseableFlag(oBookcase, TRUE);
+				 }
+			}
+		}
+
 //Opens Dean's Secret Door only to Dean & Registrar Serapheena & DM
 		
 	if((GetTag(OBJECT_SELF) == "dean_secret") && ((FindSubString(GetTag(GetEnteringObject()), "_dean") != -1) ||(FindSubString(GetTag(GetEnteringObject()), "_registrar") != -1) || (FindSubString(GetTag(GetEnteringObject()), "_magus") != -1) || GetIsDMPossessed(GetEnteringObject())|| GetIsDM(GetEnteringObject())))

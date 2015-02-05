@@ -99,7 +99,7 @@ void main()
 	
 	
 	
-	
+	//Silverymoon's Mythal prohibits spells of certain domains, unless one is carrying a ward token
 	if((FindSubString(GetTag(GetArea(oCaster)), "6d_int_silvy") != -1)  || (GetLocalInt(GetArea(oCaster), "IS_SILVERYMOON_EXT")))
 			{if(nSpellId == SPELL_ANIMATE_DEAD || nSpellId == SPELL_AVASCULATE || nSpellId == SPELL_CIRCLE_OF_DEATH || nSpellId == SPELL_CREATE_GREATER_UNDEAD 
 			    || nSpellId == SPELL_CREATE_UNDEAD || nSpellId == SPELL_DEATH_KNELL || nSpellId == SPELL_FINGER_OF_DEATH || nSpellId == SPELL_HORRID_WILTING 
@@ -155,7 +155,8 @@ void main()
 							 }
 						}
 				}	 
-							 
+	
+	//Detect Magic inside the Lady's College						 
 	if(FindSubString(GetTag(GetArea(oCaster)), "ladycol") != -1) 
 		{if(nSpellId == 930)					 
 			{SendMessageToPC(oCaster, "The sense of magic comes from every side and completely overwhelms any individual magical signatures.");}
@@ -172,6 +173,7 @@ void main()
 			}
 		}
 			
+	//4thPeak Cave Ruins Lever
 	if((GetTag(GetArea(oCaster)) == "5b_int_fourthpeak_caveruins") && (nSpellId == SPELL_GREASE ))
 	 	{object oLever = GetObjectByTag("dr_lockdoor_lvr_1");
 			 
@@ -180,6 +182,13 @@ void main()
 	     SetLocalInt(oLever, "Greased", 1);
 		 SetLocalInt(oLever2, "Greased", 1);
 		 }
+		 
+	//Deandragon_d_Bless_Weapon
+	
+	if((GetTag(oTarget)=="003_it_wpn_dragontalon") && (nSpellId==SPELL_BLESS_WEAPON))
+		{SendMessageToPC(GetItemPossessor(oTarget), "The edge of the surgical blade grows -- if possible -- even sharper with the blessing.");
+		 SetLocalInt(GetItemPossessor(oTarget), "BlessedWeapon", 1);
+		}
 	
 	//Standard Evocation	 
 	 if((GetTag(GetArea(oCaster)) == "6d_int_silvy_ladycol_class_lvl") && (nSpellId == SPELL_FLARE) && (GetTag(oTarget) == "slv_evo200_poisoncircle"))

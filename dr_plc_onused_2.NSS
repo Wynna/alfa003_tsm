@@ -22,6 +22,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include "acr_placeable_i"
+#include "acr_trigger_i"
 
 ////////////////////////////////////////////////////////////////////////////////
 // Constants ///////////////////////////////////////////////////////////////////
@@ -83,7 +84,6 @@ void main() {
 	  effect eDrown = EffectDamage(Random(6) + 1, DAMAGE_TYPE_ALL, DAMAGE_POWER_NORMAL, FALSE);
 	  effect eBatter = EffectDamage(Random(6) + 1, DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE);
 	  effect eCold = EffectDamage(Random(6) + 1, DAMAGE_TYPE_COLD, DAMAGE_POWER_NORMAL, FALSE);
-	  effect eSwim;
 	  effect eUnconscious = EffectStunned();
 	  object oSuccess = GetLocalObject(OBJECT_SELF, "oSuccess");
 	  if(oSuccess == OBJECT_INVALID)
@@ -114,7 +114,7 @@ void main() {
 			  	{SetLocalInt(oMasterWP, "nLevel", 0);}
 			  else if((nLevel >0) && (nLevel < 10))
 			  	{SetLocalInt(oMasterWP, "nLevel", nLevel - 1);}
-			  if(nLevel == 5)
+			  if(nLevel == 4)
 				  {SoundObjectPlay(oRattle);
 				   SoundObjectPlay(oMetal);
 				   DelayCommand(10.0, SoundObjectStop(oRattle));
@@ -143,30 +143,51 @@ void main() {
 		object oPC = GetFirstObjectInShape(SHAPE_SPHERE, 20.0, GetLocation(oWaterFloorWP), FALSE, OBJECT_TYPE_CREATURE); 
 		int nSwimLevel;
 		int nSwimSize = 83 + nLevel-5;
-				 if(nLevel >= 4) 
-					{if(GetObjectByTag("DR_Swim_Well") != OBJECT_INVALID)
-						{DestroyObject(GetObjectByTag("DR_Swim_Well"));
-					 	}
-					 ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, EffectAreaOfEffect(nSwimSize, "abr_trg_swimonenter", "", "abr_trg_swimonexit", "DR_Swim_Well"), GetLocation(GetWaypointByTag("DR_AOE_WP")), 3600.0);
-					 SetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC", 10 + nLevel);
-					 if(nLevel == 10)
-					 	{SetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC", 10);
-					 }
-					
-					 
-				 }
+		if(nLevel==10)
+			{nSwimSize = 87;}
+		if((nLevel == 4) && (GetLocalInt(oPC, "Swimming") == 1))
+			{ExitWater(OBJECT_SELF, oPC);
+			 SetLocalInt(oPC, "Swimming", 0);
+			 }
+		if(nLevel >= 4) 
+			{if(GetObjectByTag("DR_Swim_Well") != OBJECT_INVALID)
+				{DestroyObject(GetObjectByTag("DR_Swim_Well"));
+				}
+			}
+		
+		if(nLevel >= 5) 
+			{ ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, EffectAreaOfEffect(nSwimSize, "abr_trg_swimonenter", "", "abr_trg_swimonexit", "DR_Swim_Well"), GetLocation(GetWaypointByTag("DR_AOE_WP")), 3600.0);
+			 SetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC", 22 - nLevel);
+			  if(nLevel == 5)
+				{SetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC", 10);
+				}
+			if(nLevel == 10)
+				{SetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC", 10);
+				}
+			}
 		    int nDistance;
 			while((oPC != OBJECT_INVALID) && ((GetIsPC(oPC))  ||!(GetIsPC(oPC)) || (GetMaster(oPC) != OBJECT_INVALID) || (GetIsDMPossessed(oPC))))
 			 	{int nWeight = GetWeight(oPC); 
 				 int nWeightPenalty = nWeight / 50;
+				 if(nWeightPenalty < 1)
+				 	{nWeightPenalty = 0;}
+				 else if(nWeightPenalty < 2)
+				 	{nWeightPenalty = 1;}
+				 else if(nWeightPenalty < 3)
+				 	{nWeightPenalty = 2;}
+				 else if(nWeightPenalty < 4)
+				 	{nWeightPenalty = 3;}
+				else {nWeightPenalty = 4;}
 				 int nSize = GetCreatureSize(oPC);
 				 if((GetMaster(oPC) != OBJECT_INVALID) || (GetRacialType(oPC) == RACIAL_TYPE_DWARF) || (nSize < 3))
 				 	{nSwimLevel = 5;}
 				 else 
 				 	{nSwimLevel = 6;}
 				 SetLocalInt(oPC, "nSwimLevel", nSwimLevel);
+				 if(GetDistanceBetween(oPC, oWaterFloorWP) < 25.0)
+				 	{nDistance = 25;}
 				 if(GetDistanceBetween(oPC, oWaterFloorWP) < 17.0)
-				 	{nDistance = 18;}
+				 	{nDistance = 17;}
 				 if(GetDistanceBetween(oPC, oWaterFloorWP) < 13.0)
 				 	{nDistance = 13;}
 				 if(GetDistanceBetween(oPC, oWaterFloorWP) < 10.0)
@@ -176,40 +197,100 @@ void main() {
 				 if(GetDistanceBetween(oPC, oWaterFloorWP) < 3.95)
 				 	{nDistance = 4;}
 					
-					 if(nRising == 1)
-				 	{SendMessageToPC(oPC, "The water is rising!");}
+				 if((nRising == 1) && (GetLocalInt(oMasterWP, "RisingMsg") != 1))
+				 		{SendMessageToPC(oPC, "The water is rising!");
+						 SetLocalInt(oMasterWP, "RisingMsg", 1);
+						 DelayCommand(10.0, SetLocalInt(oMasterWP, "RisingMsg", 0));
+						 }
 				 
-		 	     if(nRising == 2)
-					 {SendMessageToPC(oPC, "The water level is falling!");}
+		 	     if((nRising == 2) && (GetLocalInt(oMasterWP, "FallingMsg") != 1))
+					 {SendMessageToPC(oPC, "The water level is falling!");
+					  SetLocalInt(oMasterWP, "FallingMsg", 1);
+					  DelayCommand(10.0, SetLocalInt(oMasterWP, "FallingMsg", 0));
+						}
 			    
 				 SetLocalInt(oPC, "nDistance", nDistance);
-				 if((GetLocalInt(oPC, "SwimmingSuccess") != 1) && (GetLocalInt(oPC, "SwimmingSucceeded") != 1))
-				 	{if((nLevel >= 5) && (GetLocalInt(oPC, "Swimming") != 1))
-							{if((nLevel >= 5) && (GetLocalInt(oPC, "nSwimLevel") == 5) && (GetLocalInt(oPC, "nDistance") == 4))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								if(GetMaster(oPC) != OBJECT_INVALID)
-								 	{SendMessageToPC(GetMaster(oPC), "Your familiar is swept away!");
-									 AssignCommand(GetMaster(oPC),ActionSpeakStringByStrRef(ASSOCIATE_COMMAND_UNSUMMONFAMILIAR, TALKVOLUME_TALK) );
+				 if((GetLocalInt(oPC, "SwimmingSuccess") != 1) && (GetLocalInt(oPC, "SwimmingSucceeded") != 1) )
+				 	{if(GetLocalInt(oPC, "Swimming") != 1)
+						{if(nLevel >= 4) 
+								{SendMessageToPC(oPC, "The currents are strong and could knock you off your feet!");}
+									    
+							if((nLevel == 6)|| (nLevel == 5))
+								{if(nLevel == GetLocalInt(oPC, "nSwimLevel")) 
+									{if(GetLocalInt(oPC, "nDistance") <= 7) 
+										{if(Random(20) + 1 + GetAbilityModifier(ABILITY_STRENGTH, oPC)< GetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC"))
+											{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
+										     SetLocalInt(oPC, "Swimming", 1);
+											}
+										}
 									}
-								if(GetMaster(oPC) != OBJECT_INVALID)
-								 	{SendMessageToPC(GetMaster(oPC), "Your familiar is swept away!");
-									 AssignCommand(GetMaster(oPC),ActionSpeakStringByStrRef(ASSOCIATE_COMMAND_UNSUMMONFAMILIAR, TALKVOLUME_TALK) );
+								
+								else if((nLevel == GetLocalInt(oPC, "nSwimLevel")) && (GetLocalInt(oPC, "nDistance") <= 7))
+									{SendMessageToPC(oPC, "You struggle to stay on your feet!" + IntToString(nLevel) + "/" + IntToString(GetLocalInt(oPC, "nSwimLevel")));
 									}
 								}
-							if((nLevel >= 5) && (GetLocalInt(oPC, "nSwimLevel") == 5) && (GetLocalInt(oPC, "nDistance") == 7))
-								{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
-							     SetLocalInt(oPC, "Swimming", 1);
-								 if(GetMaster(oPC) != OBJECT_INVALID)
-								 	{SendMessageToPC(GetMaster(oPC), "Your familiar is swept away!");
-									 AssignCommand(GetMaster(oPC),ActionSpeakStringByStrRef(ASSOCIATE_COMMAND_UNSUMMONFAMILIAR, TALKVOLUME_TALK) );
+							
+							if((nLevel == 7) || (nLevel == 6))
+								{if(nLevel == GetLocalInt(oPC, "nSwimLevel") +1) 
+									{if(GetLocalInt(oPC, "nDistance") <= 10) 
+										{if(Random(20) + 1 + GetAbilityModifier(ABILITY_STRENGTH, oPC)< GetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC"))
+											{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
+										     SetLocalInt(oPC, "Swimming", 1);
+											}
+										}
+									}
+								
+							else if((nLevel == GetLocalInt(oPC, "nSwimLevel") +1) && (GetLocalInt(oPC, "nDistance") <= 10))
+									{SendMessageToPC(oPC, "You struggle to stay on your feet!" + IntToString(nLevel) + "/" + IntToString(GetLocalInt(oPC, "nSwimLevel")));
 									}
 								}
 						
-							}	 
+						if((nLevel == 8) || (nLevel == 7))
+								{if(nLevel == GetLocalInt(oPC, "nSwimLevel") +2) 
+									{if(GetLocalInt(oPC, "nDistance") <= 13) 
+										{if(Random(20) + 1 + GetAbilityModifier(ABILITY_STRENGTH, oPC)< GetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC"))
+											{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
+										     SetLocalInt(oPC, "Swimming", 1);
+											}
+										}
+									}
+								else if((nLevel == GetLocalInt(oPC, "nSwimLevel") +2) && (GetLocalInt(oPC, "nDistance") <= 13))
+									{SendMessageToPC(oPC, "You struggle to stay on your feet!" + IntToString(nLevel) + "/" + IntToString(GetLocalInt(oPC, "nSwimLevel")));
+									}
+								}
+							
+							if((nLevel == 9)|| (nLevel == 8))
+								{if(nLevel == GetLocalInt(oPC, "nSwimLevel") +3) 
+									{if(GetLocalInt(oPC, "nDistance") <= 13) 
+										{if(Random(20) + 1 + GetAbilityModifier(ABILITY_STRENGTH, oPC)< GetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC"))
+											{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
+										     SetLocalInt(oPC, "Swimming", 1);
+											}
+										}
+									}
+								else if((nLevel == GetLocalInt(oPC, "nSwimLevel") +3) && (GetLocalInt(oPC, "nDistance") <= 13))
+									{SendMessageToPC(oPC, "You struggle to stay on your feet!" + IntToString(nLevel) + "/" + IntToString(GetLocalInt(oPC, "nSwimLevel")));
+									}
+								}
+								
+							if(nLevel == 9)
+								{if(nLevel == GetLocalInt(oPC, "nSwimLevel") +4) 
+									{if(GetLocalInt(oPC, "nDistance") <= 13) 
+										{if(Random(20) + 1 + GetAbilityModifier(ABILITY_STRENGTH, oPC)< GetLocalInt(GetObjectByTag("DR_Swim_Well"), "ACR_SWIM_DC"))
+											{SendMessageToPC(oPC, "Cold water rushes around you, knocking you off your feet!");
+										     SetLocalInt(oPC, "Swimming", 1);
+											}
+										}
+									}
+								else if((nLevel == GetLocalInt(oPC, "nSwimLevel") +4) && (GetLocalInt(oPC, "nDistance") <= 13))
+									{SendMessageToPC(oPC, "You struggle to stay on your feet!" + IntToString(nLevel) + "/" + IntToString(GetLocalInt(oPC, "nSwimLevel")));
+									}
+								}
+						 }
 							 
 						if(GetLocalInt(oPC, "Swimming") == 1)
-							{int nUnconscious = GetLocalInt(oPC, "nUnconscious");	
+							{SendMessageToPC(oPC, "Inside swimming");
+							 int nUnconscious = GetLocalInt(oPC, "nUnconscious");	
 							 if(FortitudeSave(oPC, 5 + nLevel + nUnconscious, SAVING_THROW_TYPE_NONE, oWater) == 0) 
 									{int nRandom = Random(3);
 									 if(nRandom == 0)
@@ -226,7 +307,7 @@ void main() {
 									     }
 								 	}
 							  else 
-							  		{SendMessageToPC(oPC, "You manage to avoid all hazards.");
+							  		{DelayCommand(3.0, SendMessageToPC(oPC, "You manage to avoid all hazards."));
 									 }
 								
 							 if((Random(20) + 1 + GetAbilityModifier(ABILITY_STRENGTH, oPC) - nWeightPenalty > 15) && (nLevel > 8)) 
@@ -236,11 +317,10 @@ void main() {
 								 SetLocalInt(oPC, "Drowning", 0);
 								 SetLocalInt(oPC, "Swimming", 0);
 								 SetLocalInt(oPC, "nUnconscious", 0);
-								 RemoveEffect(oPC, eSwim);
 								 }
 							else 
 								{SendMessageToPC(oPC, "You are swept away by the strong current.");
-							     object oSwim = GetNearestObjectByTag("alfa_swim_hard", oPC, Random(10));
+							     object oSwim = GetNearestObjectByTag("alfa_swim_hard", oPC, Random(8));
 			  					 AssignCommand(oPC, ActionJumpToLocation(GetLocation(oSwim)));
 								 int nHoldBreath = GetAbilityScore(oPC, ABILITY_CONSTITUTION, FALSE) * 2;
 								 if(Random(20) + 1 + GetAbilityModifier(ABILITY_CONSTITUTION, oPC) < 10) 
@@ -296,8 +376,7 @@ void main() {
 		     SetLocalInt(oPC, "Drowning", 0);
 			 SetLocalInt(oPC, "Swimming", 0);
 			 SetLocalInt(oPC, "nUnconscious", 0);
-			 RemoveEffect(oPC, eSwim);
-			 return;
+			return;
 			} 
 		if(nLevel <= 8)
 			{object oCollBoxHighWP = GetLocalObject(OBJECT_SELF, "oCollBoxHighWP");
@@ -320,7 +399,7 @@ void main() {
 			 
 			}
 	    		
-		if(nLevel == 10)
+		if(GetLocalInt(oMasterWP, "nLevel") == 10)
 		  {if(Random(2)==1) 	
 			{AssignCommand(oPC, ActionJumpToLocation(GetLocation(oSuccess)));
 			 	SendMessageToPC(oPC, "As the pit stops filling and the currents slow, you are washed onto the high platform");

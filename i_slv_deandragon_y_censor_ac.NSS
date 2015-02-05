@@ -103,7 +103,7 @@ void main()
 			 DestroyObject(oArdeorowym, 30.0);
 			 DelayCommand(35.0, FloatingTextStringOnCreature("*The smoke has dissipated, how long ago you don't know. As the images fade, there is a brief silence, and then the Dean speaks quietly.", oStudent, TRUE, 15.0));
 			 SetLocalInt(oModule, "Deandragon_Y_Rep", 0);
-			 DelayCommand(45.0, AssignCommand(oDean, ActionSpeakString("Why you? Think on this, and think well. Is it your part to give your knowledge, your efforts, your youth and death to this timeline? Think on it. The keyword you seek now, though, is 'Youthful'.", TALKVOLUME_TALK)));
+			 DelayCommand(45.0, AssignCommand(oDean, ActionSpeakString("Why you? Think on this, and think well. Is it your part to give your knowledge, your efforts, your youth and death to this timeline? Think on it. The keyword you seek now, though, is 'Yard'.", TALKVOLUME_TALK)));
 			 DestroyObject(oDean, 600.0);
 			 DestroyObject(oAbj, 600.0);
 			 DestroyObject(oCon, 600.0);

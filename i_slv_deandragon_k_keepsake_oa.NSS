@@ -16,8 +16,7 @@ void main()
 	object oArea = GetArea(oTaker);
 	
 	if((GetTag(oItem) == "slv_deandragon_k_keepsake") && (ACR_RetrieveQuestState("slv_deandragon_k", oTaker) == 5) && ((GetIsPC(oTaker)) || (GetIsDMPossessed(oTaker))))
-        {SendMessageToPC(oTaker, "You have acquired a set of beautiful metallic scales from some large creature. The scales shimmer irridescently and ring with a lingering musical tone when tapped.");
-		 SendMessageToPC(oTaker, "You have acquired a rock.");
+        {SendMessageToPC(oTaker, "You have acquired a rock.");
 		 DelayCommand(7.0, SendMessageToPC(oTaker, "Written on the inside of the box is the word: 'Knowledge'."));
 		 ACR_AddPersistentJournalQuestEntry("slv_deandragon_k", 6, oTaker);
 		 if(GetTag(oBox) == "slv_deandragon_lockbox_plc")

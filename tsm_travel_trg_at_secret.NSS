@@ -82,7 +82,7 @@ void main()
 		
 	//ATing into secret areas
 	
-		 
+			
 	if(GetTag(OBJECT_SELF) == "TM_Holdfast") 
 		{object oPartyMember = GetFirstFactionMember(oTraveller, TRUE);
 		 while (oPartyMember != OBJECT_INVALID)
@@ -106,7 +106,30 @@ void main()
 			}
 		}
 		
-	
+	else if (GetTag(OBJECT_SELF) == "5g_auv_wild_enter")
+		{oDestination = GetLocalObject(OBJECT_SELF, "oDestination");
+		 if(oDestination == OBJECT_INVALID)
+				{oDestination = GetWaypointByTag("TM_Auvendell_Wild_WP");
+				 SetLocalObject(OBJECT_SELF, "oDestination", oDestination);
+				 }
+			
+		object oPartyMember = GetFirstFactionMember(oTraveller, TRUE);
+		 while (oPartyMember != OBJECT_INVALID)
+		 	{if(((GetIsSkillSuccessful(oPartyMember, SKILL_SPOT, 20, FALSE)) && (GetIsSkillSuccessful(oPartyMember, SKILL_SEARCH, 20, FALSE))) || (ACR_RetrieveQuestState("slv_deandragon_d", oPartyMember) > 0))
+				{if(GetLocalInt(GetArea(OBJECT_SELF), GetName(OBJECT_SELF)) != 1)
+					{SetLocalInt(GetArea(OBJECT_SELF), GetName(OBJECT_SELF), 1);
+					 SendMessageToPC(oPartyMember, "You have found a way to clamber around a spur of rock where it had seemed impassable.");
+			 		 DelayCommand(5.0, JumpPartyToArea(oTraveller, oDestination));
+					 DelayCommand(60.0, SetLocalInt(GetArea(OBJECT_SELF), GetName(OBJECT_SELF), 0));
+					 }
+				 }
+			else if(GetLocalInt(GetArea(OBJECT_SELF), GetName(OBJECT_SELF)) == 1)
+				{SendMessageToPC(oPartyMember, "One of your party members has discovered a way to clamber around a spur of rock where it had seemed impassable.");
+		 		 }
+			oPartyMember = GetNextFactionMember(oTraveller, TRUE);
+			}
+		}
+		
 		
 	else if (GetTag(OBJECT_SELF) == "TM_Auril")
 		{if(GetIsDM(GetEnteringObject()))
@@ -240,7 +263,7 @@ void main()
 			else if(GetLocalInt(GetArea(OBJECT_SELF), GetName(OBJECT_SELF)) == 1)
 				{SendMessageToPC(oPartyMember, "One of your party members has discovered a way into a hidden valley.");
 		 		 SetCommandable(TRUE, oPartyMember);
-		         //AssignCommand(oPartyMember, ActionJumpToObject(oDestination));
+		         AssignCommand(oPartyMember, ActionJumpToObject(oDestination));
 					 int iType = 2;
 					 object oAssociate = GetAssociate(iType, oPartyMember, 1);
 					 while(iType < 4)

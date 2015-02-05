@@ -16,8 +16,12 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 		 string sEdible = "That item is edible.";
 		 string sTainted = "That item is tainted by organic substances and the ratio of nourishment to waste is too low. It will count only half its weight towards payment.";
 		 string sEat = sInedible;
-		 object oXornArm1WP = GetWaypointByTag("xorn_arm_1");
-		 object oXornArm1 = GetNearestObjectByTag("003_cr_xorn_arm_1", oXornArm1WP);
+		 object oMyTrigger = GetLocalObject(OBJECT_SELF, "XornTrigger");
+			 if(oMyTrigger == OBJECT_INVALID)
+			 	{oMyTrigger = GetObjectByTag("slv_deandragon_x_xorn");
+				 SetLocalObject(OBJECT_SELF, "oMyTrigger", oMyTrigger);
+				 }
+		 object oXorn = GetLocalObject(oMyTrigger, "oXorn");
 		 int iTotalWeight;
 		 int iWeight;
 		 int nBaseItem = GetBaseItemType(oItem);
@@ -26,7 +30,6 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 			  || (nBaseItem == BASE_ITEM_SHORTSPEAR)  || (nBaseItem == BASE_ITEM_SPEAR))
 		 	{iWeight = FloatToInt(IntToFloat(GetWeight(oItem)) * 0.5);
 			 sEat = sTainted;
-			 SendMessageToPC(oUser, "1");
 			 }
 		 
 		 if((nBaseItem == BASE_ITEM_AMULET) || (nBaseItem == BASE_ITEM_ARMOR ) || (nBaseItem ==  BASE_ITEM_BASTARDSWORD ) || (nBaseItem ==  BASE_ITEM_BATTLEAXE ) || (nBaseItem ==  BASE_ITEM_BULLET ) || (nBaseItem ==  BASE_ITEM_CGIANT_AXE ) || (nBaseItem ==  BASE_ITEM_CGIANT_SWORD ) || (nBaseItem ==  BASE_ITEM_DAGGER)
@@ -36,8 +39,7 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 				     || (nBaseItem ==  BASE_ITEM_SHURIKEN ) || (nBaseItem ==  BASE_ITEM_SICKLE ) || (nBaseItem ==  BASE_ITEM_SMALLSHIELD ) || (nBaseItem ==  BASE_ITEM_THROWINGAXE ) || (nBaseItem ==  BASE_ITEM_TOWERSHIELD ) || (nBaseItem ==  BASE_ITEM_TWOBLADEDSWORD ) || (nBaseItem ==  BASE_ITEM_WARHAMMER ) || (nBaseItem ==  BASE_ITEM_WARMACE))
 		 	{iWeight = GetWeight(oItem);
 			 sEat = sEdible;
-			 SendMessageToPC(oUser, "2");
-			 }
+			}
 		 
 		 if((FindSubString(GetName(oItem), "Bell") != -1) || (FindSubString(GetName(oItem), "Block and Tackle") != -1)  || (FindSubString(GetName(oItem), "Chain") != -1)  || (FindSubString(GetName(oItem), "Crowbar") != -1) || (FindSubString(GetName(oItem), "Fishhook") != -1)  
 			 || (FindSubString(GetName(oItem), "Flask") != -1) || (FindSubString(GetName(oItem), "Flint and Steel") != -1)  || (FindSubString(GetName(oItem), "Grappling Hook") != -1)  || (FindSubString(GetName(oItem), "Hammer") != -1)  || (FindSubString(GetName(oItem), "Lantern") != -1)
@@ -45,10 +47,9 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 			   || (FindSubString(GetName(oItem), "Pot,") != -1)   || (FindSubString(GetName(oItem), "Ram,") != -1)  || (FindSubString(GetName(oItem), "Needle") != -1)  || (FindSubString(GetName(oItem), "Shovel") != -1) || (FindSubString(GetName(oItem), "Whistle") != -1)  
 				 || (FindSubString(GetName(oItem), "Metal") != -1)  || (FindSubString(GetName(oItem), "Stone") != -1)  || (FindSubString(GetName(oItem), "Whetstone") != -1) 
 				  || (FindSubString(GetName(oItem), "Gold") != -1) || (FindSubString(GetName(oItem), "Copper") != -1)|| (FindSubString(GetName(oItem), "Silver") != -1)|| (FindSubString(GetName(oItem), "Iron") != -1) || (FindSubString(GetName(oItem), "Steel") != -1)
-				  || (FindSubString(GetName(oItem), "Bronze") != -1)  || (FindSubString(GetName(oItem), "Bone") != -1))  
+				  || (FindSubString(GetName(oItem), "Bronze") != -1)  || (FindSubString(GetName(oItem), "Ingot") != -1))  
 			{iWeight = GetWeight(oItem);
 			 sEat = sEdible;
-			 SendMessageToPC(oUser, "3");
 			 }
 		 
 		 if((FindSubString(GetName(oItem), "Hide") != -1) || (FindSubString(GetName(oItem), "Leather") != -1) || (FindSubString(GetName(oItem), "Padded") != -1) 
@@ -61,7 +62,6 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 			{
 			 sEat = sInedible;
 			 iWeight = 0;
-			 SendMessageToPC(oUser, "4");
 			 }
 			 	
 			 	
@@ -70,58 +70,25 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 		 SetLocalInt(OBJECT_SELF, "TotalWeight", iTotalWeight);
 		 DestroyInventory(OBJECT_SELF);
 			 
-		 AssignCommand(oXornArm1, ActionSpeakString(sEat, TALKVOLUME_TALK));
-		 AssignCommand(oXornArm1, ActionSpeakString(IntToString(iTotalWeight) + " of your pounds.", TALKVOLUME_TALK));
+		 AssignCommand(oXorn, ActionSpeakString(sEat, TALKVOLUME_TALK));
 		 
-		 if((iTotalWeight >= 28) && (oXornArm1 != OBJECT_INVALID))	
+		 if((iTotalWeight >= 28) && (oXorn != OBJECT_INVALID))	
 			 {SetLocalInt(OBJECT_SELF, "TotalWeight", 0);
-			  object oMyTrigger = GetLocalObject(OBJECT_SELF, "XornTrigger");
-			 if(oMyTrigger == OBJECT_INVALID)
-			 	{oMyTrigger = GetObjectByTag("slv_deandragon_x_xorn");
-				 SetLocalObject(OBJECT_SELF, "oMyTrigger", oMyTrigger);
-				 }
-			 object oXornCrownWP = GetWaypointByTag("xorn_crown");
-			 object oXornBodyWP = GetWaypointByTag("xorn_body");
+			 object oXornBodyWP = GetWaypointByTag("xorn_arm_1");
+			 object oXornArm1WP = GetWaypointByTag("xorn_arm_2");
 			 object oXornArm2WP = GetWaypointByTag("xorn_arm_2");
 			 object oXornArm3WP = GetWaypointByTag("xorn_arm_3");
-			 object oXornEye2WP = GetWaypointByTag("xorn_eye_2");
-			 object oXornEye3WP = GetWaypointByTag("xorn_eye_3");
-			 object oXornEye4WP = GetWaypointByTag("xorn_eye_4");
-			 object oXornEye5WP = GetWaypointByTag("xorn_eye_5");
-			 object oXornEye6WP = GetWaypointByTag("xorn_eye_6");
 					 
-			 object oXornBody = GetNearestObjectByTag("003_plc_xorn_body", oXornBodyWP);
-			 object oXornCrown = GetNearestObjectByTag("003_plc_xorn_crown", oXornCrownWP);
-			 object oXornArm2 = GetNearestObjectByTag("003_cr_xorn_arm_2", oXornArm2WP);
-			 object oXornArm3 = GetNearestObjectByTag("003_cr_xorn_arm_3", oXornArm3WP);
-			 object oXornEye2 = GetNearestObjectByTag("003_plc_xorn_eyes_2", oXornEye2WP);
-			 object oXornEye3 = GetNearestObjectByTag("003_plc_xorn_eyes_3", oXornEye3WP);
-			 object oXornEye4 = GetNearestObjectByTag("003_plc_xorn_eyes_4", oXornEye4WP);
-			 object oXornEye5 = GetNearestObjectByTag("003_plc_xorn_eyes_5", oXornEye5WP);
-			 object oXornEye6 = GetNearestObjectByTag("003_plc_xorn_eyes_6", oXornEye6WP);
-					 
-			 AssignCommand(oXornArm1, ActionSpeakString("*Drops away through the stone floor without leaving a mark.", TALKVOLUME_TALK));
+			 AssignCommand(oXorn, ActionSpeakString("*Drops away through the stone floor without leaving a mark.", TALKVOLUME_TALK));
 			 effect eDust = EffectVisualEffect(VFX_IMP_DUST_EXPLOSION, FALSE);
 			 effect eStone = EffectVisualEffect(VFX_COM_CHUNK_STONE_MEDIUM, FALSE);
-			 DelayCommand(1.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornArm1)));
-			 DelayCommand(2.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornArm1)));
-			 DelayCommand(2.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornArm2)));
-			 DelayCommand(3.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornArm2)));
-			 DelayCommand(3.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornArm3)));
-			 DelayCommand(4.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornArm3)));
-			 
-			 DestroyObject(oXornBody, 1.0);
-			 DestroyObject(oXornCrown, 1.0);
-			 DestroyObject(oXornArm1, 1.0);
-			 DestroyObject(oXornArm2, 1.0);
-			 DestroyObject(oXornArm3, 1.0);
-			 DestroyObject(oXornEye2, 1.0);
-			 DestroyObject(oXornEye3, 1.0);
-			 DestroyObject(oXornEye4, 1.0);
-			 DestroyObject(oXornEye5, 1.0);
-			 DestroyObject(oXornEye6, 1.0);
-			 
-			 
+			 DelayCommand(1.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornArm1WP)));
+			 DelayCommand(2.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornArm1WP)));
+			 DelayCommand(2.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornArm2WP)));
+			 DelayCommand(3.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornArm2WP)));
+			 DelayCommand(3.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornArm3WP)));
+			 DelayCommand(4.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornArm3WP)));
+		 
 			 location lUser = GetLocation(oUser);
 			 object oDisgorged = GetLocalObject(OBJECT_SELF, "oDisgorged");
 			 if(oDisgorged == OBJECT_INVALID)
@@ -131,7 +98,8 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 			 effect eParalyze = EffectParalyze();
 			 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oUser));
 			 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oUser));
-			 DelayCommand(1.0, AssignCommand(oUser, ActionJumpToLocation(GetLocation(oDisgorged))));
+			 DelayCommand(3.5, AssignCommand(oXorn, ActionJumpToLocation(GetLocation(oDisgorged))));
+			 DelayCommand(4.0, AssignCommand(oUser, ActionJumpToLocation(GetLocation(oDisgorged))));
 			 object oXornEaten = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_body", GetLocation(oDisgorged));
 			 object oXornEater = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_body", lUser);
 			 DelayCommand(1.0, AssignCommand(oXornEater, ActionSpeakString("*Erupts from the ground and engulfs " + GetName(oUser) + " whole! All limbs and eyes have merged with the body to create a smooth, frictionless surface.", TALKVOLUME_TALK)));
@@ -140,10 +108,12 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 			 DelayCommand(4.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oUser)));
 			 DestroyObject(oXornEater, 4.0);
 			 DelayCommand(4.0, AssignCommand(oXornEaten, ActionSpeakString("*Disgorges its passenger in a cloud of dust and clods of dirt. It drops away from around " + GetName(oUser), TALKVOLUME_TALK)));
+			 DestroyObject(oXorn, 5.0);
 			 DestroyObject(oXornEaten, 5.0);
 			 DelayCommand(7.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oDisgorged)));
 			 DelayCommand(7.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oDisgorged)));
-			 DelayCommand(5.0, SetLocalInt(oMyTrigger, "Xorn", 0));
+			 DelayCommand(7.5, AssignCommand(oXorn, ActionJumpToLocation(GetLocation(oXornArm1WP))));
+			 DelayCommand(8.0, SetLocalInt(oMyTrigger, "Xorn", 0));
 			 
 			 
 			 }

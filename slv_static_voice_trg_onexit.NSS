@@ -73,6 +73,7 @@ if((GetTag(OBJECT_SELF) == "deandragon_firetrap_activate") && (ACR_RetrieveQuest
 	 SetUseableFlag(oMyTrap, FALSE);
 	}
 	
+
 if((GetTag(OBJECT_SELF) == "deandragon_heatloop") && ((GetIsPC(GetExitingObject())) || (GetIsDMPossessed(GetExitingObject())))) 
 	 	{if(GetLocalInt(GetExitingObject(), "HeatRep") == 1)
 				{SetLocalInt(GetExitingObject(), "HeatRep", 0);

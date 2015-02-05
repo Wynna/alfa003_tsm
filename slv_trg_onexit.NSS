@@ -445,6 +445,25 @@ if((GetStringLeft(GetTag(OBJECT_SELF), 6) == "slv_in") && (GetTag(oStudent) != "
 				}
 			}
 		}
+		
+ if((GetTag(OBJECT_SELF) == "slv_vala_secret_phoenix") && ((GetIsPC(oStudent)) || (GetIsDMPossessed(oStudent))))
+		{object oBookcase = GetLocalObject(OBJECT_SELF, "oBookcase");
+		 if(oBookcase == OBJECT_INVALID)
+		 	{oBookcase = GetObjectByTag("slv_vala_bookcase_phoenix");
+			 SetLocalObject(OBJECT_SELF, "oBookcase", oBookcase);
+			 }
+		int nUseable = GetUseableFlag(oBookcase);
+		if(nUseable == TRUE)
+			{if(GetItemPossessedBy(oStudent, "slv_deanphoenix") != OBJECT_INVALID)
+				{if(GetIsOpen(oBookcase) == FALSE)
+					{SetUseableFlag(oBookcase, FALSE);
+					}
+				 else
+				 	{DelayCommand(600.0, SetUseableFlag(oBookcase, FALSE));
+					}
+				}
+			}
+		}
 
 //Closes Dean's Secret Door only to Dean & Registrar Serapheena & DM
 		

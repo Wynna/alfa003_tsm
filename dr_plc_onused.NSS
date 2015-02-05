@@ -424,14 +424,14 @@ void main() {
 		 	 {if(GetLocalInt(oMasterWP, "ClatterMsg") != 1)
 				  {SetLocalInt(oMasterWP, "ClatterMsg", 1);
 				   if((GetName(OBJECT_SELF) == "Rusty Lever") || (GetName(OBJECT_SELF) == "Dented Lever"))
-				 	{SpeakString("With the clattering groan of an ancient but still functioning mechanism, the drainage grate rises swiftly, revealing itself as the top of a massive metal door!" , TALKVOLUME_TALK);
-			 	  	 DelayCommand(3.0, SpeakString("The rattling of chains may be heard, but the workings of the door must be buried in solid rock to either side of the grooves in the walls that let it slide upward.", TALKVOLUME_TALK));
+				 	{SpeakString("*With the clattering groan of an ancient but still functioning mechanism, the drainage grate rises swiftly, revealing itself as the top of a massive metal door!*" , TALKVOLUME_TALK);
+			 	  	 DelayCommand(3.0, SpeakString("*The rattling of chains may be heard, but the workings of the door must be buried in solid rock to either side of the grooves in the walls that let it slide upward.*", TALKVOLUME_TALK));
 					 }
 				   if(GetName(OBJECT_SELF) == "Tarnished Lever")
-				 	{SpeakString("Somewhere, the rattling of chains may be heard, and the groaning of stressed metal. The drumming of water suddenly becomes louder, as if now enclosed.", TALKVOLUME_TALK);
+				 	{SpeakString("*Somewhere, the rattling of chains may be heard, and the groaning of stressed metal. The drumming of water suddenly becomes louder, as if now enclosed.*", TALKVOLUME_TALK);
 			 	  	 }
 				   }
-			  DelayCommand(3.0, SpeakString("The large pit chamber begins to fill with water. Violent, rushing currents churn around the central platform, frothing against jagged rocks.", TALKVOLUME_TALK));
+			  DelayCommand(3.0, SpeakString("*The large pit chamber begins to fill with water. Violent, rushing currents churn around the central platform, frothing against jagged rocks.*", TALKVOLUME_TALK));
 			  SoundObjectPlay(oRattle);
 			  SoundObjectPlay(oMetal);
 			  DelayCommand(15.0, SoundObjectStop(oRattle));
@@ -457,17 +457,17 @@ void main() {
 		else if(nState == 1)
 		 	 {SetLocalInt(oMasterWP, "nState", 0);
 			  if(GetLocalInt(oMasterWP, "CloseMsg") != 1)
-				 	{SpeakString("The lever grudgingly slides over. Beneath your feet the gurgle of pipes may be heard. The current swirls into violent whirlpools.", TALKVOLUME_TALK);
+				 	{SpeakString("*The lever grudgingly slides over. Beneath your feet the gurgle of pipes may be heard. The current swirls into violent whirlpools.*", TALKVOLUME_TALK);
 			  		 SetLocalInt(oMasterWP, "CloseMsg", 1);
 					 }
 			  if(nLevel <= 5)
 				  { if(GetLocalInt(oMasterWP, "ClatterMsg2") != 1)
 					{SetLocalInt(oMasterWP, "ClatterMsg2", 1);
 					 if((GetName(OBJECT_SELF) == "Rusty Lever") || (GetName(OBJECT_SELF) == "Dented Lever"))
-					 	{SpeakString("The massive metal door drops through the drainage channel in the floor, slamming into its resting place far below with an echo like a huge gong.", TALKVOLUME_TALK);
+					 	{SpeakString("*The massive metal door drops through the drainage channel in the floor, slamming into its resting place far below with an echo like a huge gong.*", TALKVOLUME_TALK);
 				 	  	 }
 				   if(GetName(OBJECT_SELF) == "Tarnished Lever")
-					 	{SpeakString("From across the pit roll deafening echoes like a huge gong. The rushing of water suddenly becomes quieter, as if no longer enclosed.", TALKVOLUME_TALK);
+					 	{SpeakString("*From across the pit roll deafening echoes like a huge gong. The rushing of water suddenly becomes quieter, as if no longer enclosed.*", TALKVOLUME_TALK);
 				 	  	 }
 					}
 			       SoundObjectPlay(oRattle);

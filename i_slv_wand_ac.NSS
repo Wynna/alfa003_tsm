@@ -24,5 +24,5 @@ void main()
 		SetLocalObject(GetItemActivator(), "Object_Target", oObject);
 		}
 	
-	AssignCommand(GetItemActivator(), ActionStartConversation(GetItemActivator(), "slv_wand", TRUE, TRUE, TRUE, TRUE ));
+	AssignCommand(GetItemActivator(), ActionStartConversation(GetItemActivator(), "slv_wand", TRUE, FALSE, TRUE, TRUE ));
    	}

@@ -14,6 +14,8 @@ void main()
 	effect eSleep = EffectSleep();
 	effect eParalyse = EffectParalyze(30, SAVING_THROW_WILL, FALSE);
 	effect eSymbol = EffectVisualEffect(VFX_DUR_SPELL_SYMBOL_OF_SLEEP, FALSE);
+	location lStudentStart = GetLocation(oStudent);
+	SetLocalLocation(oStudent, "Alastrarra_Gem_Start", lStudentStart);
 	
 	object oSlept = GetFirstObjectInShape(SHAPE_SPHERE, 60.0, GetLocation(oStudent), FALSE, OBJECT_TYPE_CREATURE);
 	while(oSlept != OBJECT_INVALID)
@@ -29,7 +31,8 @@ void main()
 				 	
 	if(ACR_RetrieveQuestState("slv_deandragon_x", oStudent) == 2)
 		{ACR_AddPersistentJournalQuestEntry("slv_deandragon_x", 3, oStudent, FALSE, FALSE, FALSE, FALSE);
-		 object oDeandragonXDream = GetLocalObject(oStudent, "oDeandragonXDream");
+		 }
+	object oDeandragonXDream = GetLocalObject(oStudent, "oDeandragonXDream");
 		 if(oDeandragonXDream == OBJECT_INVALID)
 		 	{oDeandragonXDream = GetWaypointByTag("slv_deandragon_x_dream");
 			 SetLocalObject(oStudent, "oDeandragonXDream", oDeandragonXDream);
@@ -42,21 +45,12 @@ void main()
 				 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyse, oDreamer, 300.0);
 				 DelayCommand(4.0, AssignCommand(oDreamer, ActionJumpToObject(oDeandragonXDream)));
 				 DelayCommand(10.0, FadeFromBlack(oDreamer, FADE_SPEED_MEDIUM));
-				 }
+				 DelayCommand(135.0, AssignCommand(oDreamer, ActionJumpToLocation(lStudentStart)));
+		 		 }
 			
 			oDreamer = GetNextObjectInShape(SHAPE_SPHERE, 60.0, GetLocation(oStudent), FALSE, OBJECT_TYPE_CREATURE);
 		    }
-			
-			
-		 object oDeandragonXWake = GetLocalObject(oStudent, "oDeandragonXWake");
-		 if(oDeandragonXWake == OBJECT_INVALID)
-		 	{oDeandragonXWake = GetWaypointByTag("slv_deandragon_x_wake");
-			 SetLocalObject(oStudent, "oDeandragonXWake", oDeandragonXWake);
-			 }
-		 DelayCommand(300.0, JumpPartyToArea(oStudent, oDeandragonXWake));
-		 }	
-	
+		
 				
-					
 						 
 }			  

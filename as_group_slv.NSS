@@ -147,7 +147,7 @@ if(GetName(OBJECT_SELF) == "Dean_Box_WP")
         object oMyDesk = ACR_SpawnObjectAtLocation("slv_desk0", OBJECT_TYPE_PLACEABLE, GetLocation(GetLocalObject(oMyTrig, GetName(oMyTrig) + "_Desk_WP")));
         SetLocalString(oMyDesk, "ACR_PSO_NAME", GetName(oMyTrig) + "_Desk");
 		object oMyFirestarter = ACR_SpawnObjectAtLocation("slv_firestarter0", OBJECT_TYPE_PLACEABLE, GetLocation(GetLocalObject(oMyTrig, GetName(oMyTrig) + "_Firestarter_WP")));
-        object oMyDean = ACR_SpawnObjectAtLocation("003_cr_slv_dean", OBJECT_TYPE_CREATURE, GetLocation(GetLocalObject(oMyTrig, GetName(oMyTrig) + "_Dean_Savengriff_WP")));
+        object oMyDean = ACR_SpawnObjectAtLocation("003_cr_slv_dean", OBJECT_TYPE_CREATURE, GetLocation(GetWaypointByTag("Dean_Dean_Savengriff_WP")));
         }		
 
 if(GetName(OBJECT_SELF) == "Registrar_Desk_WP")

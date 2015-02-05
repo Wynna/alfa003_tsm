@@ -47,4 +47,13 @@ void main()
 
     if(GetTag(OBJECT_SELF) == "003_cr_slv_bookwyrm")
 		{ActionRandomWalk();}
+		
+	if(GetTag(OBJECT_SELF) == "003_cr_slv_phoenix_statue")
+		{effect eParalyze = EffectParalyze();
+		 effect eStone = EffectVisualEffect(VFX_DUR_SPELL_STONESKIN, FALSE);
+		 ApplyEffectToObject(DURATION_TYPE_PERMANENT, eParalyze, OBJECT_SELF );
+		 ApplyEffectToObject(DURATION_TYPE_PERMANENT, eStone, OBJECT_SELF );
+		}
 	}
+	
+   

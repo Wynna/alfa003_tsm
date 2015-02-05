@@ -139,8 +139,8 @@ if(GetTag(OBJECT_SELF) == "slv_dorm")
 	 	{sOwner = sPOwner;
 		 sDescription = "This room is assigned to " + sPOwner + ".  ";}
 	 if(GetName(OBJECT_SELF) == "Dean_Dorm_1")
-	 	{sOwner = "Dean Vihuel";
-		 sDescription = "Cornelius Vihuel, Dean of Admissions";}
+	 	{sOwner = "Dean Savengriff";
+		 sDescription = "Savengriff, Dean of Admissions";}
 	 string sVisitors = GetLocalString(oArea, sPrefix + sPVisitor);
 	 object oMyCenterWP=GetLocalObject(oMyDoorTrig, GetName(oMyDoorTrig) + "_Center_WP");
 	 object oMyStudyWP=GetLocalObject(oMyDoorTrig, GetName(oMyDoorTrig) + "_Study_WP");
