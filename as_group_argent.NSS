@@ -50,18 +50,22 @@ void main();
 
 void main() {
 
- switch(Random(3)) {
+ switch(Random(4)) {
         case 0:
             ACR_SpawnObject("003_cr_argent_patrol_sgt", OBJECT_TYPE_CREATURE);
 			ACR_SpawnObject("003_cr_argent_scout_patrol", OBJECT_TYPE_CREATURE);
 			ACR_SpawnObject("003_cr_argent_patrol", OBJECT_TYPE_CREATURE);
 			ACR_SpawnObject("003_cr_argent_patrol", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_an_white_horse_stallion", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_an_white_horse_stallion", OBJECT_TYPE_CREATURE);
             
             break;
         case 1:
             ACR_SpawnObject("003_cr_argent_scout_patrol", OBJECT_TYPE_CREATURE);
 			ACR_SpawnObject("003_cr_argent_patrol", OBJECT_TYPE_CREATURE);
 			ACR_SpawnObject("003_cr_argent_patrol", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_an_white_horse_stallion", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_an_white_horse_stallion", OBJECT_TYPE_CREATURE);
             
             
             break;
@@ -69,6 +73,10 @@ void main() {
             ACR_SpawnObject("003_cr_argent_patrol", OBJECT_TYPE_CREATURE);
 			ACR_SpawnObject("003_cr_argent_patrol", OBJECT_TYPE_CREATURE);
             ACR_SpawnObject("003_cr_argent_patrol", OBJECT_TYPE_CREATURE);
+            
+	    case 3:
+            ACR_SpawnObject("003_cr_argent_patrol", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_an_white_horse_stallion", OBJECT_TYPE_CREATURE);
             
 	
 		}

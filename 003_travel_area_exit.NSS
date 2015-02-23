@@ -35,8 +35,7 @@ if (!GetIsDM(oExiter))
 	CloseGUIScreen(oExiter, SCREEN_DMFI_FOLLOWOFF);
 	while (GetIsEffectValid(eTest)) 
 		{if (GetEffectCreator(eTest) == OBJECT_SELF) 
-		{SendMessageToAllDMs("Removing eTest from " + GetName(oExiter));
-		RemoveEffect(oExiter, eTest); 
+		{RemoveEffect(oExiter, eTest); 
 	      } 
       eTest = GetNextEffect(oExiter); 
    		} 

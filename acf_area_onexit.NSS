@@ -51,4 +51,6 @@ void main() {
     ACR_AreaOnExit();
 
     // Custom code goes below this line.
+	
+	SetLocalString(GetExitingObject(), GetTag(OBJECT_SELF), GetTag(OBJECT_SELF));
 }

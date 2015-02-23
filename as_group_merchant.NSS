@@ -49,12 +49,21 @@ void main();
 
 void main() {
 
-	switch(Random(2)) {
+	switch(Random(4)) {
         case 0:
             ACR_SpawnObject("003_cr_travel_kaspar", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("003_cr_mercenary_horc", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("003_cr_mercenary_helf", OBJECT_TYPE_CREATURE);
             break;
         case 1:
             ACR_SpawnObject("003_cr_travel_rufus", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("003_cr_mercenary_human", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("003_cr_mercenary_human_fem", OBJECT_TYPE_CREATURE);
             break;
+		case 2:
+            break;	
+		case 3:
+            break;	
+		
         
 }}

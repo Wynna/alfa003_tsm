@@ -11,8 +11,9 @@ void main()
 {
     object oItem = GetItemActivated();
     object oUser = GetItemActivator();
-    object oGoTo = GetWaypointByTag("slv_maze_occ");
+    object oGoTo = GetWaypointByTag("felbar_temp_teleport");
 	location lGoTo = GetLocation(oGoTo);
+	RemoveSilverymoonWards(oUser );
 	 
   //One-time, one-way device to teleport to the teleportation platform of the Master's Hall at the Lady's College
 	 if(ACR_RetrieveQuestState("slv_deandragon_e_earth", oUser) == 3)

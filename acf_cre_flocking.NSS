@@ -26,55 +26,37 @@
 
 
 void main()
-{
+{ 
    
     // Custom code goes here.
-			object oDM = OBJECT_SELF;
-	        object oFlocker = GetLocalObject(oDM, "Object_Target");
-			int iRadius;
-			int iArea;
-			if(oFlocker != OBJECT_INVALID)
+			object oDM = GetItemActivator();
+			int iRadius = GetLocalInt(oDM, "iRadiusFlocking");
+			int iArea = GetLocalInt(oDM, "iAreaFlocking");
+			object oFlocker = GetItemActivatedTarget();
+			object oOwner = OBJECT_SELF;
+			int iFlocking = GetLocalInt(oFlocker, "ACR_FLOCKING");
+			if((iFlocking==0) && (GetIsDM(oOwner)))
+				{SetLocalInt(oFlocker, "ACR_FLOCKING", 1);
+				//SendMessageToAllDMs("iFlocking was 0 is 1");
+				}
+			else if((iFlocking==1)  && (GetIsDM(oOwner)))
 				{SetLocalInt(oFlocker, "ACR_FLOCKING", 0);
-				 iRadius = GetLocalInt(oDM, "iRadiusFlocking");
-				 iArea = GetLocalInt(oDM, "iAreaFlocking");
-				 } 
-	        if(oFlocker == OBJECT_INVALID)
-				{oFlocker = OBJECT_SELF;
-				}		
-			object oRandom1 = GetLocalObject(oFlocker, "oRandom1");
-			object oRandom2 = GetLocalObject(oFlocker, "oRandom2");
-			object oRandom3 = GetLocalObject(oFlocker, "oRandom3");
-			object oRandom4 = GetLocalObject(oFlocker, "oRandom4");
-			object oRandom5 = GetLocalObject(oFlocker, "oRandom5");
-			object oRandom6 = GetLocalObject(oFlocker, "oRandom6");
-			
+				//SendMessageToAllDMs("iFlocking was 1 is 0");
+				}
+					
 			
 			//Toggle off functions for Omega Wand
-									if(GetLocalInt(oFlocker, "ACR_FLOCKING") != 1)
+							if(GetLocalInt(oFlocker, "ACR_FLOCKING") == 0)
 										{ClearAllActions(TRUE);
-										 SetLocalObject(oFlocker, "oRandom1", OBJECT_INVALID);
-										 SetLocalObject(oFlocker, "oRandom2", OBJECT_INVALID);
-										 SetLocalObject(oFlocker, "oRandom3", OBJECT_INVALID);
-										 SetLocalObject(oFlocker, "oRandom4", OBJECT_INVALID);
-										 SetLocalObject(oFlocker, "oRandom5", OBJECT_INVALID);
-										 SetLocalObject(oFlocker, "oRandom6", OBJECT_INVALID);
-										 SetLocalInt(oFlocker, "Flocked", 0);
-								 		 SendMessageToPC(oDM, GetName(oFlocker) + " flocking off");
+										 //SendMessageToAllDMs(GetTag(oFlocker) + " flocking off");
 										 if(iRadius != 0)
 											{object oChild = GetFirstObjectInShape(SHAPE_SPHERE, 25.0, GetLocation(oFlocker), FALSE, OBJECT_TYPE_CREATURE); 
 					 						 while(oChild != OBJECT_INVALID) 
-												{if((GetIsPC(oChild) == FALSE) && (GetLocalInt(oChild, "Flocked") != 0))
-													{SendMessageToPC(oDM, GetName(oChild) + " flocking off");
+												{if((GetIsPC(oChild) == FALSE) && (GetIsDM(oChild) == FALSE) && (GetLocalInt(oChild, "Flocked") != 0))
+													{//SendMessageToAllDMs(GetTag(oChild) + " flocking off");
 								 					 ClearAllActions(TRUE);
-													 SetLocalObject(oChild, "oRandom1", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom2", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom3", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom4", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom5", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom6", OBJECT_INVALID);
 													 SetLocalInt(oChild, "ACR_FLOCKING", 0);
-				 									 SetLocalInt(oChild, "Flocked", 0);
-											 		 }
+				 									 }
 											 	oChild = GetNextObjectInShape(SHAPE_SPHERE, 25.0, GetLocation(oFlocker), FALSE, OBJECT_TYPE_CREATURE);
 												}
 											 SetLocalInt(oDM, "iRadiusFlocking", 0);
@@ -83,17 +65,10 @@ void main()
 											{object oChild = GetFirstObjectInArea(GetArea(oFlocker)); 
 					 						 while(oChild != OBJECT_INVALID) 
 												{if((GetObjectType(oChild) == OBJECT_TYPE_CREATURE) && (GetIsPC(oChild) == FALSE) && (GetLocalInt(oChild, "Flocked") != 0))
-													{SendMessageToPC(oDM, GetName(oChild) + " flocking off");
+													{//SendMessageToAllDMs(GetTag(oChild) + " flocking off");
 								 					 ClearAllActions(TRUE);
-													 SetLocalObject(oChild, "oRandom1", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom2", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom3", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom4", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom5", OBJECT_INVALID);
-													 SetLocalObject(oChild, "oRandom6", OBJECT_INVALID);
 													 SetLocalInt(oChild, "ACR_FLOCKING", 0);
-				 									 SetLocalInt(oChild, "Flocked", 0);
-											 		 }
+				 									 }
 											 	oChild = GetNextObjectInArea(GetArea(oFlocker));
 												}
 											 SetLocalInt(oDM, "iAreaFlocking", 0);
@@ -102,75 +77,63 @@ void main()
 									 	}
 			
 			
-			
-			
 			//Toggle on functions for spawn event and Omega Wand
-			object oPC = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_IS_PC, oFlocker, 1);
-			int iNearest = 1;
-			object oStore = GetLocalObject(oPC, "ACR_STORE");
-			if(IsInConversation(oFlocker) == TRUE)
-				{ClearAllActions(TRUE);
-			 	 }
-			else if((IsInConversation(oFlocker) != TRUE) && (oStore == OBJECT_INVALID))
-				{while(oPC != OBJECT_INVALID)
-					{oStore = GetLocalObject(oPC, "ACR_STORE");
-					 if(oStore != OBJECT_INVALID)
-						{ClearAllActions(TRUE);
-						 break;
-						 }
-					 else
-					 	{iNearest++;
-						 oPC = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_IS_PC, oFlocker, iNearest);
-						}
-					 }
-				
-				 if(oStore == OBJECT_INVALID)
-				 	{int iLoop = 1;
-					 while(iLoop < 2)
-						{int iRep = GetLocalInt(oFlocker, "iRep");
-						 object oRandom;
-						 if(iRep < 7)
-						 	{if(iRep == 0)
-							 	{oRandom = oRandom1;
-								 SetLocalInt(oFlocker, "iRep", 1);
-								 }
-							 else if(iRep == 1)
-							 	{oRandom = oRandom2;
-								 SetLocalInt(oFlocker, "iRep", 2);
-								 }
-							 else if(iRep == 2)
-							 	{oRandom = oRandom3;
-								 SetLocalInt(oFlocker, "iRep", 3);
-								 }
-							 else if(iRep == 3)
-							 	{oRandom = oRandom4;
-								 SetLocalInt(oFlocker, "iRep", 4);
-								 }
-							 else if(iRep == 4)
-							 	{oRandom = oRandom5;
-								 SetLocalInt(oFlocker, "iRep", 5);
-								 }
-							 else if(iRep == 5)
-							 	{oRandom = oRandom6;
-								 SetLocalInt(oFlocker, "iRep", 6);
-								 }
-							else if(iRep == 6)
-							 	{iRep = 1;
-								 oRandom = oRandom1;
-								 SetLocalInt(oFlocker, "iRep", 1);
-								 }
+			/*
+			if(GetLocalInt(oFlocker, "ACR_FLOCKING") == 1) 
+					{object oMobDestination = GetNearestObject(OBJECT_TYPE_PLACEABLE, oFlocker, 1);
+					 SendMessageToAllDMs("oMobDestination = " + GetTag(oMobDestination) + "/" +GetName(oMobDestination));
+					 string sArea = GetName(GetArea(oFlocker));
+					 //Set the flocking destinations and execute the flocking script	
+					 object oRandom1 = GetNearestObject(OBJECT_TYPE_WAYPOINT | OBJECT_TYPE_PLACED_EFFECT | OBJECT_TYPE_PLACEABLE | OBJECT_TYPE_CREATURE, oFlocker, Random(10));
+					 SendMessageToAllDMs("oRandom1a = " + GetTag(oRandom1) + "/" +GetName(oRandom1));
+					 if((FindSubString(GetName(oRandom1), "Sky") != -1) || (FindSubString(GetName(oRandom1), "Walkmesh") != -1) || (FindSubString(GetName(oRandom1), "Boat") != -1))
+							{oRandom1 = oMobDestination;
+							SendMessageToAllDMs("oRandom1b = " + GetTag(oRandom1) + "/" +GetName(oRandom1));
+					         }
+					 
+					 if((GetObjectType(oRandom1) == OBJECT_TYPE_WAYPOINT) && (FindSubString(GetTag(oRandom1), "SPAWN") == -1))
+								{oRandom1 = oMobDestination;}
+								
+					SendMessageToAllDMs("oRandom1c = " + GetTag(oRandom1) + "/" +GetName(oRandom1));
+					if(oRandom1==OBJECT_INVALID)
+						{SendMessageToAllDMs("oRandom1=OBJECT_INVALID");} 				
+						SendMessageToAllDMs(GetTag(oFlocker) + " flocking");
+						SetLocalInt(oFlocker, "ACR_FLOCKING", 1);
+									 
+						if(iRadius != 0)
+							{object oChild = GetFirstObjectInShape(SHAPE_SPHERE, 25.0, GetLocation(oFlocker), FALSE, OBJECT_TYPE_CREATURE); 
+					    	 while(oChild != OBJECT_INVALID) 
+								{if((GetIsPC(oChild) == FALSE) && (GetIsDM(oChild) == FALSE) && (GetLocalInt(oChild, "Flocked") != 1))
+									{SendMessageToAllDMs(GetTag(oChild) + " flocking");
+									 SetLocalInt(oChild, "ACR_FLOCKING", 1);
+							 		 DelayCommand(5.0, ExecuteScript("acf_cre_flocking", oChild));
+									 }
+								 oChild = GetNextObjectInShape(SHAPE_SPHERE, 25.0, GetLocation(oFlocker), FALSE, OBJECT_TYPE_CREATURE);
+								}
+								
+								SetLocalInt(oDM, "iRadiusFlocking", 0);
+							}
 							
-							if((GetIsInCombat(oFlocker) == FALSE) && (GetLocalInt(oFlocker, "ACR_FLOCKING") == 1))
+							if(iArea != 0)
+								{object oChild = GetFirstObjectInArea(GetArea(oFlocker)); 
+		 						 while(oChild != OBJECT_INVALID) 
+									{if((GetIsPC(oChild) == FALSE) && (GetIsDM(oChild) == FALSE) && (GetLocalInt(oChild, "Flocked") != 1))
+										{ SetLocalInt(oChild, "ACR_FLOCKING", 1);
+					 		 			  DelayCommand(5.0, ExecuteScript("acf_cre_flocking", oChild));
+										}
+								 	oChild = GetNextObjectInArea(GetArea(oFlocker));
+									}
+								 SetLocalInt(oDM, "iAreaFlocking", 0);
+								  }
+							
+							
+							if((GetIsInCombat(oFlocker) == FALSE) && (!GetIsPC(oFlocker)) && (!GetIsDM(oFlocker)) && (GetLocalInt(oFlocker, "ACR_FLOCKING") == 1))
 								{ClearAllActions(FALSE);
-								 ActionMoveToObject(oRandom, FALSE, 0.5);
-								 DelayCommand(IntToFloat(Random(60) + 15), ExecuteScript("acf_cre_flocking", oFlocker));
+								 SendMessageToAllDMs(GetTag(oFlocker) + " moving to " + GetTag(oRandom1)  + "/" + GetName(oRandom1));
+								 AssignCommand(oFlocker, ActionMoveToObject(oRandom1, FALSE, 1.0f));
+								 DelayCommand(IntToFloat(Random(60) + 60), ExecuteScript("acf_cre_flocking", oFlocker));
 								 }
-							}	
-						
-						iLoop ++;
-						}
 					}
-				}
-	
-			
+					*/
+						
 }

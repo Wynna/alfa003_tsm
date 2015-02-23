@@ -49,31 +49,44 @@ void main();
 
 void main() {
 
-	
+	object oPC=GetFirstPC();
 
-	switch(Random(6)) {
+	switch(Random(8)) {
         case 0:
             ACR_SpawnObject("003_cr_dragon_gold_vala", OBJECT_TYPE_CREATURE);
-            break;
+            SendMessageToAllDMs("Spawned Gold Dragon");
+			break;
         case 1:
-            ACR_SpawnObject("003_cr_dragon_red", OBJECT_TYPE_CREATURE);
-            break;
+            ACR_SpawnObject("003_cr_dragon_gold_vala", OBJECT_TYPE_CREATURE);
+            SendMessageToAllDMs("Spawned Gold Dragon");
+			break;
         case 2:
-            ACR_SpawnObject("003_cr_dragon_silver_dez", OBJECT_TYPE_CREATURE);
-            break;
+            ACR_SpawnObject("003_cr_dragon_red", OBJECT_TYPE_CREATURE);
+            SendMessageToAllDMs("Spawned Red Dragon");
+			break;
         case 3:
+            ACR_SpawnObject("003_cr_dragon_silver_dez", OBJECT_TYPE_CREATURE);
+            SendMessageToAllDMs("Spawned Silver Dragon");
+			break;
+        case 4:
+            ACR_SpawnObject("003_cr_dragon_silver_dez", OBJECT_TYPE_CREATURE);
+            SendMessageToAllDMs("Spawned Silver Dragon");
+			break;
+        case 5:
             ACR_SpawnObject("003_cr_dragon_blue", OBJECT_TYPE_CREATURE);
-            break;			
-	    case 4:
+            SendMessageToAllDMs("Spawned Blue Dragon");
+			break;			
+	    case 6:
             ACR_SpawnObject("003_cr_dragon_black", OBJECT_TYPE_CREATURE);
-            break;		
-	    case 5:
-            ACR_SpawnObject("003_cr_dragon_wyvern", OBJECT_TYPE_CREATURE);
-            break;
+            SendMessageToAllDMs("Spawned Black Dragon");
+			break;		
+	    case 7:
+            ACR_SpawnObject("003_cr_dragon_silver_dez", OBJECT_TYPE_CREATURE);
+            SendMessageToAllDMs("Spawned Silver Dragon");
+			break;
 			
 			}			
 				
-	
-	
+		
     
 }

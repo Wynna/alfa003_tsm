@@ -53,19 +53,19 @@ void main() {
 
 	   switch(Random(5)) {
         case 0:
-            ACR_SpawnObject("c_st01_troll01", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_gt_troll01", OBJECT_TYPE_CREATURE);
             break;
         case 1:
-            ACR_SpawnObject("c_st01_troll01", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_gt_troll01", OBJECT_TYPE_CREATURE);
             break;
         case 2:
-            ACR_SpawnObject("c_st01_troll02", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_gt_troll02", OBJECT_TYPE_CREATURE);
             break;
         case 3:
-            ACR_SpawnObject("c_st01_troll03", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_gt_troll03", OBJECT_TYPE_CREATURE);
             break;
 		case 4:
-            ACR_SpawnObject("c_st01_troll03", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("abr_cr_gt_troll03", OBJECT_TYPE_CREATURE);
             break;
 		}
 
