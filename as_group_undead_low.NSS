@@ -51,10 +51,10 @@ void main() {
 
 	switch(Random(10)) {
         case 0:
-            ACR_SpawnObject("abr_cr_un_wight", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("as_group_zombies_low", OBJECT_TYPE_CREATURE);
             break;
         case 1:
-            ACR_SpawnObject("abr_cr_un_ghast", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("as_group_skeletons_low", OBJECT_TYPE_CREATURE);
             break;
         case 2:
             ACR_SpawnObject("abr_cr_un_ghoul", OBJECT_TYPE_CREATURE);
@@ -66,8 +66,8 @@ void main() {
             ACR_SpawnObject("abr_cr_un_ghoul", OBJECT_TYPE_CREATURE);
             break;
         case 5:
-            ACR_SpawnObject("abr_cr_un_ghast", OBJECT_TYPE_CREATURE);
-            ACR_SpawnObject("abr_cr_un_ghast", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("as_group_zombies_low", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("as_group_zombies_low", OBJECT_TYPE_CREATURE);
             break;
         case 6:
             ACR_SpawnObject("abr_cr_un_ghoul", OBJECT_TYPE_CREATURE);
@@ -77,7 +77,7 @@ void main() {
             ExecuteScript("as_group_skeletons_low", OBJECT_SELF);
 			break;
 		case 8:
-            ACR_SpawnObject("abr_cr_un_ghast", OBJECT_TYPE_CREATURE);
+            ACR_SpawnObject("as_group_skeletons_low", OBJECT_TYPE_CREATURE);
             break;
 		case 9:
             ACR_SpawnObject("abr_cr_un_ghoul", OBJECT_TYPE_CREATURE);

@@ -11,6 +11,49 @@ void main()
     effect eKnockdown = EffectKnockdown();
 	effect eStruck = EffectDamage(1, DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE);			
 
+	
+	if((GetTag(OBJECT_SELF) == "003_cr_silvy_hornhard") || (GetTag(OBJECT_SELF) == "003_cr_qvr_smith_halfling") || (GetTag(OBJECT_SELF) == "003_cr_travel_kaspar") || (GetTag(OBJECT_SELF) == "003_cr_felbarr_letha"))
+		{float fHuntPay=GetLocalFloat(OBJECT_SELF, "hunt_pay");
+		 string sHuntPelt=GetLocalString(OBJECT_SELF, "hunt_pelt");
+		 int iPelt=0;
+		 int iPay=0;
+		 object oPelt=GetFirstItemInInventory(oQuester);
+		 if(fHuntPay>=1.0)
+		 	{while(oPelt!=OBJECT_INVALID)
+				{if(GetTag(oPelt)==sHuntPelt)
+					{iPelt++;
+					 DestroyObject(oPelt);
+					}
+				 oPelt=GetNextItemInInventory(oQuester);
+				}
+			 iPay=FloatToInt(iPelt*fHuntPay);
+			 }	
+		 
+		 else
+		 	{int iMin=FloatToInt(1/fHuntPay);
+			 while((oPelt!=OBJECT_INVALID)&& (iPelt<iMin))
+				{if(GetTag(oPelt)==sHuntPelt)
+					{iPelt++;}
+				 oPelt=GetNextItemInInventory(oQuester);
+				}
+			 if(iPelt >= iMin)
+			 	{int iDestroy=0;
+				 object oDestroy=GetFirstItemInInventory(oQuester);
+		 		 while((oDestroy!=OBJECT_INVALID)&& (iDestroy<iMin))
+						{if(GetTag(oDestroy)==sHuntPelt)
+							{iDestroy++;
+							 DestroyObject(oDestroy);
+							 }
+						 oDestroy=GetNextItemInInventory(oQuester);
+						}
+				iPay = FloatToInt(fHuntPay*iMin);
+				}
+			else{SpeakString("You haven't got enough of those to be worth my while.", TALKVOLUME_TALK);}
+			}
+	    GiveGoldToCreature(oQuester, iPay, TRUE);
+		}
+	
+	   
 
 	
 	//KiS_patrol_01	
