@@ -1446,7 +1446,7 @@
       <string>3</string>
     </server-ref>
   </resource>
-  <resource type="Tlk" hash="3F98D2A98D702EAA7771159BC63645B0FE9F30FB" downloadHash="D9050BCB49B9474D7F7FEE1516441FEAF047C71B" name="alfa_acr02.tlk" dlsize="148273" size="1191162" critical="false" exclude="false" urlOverride="">
+  <resource type="Tlk" hash="9797D2458F42AC1F862C265E1D7F1FEE8BEF48BC" downloadHash="8340781C7C20468E8B6CE149A762D70F7B717849" name="alfa_acr02.tlk" dlsize="148333" size="1191579" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>1</string>
       <string>3</string>
@@ -1753,5 +1753,24 @@
       <string>0</string>
     </server-ref>
   </resource>
-
+  <resource type="DirectoryEntry" hash="1D1DB17AD06003297DE362685D8440255B028B4F" downloadHash="845A04E0CAB39F09F0A86B54129B1401519CDACE" name="5g_int_felbarr_tr_gnoll_cave.trx" dlsize="1007957" size="1036597" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="F640CE0EB6ADB1450629FD420B0AFE1D06CE3B54" downloadHash="539BE589ECB044C34A33A8E785622436258E199E" name="6b_int_evermoors_caves.trx" dlsize="854919" size="876028" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="CC40F4844657186D1AA74C8B1958DD3447550314" downloadHash="BBD18A95E05744CECEC5F45A984AA5F444636D52" name="6b_int_wands_cave.trx" dlsize="163429" size="168323" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="464359D2452A0E4C5381C4997F6D9F3E5269B4CD" downloadHash="48CA34C5526472BFFB21DDC6B373DC93C792E411" name="6f_ext_silvypass_delz_crypt.trx" dlsize="244043" size="245940" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
 </content>
