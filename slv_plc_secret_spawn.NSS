@@ -6,14 +6,12 @@
 
 void main()
 {
-
-	object oStudent = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_IS_PC, OBJECT_SELF, 1);
-    			
-if(GetTag(GetNearestObject(OBJECT_TYPE_PLACEABLE, OBJECT_SELF, 2)) == "vala_bookcase_secret")
-	{SendMessageToPC(oStudent, "A design of inlaid golden dragons on the sides of the bookshelf catches your eye.");
-	 object oMyShelves = GetObjectByTag("vala_bookcase_secret");
-	 SetLocalString(oMyShelves, "ACR_PSO_NAME", GetTag(oMyShelves));
+	int nStudent = 1;
+	object oStudent = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_IS_PC, OBJECT_SELF, nStudent);
+    if(ACR_RetrieveQuestState("slv_deandragon_m", oStudent)== 2)
+			{SendMessageToPC(oStudent, "A flicker like a dying ember catches your eye from beneath a pile of bloody bones beside the smoking brazier.");}
+	else
+		{DestroyObject(GetObjectByTag("slv_it_wpn_lsw_daybreaker", 0));}	 
 	 
-	}
 	
 }

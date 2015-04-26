@@ -32,7 +32,7 @@ void main()
 						 	{sLevel = "300";
 							 sDigit = "3";
 							 }
-						object oMyCollBox2WP = GetLocalObject(OBJECT_SELF, "oMyCollBox2WP");
+					 	object oMyCollBox2WP = GetLocalObject(OBJECT_SELF, "oMyCollBox2WP");
 						 if (oMyCollBox2WP == OBJECT_INVALID)
 							{oMyCollBox2WP = GetObjectByTag(sSchool + "2_trig_CollBox_WP");
 							 SetLocalObject(OBJECT_SELF, "oMyCollBox2WP", oMyCollBox2WP);
@@ -66,7 +66,7 @@ void main()
 									}
 						    }
 						 int nBoxLevel = StringToInt(GetStringRight(GetTag(oMyCollBox), 3));
-						 if(GetSilvyUniversitySchoolLevel(oStudent, nSchool) >= nBoxLevel)
+						 if((GetSilvyUniversitySchoolLevel(oStudent, nSchool) >= nBoxLevel) || (GetTag(oStudent)=="003_cr_slv_procenc2"))
 							{DestroyObject(oMyCollBox);
 							 SetLocalObject(OBJECT_SELF, "oMyCollBox", OBJECT_INVALID);
 							 if(sLevel == "200")
@@ -95,6 +95,36 @@ void main()
 						}	
 						  	
 				//Enchantment
+				
+					if((GetName(OBJECT_SELF) == "Enchantment2") && (GetCampaignString("SLV_UNI", "Elementary Enchantment", oStudent) == "Elementary Enchantment") && (GetCampaignString("SLV_UNI", "Standard Enchantment", oStudent) != "Standard Enchantment"))
+						{
+						object oExit = GetLocalObject(OBJECT_SELF, "oExit");
+					    if(oExit == OBJECT_INVALID)
+							{oExit = GetObjectByTag("slv_door_Enchantment1");
+	                    	SetLocalObject(OBJECT_SELF, "oExit", oExit);
+							}
+						SetLocked(oExit, TRUE);
+					
+						 object oMyMirrorWP = GetLocalObject(OBJECT_SELF, "oMyMirrorWP");
+						 if(oMyMirrorWP == OBJECT_INVALID)
+								{oMyMirrorWP = GetWaypointByTag("Enc_All_Quests_Mirror_WP");
+								 SetLocalObject(OBJECT_SELF, "oMyMirrorWP", oMyMirrorWP);
+								 }
+						 object oMyMirror = GetLocalObject(OBJECT_SELF, "oMyMirror");
+						 if(oMyMirror == OBJECT_INVALID)
+								{oMyMirror = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_enc100_plc_mirror", GetLocation(oMyMirrorWP));
+								 SetLocalObject(OBJECT_SELF, "oMyMirror", oMyMirror);
+								 }
+						 
+						object oMyProctor2WP = GetLocalObject(OBJECT_SELF, "oMyProctor2WP");
+						if(oMyProctor2WP == OBJECT_INVALID)
+							{oMyProctor2WP = GetWaypointByTag("Enc_All_Quests_Proctor2_WP");
+							 SetLocalObject(OBJECT_SELF, "oMyProctor2WP", oMyProctor2WP);
+							}
+						object oMyProctor2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_procenc2", GetLocation(oMyProctor2WP));
+						SetLocalObject(OBJECT_SELF, "oMyProctor2", oMyProctor2);
+						DelayCommand(5.0, AssignCommand(oMyProctor2, ActionAttack(oMyMirror, FALSE)));
+						}
 				
 				    if((GetName(OBJECT_SELF) == "Enchantment1") && (GetIsPC(oStudent)) && (GetCampaignString("SLV_UNI", "Elementary Enchantment", oStudent) != "Elementary Enchantment"))
 					   { effect eSleep = EffectSleep();

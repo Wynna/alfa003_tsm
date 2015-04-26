@@ -75,19 +75,16 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 		 if((iTotalWeight >= 28) && (oXorn != OBJECT_INVALID))	
 			 {SetLocalInt(OBJECT_SELF, "TotalWeight", 0);
 			 object oXornBodyWP = GetWaypointByTag("xorn_arm_1");
-			 object oXornArm1WP = GetWaypointByTag("xorn_arm_2");
-			 object oXornArm2WP = GetWaypointByTag("xorn_arm_2");
-			 object oXornArm3WP = GetWaypointByTag("xorn_arm_3");
-					 
+			 		 
 			 AssignCommand(oXorn, ActionSpeakString("*Drops away through the stone floor without leaving a mark.", TALKVOLUME_TALK));
 			 effect eDust = EffectVisualEffect(VFX_IMP_DUST_EXPLOSION, FALSE);
 			 effect eStone = EffectVisualEffect(VFX_COM_CHUNK_STONE_MEDIUM, FALSE);
-			 DelayCommand(1.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornArm1WP)));
-			 DelayCommand(2.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornArm1WP)));
-			 DelayCommand(2.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornArm2WP)));
-			 DelayCommand(3.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornArm2WP)));
-			 DelayCommand(3.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornArm3WP)));
-			 DelayCommand(4.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornArm3WP)));
+			 DelayCommand(1.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornBodyWP)));
+			 DelayCommand(2.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornBodyWP)));
+			 DelayCommand(2.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornBodyWP)));
+			 DelayCommand(3.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornBodyWP)));
+			 DelayCommand(3.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oXornBodyWP)));
+			 DelayCommand(4.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oXornBodyWP)));
 		 
 			 location lUser = GetLocation(oUser);
 			 object oDisgorged = GetLocalObject(OBJECT_SELF, "oDisgorged");
@@ -95,27 +92,58 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 			 	{oDisgorged = GetWaypointByTag("xorn_disgorge");
 				 SetLocalObject(OBJECT_SELF, "oDisgorged", oDisgorged);
 				}
+			 object oJorunWP = GetLocalObject(OBJECT_SELF, "oJorunWP");
+		 	 if(oJorunWP == OBJECT_INVALID)
+				 {oJorunWP = GetWaypointByTag("slv_deandragon_j_jorun_wp");
+				  SetLocalObject(OBJECT_SELF, "oJorunWP", oDisgorged);
+				}
+					
+			if(GetTag(oItem)=="slv_tra200_alloy")
+		 	 	{oDisgorged = GetWaypointByTag("xorn_disgorge_sundabar");
+				 SetLocalObject(OBJECT_SELF, "oDisgorged", oDisgorged);
+				 }
+			if(ACR_RetrieveQuestState("slv_deandragon_j", oUser) == 5)
+		 	 	{DelayCommand(10.0, ACR_AddPersistentJournalQuestEntry("slv_deandragon_j", 6, oUser, FALSE, FALSE, FALSE, FALSE));
+				 object oJorun = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_sundabar_jorun", GetLocation(oJorunWP), FALSE);
+				}
+				
+			 object oPartyMember=GetFirstFactionMember(oUser);
 			 effect eParalyze = EffectParalyze();
-			 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oUser));
-			 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oUser));
-			 DelayCommand(3.5, AssignCommand(oXorn, ActionJumpToLocation(GetLocation(oDisgorged))));
-			 DelayCommand(4.0, AssignCommand(oUser, ActionJumpToLocation(GetLocation(oDisgorged))));
-			 object oXornEaten = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_body", GetLocation(oDisgorged));
-			 object oXornEater = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_body", lUser);
-			 DelayCommand(1.0, AssignCommand(oXornEater, ActionSpeakString("*Erupts from the ground and engulfs " + GetName(oUser) + " whole! All limbs and eyes have merged with the body to create a smooth, frictionless surface.", TALKVOLUME_TALK)));
-			 DelayCommand(1.5, SendMessageToPC(oUser, "You have been swallowed by a Xorn! Rock presses you from all sides. You cannot breath, nor even expand your ribcage. It is exactly like being buried alive."));
-			 DelayCommand(4.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oUser)));
-			 DelayCommand(4.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oUser)));
-			 DestroyObject(oXornEater, 4.0);
-			 DelayCommand(4.0, AssignCommand(oXornEaten, ActionSpeakString("*Disgorges its passenger in a cloud of dust and clods of dirt. It drops away from around " + GetName(oUser), TALKVOLUME_TALK)));
-			 DestroyObject(oXorn, 5.0);
-			 DestroyObject(oXornEaten, 5.0);
-			 DelayCommand(7.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oDisgorged)));
-			 DelayCommand(7.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oDisgorged)));
-			 DelayCommand(7.5, AssignCommand(oXorn, ActionJumpToLocation(GetLocation(oXornArm1WP))));
-			 DelayCommand(8.0, SetLocalInt(oMyTrigger, "Xorn", 0));
-			 
-			 
+				 while(oPartyMember!=OBJECT_INVALID)
+				 {if(ACR_RetrieveQuestState("slv_deandragon_j", oPartyMember) != 0) 
+		 	 		{DelayCommand(10.0, ACR_AddPersistentJournalQuestEntry("slv_deandragon_j", 6, oPartyMember, FALSE, FALSE, FALSE, FALSE));}
+				 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oPartyMember));
+				 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oPartyMember));
+				 DelayCommand(7.0, SendMessageToPC(oPartyMember, "You have been swallowed by a Xorn! Rock presses you from all sides. You cannot breath, nor even expand your ribcage. It is exactly like being buried alive."));
+				 DelayCommand(10.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oPartyMember)));
+				 DelayCommand(10.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oPartyMember)));
+				 DelayCommand(12.0, AssignCommand(oPartyMember, ActionJumpToLocation(GetLocation(oDisgorged))));
+				 DelayCommand(20.0, SendMessageToPC(oPartyMember, "*Disgorges you in a cloud of dust and clods of dirt. It drops away from around you and is gone through the stone without leaving a trace."));
+				 DelayCommand(25.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oDisgorged)));
+				 DelayCommand(25.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oDisgorged)));
+				 oPartyMember=GetNextFactionMember(oUser);
+				 }
+				 
+				 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oUser));
+				 ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oUser));
+				 object oXornEaten = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_body", GetLocation(oDisgorged));
+				 object oXornEater = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_body", lUser);
+				 DelayCommand(1.0, AssignCommand(oXornEater, ActionSpeakString("*Erupts from the ground and engulfs the party whole! All limbs and eyes have merged with the body to create a smooth, frictionless surface.", TALKVOLUME_TALK)));
+				 DelayCommand(7.0, SendMessageToPC(oUser, "You have been swallowed by a Xorn! Rock presses you from all sides. You cannot breath, nor even expand your ribcage. It is exactly like being buried alive."));
+				 DelayCommand(10.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oUser)));
+				 DelayCommand(10.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oUser)));
+				 DelayCommand(10.0, AssignCommand(oXorn, ActionJumpToLocation(GetLocation(oDisgorged))));
+				 DelayCommand(12.0, AssignCommand(oUser, ActionJumpToLocation(GetLocation(oDisgorged))));
+				 DelayCommand(20.0, AssignCommand(oXornEaten, ActionSpeakString("*Disgorges its passenger in a cloud of dust and clods of dirt. It drops away from around " + GetName(oUser), TALKVOLUME_TALK)));
+				 DestroyObject(oXornEater, 20.0);
+				 DestroyObject(oXorn, 25.0);
+				 DestroyObject(oXornEaten, 25.0);
+				 DelayCommand(26.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oDisgorged)));
+				 DelayCommand(26.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oDisgorged)));
+				 DelayCommand(27.0, AssignCommand(oXorn, ActionJumpToLocation(GetLocation(oXornBodyWP))));
+				 DelayCommand(28.0, SetLocalInt(oMyTrigger, "Xorn", 0));
+				 
+			
 			 }
 		 
 		}

@@ -552,7 +552,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="011534A3A1472AC68C2AEDEE471370E456654011" downloadHash="E7FB3C7B2B27ABD89F44597D88D94FBD15A755D7" name="5g_ext_silvypass_east_sundabar.trx" dlsize="6149625" size="25957349" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="5CAB793EF2B126622324C7C1335DF0283BC8E39A" downloadHash="1C16B57096864DE8BDBBD0FBA1ED8C918DDCEE8D" name="5g_ext_silvypass_east_sundabar.trx" dlsize="6127916" size="25940198" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1769,6 +1769,16 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="464359D2452A0E4C5381C4997F6D9F3E5269B4CD" downloadHash="48CA34C5526472BFFB21DDC6B373DC93C792E411" name="6f_ext_silvypass_delz_crypt.trx" dlsize="244043" size="245940" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="1BC1DE8EECD76C6ED780BA40CA28D3A7629088AF" downloadHash="19ACB771C03A654C1166640A304BFA4BE6C343B9" name="5h_int_sundabar_lavatube.trx" dlsize="230879" size="239090" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="6683A6D72433F9F6667CE88940F0791615B417B5" downloadHash="659E57EC192985D0727338F377E2DE4ADFDEA793" name="5c_int_surbrin_vale_cave.trx" dlsize="534509" size="543696" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>

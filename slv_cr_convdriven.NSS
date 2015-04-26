@@ -43,6 +43,11 @@ void main()
 						{oDown = GetWaypointByTag("GL2_Down_AT");
                     	SetLocalObject(OBJECT_SELF, "oDown", oDown);
 						}
+					object oUp = GetLocalObject(OBJECT_SELF, "oUp");
+				    if(oUp == OBJECT_INVALID)
+						{oUp = GetWaypointByTag("GL3_Up_AT");
+                    	SetLocalObject(OBJECT_SELF, "oUp", oUp);
+						}
 					object oProfessor = GetLocalObject(OBJECT_SELF, "oProfessor");
 					if(oProfessor == OBJECT_INVALID)
 						{oProfessor = GetWaypointByTag("003_cr_slv_profenc_Class");
@@ -69,7 +74,7 @@ void main()
 					DelayCommand(8.75, ClearAllActions(TRUE));
 					DelayCommand(9.0, ActionForceMoveToObject(oEye1, TRUE, 0.0));
 				    if(GetLocalInt(OBJECT_SELF, "Charmed") != 1)
-						{DelayCommand(10.0, SpeakString("Stupid eye beasts! Do not defend the student! I only pretend! If the scholar gets scratched, that is not my fault!", TALKVOLUME_TALK));
+					{DelayCommand(10.0, SpeakString("Stupid eye beasts! Do not defend the student! I only pretend! If the scholar gets scratched, that is not my fault!", TALKVOLUME_TALK));
 						}
 					DelayCommand(19.75, ClearAllActions(TRUE));
 					DelayCommand(20.0, ActionUnlockObject(oExit));
@@ -79,8 +84,9 @@ void main()
 					 if(GetLocalInt(OBJECT_SELF, "Charmed") != 1)
 						{DelayCommand(25.0, SpeakString("The student's insolence and clumsiness caused any harm taken, Master Silverbrook!", TALKVOLUME_TALK));
 						}
-					DelayCommand(28.0, SpeakString("Yes, Master, I'll find something to engage myself elsewhere. Thank you for the teleport lesson and dispensation.", TALKVOLUME_TALK));
-				    DelayCommand(30.0, ActionJumpToLocation(GetLocation(GetWaypointByTag("Grove_WP"))));
+					//DelayCommand(28.0, SpeakString("Yes, Master, I'll find something to engage myself elsewhere. Thank you for the teleport lesson and dispensation.", TALKVOLUME_TALK));
+				   // DelayCommand(30.0, ActionJumpToLocation(GetLocation(GetWaypointByTag("Grove_WP"))));
+					DelayCommand(28.0, ActionForceMoveToObject(oUp, TRUE, 0.0));
 					}
 				   
 // 300 Level scribe for all classes		

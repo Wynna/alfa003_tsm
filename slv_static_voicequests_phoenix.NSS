@@ -143,16 +143,16 @@ string sTryAgain = "Do you wish to receive, submit or use a keyword to enter?  Y
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Allow the good Master Volebane to illuminate you on matters of Illusion, and the 'I' keyword.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "J") || (sQuest == "j")) && (GetItemPossessedBy(oStudent, "slv_deanbookj3") != OBJECT_INVALID))
-                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Just a journey. A couple of them, in fact, but a small one first to gain this keyword. You will require the Jotun Dictionary. Take it with you. On the high trail to Felbarr, you will meet your guide. Trust her. She will take you to the one you must meet next. Jump to it!", TALKVOLUME_TALK)));
+                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Just a journey.On the high trail to Felbarr, you will meet your guide. Trust her. She will take you to the one you must meet next. Jump to it!", TALKVOLUME_TALK)));
                     }
-               else if (((sQuest == "K") || (sQuest == "k")) && (GetItemPossessedBy(oStudent, "slv_deanbookk3") != OBJECT_INVALID))
+               else if (((sQuest == "K") || (sQuest == "k")) && (GetItemPossessedBy(oStudent, "slv_deanbookk2") != OBJECT_INVALID))
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("K is for 'keys', which come in many shapes, and not all of them that of a keyhole. For instance, you are to collect a key from a friend of mine, who bears it hence as a keepsake from a friend of his by name of Kara. I've asked him to meet you at Khelb. Take the item to Imogene.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "L") || (sQuest == "l")) && (GetItemPossessedBy(oStudent, "slv_deanbookl2") != OBJECT_INVALID))
-                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Languages! Lots of them, but let's begin with Loross. Labelas is fitting, as well, as the last native speaker of Loross around these parts died 2000 years ago. You can speak to him about his death in the Tower of the Star. See our local loremaster, Librarian Oakroot, first, for more information.", TALKVOLUME_TALK)));
+                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("L in this case could be for ‘long lost.’ A long, long time ago, in the Frost Hills, a loquacious linguist lived. That is, until he was done in by a rival who silenced him for good with a rather interesting artifact that has since gone missing. See our local loremaster, Librarian Oakroot, for more information.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "M") || (sQuest == "m")) && (GetItemPossessedBy(oStudent, "slv_deanbookm") != OBJECT_INVALID))
-                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("May Mystra guide you swiftly to Magus Miresk.   A mightier mage you're unlikely to meet no matter how widely you travel. And travel you will in search of this keyword and this component. Move along now.", TALKVOLUME_TALK)));
+                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("May Mystra guide you swiftly to Magus Miresk.   A mightier mage you're unlikely to meet no matter how widely you travel. And travel you will in search of this keyword. Move along now.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "N") || (sQuest == "n")) && (GetItemPossessedBy(oStudent, "slv_deanbookn3") != OBJECT_INVALID))
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Necromancy is hardly a topic for the squeamish, but if our Mistress of Necromancy has ever had an emotion at all, I've missed it. Go learn from her, both her nerveless calm and the keyword for the 'N' quest.", TALKVOLUME_TALK)));

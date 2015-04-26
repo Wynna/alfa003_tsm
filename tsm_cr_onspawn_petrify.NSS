@@ -10,6 +10,8 @@ void main()
    	 {
       	SetLocalInt(OBJECT_SELF, "doOnce", TRUE);
       	effect eStatue = EffectVisualEffect(VFX_DUR_FREEZE_ANIMATION);
+		effect eVFX = EffectVisualEffect(VFX_DUR_PROT_GREATER_STONESKIN);
+    
      	// Is the object Plot?
      	if(GetPlotFlag(OBJECT_SELF) == TRUE)
       	 {
@@ -23,6 +25,7 @@ void main()
 		 
 	//Apply the effect..
       	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eStatue, OBJECT_SELF);
+    	ApplyEffectToObject(DURATION_TYPE_PERMANENT, eVFX, OBJECT_SELF);
     	//Make sure it is Plot and Immortal (Again).
     	SetPlotFlag(OBJECT_SELF, TRUE);
     	SetImmortal(OBJECT_SELF, TRUE);

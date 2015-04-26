@@ -712,7 +712,7 @@ void main()
 								 SetLocalObject(oMyEye5, "oGiant", oMyGiant);
 								 AssignCommand(oMyEye5, ActionCastSpellAtObject(SPELL_SLEEP, oMyGiant, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
 								 }	
-						object oMyMirrorWP = GetLocalObject(OBJECT_SELF, "oMyMirrorWP");
+						 object oMyMirrorWP = GetLocalObject(OBJECT_SELF, "oMyMirrorWP");
 						 if(oMyMirrorWP == OBJECT_INVALID)
 								{oMyMirrorWP = GetWaypointByTag("Enc_All_Quests_Mirror_WP");
 								 SetLocalObject(OBJECT_SELF, "oMyMirrorWP", oMyMirrorWP);
@@ -731,12 +731,6 @@ void main()
 						 DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eSleep, oMyGiant, 60.0));
 						 //DelayCommand(6.0, AssignCommand(oMyGiant, ActionSpeakString("*Snores", TALKVOLUME_TALK)));
 						 DelayCommand(6.0, AssignCommand(oMyGiant, ActionPlayAnimation(ANIMATION_FIREFORGET_LAYDOWN, 1.0, 60.0)));
-						    
-						if((GetCampaignString("SLV_UNI", "Elementary Enchantment", oStudent) == "Elementary Enchantment") && (GetCampaignString("SLV_UNI", "Standard Enchantment", oStudent) != "Standard Enchantment"))
-							{object oMyProctor2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_procenc2", GetLocation(oMyMirrorWP));
-							 SetLocalObject(OBJECT_SELF, "oMyProctor2", oMyProctor2);
-							 DelayCommand(5.0, AssignCommand(oMyProctor2, ActionAttack(oMyMirror, FALSE)));
-							}		 
 					}					 
 					
 		 

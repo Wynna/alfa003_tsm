@@ -29,7 +29,9 @@ else if(GetTag(OBJECT_SELF) == "slv_enc_giant_door")
 		{DelayCommand(4.0, ActionCloseDoor(OBJECT_SELF));
 		}	 
 else if((GetTag(OBJECT_SELF) == "slv_door_Enchantment1") && (nLevel == 200))
-		{object oMyProctor2WP = GetLocalObject(OBJECT_SELF, "oMyProctor2WP");
+		{DelayCommand(10.0, ActionCloseDoor(OBJECT_SELF));
+		
+		object oMyProctor2WP = GetLocalObject(OBJECT_SELF, "oMyProctor2WP");
 		 if (oMyProctor2WP == OBJECT_INVALID)
 				{oMyProctor2WP = GetWaypointByTag("Enc_All_Quests_Proctor2_WP");
 				 SetLocalObject(OBJECT_SELF, "oMyProctor2WP", oMyProctor2WP);

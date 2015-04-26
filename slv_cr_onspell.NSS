@@ -26,7 +26,7 @@ if(((GetTag(OBJECT_SELF) == "003_cr_slv_enc100eyes")|| (GetTag(OBJECT_SELF)== "0
 			    }
 
 //Standard Enchantment
-if((GetTag(OBJECT_SELF) == "003_cr_slv_procenc2") && (GetIsPC(oStudent)) && ((GetLastSpell()== SPELL_CHARM_PERSON)) || (GetLastSpell()== SPELL_CHARM_MONSTER)  )
+if((GetTag(OBJECT_SELF) == "003_cr_slv_procenc2") && ((GetLastSpell()== SPELL_CHARM_PERSON)) || (GetLastSpell()== SPELL_CHARM_MONSTER)  )
 
                {   object oExit = GetLocalObject(OBJECT_SELF, "oExit");
 				    if(oExit == OBJECT_INVALID)
@@ -51,20 +51,28 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_procenc2") && (GetIsPC(oStudent)) && ((Ge
 						{oMyMirrorWP = GetWaypointByTag("Enc_All_Quests_Mirror_WP");
 						 SetLocalObject(OBJECT_SELF, "oMyMirrorWP", oMyMirrorWP);
 						}
-							
+				 object oUp = GetLocalObject(OBJECT_SELF, "oUp");
+				    if(oUp == OBJECT_INVALID)
+						{oUp = GetWaypointByTag("GL3_Up_AT");
+                    	SetLocalObject(OBJECT_SELF, "oUp", oUp);
+						}
+				 
 				 ClearAllActions(TRUE);
+				 SetLocked(oExit, FALSE);
 				 SetLocalInt(OBJECT_SELF, "Charmed", 1);
 				 ChangeToStandardFaction(OBJECT_SELF, STANDARD_FACTION_COMMONER);
 				 SetCampaignString("SLV_UNI", "Standard Enchantment", "Standard Enchantment", oStudent);
 				 if(ACR_RetrieveQuestState("slv_enc200", oStudent) == 1)
-						{DelayCommand(4.0, ACR_AddPersistentJournalQuestEntry("slv_enc200", 2, oStudent, 0, 0, 0, 0));
+						{DelayCommand(10.0, ACR_AddPersistentJournalQuestEntry("slv_enc200", 2, oStudent, 0, 0, 0, 0));
 						}
 				DelayCommand(2.0, SendMessageToPC(oStudent, "The proctor hands you the piece of the mirror and folds your fingers around it."));
 				DelayCommand(4.0,  ActionSpeakString("This grows dull. Master Silverbrook insists I teach. So, I've taught. *Shrugs* Take this.", TALKVOLUME_TALK));
 				object oHandMirror = CreateItemOnObject("slv_enc200_handmirror", oStudent, 1);
-				DelayCommand(5.1,  ActionForceMoveToObject(oProfessor, TRUE, 0.0));
+				DelayCommand(5.0,  ActionForceMoveToObject(oExit, TRUE, 0.0));
 				DelayCommand(6.0,  ActionSpeakString("*Elvish* Master Silverbrook, by my expert opinion, this student is ready to face a truly hostile enchanter. *Sweetly* Thank you, dear Master, for allowing me to exhibit the uses of Charm. Pretending to be hostile was most amusing for me.*/E*", TALKVOLUME_TALK));
-				DelayCommand(15.0, ActionForceMoveToObject(oMyMirrorWP, TRUE, 0.0));
+				DelayCommand(10.0,  ActionOpenDoor(oExit));
+				DelayCommand(11.0,  ActionForceMoveToObject(oUp, TRUE, 0.0));
+						
 						
 			}
 				   

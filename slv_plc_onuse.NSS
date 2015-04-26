@@ -37,31 +37,27 @@ if((GetIsDMPossessed(oStudent)) || (GetIsPC(oStudent)))
 	{object oMyWP = GetNearestObject(OBJECT_TYPE_WAYPOINT, OBJECT_SELF, 1);
 	 object oMyDoorTrig=GetLocalObject(oMyWP, "oMyTrig");
 	 object oMyWood=GetLocalObject(oMyDoorTrig, GetName(oMyDoorTrig) + "_Wood");
-	 
 	 object oMyFire = GetLocalObject(oMyDoorTrig, "MyFire");
 	 if(GetIsObjectValid(oMyFire))
 		{DestroyObject(oMyFire);
 		 object oMyFireLight = GetLocalObject(OBJECT_SELF, "MyLight");
 		 object oFireSound = GetLocalObject(OBJECT_SELF, "FireSound");
 		 if(oFireSound == OBJECT_INVALID)
-		 	{oFireSound = GetNearestObjectByTag("Campfire");
-			}
-			{}
+		 	{oFireSound = GetNearestObjectByTag("Campfire");}
 	 	 SoundObjectStop(oFireSound);
 		}
 	 
 	 else
-		{object oMyFire = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_litfire0", GetLocation(oMyWood), FALSE);
+		{object oMyFire = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_litfire", GetLocation(oMyWood), FALSE);
 		 object oFireSound = GetLocalObject(OBJECT_SELF, "FireSound");
 		 if(oFireSound == OBJECT_INVALID)
-		 	{oFireSound = GetNearestObjectByTag("Campfire");
-			}
-			{}
+		 	{oFireSound = GetNearestObjectByTag("Campfire");}
+	 	  
 		 SetLocalObject(oMyDoorTrig, "MyFire", oMyFire);
 		 SoundObjectPlay(oFireSound);
 		 DelayCommand(1800.0, DestroyObject(oMyFire));
 		 DelayCommand(1801.0, SoundObjectStop(oFireSound));
-	 }	
+	 	}	
 	}	
 	
 

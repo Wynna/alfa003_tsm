@@ -391,7 +391,59 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 		   		}
 	 }
 	 
-	 //deanddragon_q 			
+//deanphoenix_l
+if((GetTag(OBJECT_SELF)== "deandragon_l_mapnote") && (ACR_RetrieveQuestState("slv_deandragon_l", GetEnteringObject()) == 3) && (GetLocalInt(OBJECT_SELF, "Cave_Mapped") != 1) && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+ 	 {
+	int nEnabled = TRUE;
+	string sMapPinTag = GetLocalString(OBJECT_SELF, "MAP_NOTE_TAG");
+	SetLocalInt(OBJECT_SELF, "Cave_Mapped", 1);
+	DelayCommand(3600.0, SetLocalInt(OBJECT_SELF, "Cave_Mapped", 0));
+	object oMapPin = GetNearestObjectByTag(sMapPinTag);
+	DelayCommand(8.0, SendMessageToPC(GetEnteringObject(), "You orient the map Falloon gave you, and know just where the cave will be."));
+	object oSpider = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_vm_spider_large", GetLocation(oMapPin));
+	SetMapPinEnabled (oMapPin, nEnabled);
+	}
+	
+if((GetTag(OBJECT_SELF)== "deandragon_l_ghost") && (ACR_RetrieveQuestState("slv_deandragon_l", GetEnteringObject()) >= 3) && (ACR_RetrieveQuestState("slv_deandragon_l", GetEnteringObject()) <= 5)&& (GetLocalInt(OBJECT_SELF, "Doomguide_Ghost") != 1) && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+ 	 {
+	object oGhostOld = GetObjectByTag("003_cr_un_doomguide",0);
+	DestroyObject(oGhostOld);
+	object oGhost = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_un_doomguide", GetLocation(GetEnteringObject()), TRUE, "");
+	if(ACR_RetrieveQuestState("slv_deandragon_l", GetEnteringObject()) == 3)
+		{DelayCommand(2.0, AssignCommand(oGhost, ActionSpeakString("*A breeze steals across your skin. The air glimmers, and an ethereal figure appears.")));}
+	else
+		{DelayCommand(2.0, AssignCommand(oGhost, ActionSpeakString("*A breeze steals across your skin.")));}
+	SetLocalInt(OBJECT_SELF, "Doomguide_Ghost", 1);
+	DelayCommand(3600.0, SetLocalInt(OBJECT_SELF, "Doomguide_Ghost", 0));
+	DelayCommand(3.0, AssignCommand(oGhost, ActionStartConversation(GetEnteringObject(), "", FALSE, FALSE, FALSE, FALSE)));
+	object oGhostEnd = GetWaypointByTag("slv_deandragon_l_ghost_end");
+	DelayCommand(5.0, AssignCommand(oGhost, ActionMoveToLocation(GetLocation(oGhostEnd))));
+	}
+
+if((GetTag(OBJECT_SELF)== "deandragon_l_ghost_end") && (ACR_RetrieveQuestState("slv_deandragon_l", GetEnteringObject()) == 5) && (GetLocalInt(OBJECT_SELF, "Doomguide_Ghost") != 1) && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+ 	 {
+	object oGhostOld = GetObjectByTag("003_cr_un_doomguide",0);
+	DestroyObject(oGhostOld);
+	object oGhostEnd = GetWaypointByTag("slv_deandragon_l_ghost_end");
+	object oGhost = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_un_doomguide", GetLocation(GetEnteringObject()));
+	object oBody = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_plc_skel_deandragon_l", GetLocation(oGhostEnd));
+	SetLocalInt(OBJECT_SELF, "Doomguide_Ghost", 1);
+	DelayCommand(3600.0, SetLocalInt(OBJECT_SELF, "Doomguide_Ghost", 0));
+	DelayCommand(2.9, AssignCommand(oGhost, ClearAllActions(TRUE)));
+	DelayCommand(3.0, AssignCommand(oGhost, ActionForceMoveToLocation(GetLocation(oGhostEnd))));
+	DelayCommand(4.9, AssignCommand(oGhost, ClearAllActions(TRUE)));
+	DelayCommand(5.0, AssignCommand(oGhost, ActionSpeakString("*Floats over to webs, where a drained husk that might have been a human once is rolled up in threads. Floats around and around body, holding his own throat as if to strangle himself and kicking ineffectively at the webbed closed hand of the corpse.", TALKVOLUME_TALK)));
+	}
+	
+	
+if((GetTag(OBJECT_SELF)== "deandragon_l_ghost_end") && (ACR_RetrieveQuestState("slv_deandragon_l", GetEnteringObject()) == 6) && (GetLocalInt(OBJECT_SELF, "Doomguide_Ghost") != 1) && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+ 	 {
+	object oGhostOld = GetObjectByTag("003_cr_un_doomguide",0);
+	DestroyObject(oGhostOld);
+	object oGhostEnd = GetWaypointByTag("slv_deandragon_l_ghost_end");
+	object oGhost = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_un_doomguide", GetLocation(oGhostEnd));
+	}
+//deanddragon_q 			
 if((GetTag(OBJECT_SELF) == "slv_deandragon_q_3") && (ACR_RetrieveQuestState("slv_deandragon_q", GetEnteringObject()) == 3))
  	{object oBeetleWP = GetWaypointByTag("deandragon_q_beetle");
 	 object oBeetle = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_vm_beetle_fire", GetLocation(oBeetleWP));

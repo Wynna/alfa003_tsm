@@ -76,4 +76,3 @@ void main()
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eVFX, OBJECT_SELF);
     ApplyEffectToObject(DURATION_TYPE_PERMANENT, eCut, OBJECT_SELF);
 }
-

@@ -156,8 +156,8 @@ void main()
 	         SetListenPattern(OBJECT_SELF, "**Genasi vs. Mephit**", 5014);
 	         SetListenPattern(OBJECT_SELF, "**Hornblade**", 5015);
 	         SetListenPattern(OBJECT_SELF, "**Ignan Vocabulary**", 5016);
-	         SetListenPattern(OBJECT_SELF, "**Jealousy**", 5017);
-	         SetListenPattern(OBJECT_SELF, "**Kin, Next of**", 5018);
+	         SetListenPattern(OBJECT_SELF, "**Jermlaine**", 5017);
+	         SetListenPattern(OBJECT_SELF, "**Kossoth**", 5018);
 	         SetListenPattern(OBJECT_SELF, "**Lathander Rising**", 5019);
 	         SetListenPattern(OBJECT_SELF, "**Mythal**", 5020);
 	         SetListenPattern(OBJECT_SELF, "**Newly Made**", 5021);
@@ -183,7 +183,7 @@ void main()
 	         SetListenPattern(OBJECT_SELF, "**Handle**", 5041);
 	         SetListenPattern(OBJECT_SELF, "**Immolation**", 5042);
 	         SetListenPattern(OBJECT_SELF, "**Jewel**", 5043);
-	         SetListenPattern(OBJECT_SELF, "**Kelemvor**", 5044);
+	         SetListenPattern(OBJECT_SELF, "**Kossoth**", 5044);
 	         SetListenPattern(OBJECT_SELF, "**Lathander**", 5045);
 	         SetListenPattern(OBJECT_SELF, "**Must**", 5046);
 	         SetListenPattern(OBJECT_SELF, "**Negate**", 5047);
