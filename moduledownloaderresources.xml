@@ -1713,7 +1713,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="39B90819D527516B70D70064A149C2FC71ED9F15" downloadHash="39A869B818BBE67DA53F0AD4DBB8FC9E9750FBBF" name="6e_ext_nether_slopes.trx" dlsize="2844945" size="15744853" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="05903DEBF4B524412DEA407EF900C3ADD4E3CF2A" downloadHash="A4148637AD3C2084D47867243BCE8DD506E3F1F8" name="6e_ext_nether_slopes.trx" dlsize="2790447" size="15753293" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
