@@ -42,7 +42,7 @@ if((GetTag(OBJECT_SELF) != "003_cr_slv_registrar") && (GetTag(OBJECT_SELF) != "0
 	 
 	} 
 	
- if(FindSubString(GetTag(OBJECT_SELF), "_Wand") != -1)
+ if((FindSubString(GetTag(OBJECT_SELF), "_Wand") != -1)|| (FindSubString(GetTag(OBJECT_SELF), "_NoWalk") != -1))
  	{ClearAllActions(TRUE);
 	 return;
 	}	
@@ -586,7 +586,7 @@ if(FindSubString(GetName(oGoTo), "Low Box") != -1)
 			}		
 		}	
 							
-if(FindSubString(GetTag(OBJECT_SELF), "_Wand") == -1)					
+if((FindSubString(GetTag(OBJECT_SELF), "_Wand") == -1)	&& 	(FindSubString(GetTag(OBJECT_SELF), "_NoWalk") == -1))			
 	{if((FindSubString(GetTag(OBJECT_SELF), "pro") != -1) || (FindSubString(GetTag(OBJECT_SELF), "stud") != -1)|| (FindSubString(GetTag(OBJECT_SELF), "Spellguard") != -1)|| (FindSubString(GetTag(OBJECT_SELF), "augustine") != -1)
 	|| (FindSubString(GetTag(OBJECT_SELF), "dean") != -1)|| (FindSubString(GetTag(OBJECT_SELF), "arken") != -1)|| (FindSubString(GetTag(OBJECT_SELF), "miresk") != -1))				 			  	
 		  { DelayCommand(fTime2, ExecuteScript("slv_uni_walk", OBJECT_SELF));

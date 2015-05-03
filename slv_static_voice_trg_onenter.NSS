@@ -465,13 +465,10 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_x") && (ACR_RetrieveQuestState("slv_d
 	 	{oAlastrarraWP = GetWaypointByTag("slv_deansdragon_x_Alastrarra");
 		 SetLocalObject(OBJECT_SELF, "oAlastrarraWP", oAlastrarraWP);
 		}
-	 object oAlastrarra = GetLocalObject(OBJECT_SELF, "oAlastrarra");
-	 if(oAlastrarra == OBJECT_INVALID)
-		 {DestroyObject(GetObjectByTag("003_slv_cr_procenc2"));
-	 	 oAlastrarra = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_procenc2", GetLocation(oAlastrarraWP));
-		 SetLocalObject(OBJECT_SELF, "oAlastrarra", oAlastrarra);
+		
+	 	 DestroyObject(GetObjectByTag("003_slv_cr_procenc2"));
+	 	 object oAlastrarra = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_procenc2", GetLocation(oAlastrarraWP));
 		 DestroyObject(oAlastrarra, 1800.0);
-		 }
 	 } 
 	
 
@@ -504,48 +501,22 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_x") && (ACR_RetrieveQuestState("slv_d
 		}
 	 
 	 // Xorn appearance for Deandragon_x
-	 if((GetTag(OBJECT_SELF) == "slv_deandragon_x_xorn")  && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
-		  	{if(ACR_RetrieveQuestState("slv_deandragon_x", GetEnteringObject()) == 6) 
-		 	 	{ACR_AddPersistentJournalQuestEntry("slv_deandragon_x", 7, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
-				 }
-			 if(GetLocalInt(OBJECT_SELF, "Xorn") != 1)
-				{SetLocalInt(OBJECT_SELF, "Xorn", 1);
-				 DelayCommand(300.0, SetLocalInt(OBJECT_SELF, "Xorn", 0));
-				 object oXornCrownWP = GetWaypointByTag("xorn_crown");
-				 object oXornBodyWP = GetWaypointByTag("xorn_body");
-				 object oXornArm1WP = GetWaypointByTag("xorn_arm_1");
-				 object oXornArm2WP = GetWaypointByTag("xorn_arm_2");
-				 object oXornArm3WP = GetWaypointByTag("xorn_arm_3");
-				 object oXornEye2WP = GetWaypointByTag("xorn_eye_2");
-				 object oXornEye3WP = GetWaypointByTag("xorn_eye_3");
-				 object oXornEye4WP = GetWaypointByTag("xorn_eye_4");
-				 object oXornEye5WP = GetWaypointByTag("xorn_eye_5");
-				 object oXornEye6WP = GetWaypointByTag("xorn_eye_6");
-				 
-				 object oXornBody = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_body", GetLocation(oXornBodyWP));
-				 object oXornCrown = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_crown", GetLocation(oXornCrownWP));
-				 object oXornArm1 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_xorn_arm", GetLocation(oXornArm1WP), FALSE, "003_cr_xorn_arm_1");
-				 object oXornArm2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_xorn_arm", GetLocation(oXornArm2WP), FALSE, "003_cr_xorn_arm_2");
-				 object oXornArm3 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_xorn_arm", GetLocation(oXornArm3WP), FALSE, "003_cr_xorn_arm_3");
-				 object oXornEye2 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye2WP), FALSE, "003_plc_xorn_eyes_2");
-				 object oXornEye3 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye3WP), FALSE, "003_plc_xorn_eyes_3");
-				 object oXornEye4 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye4WP), FALSE, "003_plc_xorn_eyes_4");
-				 object oXornEye5 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye5WP), FALSE, "003_plc_xorn_eyes_5");
-				 object oXornEye6 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_xorn_eyes", GetLocation(oXornEye6WP), FALSE, "003_plc_xorn_eyes_6");
-				 
-				 DestroyObject(oXornBody, 300.0);
-				 DestroyObject(oXornCrown, 300.0);
-				 DestroyObject(oXornArm1, 300.0);
-				 DestroyObject(oXornArm2, 300.0);
-				 DestroyObject(oXornArm3, 300.0);
-				 DestroyObject(oXornEye2, 300.0);
-				 DestroyObject(oXornEye3, 300.0);
-				 DestroyObject(oXornEye4, 300.0);
-				 DestroyObject(oXornEye5, 300.0);
-				 DestroyObject(oXornEye6, 300.0);
-				 
-				 DelayCommand(5.0, AssignCommand(oXornArm1, ActionSpeakString("The bargain was made and will be honored. The price is two stone of high quality nourishment, without taint of carbon/water derivatives, dropped into the nourishment access before you.", TALKVOLUME_TALK)));
-				 }
+	 if((GetTag(OBJECT_SELF) == "slv_deandragon_x_elderxorn")  && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
+		  	{object oXornWP=GetWaypointByTag("slv_deandragon_x_xornlava_wp");
+			 if(GetLocalInt(GetEnteringObject(), "Xorn_Summoned") == 1)
+			 	{SetLocalInt(OBJECT_SELF, "Xorn_Summoned", 1);}
+			 
+			 if(GetItemPossessedBy(GetEnteringObject(), "slv_deandragon_x_alloy") != OBJECT_INVALID) 
+		 	 	{if(GetLocalInt(OBJECT_SELF, "Xorn_Summoned") == 1)
+					{if(GetLocalInt(OBJECT_SELF, "Xorn") != 1)
+						{SetLocalInt(OBJECT_SELF, "Xorn", 1);
+						 object oXorn = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_earth", GetLocation(oXornWP));
+						 effect eHurt = EffectDamage(20, DAMAGE_TYPE_FIRE, DAMAGE_POWER_NORMAL, TRUE);
+		  				 DelayCommand(2.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eHurt, oXorn));
+			 			 SendMessageToPC(GetEnteringObject(), "You see something ponderous moving in the darkness further into the lava tube. You have a quick glimpse of a gigantic creature, leaking fluid that might be blood all over its stony skin.");
+						 }
+					}
+			 	}
 			 }
 		
 	//slv_deandragon 'Y' 

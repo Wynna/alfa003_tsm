@@ -109,6 +109,17 @@ void main()
 					 }
 				}
 			}
+	//Quest X Deanphoenix Xorn
 	
+	if(GetTag(OBJECT_SELF)== "003_cr_deanphoenix_earth") 
+		{if(GetIsPC(GetLastPerceived()))
+			{if(GetCurrentHitPoints(OBJECT_SELF) != GetMaxHitPoints(OBJECT_SELF))
+				{ActionMoveAwayFromObject(GetLastPerceived(), TRUE);}
+			 else
+			 	{ActionForceFollowObject(GetLastPerceived(), 2.0f);}
+			}
+				
+		}
+			
     // Custom code goes here.
 }

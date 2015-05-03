@@ -166,7 +166,7 @@ void main()
 	         SetListenPattern(OBJECT_SELF, "**Quills and Quests**", 5024);
 	         SetListenPattern(OBJECT_SELF, "**Reliquaries**", 5025);
 	         SetListenPattern(OBJECT_SELF, "**Sundabar**", 5026);
-	         SetListenPattern(OBJECT_SELF, "**Tree/Treant/Turlang**", 5027);
+	         SetListenPattern(OBJECT_SELF, "**Testament**", 5027);
 	         SetListenPattern(OBJECT_SELF, "**Bestiary of Minor Undead**", 5028);
 	         SetListenPattern(OBJECT_SELF, "**Valamaradace**", 5029);
 	         SetListenPattern(OBJECT_SELF, "**Watery Weirdness**", 5030);

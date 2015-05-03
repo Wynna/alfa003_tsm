@@ -87,9 +87,12 @@ void main()
 			DelayCommand(12.0, SetLocked(oMyDoor, TRUE));
 			DelayCommand(12.5, SetLocalString(oMyDoor, "Unlocked", ""));
             	}
+		
 				
+//Deandragon T	Transmutation Door trigger	
 		if(((ACR_RetrieveQuestState("slv_deandragon_t", oStudent) == 1) && (FindSubString(GetTag(oMyDoor), "Tra") != -1) && (GetLocalObject(OBJECT_SELF, "oTQuest") != oStudent)))
-			{SetLocalObject(OBJECT_SELF, "oTQuest", oStudent);
+			{
+			SetLocalObject(OBJECT_SELF, "oTQuest", oStudent);
 			DelayCommand(1800.0, SetLocalObject(OBJECT_SELF, "oTQuest", OBJECT_INVALID));
 			ActionUnlockObject(oMyDoor);
             ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eKnock, oMyDoor, 2.0);
@@ -100,54 +103,59 @@ void main()
 			 	{oMirrorWP = GetWaypointByTag("slv_deandragon_t_mirror");
 				 SetLocalObject(OBJECT_SELF, "oMirrorWP", oMirrorWP);
 				}
-		    object oEnter = GetLocalObject(OBJECT_SELF, "oEnter");
-		    if(oEnter == OBJECT_INVALID)
-			 	{oEnter = GetWaypointByTag("slv_deandragon_t_exit");
-				 SetLocalObject(OBJECT_SELF, "oEnter", oEnter);
+		    object oProfTraWP = GetLocalObject(OBJECT_SELF, "oProfTraWP");
+		    if(oProfTraWP == OBJECT_INVALID)
+			 	{oProfTraWP = GetWaypointByTag("slv_deandragon_t_proftra");
+				 SetLocalObject(OBJECT_SELF, "oProfTraWP", oProfTraWP);
 				}
-		    object oProfTra = GetObjectByTag("003_cr_slv_proftra");
-			if(oProfTra == OBJECT_INVALID)
-				{oProfTra = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_proftra", GetLocation(oEnter));
+		    object oProfDivWP = GetLocalObject(OBJECT_SELF, "oProfDivWP");
+		    if(oProfDivWP == OBJECT_INVALID)
+			 	{oProfDivWP = GetWaypointByTag("slv_deandragon_t_profdiv");
+				 SetLocalObject(OBJECT_SELF, "oProfDivWP", oProfDivWP);
 				}
-			else
-				{AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter)));
-				}
-			object oProfEvo = GetObjectByTag("003_cr_slv_profevo");
-			if(oProfEvo == OBJECT_INVALID)
-				{oProfEvo = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profevo", GetLocation(oEnter));
-				}
-			else
-				{AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter)));
-				}
-			
+		    object oProfTraOld = GetObjectByTag("003_cr_slv_proftra");
+			DestroyObject(oProfTraOld);
+			object oProfTra = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_proftra", GetLocation(oProfTraWP), FALSE, "003_cr_slv_proftra_NoWalk");
+			 
+			//object oProfEvo = GetObjectByTag("003_cr_slv_profevo");
+			//if(oProfEvo == OBJECT_INVALID)
+			//	{oProfEvo = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profevo", GetLocation(oProfTraWP));
+			//	}
+		//	else
+			//	{AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oProfTraWP)));
+			//	}
+			object oProfDivOld = GetObjectByTag("003_cr_slv_profdiv");
+			DestroyObject(oProfDivOld);
+			object oProfDiv = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profdiv", GetLocation(oProfTraWP), FALSE, "003_cr_slv_profdiv_NoWalk");
+		
 			object oMirror = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_h_artifice_mirror", GetLocation(oMirrorWP));
 			SetUseableFlag(oMirror, TRUE);
-			AssignCommand(oMyDoor, ActionSpeakString(GetName(oStudent) + " has arrived, masters. *Auroneous and Arcadavera turn from their discussion before a mirror carved of ivory or bone.", TALKVOLUME_TALK));
-			SetLocalObject(oProfEvo, "GoTo", oEnter);
-			SetLocalObject(oProfTra, "GoTo", oEnter);
-			SetLocalInt(oProfEvo, "Walk_Off",1);
+			AssignCommand(oMyDoor, ActionSpeakString(GetName(oStudent) + " has arrived, masters. *Auroneous and Clarvue turn from their discussion before a mirror carved of ivory or bone.", TALKVOLUME_TALK));
+			SetLocalObject(oProfDiv, "GoTo", oProfDivWP);
+			SetLocalObject(oProfTra, "GoTo", oProfTraWP);
+			SetLocalInt(oProfDiv, "Walk_Off",1);
 			SetLocalInt(oProfTra, "Walk_Off",1);
-			DelayCommand(2.0, AssignCommand(oProfEvo, ClearAllActions(TRUE)));
+			DelayCommand(2.0, AssignCommand(oProfDiv, ClearAllActions(TRUE)));
 			DelayCommand(2.0, AssignCommand(oProfTra, ClearAllActions(TRUE)));
-			DelayCommand(6.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(6.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(10.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(10.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
-		DelayCommand(5.0, AssignCommand(oProfTra, ActionSpeakString("Ah, excellent. Do come in, " + GetName(oStudent) + ". Arky and I were just discussing temporal matters. You'll have to wait a moment --", TALKVOLUME_TALK)));
-			DelayCommand(12.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(12.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(15.0, AssignCommand(oProfEvo, ActionSpeakString("A moment!  *Roars with laughter, pushing Auroneous's shoulder appreciatively.* A moment as ephemeral as forever and as long as the sine wave of a t-field, eh? Eh? Gadzooks! THAT'S IT! *Turns to the mirror and puts his face against it, eyes open, gazing into the reflection unblinkingly while muttering to himself.", TALKVOLUME_TALK)));
-			DelayCommand(28.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(28.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(30.0, AssignCommand(oProfTra, ActionSpeakString("*Not bothered by the other professor's odd behaviour, Auroneous raises his voice.*", TALKVOLUME_TALK)));
-			DelayCommand(35.0, AssignCommand(oProfTra, ActionSpeakString("--while we perfect a minor detail about the past.", TALKVOLUME_TALK)));
-			DelayCommand(43.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(43.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(45.0, AssignCommand(oProfEvo, ActionSpeakString("Yes, YES!  *Arcadavera beckons you over excitedly.* It must be the hand of one who knows nothing, just as the first lot of proctors! Else the equation is tainted. You, come here, " + GetName(oStudent) + ". Hurry!", TALKVOLUME_TALK)));
-			DelayCommand(50.0, AssignCommand(oProfTra, ActionSpeakString("*Interested lift of his brow as he observes Arcadavera's excitement.*  You'd best do as he asks. He's a genius, of course. I think you'll find what you see...instructive. We sent in the current proctors to recover this mirror for their own Dean's Exam field quest, of course.", TALKVOLUME_TALK)));
-			DelayCommand(58.0, AssignCommand(oProfEvo, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(58.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oEnter))));
-			DelayCommand(60.0, AssignCommand(oProfEvo, ActionSpeakString("You, Scholar! Use this mirror. Gaze into it! USE it!", TALKVOLUME_TALK)));
+			DelayCommand(3.0, AssignCommand(oProfDiv, ActionJumpToLocation(GetLocation(oProfDivWP))));
+			DelayCommand(3.0, AssignCommand(oProfTra, ActionJumpToLocation(GetLocation(oProfTraWP))));
+				
+			
+			DelayCommand(10.0, AssignCommand(oProfTra, ActionSpeakString("Ah, excellent. Do come in, " + GetName(oStudent) + ". Clarvue and I were just discussing the best way to go about this. ", TALKVOLUME_TALK)));
+			DelayCommand(20.0, AssignCommand(oProfDiv, ActionSpeakString("All ways end in equally murky results. The choices are too many to see clearly.", TALKVOLUME_TALK)));
+			DelayCommand(30.0, AssignCommand(oProfTra, ActionSpeakString("Then it makes no difference, practically speaking, so let us begin.", TALKVOLUME_TALK)));
+			DelayCommand(40.0, AssignCommand(oProfTra, ActionSpeakString("First, I should say that I find it a fascinating coincidence that this device so integral to past Dean's Quests should be a facilitation to this one.", TALKVOLUME_TALK)));
+			DelayCommand(50.0, AssignCommand(oProfDiv, ActionSpeakString("Coincidence so often reveals itself later as inevitability. *Murmers.", TALKVOLUME_TALK)));
+			DelayCommand(60.0, AssignCommand(oProfTra, ActionSpeakString("Some of us must proceed through life in a linear fashion, Clarvue. *Mildly*", TALKVOLUME_TALK)));
+			DelayCommand(70.0, AssignCommand(oProfTra, ActionSpeakString("The linear progression for this... *pats mirror* began long ago. We sent in the current proctors to recover this mirror for the very first Dean's Exam field quest, of course.", TALKVOLUME_TALK)));
+			DelayCommand(80.0, AssignCommand(oProfDiv, ActionSpeakString("Since then, I have had the use of it. Some months ago, it revealed itself as not only a potent scrying device, but one of apparently a network of interlinked scrying mirrors.", TALKVOLUME_TALK)));
+			DelayCommand(90.0, AssignCommand(oProfDiv, ActionSpeakString("Revealed, by suddenly flaring to life in the middle of a class, I might add.", TALKVOLUME_TALK)));
+			DelayCommand(100.0, AssignCommand(oProfDiv, ActionSpeakString("It began to show events happening elsewhere. I could not interrupt what it showed, or affect the communication in any way. It was all over before I could summon those of a more mechanical bent than I.", TALKVOLUME_TALK)));
+			DelayCommand(110.0, AssignCommand(oProfTra, ActionSpeakString("However, when Arky and I did arrive, we discovered the most interesting things! The mirror did seem able to only receive, which Arky theorized was due to being used as a pure scrying device for so long by us, unknowing of its...brethren mirrors out there.", TALKVOLUME_TALK)));
+			DelayCommand(120.0, AssignCommand(oProfTra, ActionSpeakString("*Warming to his topic, striking a lecturing pose.* Even more interesting, after some days of study and magical research, I discovered the secret to the crystal scribery that--", TALKVOLUME_TALK)));
+			DelayCommand(130.0, AssignCommand(oProfDiv, ActionSpeakString("Perhaps we should just let the the scholar review the material. *Interrupts* Things are always clearer when seen for oneself.", TALKVOLUME_TALK)));
+			DelayCommand(140.0, AssignCommand(oProfTra, ActionSpeakString("That's a polite way of telling me that I do go on about the mechanics of a fascinating object. *Laughs* I have it readied for you scholar.", TALKVOLUME_TALK)));
+			DelayCommand(150.0, AssignCommand(oProfDiv, ActionSpeakString("Scholar, use the mirror. Gaze into it. Learn for yourself what may help you choose among the pathways that open before you in your future.", TALKVOLUME_TALK)));
 			DelayCommand(1800.0, ActionCloseDoor(oMyDoor));
 			DelayCommand(1802.0, SetLocked(oMyDoor, TRUE));
 			DelayCommand(1802.5, SetLocalString(oMyDoor, "Unlocked", ""));

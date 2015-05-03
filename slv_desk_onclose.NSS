@@ -195,7 +195,7 @@ void main()
          s1c = "Bigby's Grasping Hand";
          s1d = "Bigby's Clenched Fist";
 		 s1e = "Bigby's Crushing Hand";
-		 s2a = "Orb of Cold";
+		 s2a = "Burst of Glacial Wrath";
          s2b = "Cone of Cold";
          s2c = "Elemental Shield";
          s2d = "Ice Storm";
@@ -208,7 +208,7 @@ void main()
          s3a = "Chain Lightning";
          s3b = "Gedlee's Electric Loop";
          s3c = "Lightning Bolt";
-         s3d = "Orb of Electricity";
+         s3d = "Scintillating Sphere";
          s3e = "Shocking Grasp";
          sNum1 = "five";
          sNum2 = "five";

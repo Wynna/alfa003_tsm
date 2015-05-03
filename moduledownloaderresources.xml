@@ -1628,7 +1628,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="74C116F4DF45281F46031A1C30CE8231FA0BAB09" downloadHash="45D3C14D37D1828CFB92FB6689109D8630F8C45F" name="5f_int_nether_dt_nobles.trx" dlsize="523555" size="528333" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="9AC09B09A173911CF7734DEF4E770BEF8BB87EBB" downloadHash="B78B924539A327A4C3C9DAD3E12793D4F3B7C1D3" name="5f_int_nether_dt_nobles.trx" dlsize="532749" size="539335" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1643,7 +1643,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="F43C3CC188D17DA83C8054FDB0AFB3147AA7270E" downloadHash="D1A5E9ED2A0F39222AE16866BE76C83484B506EC" name="5f_ext_nether_deckon_thar.trx" dlsize="1342061" size="9440064" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="4879BFFB8888372E0534ADE83AFCEFE1415E24BE" downloadHash="71BBFC39F5F7D2553E475DE99C69AA69778E7078" name="5f_ext_nether_deckon_thar.trx" dlsize="1025698" size="8737315" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1688,12 +1688,12 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="3A28298AB0DFE2BC6BC53D9F5FD3B81E7F436C26" downloadHash="D42D7AD095C06605833BF8917F2836A388EAD323" name="5f_int_nether_dt_nobles_3.trx" dlsize="177501" size="181834" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="AFC3BD0D63D6823D09C13F939B059E5CA1880F21" downloadHash="8D68B3E5D83D65FD695F7E9EBAF37FC9C58C4923" name="5f_int_nether_dt_nobles_3.trx" dlsize="174789" size="179079" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="755FF4130FB0C093EB40676FFAE64FF38137DFD3" downloadHash="CE85D80C57A66E2DDE1A287D7F45FE77335BC98C" name="5f_int_nether_dt_nobles_2.trx" dlsize="299579" size="305704" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="CDC8469F88182CA5198DA5F10A8E4805131078C0" downloadHash="79D379F739E371E72D03F8520AD9EBD13FBB0FE5" name="5f_int_nether_dt_nobles_2.trx" dlsize="290264" size="300303" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1703,17 +1703,17 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="FB59DB2496D8C80E338E2AF5CF0826BF0099CADA" downloadHash="4F4DB6EB7EFAE7D5706A23315CB3C536D00B6C33" name="5f_int_nether_dt_commons_2.trx" dlsize="139375" size="144851" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="132E3C549402DADFFBDA27FA4A5F199B31615220" downloadHash="2FD607384275D86C215C8F9DB082731E6CDF9A20" name="5f_int_nether_dt_commons_2.trx" dlsize="139374" size="144850" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="B4C25EC5B485E05ED69263BED9359740D8493BB8" downloadHash="19583FDA2B24B07ABC3D5244EA64364EDC57F0E1" name="5f_int_nether_dt_commons.trx" dlsize="744784" size="754321" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="4881843A8B04B6CACFCF9FB8C201F59871B86AF7" downloadHash="7E047D356BDE6BDEF05FB5CC6206C2BE840BC79E" name="5f_int_nether_dt_commons.trx" dlsize="711538" size="721324" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="A15B5A98E47B039AEB643A82B034CB212AA49893" downloadHash="39A869B818BBE67DA53F0AD4DBB8FC9E9750FBBF" name="6e_ext_nether_slopes.trx" dlsize="2844945" size="15908566" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="39B90819D527516B70D70064A149C2FC71ED9F15" downloadHash="39A869B818BBE67DA53F0AD4DBB8FC9E9750FBBF" name="6e_ext_nether_slopes.trx" dlsize="2844945" size="15744853" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1779,6 +1779,11 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="6683A6D72433F9F6667CE88940F0791615B417B5" downloadHash="659E57EC192985D0727338F377E2DE4ADFDEA793" name="5c_int_surbrin_vale_cave.trx" dlsize="534509" size="543696" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="EB5447EC1B29FE1F774D0782F6A5F42574D8E29C" downloadHash="6F70922E8AB81CFF89117F2D5ADADA832B5A6D3B" name="5f_ext_nether_midrange2.trx" dlsize="4247561" size="23569436" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>

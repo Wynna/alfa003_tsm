@@ -118,9 +118,9 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 				 DelayCommand(10.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oPartyMember)));
 				 DelayCommand(10.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oPartyMember)));
 				 DelayCommand(12.0, AssignCommand(oPartyMember, ActionJumpToLocation(GetLocation(oDisgorged))));
-				 DelayCommand(20.0, SendMessageToPC(oPartyMember, "*Disgorges you in a cloud of dust and clods of dirt. It drops away from around you and is gone through the stone without leaving a trace."));
-				 DelayCommand(25.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oDisgorged)));
-				 DelayCommand(25.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oDisgorged)));
+				 DelayCommand(30.0, SendMessageToPC(oPartyMember, "*Disgorges you in a cloud of dust and clods of dirt. It drops away from around you and is gone through the stone without leaving a trace."));
+				 DelayCommand(35.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oDisgorged)));
+				 DelayCommand(35.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oDisgorged)));
 				 oPartyMember=GetNextFactionMember(oUser);
 				 }
 				 
@@ -134,14 +134,15 @@ if((GetTag(OBJECT_SELF) == "slv_plc_xorn_hole") && (GetInventoryDisturbType() ==
 				 DelayCommand(10.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oUser)));
 				 DelayCommand(10.0, AssignCommand(oXorn, ActionJumpToLocation(GetLocation(oDisgorged))));
 				 DelayCommand(12.0, AssignCommand(oUser, ActionJumpToLocation(GetLocation(oDisgorged))));
-				 DelayCommand(20.0, AssignCommand(oXornEaten, ActionSpeakString("*Disgorges its passenger in a cloud of dust and clods of dirt. It drops away from around " + GetName(oUser), TALKVOLUME_TALK)));
-				 DestroyObject(oXornEater, 20.0);
-				 DestroyObject(oXorn, 25.0);
-				 DestroyObject(oXornEaten, 25.0);
+				 DelayCommand(30.0, AssignCommand(oXornEaten, ActionSpeakString("*Disgorges its passenger in a cloud of dust and clods of dirt. It drops away from around " + GetName(oUser), TALKVOLUME_TALK)));
+				 DestroyObject(oXornEater, 30.0);
+				 DestroyObject(oXorn, 35.0);
+				 DestroyObject(oXornEaten, 35.0);
 				 DelayCommand(26.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eDust, GetLocation(oDisgorged)));
 				 DelayCommand(26.0, ApplyEffectAtLocation(DURATION_TYPE_INSTANT, eStone, GetLocation(oDisgorged)));
-				 DelayCommand(27.0, AssignCommand(oXorn, ActionJumpToLocation(GetLocation(oXornBodyWP))));
+				 DelayCommand(35.0, AssignCommand(oXorn, ActionJumpToLocation(GetLocation(oXornBodyWP))));
 				 DelayCommand(28.0, SetLocalInt(oMyTrigger, "Xorn", 0));
+				 DelayCommand(40.0, SendMessageToPC(oUser, "You travelled for what seemed an eternity and might have been fifteen minutes, but have no idea how far you have come. Movement in the trees reveals a dwarf, watching your arrival without surprise."));
 				 
 			
 			 }

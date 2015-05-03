@@ -131,10 +131,10 @@ string sTryAgain = "Do you wish to receive, submit or use a keyword to enter?  Y
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Eccentric Evoker? Perhaps not, as I would hate for you to experience electricity first hand.  Elvish Enchanter?  No, exposure to elvish superiority complexes might drive away otherwise promising proctors.  Instead, I think it shall be Elementary Elementalism 101. Go to the elemental shrines in the Master's Hall. Someone there will tell you more.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "F") || (sQuest == "f"))&& (GetItemPossessedBy(oStudent, "slv_deanbookf3") != OBJECT_INVALID))
-                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Ah, 'F'.  It's time for you to meet an old friend.  Go to the Fochlucan and find the author of the history you hold.", TALKVOLUME_TALK)));
+                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Ah, 'F'.  It's time for you to meet an old friend.  Go to the Fochlucan and find the author of the travelogue you hold.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "G") || (sQuest == "g")) && (GetItemPossessedBy(oStudent, "slv_deanbookg3") != OBJECT_INVALID))
-                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Goats and glabrezu and greataxes! No, wait, that's the graduate course. For you, it's: gnomes and Gond and gears! Go get a little gizmo for me from the Wonderbringer in the tower north of High Hold. Take it to Imogene for your keyword.", TALKVOLUME_TALK)));
+                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Goats and glabrezu and greataxes! No, wait, that's the graduate course. For you, it's: gnomes and Gond and gears! Go get a little gizmo for me from the Wonderbringer in the tower north of High Hold. Take it to Master Oakroot for your keyword.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "H") || (sQuest == "h")) && (GetItemPossessedBy(oStudent, "slv_deanbookh") != OBJECT_INVALID))
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("A hero's headstone awaits you. I do hope it's not your own. Hunt down our halfling loremaster to hear more.", TALKVOLUME_TALK)));
@@ -173,10 +173,10 @@ string sTryAgain = "Do you wish to receive, submit or use a keyword to enter?  Y
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Sanity is in question but sparks not so much in the Master of Evocation's spellwork. Go see if Master Arcadavera can evoke a keyword for the 'S' quest without singing you.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "T") || (sQuest == "t")) && (GetItemPossessedBy(oStudent, "slv_deanbookt3") != OBJECT_INVALID))
-                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Terrific.  It's about time, I might add.  No, literally. Master of Transmutation Auroneous has some materials for a temporal device, my own...unique...instrument which was designed by mad Arcadavera and built by Auroneous.  These parts must be collected by you and taken to Imogene so that she can prepare them for imminent departure.  Imogene will pay you for your transport services with a keyword for 'T'.", TALKVOLUME_TALK)));
+                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Terrific. It's about time, I might add. No, literally. It’s time you learned something about the past exploits of a group who may be of interest to your research. Master of Transmutation Auroneous has something to show you. He will pay you for your attention with a keyword for 'T'.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "U") || (sQuest == "u")) && (GetItemPossessedBy(oStudent, "slv_deanbooku3") != OBJECT_INVALID))
-                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Up then under are for you, new dimensions of the 'U'. Identify my friendships true; most familiar has the clue. Friends you'll slumber or subdue; other creatures blast to goo. (In your pocket's something new.)", TALKVOLUME_TALK)));
+                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Up then under are for you, new dimensions of the 'U'. Identify a friendship true; most familiar has the clue. Friends you'll slumber or subdue; other creatures blast to goo. (In your pocket's something new.)", TALKVOLUME_TALK)));
                      CreateItemOnObject("slv_key_roof", oStudent, 1);
 					 }
                else if (((sQuest == "V") || (sQuest == "v")) && (GetItemPossessedBy(oStudent, "slv_deanbookv") != OBJECT_INVALID))
@@ -186,7 +186,7 @@ string sTryAgain = "Do you wish to receive, submit or use a keyword to enter?  Y
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("'Where', 'when', 'what' and 'who', all begin with 'W'. Professor Auroneous is the master of employing these to produce a 'how'. Wander up there and request the keyword for my 'W' quest.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "X") || (sQuest == "x")) && (GetItemPossessedBy(oStudent, "slv_deanbookx") != OBJECT_INVALID))
-                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("X marks the spot indeed, and so we come to the crux.  Find the X in the Master's Hall and there you should have the inheritrix of an enchanter's tricks.", TALKVOLUME_TALK)));
+                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("X marks the spot indeed, and so we come to the crux. Find the inheritrix of an enchanter's tricks in the Master's Hall.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "Y") || (sQuest == "y")) && (GetItemPossessedBy(oStudent, "slv_deanbooky3") != OBJECT_INVALID))
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Yes, 'Y'.  Why you?  Yearn for the answer as I do, and seek it in your yesteryears. You will find a good vantage point for review on the roof.", TALKVOLUME_TALK)));

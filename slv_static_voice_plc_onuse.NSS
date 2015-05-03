@@ -205,12 +205,12 @@ void main()
 							 while(oEndangered != OBJECT_INVALID)
 								 {SendMessageToPC(oUser, GetName(oEndangered));
 								  if(GetLocalInt(oEndangered, "Slide") != 1)
-									 {SendMessageToPC(oUser, "Setting Slide to 1 on " + GetName(oEndangered));
+									 {//SendMessageToPC(oUser, "Setting Slide to 1 on " + GetName(oEndangered));
 								      SetLocalInt(oEndangered, "Slide", 1);
 									  CreateObject(OBJECT_TYPE_PLACEABLE, "slv_rock_0" + IntToString(Random(4)), GetLocation(oEndangered));
 							 	 	  SendMessageToPC(oEndangered, "Rockfall! Chunks of rock rain around you and dust swirls.");
 							     	  if(GetLocalInt(oEndangered, "Reflex") != 1)
-										  {SendMessageToPC(oUser, "Setting Reflex to 1 on " + GetName(oEndangered));
+										  {//SendMessageToPC(oUser, "Setting Reflex to 1 on " + GetName(oEndangered));
 								           SetLocalInt(oEndangered, "Reflex", 1);
 										   if(ReflexSave(oEndangered, 10, SAVING_THROW_TYPE_TRAP, OBJECT_SELF))
 											 	{SendMessageToPC(oEndangered, "You dodge all injury.");
@@ -218,7 +218,7 @@ void main()
 										 
 									 		else
 											 	{SendMessageToPC(oEndangered, "You take injury!");
-										     	 effect eRockfall = EffectDamage(d10(), DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE);
+										     	 effect eRockfall = EffectDamage(d4(), DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE);
 												 ApplyEffectToObject(DURATION_TYPE_INSTANT, eRockfall, oEndangered);
 												 ApplyEffectToObject(DURATION_TYPE_INSTANT, eQuake, oEndangered);
 												 }
@@ -251,9 +251,196 @@ void main()
 			}  
 		}
 				
-	// deandragon_t mirror
+	// deanphoenix_t mirror
 	
 	if((GetTag(OBJECT_SELF) == "slv_h_artifice_mirror") && (GetLocalInt(OBJECT_SELF, "Used") != 1))
+	    {//Classroom definitions
+		 SetLocalInt(OBJECT_SELF, "Used", 1);
+		 DelayCommand(1800.0, SetLocalInt(OBJECT_SELF, "Used", 0));
+		 object oProfTra = GetObjectByTag("003_cr_slv_proftra_NoWalk");
+		 object oProfDiv = GetObjectByTag("003_cr_slv_profdiv_NoWalk");
+		 object oJennyReflectionWP = GetWaypointByTag("003_deanphoenix_t_jenny_wp");
+		 object oJennyReflection = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_water_gen", GetLocation(oJennyReflectionWP));
+		 DelayCommand(5.0, SetScale(oJennyReflection, 0.7, 0.7, 0.7));
+		 object oExit = GetWaypointByTag("003_deanphoenix_t_pc_exit");
+		 object oSoundPlayer= GetObjectByTag("slv_tra100_brazier");
+		 
+		 //Deckon Thar definitions
+		 effect eFire3 = EffectVisualEffect(VFX_AURA_HELLFIRE_SHIELD);
+	     effect eShake = EffectVisualEffect(VFX_IMP_DIVINE_STRIKE_FIRE);
+	     effect eCutScene = EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY); 
+	     effect eDeath = EffectDeath(TRUE);
+		 effect eStatue = EffectVisualEffect(VFX_DUR_FREEZE_ANIMATION);
+		 
+		 location lViewpoint = GetLocation(GetWaypointByTag("003_deanphoenix_t_pc"));
+		 location lMirror2 = GetLocation(GetWaypointByTag("slv_phoenix_mirror_dt"));
+         location lEarth = GetLocation(GetWaypointByTag("003_cr_deanphoenix_earth_wp"));
+         location lAir = GetLocation(GetWaypointByTag("003_cr_deanphoenix_air_wp"));
+         location lWater = GetLocation(GetWaypointByTag("003_cr_deanphoenix_water_wp"));
+         object oFire1WP = GetWaypointByTag("003_cr_deanphoenix_fire1_wp");
+         object oFire2WP = GetWaypointByTag("003_cr_deanphoenix_fire2_wp");
+         location lFire1 = GetLocation(oFire1WP);
+         location lFire2 = GetLocation(oFire2WP);
+         location lFire3 = GetLocation(GetWaypointByTag("003_deanphoenix_cr_fire3_wp"));
+         location lXavier = GetLocation(GetWaypointByTag("003_deanphoenix_cr_xavier_wp"));
+		 location lXavier2 = GetLocation(GetWaypointByTag("003_deanphoenix_cr_xavier2_wp"));
+		 
+		 //Deckon Thar creatures & objects
+		 object oMirror2 = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_h_artifice_mirror", lMirror2, FALSE, "slv_h_artifice_mirror2");
+         object oJenny = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_water_gen", lWater);
+		 effect eFireBeam=EffectBeam(VFX_BEAM_FIRE, oJenny, BODY_NODE_CHEST, FALSE);
+		 object oXavier = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_firegen_xavier", lXavier);
+		 DelayCommand(10.0, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eCutScene, oXavier));
+         DelayCommand(11.0, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eStatue, oXavier));
+    	 object oXavier2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_firegen_xavier", lXavier2);
+		 location lBarbarian = GetLocation(GetWaypointByTag("003_deanphoenix_cr_skypony_wp"));
+		 object oBarbarian1 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_uthgardt_skypony", lBarbarian);
+		 object oBarbarian2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_uthgardt_skypony", lBarbarian);
+		 object oBarbarian3 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_uthgardt_skypony", lBarbarian);
+		 object oShaman = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_uthgardt_skypony_shaman", lBarbarian);
+		 object oAirEl = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_air", lAir);
+		 object oAirEl2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_air", lXavier2);
+		 object oAirEl3 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_air", lXavier2);
+		 object oFireMeph1 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_firemeph", GetLocation(oFire2WP));
+		 object oFireMeph2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_firemeph", GetLocation(oJenny));
+		 object oFireMeph3 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_firemeph", lFire1);
+		 object oFireMeph4 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_firemeph", lXavier2);
+		 object oFireMeph5 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_firemeph", lXavier2);
+		 object oFireMeph6 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_firemeph", lXavier2);
+		 DestroyObject(oAirEl, 450.0);
+		 DestroyObject(oAirEl2, 450.0);
+		 DestroyObject(oAirEl3, 450.0);
+		 DestroyObject(oJennyReflection, 300.0);
+		 DestroyObject(oFireMeph1, 450.0);
+		 DestroyObject(oFireMeph2, 450.0);
+		 DestroyObject(oFireMeph3, 450.0);
+		 DestroyObject(oFireMeph4, 450.0);
+		 DestroyObject(oFireMeph5, 450.0);
+		 DestroyObject(oFireMeph6, 450.0);
+		 DestroyObject(oBarbarian1, 450.0);
+		 DestroyObject(oBarbarian2, 450.0);
+		 DestroyObject(oBarbarian3, 450.0);
+		 DestroyObject(oShaman, 450.0);
+		 
+		 //Begin Crystalscribed communication recording in mirror
+		 DelayCommand(2.0, SpeakString("*The mirror now reflects...someone else, someone not with you, a masked and slender, green-haired woman in silvery scaled armor. She is seen as through a curtain of green fire. Behind her is somewhere else as well, a ruined hall that was once magnificent, with marble floors and pillars of gold.", TALKVOLUME_TALK));
+         DelayCommand(15.0, AssignCommand(oJennyReflection, SpeakString("Xavier...are you there? *Her voice is high and nervous.* Please, come to your mirror. Xavier!", TALKVOLUME_TALK)));
+         DelayCommand(18.0, AssignCommand(oSoundPlayer, PlaySound("as_pl_battlegrp8")));
+         DelayCommand(25.0, SpeakString("*Battle cries sound distantly behind the woman in the mirror. She glances behind herself, then leans into the frame with more urgency.*", TALKVOLUME_TALK));
+         DelayCommand(35.0, AssignCommand(oJennyReflection, SpeakString("We haven't much time. I will hope that your mirror will crystalscribe this, in case we have to run.", TALKVOLUME_TALK)));
+         DelayCommand(45.0, SpeakString("*The green light is suddenly washed out by a flash of red, reflecting on her face as if coming out of the space before her. For a moment, her eyes reflect a distorted image of flames.*", TALKVOLUME_TALK));
+         DelayCommand(48.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eFire3, oJennyReflection, 1.0));
+         DelayCommand(50.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eShake, oJennyReflection, 2.0));
+         DelayCommand(55.0, AssignCommand(oProfTra, SpeakString("Pay close attention.", TALKVOLUME_TALK)));
+         DelayCommand(57.0, AssignCommand(oProfDiv, SpeakString("*Softly* Look deeply. Lose yourself in the message.", TALKVOLUME_TALK)));
+         DelayCommand(65.0, SpeakString("*A laugh sounds, and a voice rich with the accent of Calimshan speaks as if from around you, within the green fire.*", TALKVOLUME_TALK));
+         DelayCommand(70.0, SpeakString("*I am here, my cold-blooded beauty.", TALKVOLUME_TALK));
+         DestroyObject(oJennyReflection, 70.0);
+		 
+		 int nInc = 1;
+		 object oPC = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_IS_PC, OBJECT_SELF, nInc);
+         while(oPC != OBJECT_INVALID)
+		 	{DelayCommand(70.0, FadeToBlack(oPC, FADE_SPEED_SLOWEST));
+        	 DelayCommand(72.0, AssignCommand(oPC, ActionJumpToLocation(lViewpoint)));
+             DelayCommand(412.0, FadeToBlack(oPC, FADE_SPEED_SLOWEST));
+             DelayCommand(415.0,  AssignCommand(oPC, ActionJumpToLocation(GetLocation(oExit))));
+             nInc++;
+			 oPC = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_IS_PC, OBJECT_SELF, nInc);
+			}
+		 
+		 DelayCommand(100.0, AssignCommand(oMirror2, SpeakString("*...drawing closer, more detail resolves itself in reflection, so clear you seem almost to be there with the woman.", TALKVOLUME_TALK)));
+         DelayCommand(110.0, AssignCommand(oMirror2, SpeakString("*There are elemental creatures reflected in that mirror, fire mephits and at least one air elemental. The sounds of a nearby storm indicate there are more air elementals near. Sounds of clashing steel and battlecries war with the shriek of the winds.", TALKVOLUME_TALK)));
+         DelayCommand(101.0, AssignCommand(oMirror2, PlaySound("as_wt_gustdraft1")));
+         DelayCommand(105.0, AssignCommand(oMirror2, PlaySound("as_pl_battlegrp7")));
+         DelayCommand(106.0, AssignCommand(oMirror2, PlaySound("as_wt_gustdraft1")));
+         DelayCommand(111.0, AssignCommand(oMirror2, PlaySound("as_pl_battlegrp5")));
+         DelayCommand(115.0, AssignCommand(oMirror2, PlaySound("as_pl_sscreamm1")));
+         DelayCommand(126.0, AssignCommand(oMirror2, PlaySound("as_wt_guststrng1")));
+         
+		 DelayCommand(130.0, AssignCommand(oJenny, SpeakString("You have to get us out of here!", TALKVOLUME_TALK)));
+         DelayCommand(140.0, AssignCommand(oXavier, SpeakString("You do not command me, Jenny. You will come to me immediately upon your return.", TALKVOLUME_TALK)));
+         DelayCommand(150.0, AssignCommand(oJenny, SpeakString("Yes, Mas.... Yes, Xavier. If we make it back. We haven't--", TALKVOLUME_TALK)));
+         DelayCommand(160.0, AssignCommand(oXavier, SpeakString("*Breaks in* What is that? What instrument carries your dulcet tones to me? Not the dead Air wizard's mirror?", TALKVOLUME_TALK)));
+         DelayCommand(170.0, AssignCommand(oJenny, SpeakString("This. *Waves hand through pillar of green light.*  I don't know what it is. The Grumbar priest --", TALKVOLUME_TALK)));
+         DelayCommand(180.0, AssignCommand(oXavier, SpeakString("Very interesting that an untuned instrument would play in harmony with my own. The world is large and full of wonder.", TALKVOLUME_TALK)));
+         
+		 
+		 DelayCommand(190.0, AssignCommand(oBarbarian1, ActionJumpToLocation(lFire1)));
+         DelayCommand(192.0, AssignCommand(oFireMeph4, ActionJumpToLocation(lFire1)));
+         DelayCommand(193.0, AssignCommand(oFireMeph5, ActionJumpToLocation(lFire1)));
+         DelayCommand(194.0, AssignCommand(oAirEl2, ActionJumpToLocation(lFire1)));
+          
+         DelayCommand(200.0, AssignCommand(oXavier, PlaySound("as_pl_laughingm2")));
+         DelayCommand(203.0, AssignCommand(oXavier, PlaySound("as_pl_laughingm2")));
+         DelayCommand(204.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eFireBeam, oBarbarian1, 5.0));
+         DelayCommand(205.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eFire3, oBarbarian1, 2.0));
+         DelayCommand(206.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eDeath, oBarbarian1));
+         DelayCommand(206.5, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eFire3, oJenny, 10.0));
+         DelayCommand(207.0, AssignCommand(oJenny, ActionForceMoveToLocation(lWater, FALSE)));
+		 DelayCommand(210.0, AssignCommand(oXavier, SpeakString("*Laughs, long and hard.* You put my little compositions to good use. I take it the Sky Pony did not wish to sell what I seek?", TALKVOLUME_TALK)));
+         DelayCommand(220.0, AssignCommand(oJenny, SpeakString("*Turns back to the mirror.* After about five words they started yelling about sacrilege and we had to chase them out of here. I've barricaded the way with elementals, but they are breaking through!", TALKVOLUME_TALK)));
+         DelayCommand(221.0, AssignCommand(oJenny, ActionForceMoveToLocation(lWater, FALSE)));
+		 DelayCommand(230.0, AssignCommand(oXavier, SpeakString("I require a powerful air token. /We/ require a powerful air token. The loss of the avariel last year was a setback we must recover. The show, as they say, must go on.", TALKVOLUME_TALK)));
+         DelayCommand(240.0, AssignCommand(oJenny, SpeakString("*Tears well up in her eyes and begin to drip in a stream down her face, a steady stream, a rivulet.* It gets worse.", TALKVOLUME_TALK)));
+         DelayCommand(250.0, AssignCommand(oXavier, SpeakString("Worse? Worse for you, who holds the position of water, with equivalent positions unfilled?", TALKVOLUME_TALK)));
+         DelayCommand(260.0, AssignCommand(oJenny, SpeakString("*Wipes her eyes and quavers* They killed the Grumbar priest.", TALKVOLUME_TALK)));
+         DelayCommand(270.0, AssignCommand(oJenny, SpeakString("*Did you hear me? The Uthgardt killed our Earthworker!", TALKVOLUME_TALK)));
+         DelayCommand(280.0, AssignCommand(oXavier, SpeakString("I heard you. *Begins to chuckle, an amusement the tremulous woman doesn't seem to share.* And his pet?", TALKVOLUME_TALK)));
+         DelayCommand(290.0, AssignCommand(oJenny, SpeakString("Fled, as soon as its master no longer commanded it. It ate its way through the slide, leaving us here!", TALKVOLUME_TALK)));
+         DelayCommand(300.0, AssignCommand(oXavier, SpeakString("So we are not only down one avarial, we are now short another required element? Well, that does put you into a bit of a bind. Am I not clever? I do amuse myself. A bind? Or perhaps you're about to be unbound...permanently.", TALKVOLUME_TALK)));
+         DelayCommand(310.0, AssignCommand(oJenny, SpeakString("There are dozens of Uthgardt, and they are coming! It's just me left, and the air and fire elementals.", TALKVOLUME_TALK)));
+         DelayCommand(320.0, AssignCommand(oXavier, SpeakString("Yes, just you, Jenny, and you have failed me.", TALKVOLUME_TALK)));
+         DelayCommand(330.0, AssignCommand(oJenny, SpeakString("You wouldn't leave me here! Think how hard it will be to replace me, too!", TALKVOLUME_TALK)));
+         DelayCommand(340.0, AssignCommand(oXavier, SpeakString("Perhaps a clean slate is what is needed. It could hardly get more boring.", TALKVOLUME_TALK)));
+         DelayCommand(350.0, AssignCommand(oJenny, SpeakString("I am more to you than just one of the tokens--", TALKVOLUME_TALK)));
+         DelayCommand(355.0, AssignCommand(oXavier, PlaySound("as_pl_laughingm2")));
+         DelayCommand(358.0, AssignCommand(oXavier, PlaySound("as_pl_laughingm2")));
+         DelayCommand(360.0, AssignCommand(oXavier, PlaySound("as_pl_laughingm2")));
+         DelayCommand(361.0, AssignCommand(oXavier, PlaySound("as_pl_laughingm2")));
+         DelayCommand(361.0, AssignCommand(oXavier, SpeakString("*His laughter begins to roll, growing in volume.*", TALKVOLUME_TALK)));
+         DelayCommand(370.0, AssignCommand(oJenny, SpeakString("Please! Master. Please.", TALKVOLUME_TALK)));
+         DelayCommand(374.0, AssignCommand(oJenny, PlaySound("as_pl_battlegrp7")));
+         DelayCommand(378.0, AssignCommand(oMirror2, PlaySound("as_wt_guststrng1")));
+         DelayCommand(380.0, AssignCommand(oXavier, SpeakString("I am coming, Water girl. Grip the mirror and hold tight, that I may focus, not that I need much focus to follow your sweet panic.*", TALKVOLUME_TALK)));
+         DestroyObject(oXavier, 381.0);
+		 DelayCommand(381.0, AssignCommand(oJenny, ActionForceMoveToLocation(lWater, FALSE)));
+		 DelayCommand(385.0, AssignCommand(oBarbarian2, ActionJumpToLocation(lFire1)));
+         DelayCommand(386.0, AssignCommand(oBarbarian3, ActionJumpToLocation(lFire1)));
+         DelayCommand(388.0, AssignCommand(oShaman, ActionJumpToLocation(lFire1)));
+         DelayCommand(389.0, AssignCommand(oFireMeph5, ActionJumpToLocation(lFire1)));
+         DelayCommand(390.0, AssignCommand(oFireMeph6, ActionJumpToLocation(GetLocation(oJenny))));
+         DelayCommand(391.0, AssignCommand(oAirEl3, ActionJumpToLocation(lFire1)));
+         DelayCommand(392.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eFireBeam, oShaman, 5.0));
+         DelayCommand(395.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eFire3, oShaman, 2.0));
+         DelayCommand(395.0, AssignCommand(oXavier2, ActionJumpToLocation(lWater)));
+         DelayCommand(396.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eFire3, oXavier2, 1.0));
+         DelayCommand(397.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eShake, oXavier2, 2.0));
+         DelayCommand(398.0, AssignCommand(oXavier2, SpeakString("I step on stage. Prepair to be ENTERTAINED!", TALKVOLUME_TALK)));
+         DelayCommand(410.0, AssignCommand(oMirror2, SpeakString("*The mirror darkens....", TALKVOLUME_TALK)));
+         
+		 DelayCommand(450.0, SpeakString("...and then reflections return...but only of the Transmutation classroom in the Lady's College.", TALKVOLUME_TALK));
+         DelayCommand(460.0, AssignCommand(oProfTra, SpeakString("You were right, Clarvue. Much more instructive. We don't know where the sending came from or what happened after. What we do know is that all that talk about elementalism and tokens of power indicates something very interesting happening somewhere.", TALKVOLUME_TALK)));
+         DelayCommand(470.0, AssignCommand(oProfTra, SpeakString("I am personally quite interested in the mechanism...that green light...that seems to communicate with various scrying mirrors within the region.", TALKVOLUME_TALK)));
+         DelayCommand(480.0, AssignCommand(oProfDiv, SpeakString("And I would like to know more about the dead Air wizard that was mentioned. A wizard with powers of Air and a priest of Grumbar make an interesting set, when taken with that woman, Jenny, clearly of a watery descent.", TALKVOLUME_TALK)));
+         DelayCommand(490.0, AssignCommand(oProfTra, SpeakString("Indeed. When put beside the sudden scarcity of phoenixii in the Marches, it does seem to add up to somebody--as they say in Amn--cornering the market on elemental powers.", TALKVOLUME_TALK)));
+         DelayCommand(500.0, AssignCommand(oProfTra, SpeakString("*Small smile* Most of that, of course, is for older and more powerful mages to concern themselves with. But proctors would certainly be useful research assistants.", TALKVOLUME_TALK)));
+         DelayCommand(505.0, AssignCommand(oProfDiv, SpeakString("Listens silently, with an enigmatic smile.*", TALKVOLUME_TALK)));
+         DelayCommand(510.0, AssignCommand(oProfTra, SpeakString("Of course, that is what Sera expects of you. To theorize possibilities. To look over our shoulders and learn in safety as we study the matter further. Perhaps even to perform small tasks in support of our great works.", TALKVOLUME_TALK)));
+         DelayCommand(520.0, AssignCommand(oProfTra, SpeakString("Well, this has been most enjoyable. You will do great things, scholar. Have no doubt.", TALKVOLUME_TALK)));
+         DelayCommand(530.0, AssignCommand(oProfDiv, SpeakString("Be careful, scholars. *Quietly* Wheresoever your research takes you. I must go. Miresk is pounding on my door upstairs.", TALKVOLUME_TALK)));
+         DestroyObject(oProfDiv, 531.0);
+         AssignCommand(oProfTra, DelayCommand(540.0, SpeakString("*Chuckles* Well, you certainly have your work cut out for you. You have earned your keyword. It is: 'Teaches'.", TALKVOLUME_TALK)));
+         if(ACR_RetrieveQuestState("slv_deandragon_t", oUser) ==1)
+		 	{DelayCommand(546.0, ACR_AddPersistentJournalQuestEntry("slv_deandragon_t", 2, oUser, FALSE, FALSE, FALSE, 0));
+			}
+		 AssignCommand(oProfTra, DelayCommand(550.0, SpeakString("Now, if you'll excuse me, Clarvue is telling me right now in my head that Miresk requires both me, and the mirror. *Vanishes*", TALKVOLUME_TALK)));
+         DestroyObject(oProfTra, 555.0);
+         DestroyObject(OBJECT_SELF, 556.0);
+         }	
+		
+	// deandragon_t mirror old
+	
+	/*if((GetTag(OBJECT_SELF) == "slv_h_artifice_mirror") && (GetLocalInt(OBJECT_SELF, "Used") != 1))
 	    {effect eBard = EffectVisualEffect(VFX_DUR_BARD_SONG);
 	     effect eCutScene = EffectVisualEffect(VFX_DUR_CUTSCENE_INVISIBILITY); 
 	     effect eSun = EffectVisualEffect(VFX_FNF_SUNBEAM, FALSE);
@@ -487,8 +674,9 @@ void main()
          DestroyObject(oProfTra, 640.0);
          DestroyObject(oMirror, 641.0);
          }
+	*/
 		
-			 	//deandragon_x floating gem
+	//deandragon_x floating gem
    if(GetTag(OBJECT_SELF) == "slv_deandragon_x_gem_plc")
 	   	{object oGemItem = CreateItemOnObject("slv_deandragon_x_gem", GetPlaceableLastClickedBy(), 1);
 		 DestroyObject(OBJECT_SELF);

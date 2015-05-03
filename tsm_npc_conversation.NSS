@@ -244,7 +244,7 @@ void main()
 			 
 			   	//slv_deandragon_x 
     if(GetTag(OBJECT_SELF) == "003_cr_slv_procenc2") 
-			   {CreateObject(OBJECT_TYPE_PLACEABLE, "slv_deandragon_x_gem_plc", GetLocation(OBJECT_SELF));
+			   {CreateObject(OBJECT_TYPE_PLACEABLE, "slv_deandragon_x_gem_plc", GetLocation(GetWaypointByTag("slv_deandragon_x_alastrarra")));
 			   }
 	   	 
 }
