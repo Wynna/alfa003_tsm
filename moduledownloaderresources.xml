@@ -1788,4 +1788,24 @@
       <string>0</string>
     </server-ref>
   </resource>
+  <resource type="DirectoryEntry" hash="5A045CF11A53B35876F488B8351BCFD874576B9A" downloadHash="C00040C9FA8E2FDD6AD806DCEE867579B2CAA9BB" name="003_travelling_circus.trx" dlsize="947139" size="6359211" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="100EC601D6469D77081BACF17E94C35FC0ECA23B" downloadHash="4DEDEC09191B4E24B045F2BC50C58C26937C9340" name="003_travelling_circus_int_mirror.trx" dlsize="39424" size="40338" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="D48B5ABCB19BEA51AC4D49BF96BA1A2E743656D7" downloadHash="B2443C982F4EA7669B83E04BC803BC29CB493A8B" name="003_travelling_circus_int_bigtp.trx" dlsize="481870" size="507918" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="16AF993D0A4D5991DD655A2A8881CB478C90BE9B" downloadHash="EDCDEB87F4B4D4765179422D48AF0B3965CFED1F" name="003_travelling_circus_int_cards.trx" dlsize="37975" size="38923" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
 </content>
