@@ -180,9 +180,8 @@ void main()
 		}
 
      if(GetTag(OBJECT_SELF) == "slv_evo200_poisoncircle")
-         {SendMessageToPC(oStudent, "onspell");
-		  if((GetLastSpell() == SPELL_LIGHT)|| (GetLastSpell() == SPELL_FLARE)) 
-		 {object oWindowWP = GetLocalObject(OBJECT_SELF, "oWindowWP");
+         {if((GetLastSpell() == SPELL_LIGHT)|| (GetLastSpell() == SPELL_FLARE)) 
+		 	{object oWindowWP = GetLocalObject(OBJECT_SELF, "oWindowWP");
 		    if(oWindowWP == OBJECT_INVALID)
 			   {oWindowWP = GetWaypointByTag("Evo_All_Quests_Window_WP");
 				SetLocalObject(OBJECT_SELF, "oWindowWP", oWindowWP);
@@ -197,7 +196,7 @@ void main()
 				{oMyIncinder = GetObjectByTag("003_cr_slv_incinder");
 				 SetLocalObject(OBJECT_SELF, "oMyIncinder", oMyIncinder);
 				}
-		object oMirror1 = GetLocalObject(OBJECT_SELF, "oMirror1");
+			object oMirror1 = GetLocalObject(OBJECT_SELF, "oMirror1");
 		   if(oMirror1 == OBJECT_INVALID)
 		   		{oMirror1 = GetObjectByTag("slv_evo200_mirror1");
 				 SetLocalObject(OBJECT_SELF, "oMirror1", oMirror1);
@@ -207,7 +206,7 @@ void main()
 		   		{oMirror2 = GetWaypointByTag("slv_evo200_mirror2");
 				 SetLocalObject(OBJECT_SELF, "oMirror2", oMirror2);
 				 }
-		 string sGender = "slv_evo200_man";
+		 	string sGender = "slv_evo200_man";
 		   string sGenderPLC = "slv_evo200_plc_man";
 		   if(GetGender(oStudent) != GENDER_MALE)
 				{sGender = "slv_evo200_woman";

@@ -1798,7 +1798,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="D48B5ABCB19BEA51AC4D49BF96BA1A2E743656D7" downloadHash="B2443C982F4EA7669B83E04BC803BC29CB493A8B" name="003_travelling_circus_int_bigtp.trx" dlsize="481870" size="507918" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="234D8900A63272C32FE6B6F27E2E999EC5939630" downloadHash="9E6D541B171ECAB7A354ED4B209CBED85743B4DE" name="003_travelling_circus_int_bigtp.trx" dlsize="539299" size="563882" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
