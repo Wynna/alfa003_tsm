@@ -186,9 +186,9 @@ if((GetIsPC(oStudent)) && (GetLocalInt(oStudent, "Classes") != 1))
 			 if(sPrefix == "Con")
 			 	{sProc = "Conjuration Proctor, Yellowclaw" ;
 			    }
-			 if(sPrefix == "Div")
-			 	{sProc = "Divination Proctor, Imogene Glasswright" ;
-			    }
+			 //if(sPrefix == "Div")
+			 //	{sProc = "Divination Proctor, Imogene Glasswright" ;
+			  //  }
 			 if(sPrefix == "Enc")
 			 	{sProc = "Enchantment Proctor, Nailo Solisel" ;
 			    }
@@ -205,10 +205,13 @@ if((GetIsPC(oStudent)) && (GetLocalInt(oStudent, "Classes") != 1))
 			 	{sProc = "Transmutation Proctor, Norain Delving" ;
 			    }
 			 	
-			 SetFirstName(oDoorProc, sProc);
-		     SetCampaignString("SLV_UNI", GetName(oMyDoorTrig) + "_Owner", sProc, oArea2);
-		     SetDescription(oDoorProc, "This room is assigned to " + sProc + ".");
-		     }
+			 if(sPrefix != "Div")
+				 {
+				 SetFirstName(oDoorProc, sProc);
+			     SetCampaignString("SLV_UNI", GetName(oMyDoorTrig) + "_Owner", sProc, oArea2);
+			     SetDescription(oDoorProc, "This room is assigned to " + sProc + ".");
+			     }
+			 }
 		 oMyDoorTrig = GetNextObjectInShape(SHAPE_CUBE, 80.0, GetLocation(oInitialize2), FALSE, OBJECT_TYPE_TRIGGER);
 		}
 	SetLocalInt(oArea2, "Initialize", 1);

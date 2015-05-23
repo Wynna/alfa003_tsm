@@ -263,8 +263,8 @@ void main()
          s2e = "Create Undead";
          s2f = "Finger of Death";
          s2g = "Horrid Wilting";
-         s2h = "Ray of Enfeeblement";
-         s2i = "Wail of the Banshee";
+         s2h = "Wail of the Banshee";
+         s2i = "Antidisestablishmentarianism";
          s2j = "Antidisestablishmentarianism";
          s3a = "Animate Dead";
          s3b = "Create Greater Undead";
