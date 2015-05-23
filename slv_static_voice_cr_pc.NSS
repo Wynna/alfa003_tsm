@@ -36,7 +36,7 @@ void main()
 				 if(GetTag(GetArea(OBJECT_SELF)) == "5b_ext_frosthills_glacier")
 					{object oMyListener = GetLocalObject(OBJECT_SELF, "oMyListener");
 					 if(oMyListener == OBJECT_INVALID)
-						 	{oMyListener = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_deanvoice", GetLocation(OBJECT_SELF));
+						 	{oMyListener = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_deanvoice_phoenix", GetLocation(OBJECT_SELF));
 	   						 SetLocalObject(OBJECT_SELF, "oMyListener", oMyListener);
 							 }
 					 if(FindSubString(GetName(GetItemInSlot(INVENTORY_SLOT_CLOAK, OBJECT_SELF)), "Greatcloak") != -1)

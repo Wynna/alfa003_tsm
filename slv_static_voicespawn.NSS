@@ -14,7 +14,7 @@ void main()
          string sLastName;
          string sMiddleName;
          string sMiddleName2;
-         int nSpace = FindSubString(sFullName, " ");
+		 int nSpace = FindSubString(sFullName, " ");
          if (nSpace > -1)
             {
             sFirstName = GetStringLeft(sFullName, nSpace);
@@ -152,7 +152,7 @@ void main()
 	         SetListenPattern(OBJECT_SELF, "**Coulrophobia**", 5010);
 	         SetListenPattern(OBJECT_SELF, "**Deszeldaryndun**", 5011);
 	         SetListenPattern(OBJECT_SELF, "**Escape from the Everfire**", 5012);
-	         SetListenPattern(OBJECT_SELF, "**Fire - A Travelogue**", 5013);
+	         SetListenPattern(OBJECT_SELF, "**Fire Tales**", 5013);
 	         SetListenPattern(OBJECT_SELF, "**Genasi vs. Mephit**", 5014);
 	         SetListenPattern(OBJECT_SELF, "**Hornblade**", 5015);
 	         SetListenPattern(OBJECT_SELF, "**Ignan Vocabulary**", 5016);
@@ -167,7 +167,7 @@ void main()
 	         SetListenPattern(OBJECT_SELF, "**Reliquaries**", 5025);
 	         SetListenPattern(OBJECT_SELF, "**Sundabar**", 5026);
 	         SetListenPattern(OBJECT_SELF, "**Testament**", 5027);
-	         SetListenPattern(OBJECT_SELF, "**Bestiary of Minor Undead**", 5028);
+	         SetListenPattern(OBJECT_SELF, "**Uthgar**", 5028);
 	         SetListenPattern(OBJECT_SELF, "**Valamaradace**", 5029);
 	         SetListenPattern(OBJECT_SELF, "**Watery Weirdness**", 5030);
 	         SetListenPattern(OBJECT_SELF, "**Xorn**", 5031);
@@ -188,7 +188,7 @@ void main()
 	         SetListenPattern(OBJECT_SELF, "**Must**", 5046);
 	         SetListenPattern(OBJECT_SELF, "**Negate**", 5047);
 	         SetListenPattern(OBJECT_SELF, "**Occult**", 5048);
-	         SetListenPattern(OBJECT_SELF, "**Phoenix**", 5049);
+	         SetListenPattern(OBJECT_SELF, "**Paradox**", 5049);
 	         SetListenPattern(OBJECT_SELF, "**Quandary**", 5050);
 	         SetListenPattern(OBJECT_SELF, "**Renewing**", 5051);
 	         SetListenPattern(OBJECT_SELF, "**Sunbird**", 5052);

@@ -113,7 +113,7 @@ void main()
              {if(GetTag(oArea) == "6d_int_silvy_vaultsages")
                  {sShelf = "Classics";}
              else
-                 {sShelf = "Politics";}
+                 {sShelf = "Poetry";}
              }
            if(GetTag(GetNearestObject(OBJECT_TYPE_WAYPOINT, oPC, 1)) == "WP_vos_m")
              {if(GetTag(oArea) == "6d_int_silvy_vaultsages")
@@ -123,7 +123,7 @@ void main()
              }
           if(GetTag(GetNearestObject(OBJECT_TYPE_WAYPOINT, oPC, 1)) == "WP_vos_n")
              {if(GetTag(oArea) == "6d_int_silvy_vaultsages")
-                 {sShelf = "Education";}
+                 {sShelf = "Elemental Studies";}
              else
                  {sShelf = "Politics";}
              }
@@ -131,7 +131,7 @@ void main()
             {if(GetTag(oArea) == "6d_int_silvy_vaultsages")
                  {sShelf = "Engineering";}
              else
-                 {sShelf = "Politics";}
+                 {sShelf = "Power";}
              }
           if(GetTag(GetNearestObject(OBJECT_TYPE_WAYPOINT, oPC, 1)) == "WP_vos_p")
              {if(GetTag(oArea) == "6d_int_silvy_vaultsages")
@@ -257,7 +257,7 @@ void main()
              {if(GetTag(oArea) == "6d_int_silvy_vaultsages")
                  {sShelf = "History: Racial";}
             else
-                 {sShelf = "Theology";}
+                 {sShelf = "Theatre";}
             }
           if(GetTag(GetNearestObject(OBJECT_TYPE_WAYPOINT, oPC, 1)) == "WP_vos_pp")
             {if(GetTag(oArea) == "6d_int_silvy_vaultsages")
@@ -297,10 +297,10 @@ void main()
             }
            if(GetTag(GetNearestObject(OBJECT_TYPE_WAYPOINT, oPC, 1)) == "WP_vos_v")
                 {if(GetTag(oArea) == "6d_int_silvy_vaultsages2")
-                    {sShelf = "Racial Studies: High Elven VICtims";
+                    {sShelf = "Racial Studies: High Elven VALoUr";
                     }
                  else
-                 {sShelf = "Foreign Language: HisTORY of Low Elven dialects";
+                 {sShelf = "Fochlucan Diaries: PerformABLE Moments";
                     }
                  } 
 

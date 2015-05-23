@@ -175,7 +175,7 @@ string sTryAgain = "Do you wish to receive, submit or use a keyword to enter?  Y
                else if (((sQuest == "T") || (sQuest == "t")) && (GetItemPossessedBy(oStudent, "slv_deanbookt3") != OBJECT_INVALID))
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Terrific. It's about time, I might add. No, literally. It’s time you learned something about the past exploits of a group who may be of interest to your research. Master of Transmutation Auroneous has something to show you. He will pay you for your attention with a keyword for 'T'.", TALKVOLUME_TALK)));
                     }
-               else if (((sQuest == "U") || (sQuest == "u")) && (GetItemPossessedBy(oStudent, "slv_deanbooku3") != OBJECT_INVALID))
+               else if (((sQuest == "U") || (sQuest == "u")) && (GetItemPossessedBy(oStudent, "slv_deanbooku") != OBJECT_INVALID))
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Up then under are for you, new dimensions of the 'U'. Identify a friendship true; most familiar has the clue. Friends you'll slumber or subdue; other creatures blast to goo. (In your pocket's something new.)", TALKVOLUME_TALK)));
                      CreateItemOnObject("slv_key_roof", oStudent, 1);
 					 }

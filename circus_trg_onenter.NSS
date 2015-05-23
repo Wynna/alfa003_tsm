@@ -77,7 +77,7 @@ void main()
 		{location lFallBreak=GetLocation(GetWaypointByTag("circus_aerial_fall_break_wp"));
 		 location lFall=GetLocation(GetWaypointByTag("circus_aerial_fall_wp"));
 		 effect eKnockdown=EffectKnockdown();
-		 effect eFallingDamage=EffectDamage(Random(6), DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE); 
+		 effect eFallingDamage=EffectDamage(Random(10), DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE); 
 		SendMessageToPC(oPC, "It would be easy to fall from this highwire!");
 		 int nDexCheck = Random(21) + (GetAbilityModifier(ABILITY_DEXTERITY, oPC)) + (GetSkillRank(SKILL_BALANCE, oPC, FALSE));
 		 if (nDexCheck >= 8)
@@ -96,6 +96,63 @@ void main()
 			}
 		}	
 		
-		
+	if((GetTag(OBJECT_SELF) == "circus_highwire_trg") && ((GetIsPC(oPC)) || (GetIsDMPossessed(oPC))))
+		{location lFall=GetLocation(GetWaypointByTag("circus_highwire_fall_wp"));
+		 effect eKnockdown=EffectKnockdown();
+		 effect eFallingDamage=EffectDamage(Random(10), DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE); 
+		 effect eFallingDamageHalf=EffectDamage(Random(5), DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE); 
+		 
+		SendMessageToPC(oPC, "It would be easy to fall from this highwire!");
+		 int nDexCheck = Random(21) + (GetAbilityModifier(ABILITY_DEXTERITY, oPC)) + (GetSkillRank(SKILL_BALANCE, oPC, FALSE));
+		 if (nDexCheck >= 8)
+		 	{SendMessageToPC(oPC, "The wire wobbles but you maintain your balance!");}
+		 else
+		 	{if(ReflexSave(oPC, 15, SAVING_THROW_TYPE_NONE, OBJECT_SELF))
+				{SendMessageToPC(oPC, "You start to fall, but catch yourself!");}
+			 else
+			 	{SendMessageToPC(oPC, "You are falling!");
+				 if(ReflexSave(oPC, 15, SAVING_THROW_TYPE_NONE, OBJECT_SELF))
+					{DelayCommand(2.0, AssignCommand(oPC, ActionJumpToLocation(lFall)));
+					 DelayCommand(2.0, SendMessageToPC(oPC, "You catch at some ropes that slow your fall! Breaking free, you hit the ground not quite as hard as you could have."));
+					 DelayCommand(2.5, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eKnockdown, oPC, 5.0));
+					 DelayCommand(3.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eFallingDamageHalf, oPC));
+					}
+				 else
+				 	{DelayCommand(2.0, AssignCommand(oPC, ActionJumpToLocation(lFall)));
+					 DelayCommand(2.5, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eKnockdown, oPC, 5.0));
+					 DelayCommand(3.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eFallingDamage, oPC));
+					}
+				}
+			}
+		}	
+	
+	if((GetTag(OBJECT_SELF) == "circus_crosswire_trg") && ((GetIsPC(oPC)) || (GetIsDMPossessed(oPC))))
+		{location lFall=GetLocation(GetWaypointByTag("circus_crosswire_fall_wp"));
+		 effect eKnockdown=EffectKnockdown();
+		 effect eFallingDamage=EffectDamage(Random(10), DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE); 
+		 effect eFallingDamageHalf=EffectDamage(Random(5), DAMAGE_TYPE_BLUDGEONING, DAMAGE_POWER_NORMAL, FALSE); 
+		 SendMessageToPC(oPC, "It would be easy to fall from this highwire!");
+		 int nDexCheck = Random(21) + (GetAbilityModifier(ABILITY_DEXTERITY, oPC)) + (GetSkillRank(SKILL_BALANCE, oPC, FALSE));
+		 if (nDexCheck >= 8)
+		 	{SendMessageToPC(oPC, "The wire wobbles but you maintain your balance!");}
+		 else
+		 	{if(ReflexSave(oPC, 15, SAVING_THROW_TYPE_NONE, OBJECT_SELF))
+				{SendMessageToPC(oPC, "You start to fall, but catch yourself!");}
+			 else
+			 	{SendMessageToPC(oPC, "You are falling!");
+				 if(ReflexSave(oPC, 15, SAVING_THROW_TYPE_NONE, OBJECT_SELF))
+					{DelayCommand(2.0, AssignCommand(oPC, ActionJumpToLocation(lFall)));
+					 DelayCommand(2.0, SendMessageToPC(oPC, "You catch at some ropes that slow your fall! Breaking free, you hit the water not quite as hard as you could have."));
+					 DelayCommand(2.5, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eKnockdown, oPC, 5.0));
+					 }
+				 else
+				 	{DelayCommand(2.0, AssignCommand(oPC, ActionJumpToLocation(lFall)));
+					 DelayCommand(2.5, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eKnockdown, oPC, 5.0));
+					 DelayCommand(3.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eFallingDamageHalf, oPC));
+					}
+				}
+			}
+		}	
+			
 
 }

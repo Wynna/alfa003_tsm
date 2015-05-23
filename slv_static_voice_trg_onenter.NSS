@@ -125,13 +125,13 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_e_ice_activate") && (ACR_RetrieveQues
 	 SetUseableFlag(oMyIce, TRUE);
 	}
 	
-if((GetTag(OBJECT_SELF) == "slv_deandragon_e_listener") && (GetTag(GetEnteringObject()) != "003_cr_slv_deanvoice"))
+if((GetTag(OBJECT_SELF) == "slv_deandragon_e_listener") && (GetTag(GetEnteringObject()) != "003_cr_slv_deanvoice_phoenix"))
 	  {object oMyWP = GetLocalObject(OBJECT_SELF, "oMyWP");
 	   if(oMyWP == OBJECT_INVALID)
 		 	{oMyWP = GetWaypointByTag("slv_el_air_wp4");
 			 SetLocalObject(OBJECT_SELF, "oMyWP", oMyWP);
 			}
-	   object oMyListener = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_deanvoice", GetLocation(oMyWP));
+	   object oMyListener = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_deanvoice_phoenix", GetLocation(oMyWP));
 	   SetLocalObject(GetEnteringObject(), "oMyListener", oMyListener);
 	   SetLocalObject(oMyListener, "oStudent", GetEnteringObject());
 	   object oStudent = GetLocalObject(oMyListener, "oStudent");

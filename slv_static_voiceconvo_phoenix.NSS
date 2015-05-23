@@ -90,11 +90,11 @@ void main()
 			 	{oEndWP = GetWaypointByTag("slv_deandragon_e_flight_WP");
 				 SetLocalObject(OBJECT_SELF, "oEndWP", oEndWP);
 				}
-			 string sDeity = GetStringUpperCase(GetDeity(oPC));
-			 string sFollowUp = GetStringUpperCase(GetDeity(oPC)) + " REWARDS YOUR FAITHFULNESS.";
+			 string sDeity = GetStringUpperCase(GetDeity(oPC)) + ".";
+			 string sFollowUp = GetStringUpperCase(GetDeity(oPC)) + " WOULD REWARD YOUR FAITHFULNESS. A MAGE SHOULD BE AWARE OF DIVINE MAGIC, EITHER AS FRIEND OR FOE.";
 			 if(nMatch == 5062)
 			 	{sDeity = "THE QUEEN OF THE COLD.";
-				 sFollowUp = "SHE SHALL REMEMBER YOUR SERVITUDE....AS SHALL YOU.";
+				 sFollowUp = "SHE WOULD REMEMBER YOUR SERVITUDE....AS SHOULD YOU.";
 				 }
 			 if(nMatch == 5063)
 			 	{sDeity = "THE GODDESS OF MAGIC.";
@@ -245,9 +245,9 @@ void main()
         while(iABC < 27)
           {if((nMatch == nKeyword) &&  ((sQuest == sCapitalLetter) || (sQuest == sSmallLetter)))
             {AssignCommand(oPhoenix, SpeakString("Very good.  I shall record you as having collected all the information to discuss with my Master.", TALKVOLUME_TALK));
-             if((sQuest == "R") || (sQuest == "r") || (sQuest == "W")|| (sQuest == "w"))
+             if((sQuest == "R") || (sQuest == "r") || (sQuest == "J")|| (sQuest == "j"))
 			 	{DelayCommand(5.0, AssignCommand(oPhoenix, SpeakString("Oh and something else for you. Of this answer you'll need two, for a hidden subtext clue, not the big clue that you'll view.", TALKVOLUME_TALK)));
- 				if((sQuest == "R") || (sQuest == "r"))
+ 				if((sQuest == "J") || (sQuest == "j"))
 				 	{DelayCommand(10.0, AssignCommand(oPhoenix, SpeakString("Mercy me and on you too! Listen up or else you'll rue...when looking back and on review, need revealed as two TIMES two?", TALKVOLUME_TALK)));
 	 				}
 				}
@@ -256,7 +256,7 @@ void main()
  				}
 			 SetCampaignString("SLV_UNI", "PhoenixQuest" + sQuest, "Completed", oStudent);
 			 int iQuestState = ACR_RetrieveQuestState("slv_deandragon_" + GetStringLowerCase(sQuest), oStudent);
-			 ACR_AddPersistentJournalQuestEntry("slv_deandragon_" + GetStringLowerCase(sQuest), iQuestState +1, oStudent, FALSE, FALSE, FALSE, 0);
+			 ACR_AddPersistentJournalQuestEntry("slv_deandragon_" + GetStringLowerCase(sQuest), iQuestState +1, oStudent, FALSE, FALSE, FALSE, 100);
 			 SetLocalInt(oStudent, "DeanPhoenixConversation", 4);
              DelayCommand(1.0, ExecuteScript("slv_static_voicequests_phoenix", OBJECT_SELF));
              break;
