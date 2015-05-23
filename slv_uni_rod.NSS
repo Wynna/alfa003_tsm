@@ -66,13 +66,7 @@ void main()
 			SendMessageToPC(oDM, "Transmutation Graduation = " + GetCampaignString("SLV_UNI", "Graduation TransmutationInfo", oStudent));
 			}
 			
-		string sCampaignNamed = GetLocalString(oStudent, "sCampaignNamed");;
-		if(sCampaignNamed == "")
-			{sCampaignNamed = GetCampaignString("SLV_UNI", "DeanDragonNamed" + GetName(oStudent), oStudent);
-			 SetLocalString(oStudent, "sCampaignNamed", sCampaignNamed);
-			 }
-	   	if(sCampaignNamed != "")
-			{int iABC = 0;
+		    int iABC = 0;
 	        string sCapitals = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	        string sSmalls = "abcdefghijklmnopqrstuvwxyz";
 	        string sCapitalLetter = GetSubString(sCapitals, iABC, 1);
@@ -86,7 +80,7 @@ void main()
 	        	sSmallLetter = GetSubString(sSmalls, iABC, 1);
 	        	}
 			
-			}
+			
 		float fDistance = GetDistanceBetweenLocations(lStudent, GetLocation(oDM));
 		SendMessageToPC(oDM, "Distance to " + GetName(oStudent) + " = " + FloatToString(fDistance));
 		SendMessageToPC(oDM, "Time-- " + IntToString(GetTimeHour()) + ":" + IntToString(GetTimeMinute()));
