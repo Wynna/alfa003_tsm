@@ -65,7 +65,7 @@ void main()
 			SendMessageToPC(oDM, "Necromancy Graduation = " + GetCampaignString("SLV_UNI", "Graduation NecromancyInfo", oStudent));
 			SendMessageToPC(oDM, "Transmutation Graduation = " + GetCampaignString("SLV_UNI", "Graduation TransmutationInfo", oStudent));
 			}
-			
+			//Anybody can be in the Dean's Quest, student or not
 		    int iABC = 0;
 	        string sCapitals = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	        string sSmalls = "abcdefghijklmnopqrstuvwxyz";
