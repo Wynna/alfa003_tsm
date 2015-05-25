@@ -34,6 +34,7 @@
 //  2010/06/03  Sandermann - added advanced AI hook and re-introduced search and stealth functionality
 //	2011/04/09	Sandermann 	- added plug and play functionality for acr system
 //							- added random generation for equipment and sizing
+// 2015/05/22   Wynna - fixed compile error caused by constant name duplicating one in acr_creature_i
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +55,7 @@
 // Constants ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-const string _CRE_NO_AI = "ACR_CRE_NO_AI";
+const string _CRE_NO_AI2 = "ACR_CRE_NO_AI";
 
 ////////////////////////////////////////////////////////////////////////////////
 // Structures //////////////////////////////////////////////////////////////////
@@ -168,7 +169,7 @@ void ACR_CreatureOnSpellCastAt()
 
     // apply any effects on the creature
     //ACR_VFXOnSpellCastAt(oCaster, OBJECT_SELF);
-    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) 
+    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2 == FALSE)) 
 		{
 		//if we are using smart AI, call the OE associate script
 		if (GetIsSmart())
@@ -186,7 +187,7 @@ void ACR_CreatureOnPhysicallyAttacked()
     
     // apply any effects on the creature
     //ACR_VFXOnAttack(oAttacker, OBJECT_SELF);
-    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) 
+    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) 
 	{ 
 		//if we are using smart AI, call the OE associate script
 		if (GetIsSmart())
@@ -263,7 +264,7 @@ void ACR_CreatureOnDeath()
 
 void ACR_CreatureOnBlocked()
 {
-	if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) {
+	if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) {
 		//if we are using smart AI, call the OE associate script
 		if (GetIsSmart())
 			{
@@ -276,7 +277,7 @@ void ACR_CreatureOnBlocked()
 
 void ACR_CreatureOnEndCombatRound()
 {
-	if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) {
+	if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) {
 		//if we are using smart AI, call the OE associate script
 		if (GetIsSmart())
 			{
@@ -289,7 +290,7 @@ void ACR_CreatureOnEndCombatRound()
 
 void ACR_CreatureOnConversation()
 {
-    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) {
+    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) {
     	// still call the Obsidian script for AI for now.
     	ExecuteScript("nw_c2_default4", OBJECT_SELF);
 	}
@@ -302,7 +303,7 @@ void ACR_CreatureOnInventoryDisturbed()
     // apply any effects on the creature
     ACR_VFXOnDisturb(oDisturber, OBJECT_SELF);
 
-    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) {	    
+    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) {	    
     	// still call the Obsidian script for AI for now.
     	ExecuteScript("nw_c2_default8", OBJECT_SELF);
 	}
@@ -363,7 +364,7 @@ void ACR_CreatureOnHeartBeat()
         // apply any effects on the creature
         ACR_VFXOnHeartBeat(OBJECT_SELF);
     */
-	if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) {
+	if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) {
 		//if we are using smart AI, call the OE associate script
 		if (GetIsSmart())
 			{
@@ -377,7 +378,7 @@ void ACR_CreatureOnHeartBeat()
 
 void ACR_CreatureOnRested()
 {
-    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) {
+    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) {
     	// still call the Obsidian script for AI for now.
     	ExecuteScript("nw_c2_defaulta", OBJECT_SELF);
 	}
@@ -389,7 +390,7 @@ void ACR_CreatureOnPerception()
 
     // apply any effects on the creature
     //ACR_VFXOnPerception(oPerceived, OBJECT_SELF);
-    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) {    
+    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) {    
 		//if we are using smart AI, call the OE associate script
 		if (GetIsSmart())
 			{
@@ -402,7 +403,7 @@ void ACR_CreatureOnPerception()
 
 void ACR_CreatureOnUserDefined()
 {
-    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI) == FALSE) {
+    if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) {
     	// still call the Obsidian script for AI for now.
     	ExecuteScript("nw_c2_defaultd", OBJECT_SELF);
 	}

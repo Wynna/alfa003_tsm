@@ -43,7 +43,16 @@ void main()
      else if (Random(8) < 9)
      {sTeach = "Professor Auroneus";}
 
- 
+ string sCandidate;
+     if(Random(4) < 2)
+     {sCandidate = "Aislinn";}
+     else if (Random(8) < 3)
+     {sCandidate = "Arizma";}
+     else if (Random(8) < 4)
+     {sCandidate = "Glaustigan";}
+     else if (Random(8) < 5)
+     {sCandidate = "John Walker";}
+     
 
 object oPerceived = GetLastPerceived();
 if(GetIsPC(oPerceived))
@@ -66,153 +75,157 @@ object oNearest = GetNearestCreature(CREATURE_TYPE_PLAYER_CHAR, PLAYER_CHAR_NOT_
 			)
 			
 			
-			   {if(Random(100) < 8)
+			   {if(Random(150) < 8)
 				     {ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 16)
+			     else if(Random(150) < 16)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Hello.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 18)
+			      else if(Random(150) < 18)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("I know it says it's working for a couple of professors, but, really, do you trust a mephit?" , TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 20)
+			     else if(Random(150) < 20)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Funny, every candle in the ritual kept guttering out.", TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 21)
-				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Are you going to go for the Dean's Quest if they offer it this year?", TALKVOLUME_TALK));
+			      else if(Random(150) < 21)
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Are you following the progress of the Dean's Quest candidates?", TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 22)
+			      else if(Random(150) < 22)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Yes, I said Hornblade. He was visiting the Dean, only this morning!", TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 23)
+			      else if(Random(150) < 23)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("There's something strange about that kid I see around Illusion so often.", TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 24)
+			      else if(Random(150) < 24)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Good " + sDay, TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if((Random(100) < 25)  && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
+			     else if((Random(150) < 25)  && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Can I borrow your notes?", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if((Random(100) < 26) && (GetGender(OBJECT_SELF) == GENDER_FEMALE))
+			     else if((Random(150) < 26) && (GetGender(OBJECT_SELF) == GENDER_FEMALE))
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("I don't really care for the new Spellguard, how about you?", TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if((Random(100) < 27) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
+			     else if((Random(150) < 27) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("How did you do on " +sTeach + "'s last test?", TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
 			
-			      else if((Random(100) < 28) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
+			      else if((Random(150) < 28) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Should we work on that spell together later?", TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 29)
+			     else if(Random(150) < 29)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Vorn's old news. Ashton, too. I hope nobody else dies.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if((Random(100) < 30) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
+			     else if((Random(150) < 30) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Did you get a chance to rest before the test?", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 31)
+			     else if(Random(150) < 31)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("The written exams are too hard!  I don't care what he says!", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 32)
+			     else if(Random(150) < 32)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Did you hear about Lani, that elven divination student? Shame, isn't it.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if((Random(100) < 33) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
+			      else if((Random(150) < 33) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Did you study?", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 34)
+			      else if(Random(150) < 34)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("I miss Dean Vihuel. I don't think the tragedy will ever fade.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 35)
+			      else if(Random(150) < 35)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("I'll meet you in class.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 36)
+			      else if(Random(150) < 36)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Sorry I'm late. I had trouble with keeping a fire lit this morning and it's too cold without one!", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
 			
-			     else if(Random(100) < 37)
+			     else if(Random(150) < 37)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Glad to see you have recovered. Did Dr. Augustine heal you up?", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if((Random(100) < 38) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
+			      else if((Random(150) < 38) && (GetStringLeft(GetTag(oPerceived), 14)  != "003_cr_slv_prof"))
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString(sTeach + " wants to see you, you know.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 39)
-				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("I heard that Laniara is Master Clarvue's favorite.", TALKVOLUME_TALK));
+			      else if(Random(150) < 39)
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("I heard that Riverrun is the odds on favorite to win.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 40)
+			      else if(Random(150) < 40)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Yes, Alastrarra. She's up on the Master's Hall all the time. Special treatment for some, don't you know.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			      else if(Random(100) < 41)
+			      else if(Random(150) < 41)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("It's nice that they're letting the familiars come back. I'm sure none of them will ever get into the pantry again.", TALKVOLUME_TALK));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 42)
+			     else if(Random(150) < 42)
 				     {DelayCommand(IntToFloat(Random(5)), PlayVoiceChat(VOICE_CHAT_BORED, OBJECT_SELF));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 43)
+			     else if(Random(150) < 43)
 				     {DelayCommand(IntToFloat(Random(5)), PlayVoiceChat(VOICE_CHAT_HELLO, OBJECT_SELF));
 				     ActionPlayAnimation(ANIMATION_FIREFORGET_GREETING, 1.0);
 				      SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 44)
+			     else if(Random(150) < 44)
 				     {DelayCommand(IntToFloat(Random(5)), PlayVoiceChat(VOICE_CHAT_GROUP, OBJECT_SELF));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 45)
+			     else if(Random(150) < 45)
 				     {DelayCommand(IntToFloat(Random(5)), PlayVoiceChat(VOICE_CHAT_LAUGH, OBJECT_SELF));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 46)
+			     else if(Random(150) < 46)
 				     {DelayCommand(IntToFloat(Random(5)), PlayVoiceChat(VOICE_CHAT_TALKTOME, OBJECT_SELF));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 47)
+			     else if(Random(150) < 47)
 				     {DelayCommand(IntToFloat(Random(5)), PlayVoiceChat(VOICE_CHAT_REST, OBJECT_SELF));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 48)
+			     else if(Random(150) < 48)
 				     {DelayCommand(IntToFloat(Random(5)), PlayVoiceChat(VOICE_CHAT_MOVEOVER, OBJECT_SELF));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 49)
+			     else if(Random(150) < 49)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("Did you hear about " + sTeach + "'s class?", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
-			     else if(Random(100) < 50)
+			     else if(Random(150) < 50)
 				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString("I'm looking for " + sTeach +".", TALKVOLUME_TALK));
+				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
+					 }
+				 else if(Random(150) < 51)
+				     {DelayCommand(IntToFloat(Random(5)), ActionSpeakString( sCandidate + " is doing quite well, from what I hear.", TALKVOLUME_TALK));
 				     SetLocalInt(oPerceived, "Perceived" + GetTag(OBJECT_SELF), 1);
 				     }
 			 	

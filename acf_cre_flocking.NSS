@@ -78,7 +78,7 @@ void main()
 			
 			
 			//Toggle on functions for spawn event and Omega Wand
-			/*
+			
 			if(GetLocalInt(oFlocker, "ACR_FLOCKING") == 1) 
 					{object oMobDestination = GetNearestObject(OBJECT_TYPE_PLACEABLE, oFlocker, 1);
 					 SendMessageToAllDMs("oMobDestination = " + GetTag(oMobDestination) + "/" +GetName(oMobDestination));
@@ -134,6 +134,6 @@ void main()
 								 DelayCommand(IntToFloat(Random(60) + 60), ExecuteScript("acf_cre_flocking", oFlocker));
 								 }
 					}
-					*/
+					
 						
 }

@@ -1808,4 +1808,9 @@
       <string>0</string>
     </server-ref>
   </resource>
+  <resource type="DirectoryEntry" hash="B2A56360966581C1819A1A7B12E8AD7A1FF73889" downloadHash="F64B7F13E49ED29339C80B6BFE8BBA758E57C51A" name="6f_int_silvypass_delz_crypt.trx" dlsize="243838" size="245789" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
 </content>

@@ -202,7 +202,22 @@ void main()
 			 if(iResRef == 38)
 				{sResRef = "003_cr_slv_proctra";
 				}	
-			 	
+			 if(iResRef == 39)
+				{sResRef = "003_cr_slv_studabj";
+				}	
+			 if(iResRef == 40)
+				{sResRef = "003_cr_slv_studdiv";
+				}	
+			 if(iResRef == 41)
+				{sResRef = "003_cr_slv_studevo";
+				}	
+			 if(iResRef == 42)
+				{sResRef = "003_cr_slv_studnec";
+				}	
+			  if(iResRef == 43)
+				{sResRef = "003_cr_slv_studtra";
+				}	
+			  	
 			 object oCreate = CreateObject(OBJECT_TYPE_CREATURE, sResRef, lCreate, FALSE, sResRef + "_Wand");
 			 SetLocalInt(oDM, "Uni_NPC", 0);
 			 DelayCommand(7200.0, SendMessageToPC(oDM, GetTag(oCreate) + " will self-destroy in 1 minute"));

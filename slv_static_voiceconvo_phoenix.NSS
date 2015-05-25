@@ -13,7 +13,7 @@ void main()
 	    object oPhoenix = GetLocalObject(OBJECT_SELF, "oPhoenix");
 	    object oCabinet = GetLocalObject(OBJECT_SELF, "oCabinet");
 	    object oCabinetStatic = GetLocalObject(OBJECT_SELF, "oCabinetStatic");
-		location lCabinet = GetLocalLocation(OBJECT_SELF, "lCabinet");
+		location lCabinet = GetLocation(GetWaypointByTag("vala_location_wp"));
 		object oCollBox = GetLocalObject(OBJECT_SELF, "oCollBox");
 		string sCampaignNamedPhoenix = GetLocalString(oStudent, "sCampaignNamedPhoenix");;
 		if(sCampaignNamedPhoenix == "")

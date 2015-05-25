@@ -55,48 +55,52 @@ void main()
     location lTarget = GetSpellTargetLocation();
 	int nItemType = GetBaseItemType(oItem);
 	effect eFailure = EffectSpellFailure(100);
+	string sArea = GetTag(GetArea(oCaster));
 	
 
 			
 	
-	if(GetLocalInt(oCaster, "WildMagic") == 1)
-		{if(Random(100) < 75)
-			{SendMessageToPC(oCaster, "You feel oddly disoriented.");
-			 if(Random(100) < 50)
-			 	{SendMessageToPC(oCaster, "The feeling intensifies and your spell goes awry!");
-			     effect eMental;
-				 effect eArcaneSpellFail = EffectArcaneSpellFailure(100);
-				 effect eDaze = EffectDazed();
-				 effect eConfused = EffectConfused();
-				 effect eCharmed = EffectCharmed();
-				 effect eFear = EffectFrightened();
-				 effect eStun = EffectStunned();
-				 int iEffect = Random(5);
-				 if(iEffect == 0)
-				 	{eMental = eDaze;
-					 AssignCommand(oCaster, ActionCastSpellAtObject(SPELL_DAZE, GetNearestObject(OBJECT_TYPE_CREATURE, oCaster, 1), METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-					 }
-				else if(iEffect == 1)
-				 	{eMental = eConfused;
-					AssignCommand(oCaster, ActionCastSpellAtObject(SPELL_CONFUSION, GetNearestObject(OBJECT_TYPE_CREATURE, oCaster, 1), METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-					 }
-				else if(iEffect == 2)
-				 	{eMental = eCharmed;
-					AssignCommand(oCaster, ActionCastSpellAtObject(SPELL_CHARM_PERSON, GetNearestObject(OBJECT_TYPE_CREATURE, oCaster, 1), METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-					 }
-				else if(iEffect == 3)
-				 	{eMental = eFear;
-					AssignCommand(oCaster, ActionCastSpellAtObject(SPELL_SCARE, GetNearestObject(OBJECT_TYPE_CREATURE, oCaster, 1), METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-					 }
-				else if(iEffect == 4)
-				 	{eMental = eStun;
-					AssignCommand(oCaster, ActionCastSpellAtObject(SPELL_POWER_WORD_STUN, GetNearestObject(OBJECT_TYPE_CREATURE, oCaster, 1), METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-					 }
-				DelayCommand(3.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eMental, oCaster, IntToFloat(Random(30))));
-				} 
+
+if((FindSubString(GetTag(GetArea(oCaster)), "5g_") != -1) || (FindSubString(GetTag(GetArea(oCaster)), "5h_") != -1)|| (FindSubString(GetTag(GetArea(oCaster)), "6f_") != -1)  )
+	{if(nSpellId == SPELL_COMBUST ||nSpellId ==  SPELL_DELAYED_BLAST_FIREBALL  || nSpellId == SPELL_ELEMENTAL_SHIELD || nSpellId == SPELL_FIRE_STORM || nSpellId == SPELL_FLAME_ARROW || nSpellId == SPELL_FLAME_LASH || nSpellId == SPELL_FLAME_WEAPON || nSpellId == SPELL_FIREBALL || nSpellId == SPELL_FIREBRAND || nSpellId == SPELL_FIREBURST 
+		|| nSpellId == SPELL_BURNING_HANDS || nSpellId == SPELL_FLAME_STRIKE || nSpellId == SPELL_GREATER_FIREBURST  || nSpellId == SPELL_INCENDIARY_CLOUD ||nSpellId == SPELL_INFERNO || nSpellId == SPELL_INFINITE_RANGE_FIREBALL 
+		|| nSpellId == 1056 || nSpellId == 1057 || nSpellId == SPELL_METEOR_SWARM || nSpellId == SPELL_METEOR_SWARM_TARGET_CREATURE || nSpellId == SPELL_METEOR_SWARM_TARGET_LOCATION || nSpellId == SPELL_METEOR_SWARM_TARGET_SELF
+		|| nSpellId == SPELL_SHROUD_OF_FLAME || nSpellId == SPELL_WALL_OF_FIRE)
+			{if(Random(100) < 50)
+				{SendMessageToPC(oCaster, "You feel oddly out of touch with your spell.");
+				 if(Random(100) < 25)
+				 	{SendMessageToPC(oCaster, "The feeling intensifies and your spell goes awry!");
+				    int iEffect = Random(5);
+					string sNewSpell="";
+					object oNewTarget=GetNearestObject(OBJECT_TYPE_CREATURE, oCaster, 1);
+					string sNewTarget=GetName(oNewTarget);
+					 if(iEffect == 0)
+					 	{AssignCommand(oCaster, ActionCastSpellAtObject(SPELL_FLARE, oNewTarget, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+						 sNewSpell="Flare";
+						 }
+					else if(iEffect == 1)
+					 	{AssignCommand(oCaster, ActionCastSpellAtObject(SPELL_LIGHT, oNewTarget, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+						 sNewSpell="Light";
+						 }
+					else if(iEffect == 2)
+					 	{AssignCommand(oCaster, ActionCastSpellAtObject(SPELL_COLOR_SPRAY, oNewTarget, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+						 sNewSpell="Color Spray";
+						 }
+					else if(iEffect == 3)
+					 	{AssignCommand(oCaster, ActionCastSpellAtObject(SPELL_DARKNESS, oNewTarget, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+						 sNewSpell="Darkness";
+						 }
+					else if(iEffect == 4)
+					 	{SetModuleOverrideSpellScriptFinished();
+						SendMessageToPC(oCaster, "Your spell fizzles.");
+						sNewSpell="Flare";
+						 }
+					SendMessageToAllDMs(GetName(oCaster) + "'s Fire based spell went wrong in " + sArea + ". Iintended spell: " + IntToString(nSpellId) +". Instead, " + sNewSpell + " cast on " + sNewTarget + ".");
+					} 
+				}
 			}
 		}
-	
+
 	
 	
 	//Silverymoon's Mythal prohibits spells of certain domains, unless one is carrying a ward token
