@@ -107,7 +107,7 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_e") && (ACR_RetrieveQuestState("slv_d
 		}
 	 object oMyIncinder = GetLocalObject(OBJECT_SELF, "oMyIncinder");
 	 if(oMyIncinder == OBJECT_INVALID)
-	 	{oMyIncinder = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_incinder", GetLocation(oIncinderWP));
+	 	{oMyIncinder = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_incinder2", GetLocation(oIncinderWP));
 		 SetLocalObject(OBJECT_SELF, "oMyIncinder", oMyIncinder);
 	 	 DestroyObject(oMyIncinder, 600.00);
 		 DelayCommand(600.0, SetLocalObject(OBJECT_SELF, "oMyIncinder", OBJECT_INVALID));

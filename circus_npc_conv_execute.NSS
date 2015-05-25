@@ -39,30 +39,26 @@ void main()
 		{location lFireCast=GetLocation(GetWaypointByTag("fire_cast_wp"));
 		 location lFireStart=GetLocation(GetWaypointByTag("fire_start_wp"));
 		 object oBrazier = GetNearestObjectByTag("003_plc_brazier", OBJECT_SELF, 1);
-		 object oBrazierLit = GetNearestObjectByTag("003_plc_brazier_lit", OBJECT_SELF, 1);
+		 object oBrazierLit = GetNearestObjectByTag("003_plc_brazier_lit", oBrazier, 1);
 		 location lBrazier = GetLocation(oBrazier);
 		 object oTorch = GetNearestObjectByTag("003_plc_torch", OBJECT_SELF, 1);
-		 object oTorchLit = GetNearestObjectByTag("003_plc_torch_lit", OBJECT_SELF, 1);
+		 object oTorchLit = GetNearestObjectByTag("003_plc_torch_lit", oTorch, 1);
 		 location lTorch = GetLocation(oTorch);
 		 object oCandle = GetNearestObjectByTag("003_plc_candle", OBJECT_SELF, 1);
-		 object oCandleLit = GetNearestObjectByTag("003_plc_candle_lit", OBJECT_SELF, 1);
+		 object oCandleLit = GetNearestObjectByTag("003_plc_candle_lit", oCandle, 1);
 		 location lCandle = GetLocation(oCandle);
 		 object oCandle2 = GetNearestObjectByTag("003_plc_candle", OBJECT_SELF, 2);
-		 object oCandleLit2 = GetNearestObjectByTag("003_plc_candle_lit", OBJECT_SELF, 2);
+		 object oCandleLit2 = GetNearestObjectByTag("003_plc_candle_lit", oCandle2, 2);
 		 location lCandle2 = GetLocation(oCandle2);
 		 object oCandle3 = GetNearestObjectByTag("003_plc_candle", OBJECT_SELF, 3);
-		 object oCandleLit3 = GetNearestObjectByTag("003_plc_candle_lit", OBJECT_SELF, 3);
+		 object oCandleLit3 = GetNearestObjectByTag("003_plc_candle_lit", oCandle3, 3);
 		 location lCandle3 = GetLocation(oCandle3);
 		 object oCandle4 = GetNearestObjectByTag("003_plc_candle", OBJECT_SELF, 4);
-		 object oCandleLit4 = GetNearestObjectByTag("003_plc_candle_lit", OBJECT_SELF, 4);
+		 object oCandleLit4 = GetNearestObjectByTag("003_plc_candle_lit", oCandle4, 4);
 		 location lCandle4 = GetLocation(oCandle4);
 		 object oCandle5 = GetNearestObjectByTag("003_plc_candle", OBJECT_SELF, 5);
-		 object oCandleLit5 = GetNearestObjectByTag("003_plc_candle_lit", OBJECT_SELF, 5);
+		 object oCandleLit5 = GetNearestObjectByTag("003_plc_candle_lit", oCandle5, 5);
 		 location lCandle5 = GetLocation(oCandle5);
-		 int nSpell=10;
-		 
-		 ActionPlayAnimation(ANIMATION_FIREFORGET_DRINK, 1.0, 2.0);
-		 ActionMoveToLocation(lFireCast, FALSE);
 		 DestroyObject(oBrazierLit);
 		 DestroyObject(oTorchLit);
 		 DestroyObject(oCandleLit);
@@ -70,24 +66,45 @@ void main()
 		 DestroyObject(oCandleLit3);
 		 DestroyObject(oCandleLit4);
 		 DestroyObject(oCandleLit5);
-		 DelayCommand(4.0, ActionCastSpellAtObject(nSpell, oBrazier, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-		 DelayCommand(5.0, ActionCreateWynPlace("003_plc_brazier_lit" , GetLocation(oBrazier)));
-		 DelayCommand(7.0, ActionCastSpellAtObject(nSpell, oTorch, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-		 DelayCommand(8.0, ActionCreateWynPlace("003_plc_torch_lit" , GetLocation(oTorch)));
-		 DelayCommand(10.0, ActionCastSpellAtObject(nSpell, oCandle, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-		 DelayCommand(11.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle)));
-		 DelayCommand(13.0, ActionCastSpellAtObject(nSpell, oCandle2, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-		 DelayCommand(14.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle2)));
-		 DelayCommand(16.0, ActionCastSpellAtObject(nSpell, oCandle3, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-		 DelayCommand(17.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle3)));
-		 DelayCommand(19.0, ActionCastSpellAtObject(nSpell, oCandle4, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-		 DelayCommand(20.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle4)));
-		 DelayCommand(22.0, ActionCastSpellAtObject(nSpell, oCandle5, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
-		 DelayCommand(23.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle5)));
-		 DelayCommand(25.0, AssignCommand(OBJECT_SELF, ActionPlayAnimation(ANIMATION_FIREFORGET_BOW, 1.0, 5.0)));
-		 DelayCommand(26.0, ActionSpeakString("*Offers a wordless bow, coughing up smoke*", TALKVOLUME_TALK));
-		 DelayCommand(28.0, ActionMoveToLocation(lFireStart, FALSE));
-		 }
+		 
+		 int nSpell=10;
+ 		 int nIncrement= GetLocalInt(OBJECT_SELF, "nIncrement");
+		 
+		 if(nIncrement==0) 
+			 {ActionPlayAnimation(ANIMATION_FIREFORGET_DRINK, 1.0, 2.0);
+			 ActionMoveToLocation(lFireCast, FALSE);
+			 DestroyObject(oBrazierLit);
+			 DestroyObject(oTorchLit);
+			 DestroyObject(oCandleLit);
+			 DestroyObject(oCandleLit2);
+			 DestroyObject(oCandleLit3);
+			 DestroyObject(oCandleLit4);
+			 DestroyObject(oCandleLit5);
+			 DelayCommand(4.0, ActionCastSpellAtObject(nSpell, oBrazier, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+			 DelayCommand(5.0, ActionCreateWynPlace("003_plc_brazier_lit" , GetLocation(oBrazier)));
+			 DelayCommand(7.0, ActionCastSpellAtObject(nSpell, oTorch, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+			 DelayCommand(8.0, ActionCreateWynPlace("003_plc_torch_lit" , GetLocation(oTorch)));
+			 DelayCommand(10.0, ActionCastSpellAtObject(nSpell, oCandle, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+			 DelayCommand(11.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle)));
+			 DelayCommand(13.0, ActionCastSpellAtObject(nSpell, oCandle2, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+			 DelayCommand(14.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle2)));
+			 DelayCommand(16.0, ActionCastSpellAtObject(nSpell, oCandle3, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+			 DelayCommand(17.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle3)));
+			 DelayCommand(19.0, ActionCastSpellAtObject(nSpell, oCandle4, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+			 DelayCommand(20.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle4)));
+			 DelayCommand(22.0, ActionCastSpellAtObject(nSpell, oCandle5, METAMAGIC_ANY, TRUE, 0, PROJECTILE_PATH_TYPE_DEFAULT, TRUE));
+			 DelayCommand(23.0, ActionCreateWynPlace("003_plc_candle_lit" , GetLocation(oCandle5)));
+			 DelayCommand(25.0, AssignCommand(OBJECT_SELF, ActionPlayAnimation(ANIMATION_FIREFORGET_BOW, 1.0, 5.0)));
+			 DelayCommand(26.0, ActionSpeakString("*Offers a wordless bow, coughing up smoke*", TALKVOLUME_TALK));
+			 DelayCommand(28.0, ActionMoveToLocation(lFireStart, FALSE));
+			 SetLocalInt(OBJECT_SELF, "nIncrement", 1);
+			 DelayCommand(30.0, ExecuteScript("circus_npc_conv_execute", OBJECT_SELF));
+			 }
+			 
+		 if(nIncrement==1)
+		 	{SetLocalInt(OBJECT_SELF, "nIncrement", 0);
+			 }
+		}
 		
 	// Dagger Thrower	
 	if(GetTag(OBJECT_SELF) == "003_cr_circus_dagger_throw")
@@ -452,6 +469,7 @@ void main()
 		 
 		 DelayCommand(25.0, AssignCommand(oBear, ActionPlayAnimation(ANIMATION_FIREFORGET_TAUNT, 1.0, 2.0)));
 		 DelayCommand(25.0, AssignCommand(OBJECT_SELF, ActionPlayAnimation(ANIMATION_LOOPING_DANCE03, 1.0, 2.0)));
+		 DelayCommand(25.0, AssignCommand(OBJECT_SELF, PlaySound("as_cv_lute1", FALSE)));
 		 
 		 DelayCommand(26.0, AssignCommand(OBJECT_SELF, ActionMoveToObject(oBearWP2, FALSE, 1.0)));
 		 DelayCommand(28.0, AssignCommand(OBJECT_SELF, ActionMoveToObject(oBearWP3, FALSE, 1.0)));
@@ -491,6 +509,7 @@ void main()
 		 DelayCommand(49.0, AssignCommand(oBear, ActionPlayAnimation(ANIMATION_FIREFORGET_TAUNT, 1.0, 2.0)));
 		 DelayCommand(49.0, AssignCommand(OBJECT_SELF, ActionPlayAnimation(ANIMATION_LOOPING_DANCE03, 1.0, 2.0)));
 		 
+		 DelayCommand(50.0, AssignCommand(OBJECT_SELF, PlaySound("as_cv_lute1", FALSE)));
 		 DelayCommand(50.0, AssignCommand(oBear, ActionMoveToObject(oBearWP2, FALSE, 1.0)));
 		 DelayCommand(52.0, AssignCommand(oBear, ActionMoveToObject(oBearWP3, FALSE, 1.0)));
 		 DelayCommand(54.0, AssignCommand(oBear, ActionMoveToObject(oBearWP4, FALSE, 1.0)));
@@ -700,8 +719,8 @@ void main()
 		 object oSnake=CreateObject(OBJECT_TYPE_CREATURE, sCreature, lCreate);
 		 object oSnake2=CreateObject(OBJECT_TYPE_CREATURE, sCreature2, lCreate);
 		 DelayCommand(2.0, ActionSpeakString("Dance, my pets.", TALKVOLUME_TALK));
-		 DelayCommand(3.0, PlayAnimation(ANIMATION_LOOPING_FLUTEPLAY, 1.0, 25.0));
-		 DelayCommand(3.0, PlaySound("as_cv_flute1", FALSE));
+		 DelayCommand(3.0, PlayAnimation(ANIMATION_LOOPING_FLUTEPLAY, 1.0, 3.0));
+		 DelayCommand(3.0, AssignCommand(OBJECT_SELF, PlaySound("as_cv_flute1", FALSE)));
 		 
 		 DelayCommand(5.0, AssignCommand(oSnake, ActionAttack(oSnake2)));
 		 DelayCommand(6.0, AssignCommand(oSnake2, ActionAttack(oSnake)));
@@ -709,13 +728,19 @@ void main()
 		 DelayCommand(8.0, AssignCommand(oSnake2, ActionAttack(oSnake)));
 		 DelayCommand(9.0, AssignCommand(oSnake, ActionAttack(oSnake2)));
 		 DelayCommand(10.0, AssignCommand(oSnake2, ActionAttack(oSnake)));
+		 DelayCommand(11.0, PlayAnimation(ANIMATION_LOOPING_FLUTEPLAY, 1.0, 3.0));
+		 DelayCommand(12.0, AssignCommand(OBJECT_SELF, PlaySound("as_cv_flute1", FALSE)));
 		 
+		 DelayCommand(23.0, PlayAnimation(ANIMATION_LOOPING_FLUTEPLAY, 1.0, 3.0));
+		 DelayCommand(24.0, AssignCommand(OBJECT_SELF, PlaySound("as_cv_flute1", FALSE)));
 		 DelayCommand(25.0, AssignCommand(oSnake, ActionAttack(oSnake2)));
 		 DelayCommand(26.0, AssignCommand(oSnake2, ActionAttack(oSnake)));
 		 DelayCommand(27.0, AssignCommand(oSnake, ActionAttack(oSnake2)));
 		 DelayCommand(28.0, AssignCommand(oSnake2, ActionAttack(oSnake)));
 		 DelayCommand(29.0, AssignCommand(oSnake, ActionAttack(oSnake2)));
 		 DelayCommand(30.0, AssignCommand(oSnake2, ActionAttack(oSnake)));
+		 DelayCommand(30.0, PlayAnimation(ANIMATION_LOOPING_FLUTEPLAY, 1.0, 3.0));
+		 DelayCommand(31.0, AssignCommand(OBJECT_SELF, PlaySound("as_cv_flute1", FALSE)));
 		 
 		 DelayCommand(31.0, AssignCommand(oSnake, ActionForceMoveToLocation(lCreate, FALSE, 30.0)));
 		 DelayCommand(31.5, AssignCommand(oSnake2, ActionForceMoveToLocation(lCreate, FALSE, 30.0)));
@@ -855,7 +880,11 @@ void main()
 			
 			 DelayCommand(90.0, AssignCommand(oTiger5, ActionJumpToLocation(GetLocation(oTiger_Trick1WP))));
 			 DelayCommand(92.0, ActionSpeakString("*Cracks whip*. Si'vain, douse the flames!", TALKVOLUME_TALK));
-			 DelayCommand(93.0, AssignCommand(oTiger5, ActionForceMoveToObject(oTigerWaterRope, TRUE, 1.0)));
+			 DelayCommand(93.0, AssignCommand(oTiger, ActionForceMoveToObject(oTigerWaterRope, TRUE, 1.0)));
+			 DelayCommand(94.0, AssignCommand(oTiger, ActionAttack(oTigerWaterRope, FALSE)));
+			 DelayCommand(94.0, AssignCommand(oTiger2, ActionAttack(oTigerWaterRope, FALSE)));
+			 DelayCommand(96.0, AssignCommand(oTiger3, ActionAttack(oTigerWaterRope, FALSE)));
+			 DelayCommand(96.0, AssignCommand(oTiger4, ActionAttack(oTigerWaterRope, FALSE)));
 			 DelayCommand(96.0, AssignCommand(oTiger5, ActionAttack(oTigerWaterRope, FALSE)));
 			 DelayCommand(97.0, ActionCreateWynPlacedEffect("circus_fx_waterwall_l_y", GetLocation(oTigerWater1WP))); 
 			 DelayCommand(98.0, ActionCreateWynPlacedEffect("circus_fx_waterwall_l_y", GetLocation(oTigerWater2WP))); 
@@ -954,7 +983,7 @@ void main()
 			 ActionCreateWynPlace("circus_sword_swallow_plc", lSword);
 			 DelayCommand(2.0, ExecuteScript("circus_npc_conv_execute", OBJECT_SELF));
 			 }
-		else if(nIncrement == 12)
+		else if(nIncrement == 11)
 			{SetLocalInt(OBJECT_SELF, "nIncrement", 0);
 			 SpeakString("*Bending backwards, inserts sword blade into mouth, carefully, the shiny blade descending an astonishing distance. Pulls it free, unbloodied, and sheathes it with a flourish.", TALKVOLUME_TALK);
 		 	 ActionEquipItem(oSwordInv, INVENTORY_SLOT_RIGHTHAND);
