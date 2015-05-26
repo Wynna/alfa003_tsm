@@ -183,14 +183,14 @@ void main()
 			    }
 			 else if(iInc == iCon)
 				{SetLocalInt(oUser, "Rest", 1);
-				 SendMessageToPC(oUser, "You can no longer hold up the tool. You need to take a break. One hour ought to do it.");
-			     DelayCommand(540.0, SendMessageToPC(oUser, "Your break from shovelling has restored you. You think you can dig some more."));
-			     DelayCommand(541.0, SetLocalInt(oUser, "Rest", 0));
+				 SendMessageToPC(oUser, "You can no longer hold up the tool. You need to take a break. Half an hour ought to do it.");
+			     DelayCommand(270.0, SendMessageToPC(oUser, "Your break from shovelling has restored you. You think you can dig some more."));
+			     DelayCommand(271.0, SetLocalInt(oUser, "Rest", 0));
 				 return;
 				 }
 				 
 			if((iArchitecture > 2) || (GetRacialType(oUser) == RACIAL_TYPE_DWARF) || (GetRacialType(oUser) == RACIAL_TYPE_GNOME)) 
-			 	{iModify = iModify + 10;}
+			 	{iModify = iModify + 6;}
 			//SendMessageToPC(oUser, "iModify = " + IntToString(iModify));
 			object oRubble = GetFirstObjectInShape(SHAPE_SPHERE, 7.5, GetLocation(OBJECT_SELF), FALSE, OBJECT_TYPE_PLACEABLE);
 			while(oRubble != OBJECT_INVALID)
@@ -201,7 +201,7 @@ void main()
 			 			 //SendMessageToPC(oUser, "iQuake =" + IntToString(iQuake));
 			 			 object oEndangered = GetFirstObjectInShape(SHAPE_SPHERE, 10.0, GetLocation(OBJECT_SELF), FALSE, OBJECT_TYPE_CREATURE);
 				 			 
-						 if(iQuake + iModify < 10)
+						 if(iQuake + iModify < 8)
 							{effect eQuake = EffectVisualEffect(VFX_SPELL_HIT_EARTHQUAKE, FALSE);
 							 while(oEndangered != OBJECT_INVALID)
 								 {SendMessageToPC(oUser, GetName(oEndangered));
@@ -229,7 +229,7 @@ void main()
 				 				 }
 							object oDone = GetFirstObjectInShape(SHAPE_SPHERE, 10.0, GetLocation(OBJECT_SELF), FALSE, OBJECT_TYPE_CREATURE);
 					 		while(oDone != OBJECT_INVALID)
-								{SendMessageToPC(oUser, "Resetting Slide & Reflex on oDone " + GetName(oDone));
+								{//SendMessageToPC(oUser, "Resetting Slide & Reflex on oDone " + GetName(oDone));
 								 SetLocalInt(oDone, "Slide", 0);  
 								 SetLocalInt(oDone, "Reflex", 0);
 								 oDone = GetNextObjectInShape(SHAPE_SPHERE, 10.0, GetLocation(OBJECT_SELF), FALSE, OBJECT_TYPE_CREATURE);

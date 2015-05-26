@@ -34,6 +34,26 @@ void main()
 		ActionSpeakString("*OOC: The performer rolls " + IntToString(nPerformRandom) + " on a Perform Check for this performance.*", TALKVOLUME_TALK);
 		}
 	
+	//Water Genasi Acrobat	
+	if(GetTag(OBJECT_SELF) == "003_cr_circus_jenny")
+		{ location lLadderCenterWestUp = GetLocation(GetWaypointByTag("003_plc_circus_ladder_cw_up_WP"));
+		  location lLadderCenterWestDown = GetLocation(GetWaypointByTag("003_plc_circus_ladder_cw_dn_WP"));
+		  location lLadderCenterEastUp = GetLocation(GetWaypointByTag("003_plc_circus_ladder_ce_up_WP"));
+		  location lLadderCenterEastDown = GetLocation(GetWaypointByTag("003_plc_circus_ladder_ce_dn_WP"));
+		  location lLadderHighwireDown = GetLocation(GetWaypointByTag("003_plc_circus_ladder_hw_up_WP"));
+		  location lLadderHighwireUp = GetLocation(GetWaypointByTag("003_plc_circus_ladder_hw_up_WP"));
+		  location lLadderPlatformWestUp = GetLocation(GetWaypointByTag("003_plc_circus_ladder_pw_up_WP"));
+		  location lLadderPlatformWestDown = GetLocation(GetWaypointByTag("003_plc_circus_ladder_pw_up_WP"));
+		  location lLadderPlatformEastUp = GetLocation(GetWaypointByTag("003_plc_circus_ladder_pe_up_WP"));
+		  location lLadderPlatformEastDown = GetLocation(GetWaypointByTag("003_plc_circus_ladder_pe_up_WP"));
+		  location lSplashdownWest = GetLocation(GetWaypointByTag("splashdown_west_wp"));
+		  location lSplashdownEast = GetLocation(GetWaypointByTag("splashdown_east_wp"));
+		  location lWaterChuteStart = GetLocation(GetWaypointByTag("chute_start_wp"));
+		  location lWaterChuteEnd = GetLocation(GetWaypointByTag("chute_end_wp"));
+		  location lFountain = GetLocation(GetWaypointByTag("fountain_wp"));
+		}
+	
+	
 		// Fire Breather	
 	if(GetTag(OBJECT_SELF) == "003_cr_circus_fire_breath")
 		{location lFireCast=GetLocation(GetWaypointByTag("fire_cast_wp"));
