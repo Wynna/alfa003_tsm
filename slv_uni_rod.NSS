@@ -15,12 +15,13 @@ void main()
 	location lStudent = GetItemActivatedTargetLocation();
     location lCreate = GetLocalLocation(oDM, "lCreate");
 	
+	
 
     //University Rod
 	
 	
 
- if((GetIsDM(oDM)) || (GetIsDMPossessed(oDM)) || GetIsPC(oDM))
+ if((GetIsDM(oDM)) || (GetIsDMPossessed(oDM)) )
 		{if((IsStudentEnrolledInSilvyUniversity(oStudent)) && (GetIsPC(oStudent)))
 		    {SendMessageToPC(oDM, "***");
 			SendMessageToPC(oDM, "ALL COURSE INFO FOR " + GetName(oStudent) + ":");
@@ -65,8 +66,10 @@ void main()
 			SendMessageToPC(oDM, "Necromancy Graduation = " + GetCampaignString("SLV_UNI", "Graduation NecromancyInfo", oStudent));
 			SendMessageToPC(oDM, "Transmutation Graduation = " + GetCampaignString("SLV_UNI", "Graduation TransmutationInfo", oStudent));
 			}
-			//Anybody can be in the Dean's Quest, student or not
-		    int iABC = 0;
+			
+			
+	//Anybody can be in the Dean's Quest, student or not
+	int iABC = 0;
 	        string sCapitals = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	        string sSmalls = "abcdefghijklmnopqrstuvwxyz";
 	        string sCapitalLetter = GetSubString(sCapitals, iABC, 1);
