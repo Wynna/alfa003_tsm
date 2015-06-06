@@ -168,7 +168,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="41E18195B59B684964D996D11699369C652982BC" downloadHash="83723DA978531DCC9B1B8E66CAA841FFED83EEDF" name="5h_int_sundabar_everfire.trx" dlsize="942831" size="966411" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="AC1EE91ED6F7BC4F9A04B1E187282632078EE821" downloadHash="671EAF1E86E6AD5057C6AB2C86FE916130BA4207" name="5h_int_sundabar_everfire.trx" dlsize="946104" size="969758" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1809,6 +1809,91 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="B2A56360966581C1819A1A7B12E8AD7A1FF73889" downloadHash="F64B7F13E49ED29339C80B6BFE8BBA758E57C51A" name="6f_int_silvypass_delz_crypt.trx" dlsize="243838" size="245789" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="4B287720587186ABC7CD1D57AAE2CFEFCC4CBB30" downloadHash="86F9B43DA8EFC21867B51E8BFFA1E7D33431F99D" name="5h_sundabar_everfire_rift_c.trx" dlsize="2149941" size="14829681" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="43E33E72B48405D4C496AB8217DEFEAD9E59506A" downloadHash="128D3A1870F6FCFDDB401116AC6DC9B45F2F9687" name="5h_ext_sundabar.trx" dlsize="4211032" size="18328699" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="54A357D7354418651ECDAC3452905AF73F97C891" downloadHash="E20C33636417B1B75F79B88D45386857F45F99A3" name="5h_int_sundabar_wwing.trx" dlsize="68808" size="69017" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="3E52D7D649FA7ED2D50ECCD3A7FC1E96A09F7EB7" downloadHash="608B055E55C1D60EBE329ADF1178A864B9A42187" name="5h_int_sundabar_master.trx" dlsize="472177" size="478851" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="834863EC14C3E32EE6975FA815B56AA0ED994F54" downloadHash="AAB9880136AE744D285D19244F6ED8B303438A08" name="5h_int_sundabar_temple_tormtyr.trx" dlsize="33212" size="33230" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="269AEDDAB4980187677FECED6E65A22D189EB7E1" downloadHash="5FC9AB8821B6763DDD0716073588924A9D13870C" name="5h_int_sundabar_firestar_chariot.trx" dlsize="176627" size="177270" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="7FF131CAF194F801902133CEB64E40F1A7496FC4" downloadHash="89560BA9D52C40BFAD597CB0B85DACC73EDD18E0" name="5h_sundabar_everfire_rift_w.trx" dlsize="336820" size="342203" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="6C26FF7477A106756804F2AF6971A4B3767B91AE" downloadHash="EB0B5073A54466F8ECD849A5E4843DB57EF1A71D" name="5h_int_sundabar_temple_helm.trx" dlsize="24452" size="24496" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="364C121800EBFFD873835803BD11E2B705D792BB" downloadHash="6CB8067C404D7EBB09558934E077AF7403A18D90" name="5h_sundabar_everfire_rift_e.trx" dlsize="219047" size="221739" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="938E5F6E67C940C7C53C6740F4B1DC8EB4AABF2D" downloadHash="434C03995725F5D8E2540528E728C70C04FD32D8" name="5h_int_sundabar_malshym_1st.trx" dlsize="52192" size="52440" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="5C790FFA1A1F792A4EE948ACFA87A3C86C8B2255" downloadHash="DF7EB52A1F14D46DAE44F89A48E9B96D0E4874BC" name="5h_int_sundabar_trumpet.trx" dlsize="88707" size="89096" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="15C1D6F6DB4523E2B4E598CE2DA7309FFD7B5EA0" downloadHash="0E4182FFC60C1069416927DB8BC70514C91C43EC" name="5h_int_sundabar_resi.trx" dlsize="290698" size="291874" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="0C2A2315A637BEC66D5EB1AC6490D3E63151313D" downloadHash="8B43D0FBAFDB95A571127AE6129120E854A68AA4" name="5h_int_sundabar_ewing.trx" dlsize="90764" size="91032" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="21E9DD61D0A35AAE5668D7AE5A954429E0AE2992" downloadHash="4E34A313845B8229D620BB753213CD989687F791" name="5h_int_sundabar_mine.trx" dlsize="99107" size="99865" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="4AB922A293E60F5749DB984A8AADF703E767E12B" downloadHash="27D73BA7E999D4C164B7A882A501E577CA6F1A13" name="5h_int_sundabar_baldivers_1st.trx" dlsize="80692" size="81532" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="B0834D7AB1AE620E583D8E72CA4B361A9FE677ED" downloadHash="E91F1FE6236FA8684BD0DCDF4C14DA399ADFBBC7" name="5h_int_sundabar_baldivers_ground.trx" dlsize="91759" size="92142" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="5A593AB8BFDE8630D307FF476E7BBB17FEEBAF8D" downloadHash="E7E304B761C2FAA6805C30FCE9BAC989D51986B8" name="5h_int_sundabar_malshym_ground.trx" dlsize="68563" size="68888" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>

@@ -254,9 +254,11 @@ void main()
 			 if((sQuest == "V") || (sQuest == "v"))
 			 	{DelayCommand(5.0, AssignCommand(oPhoenix, SpeakString("Very simple, yes? From this you may learn two things. The first: simplicity can be more difficult than complexity when it is a change from procedure. The second: simple and fast are just as effective as learned and detailed when executed properly.", TALKVOLUME_TALK)));
  				}
-			 SetCampaignString("SLV_UNI", "PhoenixQuest" + sQuest, "Completed", oStudent);
 			 int iQuestState = ACR_RetrieveQuestState("slv_deandragon_" + GetStringLowerCase(sQuest), oStudent);
-			 ACR_AddPersistentJournalQuestEntry("slv_deandragon_" + GetStringLowerCase(sQuest), iQuestState +1, oStudent, FALSE, FALSE, FALSE, 100);
+			 if(GetCampaignString("SLV_UNI", "PhoenixQuest" + sQuest, oStudent) != "Completed")
+				 {ACR_AddPersistentJournalQuestEntry("slv_deandragon_" + GetStringLowerCase(sQuest), iQuestState +1, oStudent, FALSE, FALSE, FALSE, 100);
+				 SetCampaignString("SLV_UNI", "PhoenixQuest" + sQuest, "Completed", oStudent);
+			 	}
 			 SetLocalInt(oStudent, "DeanPhoenixConversation", 4);
              DelayCommand(1.0, ExecuteScript("slv_static_voicequests_phoenix", OBJECT_SELF));
              break;
