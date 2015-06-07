@@ -12,8 +12,8 @@ void main()
 		}
     
     object oStudent = GetItemActivatedTarget();
-	string sDQInc = GetLocalString(oStudent, "deanquest_inc");
-	string sDQDec = GetLocalString(oStudent, "deanquest_dec");
+	string sDQInc = GetLocalString(oDM, "deanquest_inc");
+	string sDQDec = GetLocalString(oDM, "deanquest_dec");
 	
 	
 	
@@ -21,8 +21,7 @@ void main()
 
 //University Rod Change Dean's Quest States
 	
-if(GetIsPC(oStudent))	
-	{if(sDQInc != "")
+if(sDQInc != "")
 		 {if((GetIsDM(oDM)) || (GetIsDMPossessed(oDM)))
 			{int nQuestState= ACR_RetrieveQuestState("slv_deandragon_" + sDQInc,  oStudent);
 			 SendMessageToPC(oDM, "DeanDragon " + sDQInc + " = " + IntToString(ACR_RetrieveQuestState("slv_deandragon_" + sDQInc, oStudent)) + " for " + GetName(oStudent));
@@ -31,7 +30,7 @@ if(GetIsPC(oStudent))
 			 SetLocalString(oStudent, "deanquest_inc", "");
 			}
 		}
-	
+			
 	else if(sDQDec != "")
 		 {if((GetIsDM(oDM)) || (GetIsDMPossessed(oDM)))
 			{int nQuestState= ACR_RetrieveQuestState("slv_deandragon_" + sDQDec,  oStudent);
@@ -43,6 +42,6 @@ if(GetIsPC(oStudent))
 			 DelayCommand(3.0, SetLocalString(oStudent, "deanquest_dec", ""));
 			}
 		}
-	}
+	
 
 }
