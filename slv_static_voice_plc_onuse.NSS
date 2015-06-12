@@ -137,11 +137,7 @@ void main()
 				 	{ACR_AddPersistentJournalQuestEntry("slv_deandragon_e_fire", 2, oUser, FALSE, FALSE, FALSE, 0);
 					 DelayCommand(15.0, SendMessageToPC(oUser, "The first thing you notice is the heat. It isn't merely HOT. The temperature is a living, swollen, suffocating creature that wraps you in its folds at the same time it crawls inside and turns your bones molten. Sweat springs out, all over your skin, but it will do little to cool you. Without protection, you will fry."));
 			 		 }
-			  if(GetLocalInt(oUser, "HeatRep") == 0)
-					 {SetLocalInt(oUser, "HeatRep", 1);
-					 DelayCommand(61.0, ExecuteScript("slv_static_voice_cr_pc", oUser));
-					}
-			}
+			 }
 		}
 		
 

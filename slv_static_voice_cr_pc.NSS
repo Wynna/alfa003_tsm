@@ -71,7 +71,7 @@ void main()
 				
 		//deandragon_e_fire heat damage loop
 	 	if(GetLocalInt(OBJECT_SELF, "HeatRep") == 1)
-				{if(GetTag(GetArea(OBJECT_SELF)) == "5h_int_sundabar_everfire")
+				{if(FindSubString(GetTag(GetArea(OBJECT_SELF)), "sundabar_everfire") != -1)
 					{float fTimeLoop = 91.0;
 					 if(GetIsSkillSuccessful(OBJECT_SELF, SKILL_SURVIVAL, 15, TRUE))
 							{SetLocalInt(OBJECT_SELF, "Survival", 4);}

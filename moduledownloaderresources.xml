@@ -1813,7 +1813,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="4B287720587186ABC7CD1D57AAE2CFEFCC4CBB30" downloadHash="86F9B43DA8EFC21867B51E8BFFA1E7D33431F99D" name="5h_sundabar_everfire_rift_c.trx" dlsize="2149941" size="14829681" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="99E8EDEC642E363017821B3E35B1EF3BF7D81F33" downloadHash="4E1B3C2DAD78CDB599457AABEC531CFCB2E3CBC8" name="5h_sundabar_everfire_rift_c.trx" dlsize="2304749" size="14986643" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1828,7 +1828,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="3E52D7D649FA7ED2D50ECCD3A7FC1E96A09F7EB7" downloadHash="608B055E55C1D60EBE329ADF1178A864B9A42187" name="5h_int_sundabar_master.trx" dlsize="472177" size="478851" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="B7872DA32D3153B040358AFFD4EBC4DE5D3A2BB8" downloadHash="83BD5BCDA224C76CC8A323BA1632788DC63D9277" name="5h_int_sundabar_master.trx" dlsize="520895" size="526252" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1853,7 +1853,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="364C121800EBFFD873835803BD11E2B705D792BB" downloadHash="6CB8067C404D7EBB09558934E077AF7403A18D90" name="5h_sundabar_everfire_rift_e.trx" dlsize="219047" size="221739" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="06D745549F46B73A06C6E63B10F62FBCD71BCB40" downloadHash="533DA0540A30958461516E5737D970423126D90F" name="5h_sundabar_everfire_rift_e.trx" dlsize="230330" size="234395" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1863,7 +1863,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="5C790FFA1A1F792A4EE948ACFA87A3C86C8B2255" downloadHash="DF7EB52A1F14D46DAE44F89A48E9B96D0E4874BC" name="5h_int_sundabar_trumpet.trx" dlsize="88707" size="89096" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="DD8DCC1DCF841E9692BEE59DB3BFC674FAE885EF" downloadHash="7A1B497899C7FF469DF438832A3C7F9A14E77F1A" name="5h_int_sundabar_trumpet.trx" dlsize="88072" size="88519" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
