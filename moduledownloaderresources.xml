@@ -1828,7 +1828,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="B7872DA32D3153B040358AFFD4EBC4DE5D3A2BB8" downloadHash="83BD5BCDA224C76CC8A323BA1632788DC63D9277" name="5h_int_sundabar_master.trx" dlsize="520895" size="526252" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="DD5DD60E45E14C7EB2EC2FD9FC39D07846637588" downloadHash="F9C007BF6A23456154656EE6852C6D5980975FFF" name="5h_int_sundabar_master.trx" dlsize="528494" size="533769" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
