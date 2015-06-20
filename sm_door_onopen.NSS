@@ -52,11 +52,8 @@ void main() {
 		// KiS Escort
 			if((GetTag(OBJECT_SELF) == "tempus_ent")  && (GetLocalObject(GetLastOpenedBy(), "oHench") != OBJECT_INVALID))
 		 	   {object oHench = GetLocalObject(GetLastOpenedBy(), "oHench");
-			    SendMessageToPC(GetLastOpenedBy(), "oHench = " + GetName(oHench));
 			    object oMaster = GetLocalObject(GetLastOpenedBy(), "oMaster");
-			    SendMessageToPC(oMaster, "oMaster = " + GetName(oMaster));
 			    int iQuestState = ACR_RetrieveQuestState("kis_escort_02", oMaster);
-			    SendMessageToPC(oMaster, "Quest State = " + IntToString(iQuestState));
 			    AssignCommand(oMaster, RemoveHenchman(oMaster, oHench));
 				AssignCommand(oHench, ActionSpeakString("I will go ahead to make ready.", TALKVOLUME_TALK));
 				DestroyObject(oHench, 1.0);

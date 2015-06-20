@@ -447,26 +447,27 @@ if((GetTag(OBJECT_SELF) == "sm_sylune_listener") && ((GetIsPC(GetEnteringObject(
 	   
 			// KiS Escort_03
 			if((GetTag(OBJECT_SELF) == "kis_escort_03")  && (ACR_RetrieveQuestState("kis_escort_03", GetEnteringObject()) == 2)) 
-		 	   {SendMessageToPC(GetEnteringObject(), "triggered");
-			    object oHench = GetLocalObject(GetEnteringObject(), "oHench");
+		 	   {object oHench = GetLocalObject(GetEnteringObject(), "oHench");
 			    object oMaster = GetLocalObject(GetEnteringObject(), "oMaster");
 			    AssignCommand(oHench, ClearAllActions(TRUE));
 		        AssignCommand(oHench, ActionJumpToObject(oMaster, FALSE));
-				AssignCommand(oHench, ActionForceFollowObject(oMaster, 0.5, 0));
 				if(GetTag(oHench) == "003_cr_argent_marilee_stallings")  
 					{object oStallingsWP = GetLocalObject(OBJECT_SELF, "oStallingsWP");
 					 if(oStallingsWP == OBJECT_INVALID)
-					 	{oStallingsWP = GetWaypointByTag("Stallings_Escort");
+					 	{oStallingsWP = GetWaypointByTag("stallings_escort");
 						 SetLocalObject(OBJECT_SELF, "oStallingsWP", oStallingsWP);
 						 }
 					 object oStallings = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_argent_lt_stallings", GetLocation(oStallingsWP));
-					 object oLairdmoorWP = GetLocalObject(OBJECT_SELF, "oLairdmoorWP");
-					 if(oLairdmoorWP == OBJECT_INVALID)
-					 	{oLairdmoorWP = GetWaypointByTag("Lairdmoor_Escort");
-						 SetLocalObject(OBJECT_SELF, "oLairdmoorWP", oLairdmoorWP);
+					 object oLairdmoor = GetObjectByTag("003_cr_argent_lt_lairdmoor");
+					 if(oLairdmoor==OBJECT_INVALID)
+						 {object oLairdmoorWP = GetLocalObject(OBJECT_SELF, "oLairdmoorWP");
+						  if(oLairdmoorWP == OBJECT_INVALID)
+						 	{oLairdmoorWP = GetWaypointByTag("lairdmoor_escort");
+							 SetLocalObject(OBJECT_SELF, "oLairdmoorWP", oLairdmoorWP);
+							 }
+						  oLairdmoor = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_argent_lt_lairdmoor", GetLocation(oLairdmoorWP));
 						 }
-					 object oLairdmoor = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_argent_lt_lairdmoor", GetLocation(oLairdmoorWP));
-					 
+					 AssignCommand(oHench, ActionForceMoveToObject(oLairdmoor, TRUE, 0.5f));
 					}
 				 }
 	   
@@ -484,5 +485,16 @@ if((GetTag(OBJECT_SELF) == "sm_sylune_listener") && ((GetIsPC(GetEnteringObject(
 			    	} 
 			   }
 	   
-	   
+	   // KiS Courier 3 Haywood
+			if((GetTag(OBJECT_SELF) == "kis_courier_03_haywood")  && (ACR_RetrieveQuestState("kis_courier_03", GetEnteringObject()) == 6)) 
+		 	   {object oHaywood = GetObjectByTag("003_cr_kis_jessica_haywood");
+			    DestroyObject(oHaywood);
+			    object oHaywoodWP = GetLocalObject(OBJECT_SELF, "oHaywoodWP");
+				if(oHaywoodWP == OBJECT_INVALID)
+					 {oHaywoodWP = GetWaypointByTag("slv_deandragon_k_dez");
+					  SetLocalObject(OBJECT_SELF, "oHaywoodWP", oHaywoodWP);
+					}
+				oHaywood = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_jessica_haywood", GetLocation(oHaywoodWP));
+					 
+				 }
 }

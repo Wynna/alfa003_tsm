@@ -50,7 +50,7 @@ void main()
 	if((GetTag(OBJECT_SELF) == "003_religion_quest2_lathander") && (ACR_RetrieveQuestState("003_religion_lathander", oQuester) == 2))
 		{sCreature = "abr_cr_un_allip_01";
 		 sItem = "003_it_harvest_undead_bone";
-		 sScene = "A creature like a skeleton surrounded by a ghostly phantom of a big logger with an axe protruding from his neck clatters towards you.";
+		 sScene = "A ghost floats towards you, from out of the trunk of a burned out tree.";
 		 SetLocalObject(OBJECT_SELF, GetName(oQuester), oQuester);
 	 	}
 		

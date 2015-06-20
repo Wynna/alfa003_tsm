@@ -134,7 +134,7 @@ string sTryAgain = "Do you wish to receive, submit or use a keyword to enter?  Y
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Ah, 'F'.  It's time for you to meet an old friend.  Go to the Fochlucan and find the author of the travelogue you hold.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "G") || (sQuest == "g")) && (GetItemPossessedBy(oStudent, "slv_deanbookg3") != OBJECT_INVALID))
-                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Goats and glabrezu and greataxes! No, wait, that's the graduate course. For you, it's: gnomes and Gond and gears! Go get a little gizmo for me from the Wonderbringer in the tower north of High Hold. Take it to Master Oakroot for your keyword.", TALKVOLUME_TALK)));
+                    {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("Goats and glabrezu and greataxes! No, wait, that's the graduate course. For you, it's: gnomes and Gond and gears! Go get a little gizmo for me from the Wonderbringer in the tower north of High Hold. Take it to Serapheena for your keyword.", TALKVOLUME_TALK)));
                     }
                else if (((sQuest == "H") || (sQuest == "h")) && (GetItemPossessedBy(oStudent, "slv_deanbookh") != OBJECT_INVALID))
                     {DelayCommand(3.0, AssignCommand(oPhoenix, SpeakString("A hero's headstone awaits you. I do hope it's not your own. Hunt down our halfling loremaster to hear more.", TALKVOLUME_TALK)));
