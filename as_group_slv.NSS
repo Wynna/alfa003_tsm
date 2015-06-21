@@ -156,7 +156,7 @@ if(GetName(OBJECT_SELF) == "Registrar_Desk_WP")
         SetLocalObject(oMyTrig, GetName(oMyTrig) + "_Desk", oMyDesk);
 		SetLocalString(oMyDesk, "ACR_PSO_NAME", GetName(oMyTrig) + "_Desk");
 		object oMyChair = ACR_SpawnObjectAtLocation("003_chair", OBJECT_TYPE_PLACEABLE, GetLocation(GetLocalObject(oMyTrig, GetName(oMyTrig) + "_Chair_WP")));
-        object oMyRegistrar = ACR_SpawnObjectAtLocation("003_cr_slv_registrar", OBJECT_TYPE_CREATURE, GetLocation(GetLocalObject(oMyTrig, GetName(oMyTrig) + "_Registrar_WP")));
+        //object oMyRegistrar = ACR_SpawnObjectAtLocation("003_cr_slv_registrar", OBJECT_TYPE_CREATURE, GetLocation(GetLocalObject(oMyTrig, GetName(oMyTrig) + "_Registrar_WP")));
         object oMyArmoireReg = ACR_SpawnObjectAtLocation("slv_armoire_reg", OBJECT_TYPE_PLACEABLE, GetLocation(GetLocalObject(oMyTrig, GetName(oMyTrig) + "_Armoire_WP")));
         SetLocalString(oMyArmoireReg, "ACR_PSO_NAME", GetName(oMyTrig) + "_Armoire");
 							}	
