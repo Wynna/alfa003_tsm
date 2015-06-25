@@ -5,6 +5,19 @@
 #include "acr_items_i"
 #include "acr_db_persist_i"
 #include "acr_quest_i"
+#include "acr_trigger_i"
+
+
+void ACR_ApplyNLDDamageToCreature(object oTarget, int nSubdualDamage)
+{
+    int nNLDTotal = _GetNLDTotal(oTarget);
+    int nHPMax = GetMaxHitPoints(oTarget);
+    int nCap = nHPMax + 10;
+    nNLDTotal = ((nNLDTotal + nSubdualDamage) > nCap) ? nCap :
+            nNLDTotal + nSubdualDamage;
+    _SetNLDTotal(oTarget, nNLDTotal);
+    ACR_ApplyNLDEffects(oTarget, nNLDTotal);
+}
 
 void main()
 {	
@@ -14,7 +27,8 @@ void main()
 	effect eParalyze = EffectParalyze(30, SAVING_THROW_WILL, FALSE);
 	effect eSymbol = EffectVisualEffect(VFX_DUR_SPELL_SYMBOL_OF_DEATH, FALSE);
 	effect ePurge = EffectVisualEffect(VFX_AOE_ETHEREAL_PURGE, FALSE);
-	
+	effect eKnockdown = EffectKnockdown();
+			 
 	if(GetTag(oTarget)=="003_cr_un_doomguide")
 		{SetPlotFlag(oTarget, FALSE);
 		 if((ACR_RetrieveQuestState("slv_deandragon_l", oStudent) == 6)|| (GetIsDMPossessed(oStudent)))
@@ -32,9 +46,39 @@ void main()
 			}
 		}
 	
-		if((GetTag(oTarget) == "003_cr_mephit_fire")  || (GetTag(oTarget) == "003_cr_slv_incinder") || (GetTag(oTarget) == "003_cr_el_fire") || (GetTag(oTarget) == "c_firemephit") || (GetTag(oTarget) == "c_impfire"))
-			{effect eKnockdown = EffectKnockdown();
-			 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eKnockdown, oTarget, 3.0);
+	
+	else if((GetObjectType(oTarget) == OBJECT_TYPE_PLACEABLE) && ((GetTag(oTarget)== "HSS_CAMPFIRE_01") ||(FindSubString(GetTag(oTarget), "CAMPFIRE") != -1)||(FindSubString(GetTag(oTarget), "BONFIRE") != -1)))
+			{SetPlotFlag(oTarget, FALSE);
+			 DestroyObject(oTarget, 22.0);
+			}
+		
+		
+    else if((GetTag(oTarget) == "slv_firestarter") && (GetObjectType(oTarget) == OBJECT_TYPE_PLACEABLE))
+			{object oMyFire = GetNearestObjectByTag("slv_firestarter_Fire", oTarget, 1);
+			 object oFireSound = GetNearestObjectByTag("Campfire");
+			 if(GetDistanceBetween(oMyFire, oTarget) < 10.0)
+				{DestroyObject(oMyFire);
+				 SoundObjectStop(oFireSound);	
+				}
+			}
+	else
+	   {int nSubdue=3*(Random(8) +1);
+	    AssignCommand(oStudent, ActionCastSpellAtObject(SPELL_GUST_OF_WIND, oTarget, METAMAGIC_NONE, 1, 3, PROJECTILE_PATH_TYPE_DEFAULT, 1));
+				 
+		if((GetCreatureSize(oTarget) == CREATURE_SIZE_SMALL) ||(GetCreatureSize(oTarget) == CREATURE_SIZE_TINY)  || (GetTag(oTarget) == "003_cr_deanphoenix_air_marly") || (GetTag(oTarget) == "003_cr_circus_pegasus") || (GetTag(oTarget) == "003_cr_deanphoenix_air") || (GetTag(oTarget) == "abr_cr_el_airweird") || (GetTag(oTarget) == "003_cr_el_air"))
+			{if(Random(4)<2)
+				{ACR_ApplyNLDDamageToCreature(oTarget, nSubdue);
+				 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eKnockdown, oTarget, 3.0);
+				 }
+			}
+		
+		else if((GetSubRace(oTarget)==RACIAL_SUBTYPE_FIRE_GENASI)  || (GetTag(oTarget) == "003_cr_deanphoenix_fire")|| (GetTag(oTarget) == "abr_cr_mb_phoenix")|| (GetTag(oTarget) == "003_cr_mephit_fire")  || (GetTag(oTarget) == "003_cr_slv_incinder") || (GetTag(oTarget) == "003_cr_el_fire") || (GetTag(oTarget) == "c_firemephit") || (GetTag(oTarget) == "003_cr_mystra_firewd") || (GetTag(oTarget) == "003_cr_mystra_fireel") || (GetTag(oTarget) == "abr_cr_el_firebat")  || (GetTag(oTarget) == "abr_cr_el_fireweird") || (GetTag(oTarget) == "c_impfire"))
+			{if(Random(4)<1)
+				{ACR_ApplyNLDDamageToCreature(oTarget, nSubdue);
+				 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eKnockdown, oTarget, 3.0);
+				 int nSuffocate = Random(8) + 1;
+				 effect eSuffocate = EffectDamage(nSuffocate, DAMAGE_TYPE_MAGICAL, DAMAGE_POWER_NORMAL, FALSE);
+				 }
 			}
 		
 		if((GetTag(oTarget) == "003_cr_el_air")|| (GetTag(oTarget) == "c_elmair"))
@@ -57,22 +101,9 @@ void main()
 			}
 			
 			
-		if((GetObjectType(oTarget) == OBJECT_TYPE_PLACEABLE) && ((GetTag(oTarget)== "HSS_CAMPFIRE_01") ||(FindSubString(GetTag(oTarget), "CAMPFIRE") != -1)||(FindSubString(GetTag(oTarget), "BONFIRE") != -1)))
-			{SetPlotFlag(oTarget, FALSE);
-			 DestroyObject(oTarget, 22.0);
-			}
 		
-		
-		if((GetTag(oTarget) == "slv_firestarter") && (GetObjectType(oTarget) == OBJECT_TYPE_PLACEABLE))
-			{object oMyFire = GetNearestObjectByTag("slv_firestarter_Fire", oTarget, 1);
-			 object oFireSound = GetNearestObjectByTag("Campfire");
-			 if(GetDistanceBetween(oMyFire, oTarget) < 10.0)
-				{DestroyObject(oMyFire);
-				 SoundObjectStop(oFireSound);	
-				}
-			}
 			
-	 
+	 }
 			
 					 
 }			  

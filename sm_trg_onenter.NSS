@@ -497,4 +497,8 @@ if((GetTag(OBJECT_SELF) == "sm_sylune_listener") && ((GetIsPC(GetEnteringObject(
 				oHaywood = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_jessica_haywood", GetLocation(oHaywoodWP));
 					 
 				 }
+				 
+		
+			   }
+	   
 }

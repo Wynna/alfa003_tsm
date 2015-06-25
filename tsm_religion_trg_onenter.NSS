@@ -77,16 +77,16 @@ void main()
 	 	}
 		
 	if((GetTag(OBJECT_SELF) == "003_religion_quest2_torm_tyr") && ((ACR_RetrieveQuestState("003_religion_torm", oQuester) == 2) || (ACR_RetrieveQuestState("003_religion_tyr", oQuester) == 2)))
-		{sCreature = "003_cr_ssthief1";
+		{sCreature="003_cr_ssthief_flock";
 		 sItem = "003_it_shadowsword_sash";
-		 sScene = "Something moves quietly in the dark nearby.";
+		 sScene = "You hear soft footsteps, echoing oddly off the wet walls and quickly lost in the gurgling of sewage. Somebody is trying to remain out of sight.";
 		 SetLocalObject(OBJECT_SELF, GetName(oQuester), oQuester);
 	 	}
 		
 	if((GetTag(OBJECT_SELF) == "003_religion_quest2_silvanus") && (ACR_RetrieveQuestState("003_religion_silvanus", oQuester) == 2))
 		{sCreature = "abr_cr_an_wild_bear";
 		 sItem = "003_it_silvanus_target";
-		 sScene = "Piggy eyes blinking, a brown bear sits on its haunches in the midst of the ruins of an oakwood and hide target, chewing contentedly on piece in its paws. A rumbling belch makes its way out of the bear's gut, wafting the unmistakable smell of fermented herbal potion. The bear looks dazed.";
+		 sScene = "Piggy eyes blinking, a brown bear sits on its haunches in the midst of the ruins of an oakwood and hide target, chewing contentedly on a piece in its paws. A rumbling belch makes its way out of the bear's gut, wafting the unmistakable smell of fermented herbal potion. The bear looks dazed.";
 		 object oTarget = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_silvanus_target", GetLocation(OBJECT_SELF));
 		 object oItem2 = CreateItemOnObject("003_it_silvanus_target", oTarget, 1);
 	 	 SetLocalObject(OBJECT_SELF, GetName(oQuester), oQuester);
@@ -157,9 +157,7 @@ void main()
 		{effect eDazed = EffectDazed();
 		 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eDazed, oCreature, 120.0);
 		 }
-	else
-		{AssignCommand(oCreature, ActionAttack(oQuester, FALSE));
-		}
+	
 	
 	oItem = CreateItemOnObject(sItem, oCreature, 1);
 	SetPlotFlag(oItem, TRUE);

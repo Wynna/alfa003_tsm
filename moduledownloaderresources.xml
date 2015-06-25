@@ -1898,4 +1898,9 @@
       <string>0</string>
     </server-ref>
   </resource>
+  <resource type="DirectoryEntry" hash="752A144C972881636FED133378E23AAE8C6350D7" downloadHash="1DE4335BBC8238523E74354D2A54F158895738F2" name="7d_int_silverwood_2_1_koblds_cav.trx" dlsize="282708" size="1682238" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
 </content>
