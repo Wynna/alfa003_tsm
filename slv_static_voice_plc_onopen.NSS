@@ -16,7 +16,7 @@ void main()
 {
 	ACR_PlaceableOnOpen();
 
-	
+	    
 	//deandragon_d dragon berry harvesting
 	if((GetTag(OBJECT_SELF) == "deandragon_d_dragonberry1") || (GetTag(OBJECT_SELF) == "deandragon_d_dragonberry2")|| (GetTag(OBJECT_SELF) == "deandragon_d_dragonberry3"))
 	   {object oQuester = GetLocalObject(OBJECT_SELF, "oQuester");
@@ -62,4 +62,46 @@ void main()
 		   {SendMessageToPC(GetLastOpenedBy(), "A mephit darts out of the jaws of the fire trap!");
 		    CreateObject(OBJECT_TYPE_CREATURE, "003_cr_mephit_fire", GetLocation(GetLastOpenedBy()));
 			}
+			
+//deandragon k leomund secure shelter doors
+	SpeakString("Called Open", TALKVOLUME_TALK);
+	
+	if(GetTag(OBJECT_SELF) == "leomund_shelter_door")
+		{SpeakString("Tagged Open", TALKVOLUME_TALK);
+	     object oCollBox = GetLocalObject(OBJECT_SELF, "MyCollBox");
+		 DestroyObject(oCollBox);
+		 	
+		if(GetLocalInt(OBJECT_SELF, "Spawned") != 1)
+			{SpeakString("Spawned Open", TALKVOLUME_TALK);
+	        string sSpawn;
+			int iSpawn = Random(5) + 1;
+			SendMessageToPC(GetEnteringObject(), "Creatures come boiling out the door!");
+			if((iSpawn >= 1) && (iSpawn <=3))
+				{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter02", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldcaptain", GetLocation(OBJECT_SELF));
+				}
+			else if(iSpawn == 4)
+				{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldelite01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter03", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldcaptain", GetLocation(OBJECT_SELF));
+				}
+			else if(iSpawn == 5)
+				{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldshaman", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldcaptain", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				}
+			}	
+		DestroyObject(OBJECT_SELF, 2.0);
+		}			
+			
 }

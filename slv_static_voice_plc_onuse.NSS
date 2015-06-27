@@ -248,6 +248,48 @@ void main()
 			}  
 		}
 				
+//deandragon k leomund secure shelter doors
+		SpeakString("Called Use", TALKVOLUME_TALK);
+	
+	if((GetTag(OBJECT_SELF) == "leomund_shelter_door") && (GetLocked(OBJECT_SELF)==FALSE))
+		{SpeakString("Tagged Use", TALKVOLUME_TALK);
+	    SpeakString("Called", TALKVOLUME_TALK);
+	    object oCollBox = GetLocalObject(OBJECT_SELF, "MyCollBox");
+		 DestroyObject(oCollBox);
+		 	
+		if(GetLocalInt(OBJECT_SELF, "Spawned") != 1)
+			{SpeakString("Spawned Use", TALKVOLUME_TALK);
+	         string sSpawn;
+			int iSpawn = Random(5) + 1;
+			SendMessageToPC(GetEnteringObject(), "Creatures come boiling out the door!");
+			if((iSpawn >= 1) && (iSpawn <=3))
+				{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter02", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldcaptain", GetLocation(OBJECT_SELF));
+				}
+			else if(iSpawn == 4)
+				{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldelite01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter03", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldcaptain", GetLocation(OBJECT_SELF));
+				}
+			else if(iSpawn == 5)
+				{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldshaman", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldcaptain", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(OBJECT_SELF));
+				CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(OBJECT_SELF));
+				}
+			}	
+		DestroyObject(OBJECT_SELF, 2.0);
+		}				
+		
 	// deanphoenix_t mirror
 	
 	if((GetTag(OBJECT_SELF) == "slv_h_artifice_mirror") && (GetLocalInt(OBJECT_SELF, "Used") != 1))

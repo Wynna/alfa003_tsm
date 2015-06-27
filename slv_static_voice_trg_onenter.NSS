@@ -265,7 +265,9 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 	 	// Deandragon_K create huts
 	if((GetTag(OBJECT_SELF) == "deandragon_k_huts")  && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
  	 {if((ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 3) || (ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 4) ||(ACR_RetrieveQuestState("slv_deandragon_k", GetEnteringObject()) == 5))
-		  {object oMyWaypoint1 = GetLocalObject(OBJECT_SELF, "oMyWaypoint1");
+		  {if(GetLocalInt(OBJECT_SELF, "Spawned") != 1)
+		  {SetLocalInt(OBJECT_SELF, "Spawned", 1);
+		   object oMyWaypoint1 = GetLocalObject(OBJECT_SELF, "oMyWaypoint1");
 		  if(oMyWaypoint1 == OBJECT_INVALID)
 				 	{oMyWaypoint1 = GetWaypointByTag("deandragon_k_leomund_1_WP");
 					 SetLocalObject(OBJECT_SELF, "oMyWaypoint1", oMyWaypoint1);
@@ -299,13 +301,26 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 					 }
 			  
 		   	object oHut5 = CreateObject(OBJECT_TYPE_PLACEABLE, "003_plc_leomund_sshelter", GetLocation(oMyWaypoint5));	  
-		    object oMyWaypointRandom = GetWaypointByTag("deandragon_k_leomund_" + IntToString(Random(5) + 1) + "_WP");
-			SetLocalInt(oMyWaypointRandom, "Deandragon_k_spawn", 1);
+		    
+			
 			object oDoor1 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door1_WP")));
 			object oDoor2 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door2_WP")));
 			object oDoor3 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door3_WP")));
 			object oDoor4 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door4_WP")));
 			object oDoor5 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door", GetLocation(GetWaypointByTag("deandragon_k_leomund_door5_WP")));
+			
+			/*object oCollBox1 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door_collbox", GetLocation(GetWaypointByTag("deandragon_k_leomund_collbox1_WP")));
+			object oCollBox2 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door_collbox", GetLocation(GetWaypointByTag("deandragon_k_leomund_collbox2_WP")));
+			object oCollBox3 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door_collbox", GetLocation(GetWaypointByTag("deandragon_k_leomund_collbox3_WP")));
+			object oCollBox4 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door_collbox", GetLocation(GetWaypointByTag("deandragon_k_leomund_collbox4_WP")));
+			object oCollBox5 = CreateObject(OBJECT_TYPE_PLACEABLE, "leomund_shelter_door_collbox", GetLocation(GetWaypointByTag("deandragon_k_leomund_collbox5_WP")));
+			
+			SetLocalObject(oDoor1, "MyCollBox", oCollBox1);
+			SetLocalObject(oDoor2, "MyCollBox", oCollBox2);
+			SetLocalObject(oDoor3, "MyCollBox", oCollBox3);
+			SetLocalObject(oDoor4, "MyCollBox", oCollBox4);
+			SetLocalObject(oDoor5, "MyCollBox", oCollBox5);
+			*/
 			
 			SetLockLockable(oDoor1, TRUE);
 			SetLockLockable(oDoor2, TRUE);
@@ -319,9 +334,42 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 			SetLocked(oDoor4, TRUE);
 			SetLocked(oDoor5, TRUE);
 			
+			SetLockUnlockDC(oDoor1, Random(10) + 20);  
+			SetLockUnlockDC(oDoor2, Random(10) + 20);  
+			SetLockUnlockDC(oDoor3, Random(10) + 20);  
+			SetLockUnlockDC(oDoor4, Random(10) + 20);  
+			SetLockUnlockDC(oDoor5, Random(10) + 20);  
 			
+			int nTrapRandom1=Random(11);
+			int nTrapRandom2=Random(11);
+			int nTrapRandom3=Random(11);
+			int nTrapRandom4=Random(11);
+			int nTrapRandom5=Random(11);
+			int nTrapType1=nTrapRandom1 * 4;
+			int nTrapType2=nTrapRandom2 * 4;
+			int nTrapType3=nTrapRandom3 * 4;
+			int nTrapType4=nTrapRandom4 * 4;
+			int nTrapType5=nTrapRandom5 * 4;
 			
+			CreateTrapOnObject(nTrapType1, oDoor1, STANDARD_FACTION_HOSTILE, "", "");
+			CreateTrapOnObject(nTrapType2, oDoor2, STANDARD_FACTION_HOSTILE, "", "");
+			CreateTrapOnObject(nTrapType3, oDoor3, STANDARD_FACTION_HOSTILE, "", "");
+			CreateTrapOnObject(nTrapType4, oDoor4, STANDARD_FACTION_HOSTILE, "", "");
+			CreateTrapOnObject(nTrapType5, oDoor5, STANDARD_FACTION_HOSTILE, "", "");
 			
+			int nRandomLockbox=Random(5) +1;
+			if(nRandomLockbox==1)
+				{SetLocalInt(oDoor1, "Deandragon_k_spawn", 1);}
+			else if(nRandomLockbox==2)
+				{SetLocalInt(oDoor2, "Deandragon_k_spawn", 1);}
+			else if(nRandomLockbox==3)
+				{SetLocalInt(oDoor3, "Deandragon_k_spawn", 1);}
+			else if(nRandomLockbox==4)
+				{SetLocalInt(oDoor4, "Deandragon_k_spawn", 1);}
+			else {SetLocalInt(oDoor5, "Deandragon_k_spawn", 1);}
+			
+			SendMessageToPC(GetEnteringObject(), "nRandomLockbox=" + IntToString(nRandomLockbox));
+			}
 		    ACR_AddPersistentJournalQuestEntry("slv_deandragon_k", 5, GetEnteringObject());
 			SendMessageToPC(GetEnteringObject(), "A bizarre sight greets you. Inside the large cavern chamber, huts seem to have sprouted out of the walls and floor, huts complete with locked doors and shuttered windows.");
 	       }
@@ -330,18 +378,8 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 	 }
 	 // Listening Triggers for Deandragon_k
 	 if((FindSubString(GetTag(OBJECT_SELF), "deandragon_k_leomund") != -1)  && ((GetIsPC(GetEnteringObject())) || (GetIsDMPossessed(GetEnteringObject()))))
- 	 {    object oMyWaypoint = GetLocalObject(OBJECT_SELF, "oMyWaypoint1");
-		  if(oMyWaypoint == OBJECT_INVALID)
-				 	{oMyWaypoint = GetWaypointByTag(GetTag(OBJECT_SELF) + "_WP");
-					 SetLocalObject(OBJECT_SELF, "oMyWaypoint", oMyWaypoint);
-					 }
-		    object oDoor = GetNearestObjectByTag("leomund_shelter_door", OBJECT_SELF, 1);
-			SetLockLockable(oDoor, TRUE);
-			SetLocked(oDoor, FALSE);
-			DelayCommand(3.0, ActionOpenDoor(oDoor));
-					
-		   
-			if(GetLocalInt(oMyWaypoint, "Deandragon_k_spawn") == 0)
+ 	 {      object oDoor = GetNearestObjectByTag("leomund_shelter_door", OBJECT_SELF, 1);
+			if(GetLocalInt(oDoor, "Deandragon_k_spawn") == 0)
 				{string sName = GetName(GetEnteringObject());
 				 if(GetLocalObject(OBJECT_SELF, sName) != GetEnteringObject())
 				 	 {SetLocalObject(OBJECT_SELF, sName, GetEnteringObject());
@@ -352,35 +390,10 @@ if((GetTag(OBJECT_SELF) == "003_cr_slv_deandragon_j_3") && (GetIsPC(GetEnteringO
 				   		{DelayCommand(1.0, SendMessageToPC(GetEnteringObject(), "You hear only silence from within this hut."));
 						}
 					 }			   
-		   		 if(GetLocalInt(OBJECT_SELF, "Spawned") != 1)
-				 	 {SetLocalInt(OBJECT_SELF, "Spawned", 1);
-					 string sSpawn;
-					 int iSpawn = Random(5) + 1;
-					 SendMessageToPC(GetEnteringObject(), "The door bursts open wide!");
-					 if((iSpawn >= 1) && (iSpawn <=3))
-					 	{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter02", GetLocation(oMyWaypoint));
-						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(oMyWaypoint));
-						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(oMyWaypoint));
-						}
-					 else if(iSpawn == 4)
-					 	{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldelite01", GetLocation(oMyWaypoint));
-						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter03", GetLocation(oMyWaypoint));
-						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(oMyWaypoint));
-						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(oMyWaypoint));
-						}
-					 else if(iSpawn == 5)
-					 	{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldshaman", GetLocation(oMyWaypoint));
-						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldcaptain", GetLocation(oMyWaypoint));
-						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldscout01", GetLocation(oMyWaypoint));
-						CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_koboldfighter04", GetLocation(oMyWaypoint));
-						}
-					 			
-					 
-					 }
+		   		 
 				}
-			else if(GetLocalInt(oMyWaypoint, "Deandragon_k_spawn") ==1 )
-				{object oBox = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_deandragon_lockbox_plc", GetLocation(oMyWaypoint));
-				 SetLocked(oBox, FALSE);
+			else if(GetLocalInt(oDoor, "Deandragon_k_spawn") ==1 )
+				{object oBox = CreateObject(OBJECT_TYPE_PLACEABLE, "slv_deandragon_lockbox_plc", GetLocation(GetWaypointByTag(GetTag(OBJECT_SELF) + "_WP")));
 				 object oRock = CreateItemOnObject("slv_deandragon_k_keepsake", oBox, 1);
 				 if(GetIsSkillSuccessful(GetEnteringObject(), SKILL_LISTEN, 25, TRUE))
 				   	{DelayCommand(1.0, SendMessageToPC(GetEnteringObject(), "You hear only silence from within this hut."));

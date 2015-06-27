@@ -101,18 +101,6 @@ void main() {
 		 AssignCommand(GetLastUsedBy(), ActionJumpToLocation(GetLocation(oDestination)));
 		}
 		
-	//deandragon k leomund secure shelter doors
-	
-	if(GetTag(OBJECT_SELF) == "leomund_shelter_door")
-		{if(GetLocked(OBJECT_SELF) == FALSE)
-			{object oCollBox = GetNearestObjectByTag("leomund_shelter_door_collbox");
-			 DestroyObject(oCollBox);
-			 DestroyObject(OBJECT_SELF);
-			
-			}
-		}
-		
-		
-   
+ 
 	
 }

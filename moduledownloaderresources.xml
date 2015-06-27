@@ -1488,7 +1488,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="AA214142572EDDB7F0D209B5195EF396772B098A" downloadHash="704A969E7E3E626A805F9E27E57E6EF2F470BC1A" name="7d_ext_silverwood3_2.trx" dlsize="4411711" size="21865097" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="8510D067C337F6ABF4D581C912A5B44DA2151B4D" downloadHash="608160AC78B39E607DC4831E3E51BE4D76BDD795" name="7d_ext_silverwood3_2.trx" dlsize="4970735" size="24378448" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1518,7 +1518,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="C8862ED763FBB246DD94F7F2CDBE7B09508172A0" downloadHash="0FD02836562544A98C111E49E37B50D9FEF2E136" name="7d_ext_silverwood2_2.trx" dlsize="4471243" size="21888747" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="D1F093A69B712404D337D17633BC17FE6726A968" downloadHash="F1E951199B1E1FE92DFB8D9C8E26F281C0BE2A5C" name="7d_ext_silverwood2_2.trx" dlsize="4489561" size="21881445" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1530,7 +1530,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="BC8B16FAF1CF785C0AAEEB1975D90AD5D0A54BFB" downloadHash="D18D34BDB3CBD4671F1E132310BD635388575F00" name="7d_ext_silverwood2_3.trx" dlsize="5130591" size="23281672" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="E66A23671BD69A83BEE7BA3B76E824ADDD3F9EC7" downloadHash="2D929852EC59C83FD61D6E96A9CACA0DD988C394" name="7d_ext_silverwood2_3.trx" dlsize="5177351" size="23311227" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1898,7 +1898,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="752A144C972881636FED133378E23AAE8C6350D7" downloadHash="1DE4335BBC8238523E74354D2A54F158895738F2" name="7d_int_silverwood_2_1_koblds_cav.trx" dlsize="282708" size="1682238" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="42091CD92E1F90A3C85FA4F0D104C7C047C1C973" downloadHash="4FBA1504119F843C8C9196F6BD49DBAA4F71D11D" name="7d_int_silverwood_2_1_koblds_cav.trx" dlsize="293328" size="2368646" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>

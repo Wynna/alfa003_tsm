@@ -73,5 +73,10 @@ void main()
 				 }
 			 			 
 		}
+	if(!GetIsPC(oPC))
+		{if(_GetNLDMode(oPC) == FALSE)
+			 	{ACR_ToggleNLDMode(oPC);}
+			 			 
+		}
 	   
 }

@@ -31,20 +31,5 @@ void main() {
 	ACR_PlaceableOnUnlock();
 
 
-		
-	//deandragon k leomund secure shelter doors
-	
-	if(GetTag(OBJECT_SELF) == "leomund_shelter_door")
-		{if(GetLocked(OBJECT_SELF) == FALSE)
-			{object oCollBox = GetNearestObjectByTag("leomund_shelter_door_collbox");
-			 SendMessageToPC(GetLastUnlocked(), "oCollBox = " + GetName(oCollBox));
-			 DestroyObject(oCollBox);
-			 DestroyObject(OBJECT_SELF);
-			
-			}
-		}
-		
-		
-   
 	
 }
