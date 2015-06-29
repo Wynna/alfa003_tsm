@@ -59,28 +59,11 @@ void main()
 {
    // Custom code goes here.
 	object oPC = GetItemActivatedTarget();
-	object oDM = GetItemActivator();
-	if(oDM == OBJECT_INVALID)
-		{oDM = OBJECT_SELF;}
-    
+	
 	//Subdual toggle
 	
-		if(_GetNLDMode(oPC) == FALSE)
-			{ACR_ToggleNLDMode(oPC);
-			SendMessageToPC(oDM, GetName(oPC) + " subdual is now " + IntToString(_GetNLDMode(oPC)));
-			}
-		else if(!GetIsPC(oPC))	 			 
-			{object oNewPC=CreateObject(OBJECT_TYPE_CREATURE, GetResRef(oPC), GetLocation(oPC));
-			 int nDamage = GetMaxHitPoints(oPC) - GetCurrentHitPoints(oPC);
-			 effect eDamage = EffectDamage(nDamage, DAMAGE_TYPE_MAGICAL, DAMAGE_POWER_NORMAL, TRUE);
-			 int nSubdualDamage=_GetNLDTotal(oPC);
-			 DelayCommand(1.0, _SetNLDTotal(oNewPC, nSubdualDamage));
-			 DelayCommand(2.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eDamage, oNewPC));
-			 DestroyObject(oPC);
-			 SendMessageToPC(oDM, GetName(oNewPC) + " subdual is now " + IntToString(_GetNLDMode(oNewPC)));
-			}
-			
-	
+	ACR_ToggleNLDMode(oPC);
+		
 		
 	   
 }
