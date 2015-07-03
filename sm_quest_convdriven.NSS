@@ -62,12 +62,7 @@ void main()
 	//Sernius Alathar, Knight Grand Commander
 	
 	if(GetTag(OBJECT_SELF) == "003_cr_kis_commander_alathar")
-		{if(GetLocalInt(oQuester, "Alathar_dez") == 0)
-			{SetLocalInt(oQuester, "Alathar_dez", 1);
-			 object oDez = GetObjectByTag("003_cr_dragon_dez_human");
-			 DelayCommand(3.0, AssignCommand(oDez, ActionStartConversation(oQuester, "", FALSE, TRUE, TRUE, TRUE)));
-			}
-		 if(GetLocalInt(oQuester, "Alathar_will") == 0)
+		{ if(GetLocalInt(oQuester, "Alathar_will") == 0)
 			{SetLocalInt(oQuester, "Alathar_will", 1);
 			 if(WillSave(oQuester, 18, SAVING_THROW_TYPE_LAW, OBJECT_SELF))
 				{SetLocalInt(oQuester, "Alathar_WillSave", 1);
