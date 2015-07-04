@@ -6,7 +6,7 @@ void main()
     
 object oPC = GetPCSpeaker();
     
-ACR_AwardStaticQuestXP(oPC, "003_patrol", 25, 10.0f);
+ACR_AwardStaticQuestXP(oPC, "003_patrol", 15, 5.0f);
 	  
     
 }	

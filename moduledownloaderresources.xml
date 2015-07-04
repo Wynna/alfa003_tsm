@@ -414,7 +414,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="1EE0890C66489BD161F8967BB9489A5C9E1DEEAF" downloadHash="409D0B299E6BE7D952C426469E0613C41A1C43D8" name="5c_ext_moonwood wintersedge.trx" dlsize="4316815" size="24376019" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="C031DF0D2E29B85CDB128CAD9AA171A625F73A25" downloadHash="9092E96B99B3201533F24F6DE7E3999C03623FFD" name="5c_ext_moonwood wintersedge.trx" dlsize="4333775" size="24371385" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1828,7 +1828,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="DD5DD60E45E14C7EB2EC2FD9FC39D07846637588" downloadHash="F9C007BF6A23456154656EE6852C6D5980975FFF" name="5h_int_sundabar_master.trx" dlsize="528494" size="533769" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="E5BD8708E476D6BB1EF2241056B11E4E83236694" downloadHash="3486EA83973EB68F2621B89A8225EB4611818730" name="5h_int_sundabar_master.trx" dlsize="510998" size="516496" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
