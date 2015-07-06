@@ -75,7 +75,10 @@ void main() {
             ACR_SpawnObject("abr_cr_un_zombie03", OBJECT_TYPE_CREATURE);
             break;
         case 3:
-            break;}			
+            ACR_SpawnObject("abr_cr_un_zombie04", OBJECT_TYPE_CREATURE);
+            break;
+        
+		}			
 	
 	switch(Random(4)) {
         case 0:
@@ -86,12 +89,12 @@ void main() {
             break;
         }			
 	
-		switch(Random(4)) {
+	switch(Random(4)) {
         case 0:
             ACR_SpawnObject("abr_cr_un_zombie03", OBJECT_TYPE_CREATURE);
             break;
-        case 1:
-            break;}			
+       
+		}			
 	
 
     

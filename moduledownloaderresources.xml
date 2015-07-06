@@ -882,7 +882,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="7D72F8B871565A2A17194CB0F0FD620D2CEC5058" downloadHash="4E9E0A5AFE918DC66B71C9428D474A57023AF01E" name="6b_ext_highway2_wendcrypt_tm.trx" dlsize="1767474" size="7153572" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="F9238EDE1FD80BC74D73D35EE44317F261FB36D1" downloadHash="B4CB990C07C0EE9BF9EFAF907679FE43B3587E41" name="6b_ext_highway2_wendcrypt_tm.trx" dlsize="1772952" size="7158004" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1542,7 +1542,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="9F329F19A17A8AE18EFA9D4A709E76B52700B882" downloadHash="35E2B130143096061F9B8AAE6DA1C7549E12272A" name="6b_ext_highway1_wands_farm.trx" dlsize="6462529" size="33653910" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="E3471E63258E4E4A3D2161636E8852E57B5B9749" downloadHash="83EAF7526608C3BB95F6FB51C43F275C03AF15F2" name="6b_ext_highway1_wands_farm.trx" dlsize="6472526" size="33657385" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>

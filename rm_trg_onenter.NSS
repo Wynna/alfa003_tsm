@@ -51,6 +51,7 @@ void main()
 
     // Custom code goes here.
 	
+object oQuester=GetEnteringObject();
 //Rivermoot Exterior one-liner scripts.
  if(GetTag(OBJECT_SELF) == "rm_swordrock")
  	{SendMessageToPC(GetEnteringObject(), "This rock is a monument to the dead, roughly chiselled with the names of fallen warriors.");}
@@ -58,6 +59,47 @@ void main()
   if((GetTag(OBJECT_SELF) == "wyvernmessage") && (GetLocalInt(GetEnteringObject(), "wyvern") != 1))
 	{SendMessageToPC(GetEnteringObject(), "It looks as if the kobolds tried to erect a barricade here, and failed. Smashed wood and stone litter the ground.");
 	 SetLocalInt(GetEnteringObject(), "wyvern", 1);
+	}
+
+ if(GetTag(OBJECT_SELF) == "rm_scout_05_01_trig") 
+ 	{if(ACR_RetrieveQuestState("rm_scout_05", oQuester) == 1)
+		{SendMessageToPC(oQuester, "You can see the padlock on the crypts, solidly and reassuringly locked tight. This vantage completes the view from the southeast corner. Scout the other corners.");
+	 	 ACR_AddPersistentJournalQuestEntry("rm_scout_05", 2, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+		 }
+	}
+		
+ if((GetTag(OBJECT_SELF) == "rm_scout_05_trig") && (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
+ 	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
+	if(ACR_RetrieveQuestState("rm_scout_05", oQuester) == 2)
+		{SendMessageToPC(oQuester, "You have scouted the first corner of the Wendover Crypts grounds.");
+	 	 ACR_AddPersistentJournalQuestEntry("rm_scout_05", 3, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+		 }
+	else if(ACR_RetrieveQuestState("rm_scout_05", oQuester) == 3)
+		{SendMessageToPC(oQuester, "You have scouted the second corner of the Wendover Crypts grounds.");
+	 	 ACR_AddPersistentJournalQuestEntry("rm_scout_05", 4, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+		 }
+	else if(ACR_RetrieveQuestState("rm_scout_05", oQuester) == 4)
+		{SendMessageToPC(oQuester, "You have scouted the last corner of the Wendover Crypts grounds. Return to Kadalion.");
+	 	 ACR_AddPersistentJournalQuestEntry("rm_scout_05", 5, GetEnteringObject(), FALSE, FALSE, FALSE, FALSE);
+		 }
+		 
+	int nSpawnChance=Random(100);
+	if(nSpawnChance<50)
+		{if(GetLocalInt(GetArea(OBJECT_SELF), "nSpawned")==0)
+			{SetLocalInt(GetArea(OBJECT_SELF), "nSpawned", 1);
+			 int nInc=1;
+			 for(nInc=1; nInc<10; nInc++)
+				{object oUndeadSpawn = GetObjectByTag("wc_undead_create_wp", nInc);
+				 if(oUndeadSpawn != OBJECT_INVALID)
+					{int nRandom = Random(100)+1;
+					 if(nRandom < 33)
+					 	{CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_un_zombie02", GetLocation(oUndeadSpawn));
+						 SendMessageToPC(oQuester, "The dead rise!");
+					     }
+					}	
+				}	
+			}
+		}
 	}
 
 }
