@@ -94,20 +94,16 @@ void main()
 			{SetDeity(GetPCSpeaker(), "Tempus");
 			 AdjustAlignment(GetPCSpeaker(), ALIGNMENT_CHAOTIC, 5);
 			}
-	 	 if ((GetLocalInt(OBJECT_SELF, "kis_escort_02") == 0) && (GetTag(GetArea(OBJECT_SELF)) == "6d_int_silvy_silverguardfort"))
+	 	 if (((ACR_RetrieveQuestState("kis_escort_02", GetPCSpeaker())==1) || (ACR_RetrieveQuestState("kis_escort_02", GetPCSpeaker())==2)) && (GetTag(GetArea(OBJECT_SELF)) == "6d_int_silvy_silverguardfort"))
 				 {SetLocalInt(OBJECT_SELF, "kis_escort_02", 1);
 				  ActionForceFollowObject(GetPCSpeaker(), 0.5, 0);
 				  SetLocalObject(GetPCSpeaker(), "oHench", OBJECT_SELF);
 				  SetLocalObject(GetPCSpeaker(), "oMaster", GetPCSpeaker());
 				  SetLocalObject(OBJECT_SELF, "oHench", OBJECT_SELF);
 				  SetLocalObject(OBJECT_SELF, "oMaster", GetPCSpeaker());
-				  ActionForceFollowObject(GetPCSpeaker(), 0.5, 0);
 				  }
-		 else if(GetLocalInt(OBJECT_SELF, "kis_escort_02") == 1)
-		 	{ActionForceFollowObject(GetPCSpeaker(), 0.5, 0);
-				  	  
 			}
-		}
+		
 		
 		//KiS_patrol_03
 	//Marilee Stallings, sister of Lieutenant Stallings of Rauvenwatch Keep
@@ -396,22 +392,21 @@ void main()
 				 }
 				 
 			 object oKiS;
-			 int iInc = GetLocalInt(OBJECT_SELF, "iInc") + 1;
-			 if(iInc == 1)
-			 	{oKiS = oKiS1;
-				}
-			else if(iInc == 2)
+			 int iIncs = GetLocalInt(OBJECT_SELF, "iIncs") + 1;
+			 if(iIncs == 1)
+			 	{oKiS = oKiS1;}
+			else if(iIncs == 2)
 			 	{oKiS = oKiS2;
 				}	
-			else if(iInc == 3)
+			else if(iIncs == 3)
 			 	{oKiS = oKiS3;
 				}	
-			else if(iInc == 4)
+			else if(iIncs == 4)
 			 	{oKiS = oKiS4;
 				}	
-			else if(iInc == 5)
+			else if(iIncs == 5)
 			 	{oKiS = oKiS5;
-				 iInc = 1;
+				 iIncs = 1;
 				}	
 				
 			if((_GetNLDState(oPC) != 2) && (GetLocalInt(oPC, "kis_combat_03_win") < 5))
@@ -421,7 +416,7 @@ void main()
 					 if(GetLocalInt(oKiS, "Subdued") != 1)
 					 	{AssignCommand(oKiS, ActionAttack(oPC, FALSE));
 						}
-					 SetLocalInt(OBJECT_SELF, "iInc", iInc);
+					 SetLocalInt(OBJECT_SELF, "iInc", iIncs);
 					 DelayCommand(5.0, ExecuteScript("sm_quest_convdriven", OBJECT_SELF));
 					}
 			 if(GetLocalInt(oPC, "kis_combat_03_win") >= 5)

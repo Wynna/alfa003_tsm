@@ -499,6 +499,5 @@ if((GetTag(OBJECT_SELF) == "sm_sylune_listener") && ((GetIsPC(GetEnteringObject(
 				 }
 				 
 		
-			   }
-	   
 }
+	   
