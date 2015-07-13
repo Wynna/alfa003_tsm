@@ -384,7 +384,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="72B382992B349E9AD755A3027C133826A5450DBA" downloadHash="5B4229A0007ED2753DC327DC49FF3C53DC0C64A9" name="6d_ext_silverymoon_surround.trx" dlsize="9914913" size="29947955" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="D5DCC6DD9D39629BDE1DEED0036191187012010E" downloadHash="6631270327C7227222A1CACF61F78BCDC424C5ED" name="6d_ext_silverymoon_surround.trx" dlsize="9975928" size="30001594" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
