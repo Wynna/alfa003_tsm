@@ -157,8 +157,8 @@ void main()
 	         SetListenPattern(OBJECT_SELF, "**Hornblade**", 5015);
 	         SetListenPattern(OBJECT_SELF, "**Ignan Vocabulary**", 5016);
 	         SetListenPattern(OBJECT_SELF, "**Jermlaine**", 5017);
-	         SetListenPattern(OBJECT_SELF, "**Elemental Deities**", 5018);
-	         SetListenPattern(OBJECT_SELF, "**Morninglord Rising**", 5019);
+	         SetListenPattern(OBJECT_SELF, "**K Elemental Deities**", 5018);
+	         SetListenPattern(OBJECT_SELF, "**L Morninglord Rising**", 5019);
 	         SetListenPattern(OBJECT_SELF, "**Mythal**", 5020);
 	         SetListenPattern(OBJECT_SELF, "**Newly Made**", 5021);
 	         SetListenPattern(OBJECT_SELF, "**Oxo Softfoot's Class**", 5022);

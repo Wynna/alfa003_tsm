@@ -32,20 +32,67 @@ void main()
     // Custom code goes here.
 	
 //deandragon quests
- if((GetTag(OBJECT_SELF) == "fey_chocolate_activate")&& (ACR_RetrieveQuestState("slv_deandragon_b", GetExitingObject()) == 5))
- 	{object oWP = GetLocalObject(OBJECT_SELF, "oWP");
-	 if(oWP == OBJECT_INVALID)
-		{oWP = GetNearestObjectByTag("ACR_SPAWN_WP", OBJECT_SELF);
-		 SetLocalObject(OBJECT_SELF, "oWP", oWP);
+ if((GetTag(OBJECT_SELF) == "fey_chocolate_activate") && (GetLocalInt(OBJECT_SELF, "SpawnedExit") != 1))  
+	 {if((ACR_RetrieveQuestState("slv_deandragon_b", GetExitingObject()) == 6)|| (ACR_RetrieveQuestState("slv_deandragon_b", GetExitingObject()) == 7))
+	 	{SetLocalInt(OBJECT_SELF, "SpawnedExit", 1);
+		 DelayCommand(3600.0, SetLocalInt(OBJECT_SELF, "SpawnedExit", 0));
+		 object oWP = GetWaypointByTag("TM_Moonwood_North_Meet_1_WP");
+			 
+		 object oClown1=CreateObject(OBJECT_TYPE_CREATURE, "003_cr_circus_clown_sling", GetLocation(oWP));
+		 object oClown2=CreateObject(OBJECT_TYPE_CREATURE, "003_cr_circus_clown_sling", GetLocation(oWP));
+		 object oClown3=CreateObject(OBJECT_TYPE_CREATURE, "003_cr_circus_clown_club", GetLocation(oWP));
+		 DelayCommand(5.0, AssignCommand(oClown1, ActionForceMoveToObject(GetExitingObject(), TRUE, 1.0f, 30.0f))); 
+		 DelayCommand(5.0, AssignCommand(oClown2, ActionForceMoveToObject(GetExitingObject(), TRUE, 1.0f, 30.0f))); 
+		 DelayCommand(5.0, AssignCommand(oClown3, ActionForceMoveToObject(GetExitingObject(), TRUE, 1.0f, 30.0f))); 
 		}
-	 object oMyTree = GetLocalObject(OBJECT_SELF, "oMyTree");
-	 if(oMyTree == OBJECT_INVALID)
-	 	{oMyTree = GetObjectByTag("fey_chocolate_tree");
-		 SetLocalObject(OBJECT_SELF, "oMyTree", oMyTree);
-		} 
-	 DestroyInventory(oMyTree);
-	 SetUseableFlag(oMyTree, FALSE);
-	 }
+	}
+	
+	if((GetTag(OBJECT_SELF) == "slv_deandragon_b_6") && (GetLocalInt(OBJECT_SELF, "Spawned") != 1)) 
+	 {object oWP = GetLocalObject(OBJECT_SELF, "oWP");
+	  if(oWP == OBJECT_INVALID)
+			{oWP = GetNearestObjectByTag("ACR_SPAWN_WP", OBJECT_SELF);
+			 SetLocalObject(OBJECT_SELF, "oWP", oWP);
+			}
+		 
+	  if((ACR_RetrieveQuestState("slv_deandragon_b", GetExitingObject()) == 6)|| (ACR_RetrieveQuestState("slv_deandragon_b", GetExitingObject()) == 7))
+	 	{SetLocalInt(OBJECT_SELF, "Spawned", 1);
+		 DelayCommand(3600.0, SetLocalInt(OBJECT_SELF, "Spawned", 0));
+		 object oFlute = GetLocalObject(OBJECT_SELF, "flute");
+	 	 if(oFlute == OBJECT_INVALID)
+			{oFlute = GetObjectByTag("fey_dance_flute");
+			 SetLocalObject(OBJECT_SELF, "flute", oFlute);
+			 }
+		 SoundObjectPlay(oFlute);
+		 object oJerm1=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 object oJerm2=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 object oJerm3=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 object oJerm4=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 object oJerm5=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 object oJerm6=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 object oJerm7=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 object oJerm8=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 object oJerm9=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 object oJerm10=CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_fy_jermlaine", GetLocation(oWP));
+		 DelayCommand(1.0, AssignCommand(oJerm1, ActionSpeakString("*Nasty, giggling jermlaines swarm out of the earth between the roots of the trees!", TALKVOLUME_TALK)));
+		 DelayCommand(1.5, AssignCommand(oJerm2, ActionSpeakString("Master says the joke's on you!", TALKVOLUME_TALK)));
+		 DelayCommand(2.5, AssignCommand(oJerm3, ActionSpeakString("Master says the joke's on you!", TALKVOLUME_TALK)));
+		 DelayCommand(3.5, AssignCommand(oJerm4, ActionSpeakString("Master says the joke's on you!", TALKVOLUME_TALK)));
+		 DelayCommand(4.0, SoundObjectPlay(oFlute));
+		 DelayCommand(4.0, AssignCommand(oJerm2, ClearAllActions(TRUE)));
+		 DelayCommand(4.5, AssignCommand(oJerm2, ActionSpeakString("Pinch!", TALKVOLUME_TALK)));
+		 DelayCommand(6.0, AssignCommand(oJerm3, ClearAllActions(TRUE)));
+		 DelayCommand(6.5, AssignCommand(oJerm3, ActionSpeakString("Poke!", TALKVOLUME_TALK)));
+		 DelayCommand(8.0, SoundObjectPlay(oFlute));
+		 DelayCommand(8.0, AssignCommand(oJerm4, ClearAllActions(TRUE)));
+		 DelayCommand(8.5, AssignCommand(oJerm4, ActionSpeakString("Prod!", TALKVOLUME_TALK)));
+		 DelayCommand(10.0, AssignCommand(oJerm5, ClearAllActions(TRUE)));
+		 DelayCommand(10.5, AssignCommand(oJerm5, ActionSpeakString("Punish!", TALKVOLUME_TALK)));
+		 DelayCommand(12.0, AssignCommand(oJerm6, ClearAllActions(TRUE)));
+		 DelayCommand(12.5, AssignCommand(oJerm6, ActionSpeakString("Master says the joke's on you!", TALKVOLUME_TALK)));
+		 }
+	}
+	 
+	 
 	
 if((GetTag(OBJECT_SELF) == "slv_deandragon_e") && (ACR_RetrieveQuestState("slv_deandragon_e", GetExitingObject()) > 1)&& (ACR_RetrieveQuestState("slv_deandragon_e", GetExitingObject()) < 8))
  	{object oMyIncinder = GetLocalObject(OBJECT_SELF, "oMyIncinder");

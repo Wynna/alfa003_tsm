@@ -10,7 +10,7 @@ void main()
 {
     object oItem = GetItemActivated();
     object oUser = GetItemActivator();
-    object oGoTo = GetWaypointByTag("5f_midrange_south_at_wp");
+    object oGoTo = GetWaypointByTag("Chocolate_Teleport_WP");
 	location lGoTo = GetLocation(oGoTo);
 	RemoveSilverymoonWards(oUser );
 	 
