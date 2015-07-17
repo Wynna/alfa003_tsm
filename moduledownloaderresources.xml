@@ -1653,7 +1653,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="B926A34E7781116A14509903A9564E1753DA374D" downloadHash="126FC774B3FE275E5F23E2768621744A37D113FD" name="6e_ext_nether_junction.trx" dlsize="857478" size="7408936" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="AC285BD00B227E1FBECE2FEC9C8461CC02416513" downloadHash="668D5256148750AD3139AF5D0992486BE5FC87A3" name="6e_ext_nether_junction.trx" dlsize="862645" size="7409601" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1783,7 +1783,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="EB5447EC1B29FE1F774D0782F6A5F42574D8E29C" downloadHash="6F70922E8AB81CFF89117F2D5ADADA832B5A6D3B" name="5f_ext_nether_midrange2.trx" dlsize="4247561" size="23569436" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="CF39FA576F11308BC61B90B47DA44ED5E542EDF0" downloadHash="91B668E89A3A3F24266EB2E829AD2F3C116F42C4" name="5f_ext_nether_midrange2.trx" dlsize="4232390" size="23544688" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>

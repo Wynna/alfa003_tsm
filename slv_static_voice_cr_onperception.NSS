@@ -120,6 +120,18 @@ void main()
 			}
 				
 		}
+		
+ // Deckon Thar Sky Pony
+ 
+ 	if((GetTag(OBJECT_SELF) == "003_cr_uthgardt_skypony")|| (GetTag(OBJECT_SELF) == "003_cr_uthgardt_skypony_shaman"))
+		{if(GetIsPC(GetLastPerceived()))
+			{if(GetTag(GetItemInSlot(INVENTORY_SLOT_NECK, GetLastPerceived())) == "slv_deandragon_u_necklace")
+				{ChangeToStandardFaction(OBJECT_SELF, STANDARD_FACTION_DEFENDER);
+				 ActionSpeakString("Sky tamer!", TALKVOLUME_TALK);
+				}
+			
+			}
+		}
 			
     // Custom code goes here.
 }
