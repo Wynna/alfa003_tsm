@@ -78,7 +78,7 @@ void main()
 	object oForest = GetObjectByTag("deandragon_forest");
 	object oBattle = GetObjectByTag("deandragon_battle");
 	object oScream = GetObjectByTag("deandragon_scream");
-	object oOrc = GetObjectByTag("deandragon_orc");
+	object oHellgate = GetObjectByTag("deandragon_orc");
 	object oDragon = GetObjectByTag("deandragon_dragon");
 	object oSkyWP = GetLocalObject(OBJECT_SELF, "oSkyWP");
 	if(oSkyWP == OBJECT_INVALID)
@@ -94,16 +94,12 @@ void main()
 	DelayCommand(1.0, ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, eSmoke, GetLocation(oStudent), 10.0));
 			 		 	 
 		if(iRep == 10)
-			{FloatingTextStringOnCreature("*The raging dragons fade, to be replaced by a woman of otherworldly beauty, her fey heritage obvious in the delicate bones and glinting eyes. She holds a snaking silver staff and wears a mask with a gem inset into the brow. Close beside her stands a small but protective golden dragon.", oStudent, TRUE, 15.0);
-			 DelayCommand(10.0, AssignCommand(oDean, ActionSpeakString("And there we have the source. Lady Elesta. The first to partner with a Gold, the wyrmling Ardeorowym. The founder of House Elesta and an enchantress of almost incomprehensible power. Look on the face of greatness.", TALKVOLUME_TALK)));
+			{FloatingTextStringOnCreature("*The phoenix fades, to be replaced by a mountain, smoking ominously.", oStudent, TRUE, 15.0);
 			 ApplyEffectToObject(DURATION_TYPE_INSTANT, eHolyPulse, oStudent);
-			 object oElesta = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_elesta", GetLocation(oSkyWP));
-			 object oArdeorowym = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deandragon_y_dragon", GetLocation(oSkyWP)); 
-			 DestroyObject(oElesta, 30.0);
-			 DestroyObject(oArdeorowym, 30.0);
-			 DelayCommand(35.0, FloatingTextStringOnCreature("*The smoke has dissipated, how long ago you don't know. As the images fade, there is a brief silence, and then the Dean speaks quietly.", oStudent, TRUE, 15.0));
+			 DelayCommand(15.0, FloatingTextStringOnCreature("*The smoke of the mountain dissipates, and the mountain fades. There is a brief silence, and then the Dean speaks quietly.", oStudent, TRUE, 15.0));
 			 SetLocalInt(oModule, "Deandragon_Y_Rep", 0);
-			 DelayCommand(45.0, AssignCommand(oDean, ActionSpeakString("Why you? Think on this, and think well. Is it your part to give your knowledge, your efforts, your youth and death to this timeline? Think on it. The keyword you seek now, though, is 'Yard'.", TALKVOLUME_TALK)));
+			 DelayCommand(25.0, AssignCommand(oDean, ActionSpeakString("Why you? Think on this, and think well. Is it your part to give your knowledge, your efforts, your abilities and perhaps your death to this fiery cycle?", TALKVOLUME_TALK)));
+			 DelayCommand(35.0, AssignCommand(oDean, ActionSpeakString("Sera decided that she would return to her home, to preserve the phoenix, and the students involved in attempting its theft. Think on your part. The keyword you seek now, though, is 'Yard'.", TALKVOLUME_TALK)));
 			 DestroyObject(oDean, 600.0);
 			 DestroyObject(oAbj, 600.0);
 			 DestroyObject(oCon, 600.0);
@@ -120,140 +116,95 @@ void main()
 		}
 		if(iRep == 9)
 			{ApplyEffectToObject(DURATION_TYPE_INSTANT, eHolyPulse, oStudent);
-			 object oRhespen = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_rhespen", GetLocation(oSkyWP2));
-			 object oWinterflower = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_winterflower", GetLocation(oSkyWP2));
-			 object oDragonRed = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deandragon_h_dragon", GetLocation(oSkyWP2));
-			 object oDragonGold = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deandragon_y_dragon", GetLocation(oSkyWP2));
-			 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePatterns, oRhespen, 5.0);
-			 ApplyEffectAtLocation(DURATION_TYPE_TEMPORARY, ePatterns, GetLocation(oRhespen), 15.0);
+			 object oPhoenix = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deanphoenix_fire", GetLocation(oSkyWP2));
 			 DelayCommand(5.0, SoundObjectPlay(oDragon));
-			 DelayCommand(7.0, SoundObjectStop(oDragon));
-			 DelayCommand(5.0, AssignCommand(oDean, ActionSpeakString("Occidian and all of Elven civilization would have been impossible, were it not for Winterflower and Rhespen Ash. Watch, as they raise the Dracorage Mythal.", TALKVOLUME_TALK)));
-			 DelayCommand(15.0, AssignCommand(oDean, ActionSpeakString("And then watch, as the dragons rage for the first time.", TALKVOLUME_TALK)));
-			 DelayCommand(17.0, ChangeToStandardFaction(oDragonRed, STANDARD_FACTION_HOSTILE));
-			 DestroyObject(oRhespen, 30.0);
-			 DestroyObject(oWinterflower, 30.0);
-			 DestroyObject(oDragonRed, 30.0);
-			 DestroyObject(oDragonGold, 30.0);
+			 DelayCommand(5.0, AssignCommand(oDean, ActionSpeakString("The phoenix was reborn, and has been reborn many times since then. It has become a legend around Sundabar, rarely seen, even forgotten.", TALKVOLUME_TALK)));
+			 DelayCommand(10.0, AssignCommand(oDean, ActionSpeakString("Those of us who study history, and magical beasts, know, though, that a bond has been forged between the fate of Sundabar and the life of the phoenix.", TALKVOLUME_TALK)));
+			 DelayCommand(15.0, AssignCommand(oDean, ActionSpeakString("The Everfire always rumbles when the life cycle of the bird is coming full circle. It is the seal of the deal with Kossoth. The promise, and the payment.", TALKVOLUME_TALK)));
+			 DelayCommand(20.0, AssignCommand(oDean, ActionSpeakString("It is both restraint and replenishment of the elemental power that abides within the Everfire.", TALKVOLUME_TALK)));
+			 DestroyObject(oPhoenix, 30.0);
 			 DelayCommand(33.0, ExecuteScript("i_slv_deandragon_y_censor_ac", oStudent));
 			 }
 		if(iRep == 8)
-			{DelayCommand(1.0, AssignCommand(oDean, ActionSpeakString("Further back to happier times. The heyday of Occidian. *Sad smile* A center of learning and power, and Eleshor Elestar discovers the Elestar Patterns.", TALKVOLUME_TALK)));
+			{DelayCommand(1.0, AssignCommand(oDean, ActionSpeakString("Oh, history records it as the heroic Foregemaster going to the rescue of a prince of Ascalhorne, in Turnstone Pass, while Sundabar huddled behind walls of molten rock. And so it did.", TALKVOLUME_TALK)));
 			 ApplyEffectToObject(DURATION_TYPE_INSTANT, eHolyPulse, oStudent);
-			 object oEleshor = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_eleshor", GetLocation(oSkyWP));
-			 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePatterns, oEleshor, 5.0);
-			 DelayCommand(10.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePatterns, oEleshor, 5.0));
-			 DelayCommand(15.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePatterns, oEleshor, 5.0));
-			 DelayCommand(20.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePatterns, oEleshor, 5.0));
-			 DelayCommand(25.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePatterns, oEleshor, 5.0));
-			 DestroyObject(oEleshor, 30.0);
+			 DelayCommand(6.0, AssignCommand(oDean, ActionSpeakString("Lava flowed freely, in the walls, in the sky. The phoenix mounted to the clouds and though the fact was lost to many, when the Forgemaster returned triumphant to his city, the bird plunged deep into a vent belching lava onto the surface, into the rift, to self-immolate.", TALKVOLUME_TALK)));
+			 DelayCommand(16.0, AssignCommand(oDean, ActionSpeakString("Cause or effect, whether the death of the bird celebrated or created the end of the demons, is unknown.", TALKVOLUME_TALK)));
+			 DelayCommand(21.0, AssignCommand(oDean, ActionSpeakString("What is known is that Sundabar prospered.", TALKVOLUME_TALK)));
 			 DelayCommand(33.0, ExecuteScript("i_slv_deandragon_y_censor_ac", oStudent));
 			 }
 		if(iRep == 7)
-			{SoundObjectPlay(oOrc);
-			 DelayCommand(27.0, SoundObjectStop(oOrc));
+			{DelayCommand(27.0, SoundObjectStop(oPanic));
 			 DelayCommand(5.0, SoundObjectStop(oBattle));
 			 DelayCommand(8.0, SoundObjectStop(oBattle));
 			 DelayCommand(15.0, SoundObjectStop(oBattle));
 			 DelayCommand(20.0, SoundObjectStop(oBattle));
-			 FloatingTextStringOnCreature("*A crystal tower rises against the sky, with an orc horde assailing it and elven mages in fierce masks defending And then the tower shatters, exploding from within!", oStudent, TRUE, 15.0);
-			 DelayCommand(15.0, AssignCommand(oDean, ActionSpeakString("The fall of Occidian. *Watching closely* After this, the survivors of homeless House Elestar left behind a single sage and departed their ruined civilization, taking with them the seeds of the yearning that caused the Sundering and the pride that caused the Crown Wars.", TALKVOLUME_TALK)));
+			 DelayCommand(15.0, AssignCommand(oDean, ActionSpeakString("*Softly* Kossoth, it seems, was willing to flex a fiery muscle.", TALKVOLUME_TALK)));
 			 ApplyEffectToObject(DURATION_TYPE_INSTANT, eHolyPulse, oStudent);
-			 object oOrc1 = CreateObject(OBJECT_TYPE_CREATURE, "003_orc_captain_02", GetLocation(oSkyWP2));
-			 object oOrc2 = CreateObject(OBJECT_TYPE_CREATURE, "003_orc_captain_02", GetLocation(oSkyWP2));
-			 object oOrc3 = CreateObject(OBJECT_TYPE_CREATURE, "003_orc_captain_02", GetLocation(oSkyWP2));
-			 object oOrc4 = CreateObject(OBJECT_TYPE_CREATURE, "003_orc_captain_02", GetLocation(oSkyWP2));
-			 object oElfMage1 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_male", GetLocation(oSkyWP2));
-			 object oElfMage2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_fem", GetLocation(oSkyWP2));
-		     SetImmortal(oOrc1, TRUE);
-			 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEarthquake, oOrc1, 3.0);
-			 DestroyInventory(oOrc1);
-			 DestroyInventory(oOrc2);
-			 DestroyInventory(oOrc3);
-			 DestroyInventory(oOrc4);
-			 DelayCommand(20.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEarthquake, oOrc1, 3.0));
-			 DelayCommand(24.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEarthquake, oOrc1, 3.0));
+			 object oHellgate1 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_ou_tanarri_palrethee", GetLocation(oSkyWP2));
+			 object oHellgate2 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_ou_tanarri_palrethee", GetLocation(oSkyWP2));
+			 object oHellgate3 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_ou_tanarri_palrethee", GetLocation(oSkyWP2));
+			 object oHellgate4 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_ou_tanarri_palrethee", GetLocation(oSkyWP2));
+			 SetImmortal(oHellgate1, TRUE);
+			 ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEarthquake, oHellgate1, 3.0);
+			 DestroyInventory(oHellgate1);
+			 DestroyInventory(oHellgate2);
+			 DestroyInventory(oHellgate3);
+			 DestroyInventory(oHellgate4);
+			 DelayCommand(20.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEarthquake, oHellgate1, 3.0));
+			 DelayCommand(22.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eHolyStrike, oHellgate2, 3.0));
+			 DelayCommand(24.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEarthquake, oHellgate1, 3.0));
 			 DelayCommand(25.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eShake, oStudent));
-			 DelayCommand(29.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEarthquake, oOrc1, 3.0));
-			 DelayCommand(29.0, SetImmortal(oOrc1, FALSE));
-			 DestroyObject(oOrc1, 30.0);
-			 DestroyObject(oOrc2, 30.0);
-			 DestroyObject(oOrc3, 30.0);
-			 DestroyObject(oOrc4, 30.0);
-			 DestroyObject(oElfMage1, 30.0);
-			 DestroyObject(oElfMage2, 30.0);
+			 DelayCommand(26.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eHolyStrike, oHellgate3, 3.0));
+			 DelayCommand(27.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eShake, oStudent));
+			 DelayCommand(29.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eHolyStrike, oHellgate1, 3.0));
+			 DelayCommand(29.0, SetImmortal(oHellgate1, FALSE));
+			 DelayCommand(30.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eMeteor, oHellgate4, 3.0));
+			 DestroyObject(oHellgate1, 30.0);
+			 DestroyObject(oHellgate2, 30.0);
+			 DestroyObject(oHellgate3, 30.0);
+			 DestroyObject(oHellgate4, 30.0);
 			 DelayCommand(33.0, ExecuteScript("i_slv_deandragon_y_censor_ac", oStudent));
 			 }
 		if(iRep == 6)
 			{SoundObjectPlay(oScream);
 			 DelayCommand(3.0, SoundObjectStop(oScream));
 			 DelayCommand(5.0, SoundObjectPlay(oPanic));
-			 DelayCommand(5.0, AssignCommand(oDean, ActionSpeakString("Mystra protect us.  *Face pale and stern. A tear shines unheeded in the corner of his eye.*  The Sundering, as those who lived through it experienced. See them flee from what they have done....", TALKVOLUME_TALK)));
+			 DelayCommand(5.0, AssignCommand(oDean, ActionSpeakString("Legend spoke of a power tapped deep inside the volcano, the essence of elemental fire, but sentient. Alive.", TALKVOLUME_TALK)));
+			 DelayCommand(10.0, AssignCommand(oDean, ActionSpeakString("Long had it been known that the phoenixes found in the region were aspects of this power, the smallest of sparks cast off from its essence.", TALKVOLUME_TALK)));
+			 DelayCommand(15.0, AssignCommand(oDean, ActionSpeakString("They were a sentience, the minds tied to the bodily cycle of the volcano, to the ebbs and flows that were its heartbeat and the sulferous fumes that were its breath.", TALKVOLUME_TALK)));
+			 DelayCommand(20.0, AssignCommand(oDean, ActionSpeakString("The Forgemaster sent an apprentice deep into the Everfire, beyond the lavas tamed for use in citadel forges, into the very rift beneath. While his master fought demons in Turnstone Pass, the apprentice sought out the phoenix, to plead with it to bring the volcano's power to the defense of Sundabar.", TALKVOLUME_TALK)));
+			 DelayCommand(25.0, AssignCommand(oDean, ActionSpeakString("A brave plan, a visionary plan! What was not known then was that the power behind the phoenix, the power so long sensed within the Everfire was a manifestation...of Kossoth.", TALKVOLUME_TALK)));
 			 DelayCommand(29.0, SoundObjectStop(oPanic));
-			 ApplyEffectToObject(DURATION_TYPE_INSTANT, eHolyPulse, oStudent);
-			 ApplyEffectToObject(DURATION_TYPE_INSTANT, eEarthquake, oStudent);
-			 object oSundering1 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_male", GetLocation(oSkyWP));
-			 object oSundering2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_fem", GetLocation(oSkyWP));
-		     object oSundering3 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_male", GetLocation(oSkyWP));
-			 object oSundering4 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_fem", GetLocation(oSkyWP));
-		     object oSundering5 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_male", GetLocation(oSkyWP));
-			 object oSundering6 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_fem", GetLocation(oSkyWP));
-		     AssignCommand(oSundering1, ActionRandomWalk());
-			 AssignCommand(oSundering2, ActionRandomWalk());
-			 AssignCommand(oSundering3, ActionRandomWalk());
-			 AssignCommand(oSundering4, ActionRandomWalk());
-			 AssignCommand(oSundering5, ActionRandomWalk());
-			 AssignCommand(oSundering6, ActionRandomWalk());
-			 DelayCommand(2.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eEarthquake, oSundering1));
-			 DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eShake, oStudent, 5.0));
-			 DelayCommand(10.0, ApplyEffectToObject(DURATION_TYPE_INSTANT, eEarthquake, oStudent));
-			 DelayCommand(15.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEarthquake, oSundering1, 5.0));
-			 DelayCommand(25.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eEarthquake, oSundering1, 5.0));
-			 DestroyObject(oSundering1, 30.0);
-			 DestroyObject(oSundering2, 30.0);
-			 DestroyObject(oSundering3, 30.0);
-			 DestroyObject(oSundering4, 30.0);
-			 DestroyObject(oSundering5, 30.0);
-			 DestroyObject(oSundering6, 30.0);
 			 DelayCommand(33.0, ExecuteScript("i_slv_deandragon_y_censor_ac", oStudent));
 			 }
 		if(iRep == 5)
-			{DelayCommand(1.0, AssignCommand(oDean, ActionSpeakString("But before there was war, there was peace, as elves established vast kingdoms. House Elestar, already a great clan, settled the North with their gold dragon allies. It was at this time that Hhora Elestar rediscovered the since lost again Elestar Patterns.", TALKVOLUME_TALK)));
-			 ApplyEffectToObject(DURATION_TYPE_INSTANT, eHolyPulse, oStudent);
-			 object oDragonGold = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_deandragon_y_dragon", GetLocation(oSkyWP));
-			 object oHhoraElestar = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_male", GetLocation(oSkyWP));
-			 DelayCommand(10.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, ePatterns, oHhoraElestar, 10.0));
-			 SetFirstName(oHhoraElestar, "Hhora Elestar");
-			 DestroyObject(oDragonGold, 30.0);
-			 DestroyObject(oHhoraElestar, 30.0);
+			{DelayCommand(1.0, AssignCommand(oDean, ActionSpeakString("But before there was victory, there was terror, as demons pursued the refugees through Turnstone Pass and the Forgemaster of Sundabar knew that walls alone could not stop them.", TALKVOLUME_TALK)));
+			 object oForegemaster = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_sund_hoaraxe", GetLocation(oSkyWP));
+			 SetFirstName(oForegemaster, "Sundabar Forgemaster");
+			 DelayCommand(6.0, FloatingTextStringOnCreature("*They will follow us into the depths and herd us into the volcanic rift if we retreat, for anywhere we may survive will only find them stronger! We must wake the volcano to our need. We must turn nature to sentient defense. We must rouse the phoenix!", oForegemaster, TRUE, 15.0));
+			 DestroyObject(oForegemaster, 30.0);
 			 DelayCommand(33.0, ExecuteScript("i_slv_deandragon_y_censor_ac", oStudent));
 			 }
 		if(iRep == 4)
 			{SoundObjectPlay(oBattle);
-			 FloatingTextStringOnCreature("*Peace is shattered as time rewinds further, into the battle of elf versus elf.", oStudent, TRUE, 15.0);
-			 string sTelQuessir = "Younger races had not arrived, save the dwarves, and they were new to the world. There were the dragons...and the People. Where does your bloodline flow during these 3000 years of conflict?";
-			 if((GetRacialType(oStudent) != RACIAL_TYPE_ELF) ||(GetRacialType(oStudent) != RACIAL_TYPE_HALFELF))
-			   {sTelQuessir = "Your people had not yet arrived in this world, but time had stretched from long before this point. Where would you have stood? With whom would you have warred?";
-				}
-			 if(GetRacialType(oStudent) == RACIAL_TYPE_DWARF)
-			   {sTelQuessir = "Your people had just arrived in this world, but time had stretched from long before this point. Where did your dwarfkin stand? With whom would you have warred?";
-				}
-			 DelayCommand(10.0, AssignCommand(oDean, ActionSpeakString("The Crown Wars raged here and everywhere in the North, when it was called Aryvandaar. *Softly* " + sTelQuessir, TALKVOLUME_TALK)));
+			 FloatingTextStringOnCreature("*Peace is shattered elsewhere, though, in regions where not goddesses but demons walked the world.", oStudent, TRUE, 15.0);
+			 string sTelQuessir = "Cast your attention more widely, to the fringes of what is now known as Luruar. A dwarven citadel, far to the east, Sundabar...and the volcano that seethes at its heart!";
+			 DelayCommand(10.0, AssignCommand(oDean, ActionSpeakString("In the days when cities fell and Hellgate Keep arose, Citadel Sundabar alone survived, and even took in refugees from Ascalhorn.", TALKVOLUME_TALK)));
 			 ApplyEffectToObject(DURATION_TYPE_INSTANT, eHolyPulse, oStudent);
-			 object oCrownWars1 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_fem", GetLocation(oSkyWP2));
-		     object oCrownWars2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_occ_mage_male", GetLocation(oSkyWP2));
-			 object oCrownWars3 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_drow_wizard03", GetLocation(oSkyWP2));
-		     object oCrownWars4 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_drow_wizard03", GetLocation(oSkyWP2));
-			 SetFirstName(oCrownWars3, "Illytheri");
-			 SetFirstName(oCrownWars4, "Illytheri");
-			 DestroyInventory(oCrownWars1);
-			 DestroyInventory(oCrownWars2);
-			 DestroyInventory(oCrownWars3);
-			 DestroyInventory(oCrownWars4);
-			 DestroyObject(oCrownWars1, 30.0);
-			 DestroyObject(oCrownWars2, 30.0);
-			 DestroyObject(oCrownWars3, 30.0);
-			 DestroyObject(oCrownWars4, 30.0);
+			 object oHellgate1 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_astalmo", GetLocation(oSkyWP2));
+		     object oHellgate2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_sund_hoaraxe", GetLocation(oSkyWP2));
+			 object oHellgate3 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_ou_tanarri_palrethee", GetLocation(oSkyWP2));
+		     object oHellgate4 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_ou_tanarri_palrethee", GetLocation(oSkyWP2));
+			 SetFirstName(oHellgate2, "Sundabar Forgemaster");
+			 DestroyInventory(oHellgate1);
+			 DestroyInventory(oHellgate2);
+			 DestroyInventory(oHellgate3);
+			 DestroyInventory(oHellgate4);
+			 DestroyObject(oHellgate1, 30.0);
+			 DestroyObject(oHellgate2, 30.0);
+			 DestroyObject(oHellgate3, 30.0);
+			 DestroyObject(oHellgate4, 30.0);
 			 DelayCommand(29.0, SoundObjectStop(oBattle));
 			 DelayCommand(33.0, ExecuteScript("i_slv_deandragon_y_censor_ac", oStudent));
 			 }
@@ -279,10 +230,10 @@ void main()
 			 DestroyInventory(oAlustriel);
 			 DelayCommand(10.0, AssignCommand(oAlustriel, ActionSpeakString("From this point onward, let our halls of learning be joined as one! I name this united center of learning...the Conclave of Silverymoon!", TALKVOLUME_TALK)));
 			 DelayCommand(20.0, AssignCommand(oAlustriel, ActionSpeakString("*A much younger Alustriel* I do solemnly swear by the name of the goddess of mysteries to uphold my duties as High Mage of Silverymoon.", TALKVOLUME_TALK)));
-			 DelayCommand(28.0, SoundObjectPlay(oOrc));
+			 DelayCommand(28.0, SoundObjectPlay(oHellgate));
 			 DelayCommand(30.0, AssignCommand(oAlustriel, ActionSpeakString("*Alustriel as frightened, bloodied novice, long ago.* Hold the wall! Hold it! Here they come!", TALKVOLUME_TALK)));
 			 DelayCommand(32.0, AssignCommand(oAlustriel, ActionCastFakeSpellAtLocation(SPELL_METEOR_SWARM, GetLocation(oAlustriel), PROJECTILE_PATH_TYPE_DEFAULT)));
-			 DelayCommand(34.0, SoundObjectStop(oOrc));
+			 DelayCommand(34.0, SoundObjectStop(oHellgate));
 			 DestroyObject(oAlustriel, 35.0);
 			 DelayCommand(38.0, ExecuteScript("i_slv_deandragon_y_censor_ac", oStudent));
 			 }

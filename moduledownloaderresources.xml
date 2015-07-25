@@ -1863,7 +1863,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="DD8DCC1DCF841E9692BEE59DB3BFC674FAE885EF" downloadHash="7A1B497899C7FF469DF438832A3C7F9A14E77F1A" name="5h_int_sundabar_trumpet.trx" dlsize="88072" size="88519" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="CD165AB43BD4ED6B8515235B2268CE0290A0223C" downloadHash="742DF9D466CD3ED58B8398E65B97ED86D2379C83" name="5h_int_sundabar_trumpet.trx" dlsize="84989" size="85284" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1899,6 +1899,11 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="42091CD92E1F90A3C85FA4F0D104C7C047C1C973" downloadHash="4FBA1504119F843C8C9196F6BD49DBAA4F71D11D" name="7d_int_silverwood_2_1_koblds_cav.trx" dlsize="293328" size="2368646" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="FAB2B4C033CF511A9EEB605ACF7071F922D896E3" downloadHash="D3057EAEE530DFBD1ECC57A47006B6DE861723B2" name="003_travelling_circus_xyz.trx" dlsize="5088555" size="23229283" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>

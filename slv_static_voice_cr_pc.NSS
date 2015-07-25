@@ -33,8 +33,7 @@ void main()
 			if(GetLocalInt(OBJECT_SELF, "ColdRep") == 1)
 				{float fTimeLoop = 91.0;
 				 int nRepCold = GetLocalInt(OBJECT_SELF, "nRepCold");
-				 if(GetTag(GetArea(OBJECT_SELF)) == "5b_ext_frosthills_glacier")
-					{object oMyListener = GetLocalObject(OBJECT_SELF, "oMyListener");
+				 object oMyListener = GetLocalObject(OBJECT_SELF, "oMyListener");
 					 if(oMyListener == OBJECT_INVALID)
 						 	{oMyListener = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_deanvoice_phoenix", GetLocation(OBJECT_SELF));
 	   						 SetLocalObject(OBJECT_SELF, "oMyListener", oMyListener);
@@ -56,7 +55,7 @@ void main()
 						 }
 					else {SendMessageToPC(OBJECT_SELF, "You feel your elemental protection spell keeping the worst of the cold at bay.");
 					     }
-					}
+					
 					SetLocalInt(OBJECT_SELF, "Survival", 0);
 					nRepCold++;
 					SetLocalInt(OBJECT_SELF, "nRepCold", nRepCold);
@@ -71,8 +70,7 @@ void main()
 				
 		//deandragon_e_fire heat damage loop
 	 	if(GetLocalInt(OBJECT_SELF, "HeatRep") == 1)
-				{if(FindSubString(GetTag(GetArea(OBJECT_SELF)), "sundabar_everfire") != -1)
-					{float fTimeLoop = 91.0;
+				{float fTimeLoop = 91.0;
 					 if(GetIsSkillSuccessful(OBJECT_SELF, SKILL_SURVIVAL, 15, TRUE))
 							{SetLocalInt(OBJECT_SELF, "Survival", 4);}
 						int nRep = GetLocalInt(OBJECT_SELF, "nRepHot");
@@ -93,7 +91,7 @@ void main()
 						DelayCommand(fTimeLoop, ExecuteScript("slv_static_voice_cr_pc", OBJECT_SELF));
 						}
 			
-				}
+				
 			 
 			
 }
