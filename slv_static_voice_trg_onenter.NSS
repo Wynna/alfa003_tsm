@@ -550,31 +550,35 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_x") && (ACR_RetrieveQuestState("slv_d
 			  object oTraWP = GetWaypointByTag("deandragon_y_tra");
 			  
 			  object oPotion = CreateObject(OBJECT_TYPE_ITEM, "slv_deandragon_y_censor", GetLocation(oPotionWP));
-			  object oDean = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_dean", GetLocation(oDeanWP));
-			  object oAbj = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profabj", GetLocation(oAbjWP));
-			  object oCon = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profcon", GetLocation(oConWP));
-			  object oDiv = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profdiv", GetLocation(oDivWP));
-			  object oEnc = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profenc", GetLocation(oEncWP));
-			  object oEvo = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profevo", GetLocation(oEvoWP));
-			  object oIll = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profill", GetLocation(oIllWP));
-			  object oNec = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profnec", GetLocation(oNecWP));
-			  object oTra = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_proftra", GetLocation(oTraWP));
+			  object oDean = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_dean", GetLocation(oDeanWP), FALSE, "003_cr_slv_dean_Wand");
+			  object oAbj = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profabj", GetLocation(oAbjWP), FALSE, "003_cr_slv_profabj_Wand");
+			  object oCon = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profcon", GetLocation(oConWP), FALSE, "003_cr_slv_profcon_Wand");
+			  object oDiv = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profdiv", GetLocation(oDivWP), FALSE, "003_cr_slv_profdiv_Wand");
+			  object oEnc = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profenc", GetLocation(oEncWP), FALSE, "003_cr_slv_profenc_Wand");
+			  object oIll = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profill", GetLocation(oIllWP), FALSE, "003_cr_slv_profill_Wand");
+			  object oNec = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_profnec", GetLocation(oNecWP), FALSE, "003_cr_slv_profnec_Wand");
+			  object oTra = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_slv_proftra", GetLocation(oTraWP), FALSE, "003_cr_slv_proftra_Wand");
+			  
 			  
 			  SetLocalInt(oDean, "Walk_Off", 1);
 			  SetLocalInt(oAbj, "Walk_Off", 1);
 			  SetLocalInt(oCon, "Walk_Off", 1);
 			  SetLocalInt(oDiv, "Walk_Off", 1);
 			  SetLocalInt(oEnc, "Walk_Off", 1);
-			  SetLocalInt(oEvo, "Walk_Off", 1);
+			  //SetLocalInt(oEvo, "Walk_Off", 1);
 			  SetLocalInt(oIll, "Walk_Off", 1);
 			  SetLocalInt(oNec, "Walk_Off", 1);
 			  SetLocalInt(oTra, "Walk_Off", 1);
+			  
+			  SetPlotFlag(oCon, TRUE);
+			  SetPlotFlag(oNec, TRUE);
+			  
 			  
 			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oAbj, 600.0));
 			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oCon, 600.0));
 			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oDiv, 600.0));
 			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oEnc, 600.0));
-			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oEvo, 600.0));
+			  //DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oEvo, 600.0));
 			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oIll, 600.0));
 			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oNec, 600.0));
 			  DelayCommand(5.0, ApplyEffectToObject(DURATION_TYPE_TEMPORARY, eParalyze, oTra, 600.0));
@@ -585,7 +589,7 @@ if((GetTag(OBJECT_SELF) == "slv_deandragon_x") && (ACR_RetrieveQuestState("slv_d
 			  DestroyObject(oCon, 1800.0);
 			  DestroyObject(oDiv, 1800.0);
 			  DestroyObject(oEnc, 1800.0);
-			  DestroyObject(oEvo, 1800.0);
+			  //DestroyObject(oEvo, 1800.0);
 			  DestroyObject(oIll, 1800.0);
 			  DestroyObject(oNec, 1800.0);
 			  DestroyObject(oTra, 1800.0);
