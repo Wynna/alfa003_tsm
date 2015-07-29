@@ -52,7 +52,7 @@ void main()
 			{ if(_GetNLDState(OBJECT_SELF) != 0)
 			 	{int nQuestState = ACR_RetrieveQuestState("hawk_raid_02", oQuester);
 				 ACR_AddPersistentJournalQuestEntry("hawk_raid_02", nQuestState+1, oQuester);
-                 ActionSpeakString("*Staggers off, beaten and cowed, scrambling up the rockfall to flee out of sight.", TALKVOLUME_TALK);
+                 FloatingTextStringOnCreature("*Staggers off, beaten and cowed, scrambling up the rockfall to flee out of sight.", oQuester);
 				 DestroyObject(OBJECT_SELF, 3.0);
 				 }
 			 }

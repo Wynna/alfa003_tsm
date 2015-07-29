@@ -56,7 +56,8 @@ object oQuester=GetEnteringObject();
 
 if((GetTag(OBJECT_SELF) == "hawk_raid_01") && (ACR_RetrieveQuestState("hawk_raid_01", oQuester) == 1) && (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
  	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
-	 SendMessageToPC(oQuester, "You hear the howl of a hunting wolf.");
+	 FloatingTextStringOnCreature("You hear the howl of a hunting wolf.", oQuester);
+	 AssignCommand(oQuester, PlaySound("as_an_wolf_howling1", FALSE));
 	 object oWolfSpawn = GetWaypointByTag("hawk_raid_01_wp");
 	 object oDeerSpawn = GetWaypointByTag("hawk_raid_01_deer_wp");
 	 object oDeer2Spawn = GetWaypointByTag("hawk_raid_01_deer2_wp");
@@ -69,34 +70,85 @@ if((GetTag(OBJECT_SELF) == "hawk_raid_01") && (ACR_RetrieveQuestState("hawk_raid
 	
 if((GetTag(OBJECT_SELF) == "hawk_raid_02") && (ACR_RetrieveQuestState("hawk_raid_02", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
  	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
-	SendMessageToPC(oQuester, "Shadows move amid the rockfall. A rock clatters.");
+	FloatingTextStringOnCreature("Shadows move amid the rockfall. A rock clatters.", oQuester);
 	object oSkyPonySpawn = GetWaypointByTag("hawk_raid_02_wp");
 	object oSkyPony = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_uthgardt_skypony_quest", GetLocation(oSkyPonySpawn));
 	object oSkyPony2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_uthgardt_skypony_quest", GetLocation(oSkyPonySpawn));
 	}
 	
-if((GetTag(OBJECT_SELF) == "hawk_raid_03") && (ACR_RetrieveQuestState("hawk_raid_03", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
- 	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
-	SendMessageToPC(oQuester, "Battle is already joined!");
-	object oOrcSpawn = GetNearestObjectByTag("ACR_SPAWN_WP", OBJECT_SELF, 3);
-	object oKnightSpawn = GetNearestObjectByTag("ACR_SPAWN_WP", OBJECT_SELF, 1);
-	CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+if((GetTag(OBJECT_SELF) == "hawk_raid_03") && (GetIsPC(oQuester)))
+ 	{if((GetLocalInt(OBJECT_SELF, "Triggered") != 1)&& (ACR_RetrieveQuestState("hawk_raid_03", oQuester) == 1))
+	   {SetLocalInt(OBJECT_SELF, "Triggered", 1);
+		SetLocalObject(OBJECT_SELF, "Quester", oQuester);
+		DelayCommand(600.0, SetLocalInt(OBJECT_SELF, "Triggered", 0));
+		FloatingTextStringOnCreature("Battle is already joined!", oQuester);
+		object oOrcSpawn = GetNearestObjectByTag("ACR_SPAWN_WP", OBJECT_SELF, 4);
+		object oKnightSpawn = GetNearestObjectByTag("ACR_SPAWN_WP", OBJECT_SELF, 3);
+		object oOrc1 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oKnightSpawn));
+		object oOrc2 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oKnightSpawn));
+		object oOrc3 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc4 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc5 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc6 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc7 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc8 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc9 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc10 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc11 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc12 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc13 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc14 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		object oOrc15 = CreateObject(OBJECT_TYPE_CREATURE, "abr_cr_hu_orcfighter_quest", GetLocation(oOrcSpawn));
+		SetLocalObject(oQuester, "Orc1", oOrc1);
+		SetLocalObject(oQuester, "Orc2", oOrc2);
+		SetLocalObject(oQuester, "Orc3", oOrc3);
+		SetLocalObject(oQuester, "Orc4", oOrc4);
+		SetLocalObject(oQuester, "Orc5", oOrc5);
+		SetLocalObject(oQuester, "Orc6", oOrc6);
+		SetLocalObject(oQuester, "Orc7", oOrc7);
+		SetLocalObject(oQuester, "Orc8", oOrc8);
+		SetLocalObject(oQuester, "Orc9", oOrc9);
+		SetLocalObject(oQuester, "Orc10", oOrc10);
+		SetLocalObject(oQuester, "Orc11", oOrc11);
+		SetLocalObject(oQuester, "Orc12", oOrc12);
+		SetLocalObject(oQuester, "Orc13", oOrc13);
+		SetLocalObject(oQuester, "Orc14", oOrc14);
+		SetLocalObject(oQuester, "Orc15", oOrc15);
+		
+		object oKnight1 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_atarms", GetLocation(oKnightSpawn));
+		object oKnight2 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_atarms", GetLocation(oKnightSpawn));
+		object oKnight3 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_atarms", GetLocation(oKnightSpawn));
+		object oKnight4 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_atarms", GetLocation(oKnightSpawn));
+		object oKnight5 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_xbow", GetLocation(oKnightSpawn));
+		object oKnight6 = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_xbow", GetLocation(oKnightSpawn));
+		SetLocalObject(oQuester, "Knight1", oKnight1);
+		SetLocalObject(oQuester, "Knight2", oKnight2);
+		SetLocalObject(oQuester, "Knight3", oKnight3);
+		SetLocalObject(oQuester, "Knight4", oKnight4);
+		SetLocalObject(oQuester, "Knight5", oKnight5);
+		SetLocalObject(oQuester, "Knight6", oKnight6);
+		SetLocalObject(oQuester, "oQuester", oQuester);
+		SetLocalObject(oKnight1, "oQuester", oQuester);
+		SetLocalObject(oKnight2, "oQuester", oQuester);
+		SetLocalObject(oKnight3, "oQuester", oQuester);
+		SetLocalObject(oKnight4, "oQuester", oQuester);
+		SetLocalObject(oKnight5, "oQuester", oQuester);
+		SetLocalObject(oKnight6, "oQuester", oQuester);
+		AssignCommand(oKnight1, PlaySound("as_pl_battlegrp1", FALSE));
+		DelayCommand(5.0, AssignCommand(oOrc4, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		DelayCommand(6.0, AssignCommand(oOrc5, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		DelayCommand(7.0, AssignCommand(oOrc6, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		DelayCommand(8.0, AssignCommand(oOrc7, PlaySound("as_pl_battlegrp1", FALSE)));
+		DelayCommand(9.0, AssignCommand(oOrc7, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		DelayCommand(10.0, AssignCommand(oOrc8, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		DelayCommand(11.0, AssignCommand(oOrc9, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		DelayCommand(12.0, AssignCommand(oOrc10, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		DelayCommand(13.0, AssignCommand(oOrc11, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		DelayCommand(14.0, AssignCommand(oOrc12, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		DelayCommand(15.0, AssignCommand(oOrc13, ActionMoveToLocation(GetLocation(oKnightSpawn), TRUE)));
+		}
+	}	
 	
-	CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_atarms", GetLocation(oKnightSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_atarms", GetLocation(oKnightSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_atarms", GetLocation(oKnightSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_atarms", GetLocation(oKnightSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_xbow", GetLocation(oKnightSpawn));
-	CreateObject(OBJECT_TYPE_CREATURE, "003_cr_kis_xbow", GetLocation(oKnightSpawn));
-	}
-
 	
 if((GetTag(OBJECT_SELF) == "hawk_scout_01") && (ACR_RetrieveQuestState("hawk_scout_01", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
  	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
