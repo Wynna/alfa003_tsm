@@ -384,7 +384,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="D5DCC6DD9D39629BDE1DEED0036191187012010E" downloadHash="6631270327C7227222A1CACF61F78BCDC424C5ED" name="6d_ext_silverymoon_surround.trx" dlsize="9975928" size="30001594" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="839A817FD88C76DD8A3245109F86DF8B75F62D1D" downloadHash="2A6D642CD6CB4B012E1075008021AE5C081C8E2F" name="6d_ext_silverymoon_surround.trx" dlsize="9971380" size="30007551" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1909,6 +1909,11 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="CBCE61B952578E1F907C386A26D3AA9161C6C5F0" downloadHash="1EA3420646D1C133CC07D8544DCB604FF04996A5" name="003_travel_ferry.trx" dlsize="405606" size="6297696" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="A89E89BFF5DFE466AAEBCC32B3B540A13C4FE5C9" downloadHash="EED6068F70EAE59201CCF0F02C67E1BE12A94019" name="003_travel_caravan.trx" dlsize="15220" size="15252" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
