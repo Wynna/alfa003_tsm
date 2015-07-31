@@ -1908,4 +1908,9 @@
       <string>0</string>
     </server-ref>
   </resource>
+  <resource type="DirectoryEntry" hash="CBCE61B952578E1F907C386A26D3AA9161C6C5F0" downloadHash="1EA3420646D1C133CC07D8544DCB604FF04996A5" name="003_travel_ferry.trx" dlsize="405606" size="6297696" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
 </content>

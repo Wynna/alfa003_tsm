@@ -45,7 +45,7 @@ void GarbageCollection(object oShip, object oStartWP, object oEndWP)
 	{
 		if(GetIsPC(oPC))
 		{
-			SendMessageToPC(oPC, "The ship remains at the dock, and the sailors stop by on occasion, letting you know that it's time to get out.");
+			SendMessageToPC(oPC, "The ferry remains at the dock, and the sailors stop by on occasion, letting you know that it's time to get out.");
 			notEmpty++;
 		}
 		oPC = GetNextObjectInArea(oShip);
@@ -74,7 +74,7 @@ void StartShipTrip(object oShip)
 	object oPC = GetFirstObjectInArea(oShip);
 	while(GetIsObjectValid(oPC))
 	{
-		if(GetIsPC(oPC)) SendMessageToPC(oPC, "The ship pulls away from the dock, and you are now underway.");
+		if(GetIsPC(oPC)) SendMessageToPC(oPC, "The ferry casts off from the dock, and you are now underway.");
 		oPC = GetNextObjectInArea(oShip);
 	}
 	DeleteLocalObject(oShip, "EXIT_WP");
@@ -86,7 +86,7 @@ void EndShipTrip(object oShip, object oStart, object oDest)
 	object oPC = GetFirstObjectInArea(oShip);
 	while(GetIsObjectValid(oPC))
 	{
-		if(GetIsPC(oPC)) SendMessageToPC(oPC, "The ship sails comfortably to the new dock, and you may now leave the ship.");
+		if(GetIsPC(oPC)) SendMessageToPC(oPC, "The calls of sailors and the thuds of ropes being tossed, sails being lowered and the hull against a dock all tell you it is time to disembark.");
 		oPC = GetNextObjectInArea(oShip);
 	}
 	SetLocalObject(oShip, "EXIT_WP", oDest);
@@ -94,11 +94,11 @@ void EndShipTrip(object oShip, object oStart, object oDest)
 	_AddDock(oShip);
 }
 
-object GetShipTemplate(object oPC)
+object GetShipTemplate(object oPC, object oShipboardWP)
 {
 	if(GetIsObjectValid(GetLocalObject(GetModule(), "SHIP_TEMPLATE"))) return GetLocalObject(GetModule(), "SHIP_TEMPLATE");
 	
-	object oShipWP = GetWaypointByTag("WP_SHIP_ENTER");
+	object oShipWP = GetWaypointByTag(GetTag(oShipboardWP));
 	object oTemplateArea = GetArea(oShipWP);
 	if(GetIsObjectValid(oTemplateArea))
 	{
@@ -110,7 +110,7 @@ object GetShipTemplate(object oPC)
 		return OBJECT_INVALID;
 	}
 }
-object GetShip(object oStartWP, object oEndWP, object oPC, float tripLength)
+object GetShip(object oStartWP, object oEndWP, object oPC, float tripLength, object oShipboardWP)
 {
 	int count = 0;
 	object oArea = GetLocalObject(OBJECT_SELF, ObjectToString(oStartWP) + "_" + ObjectToString(oEndWP) + "_" + IntToString(count));
@@ -123,42 +123,43 @@ object GetShip(object oStartWP, object oEndWP, object oPC, float tripLength)
 		count++;
 		oArea = GetLocalObject(OBJECT_SELF, ObjectToString(oStartWP) + "_" + ObjectToString(oEndWP) + "_" + IntToString(count));
 	}
-	oArea = GetShipTemplate(oPC);
+	oArea = GetShipTemplate(oPC, oShipboardWP);
 	if(!GetIsObjectValid(oArea)) return OBJECT_INVALID;
 	oArea = ACR_CreateAreaInstance(oArea);
 	SetLocalObject(OBJECT_SELF, ObjectToString(oStartWP) + "_" + ObjectToString(oEndWP) + "_" + IntToString(count), oArea);
 	SetLocalObject(oArea, "EXIT_WP", oStartWP);
 	_AddDock(oArea);
-	DelayCommand(2.0f * 60.0f, StartShipTrip(oArea));
+	DelayCommand(2.0f * 30.0f, StartShipTrip(oArea));
 	DelayCommand((2.0f + tripLength) * 60.0f, EndShipTrip(oArea, oStartWP, oEndWP));
 	return oArea;
 }
 
-object GetShipWaypoint(object oShip, object oPC)
+object GetShipWaypoint(object oShip, object oPC, object oShipboardWP)
 {
 	object oWP = GetFirstObjectInArea(oShip);
 	while(GetIsObjectValid(oWP))
 	{
-		if(GetTag(oWP) == "WP_SHIP_ENTER") return oWP;
+		if(GetTag(oWP) == GetTag(oShipboardWP)) return oWP;
 		oWP = GetNextObjectInArea(oShip);
 	}
 	SendMessageToPC(oPC, "Error: could not find ship's entry waypoint");
 	return OBJECT_INVALID;
 }
 
-void ManageShip(string startWP, string endWP, object oPC, float tripLength)
+void ManageShip(string startWP, string endWP, object oPC, float tripLength, object oShipboardWP)
 {
 	object oStartWP = GetWaypointByTag(startWP);
 	object oEndWP = GetWaypointByTag(endWP);
-	object oShip = GetShip(oStartWP, oEndWP, oPC, tripLength);
+	object oShip = GetShip(oStartWP, oEndWP, oPC, tripLength, oShipboardWP);
 	if(!GetIsObjectValid(oShip)) return;
-	object oWP = GetShipWaypoint(oShip, oPC);
+	object oWP = GetShipWaypoint(oShip, oPC, oShipboardWP);
 	if(!GetIsObjectValid(oWP)) return;
 	AssignCommand(oPC, JumpToObject(oWP));
 }
 
-void main(string startWP, string endWP, float tripLength)
+void main(string startWP, string endWP, float tripLength, string shipboardWP)
 {
 	object oPC = GetPCSpeaker();
-	SendMessageToPC(oPC, "You're shown to the ship, and make ready to depart.");
-	AssignCommand(GetModule(), ManageShip(startWP, endWP, oPC, tripLength));}
+	object oShipboardWP = GetWaypointByTag(shipboardWP);
+    SendMessageToPC(oPC, "You board the ferry, and make ready to depart.");
+	AssignCommand(GetModule(), ManageShip(startWP, endWP, oPC, tripLength, oShipboardWP));}
