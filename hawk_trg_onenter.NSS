@@ -54,8 +54,9 @@ void main()
 	
 object oQuester=GetEnteringObject();
 
-if((GetTag(OBJECT_SELF) == "hawk_raid_01") && (ACR_RetrieveQuestState("hawk_raid_01", oQuester) == 1) && (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
- 	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
+if((GetTag(OBJECT_SELF) == "hawk_raid_01") && (ACR_RetrieveQuestState("hawk_raid_01", oQuester) == 1) && (GetIsPC(oQuester)) && (GetLocalString(OBJECT_SELF, GetName(oQuester)) != GetName(oQuester)))
+ 	{SetLocalString(OBJECT_SELF, GetName(oQuester), GetName(oQuester));
+	 DelayCommand(3600.0, SetLocalString(OBJECT_SELF, GetName(oQuester), ""));
 	 FloatingTextStringOnCreature("You hear the howl of a hunting wolf.", oQuester);
 	 AssignCommand(oQuester, PlaySound("as_an_wolf_howling1", FALSE));
 	 object oWolfSpawn = GetWaypointByTag("hawk_raid_01_wp");
@@ -68,8 +69,9 @@ if((GetTag(OBJECT_SELF) == "hawk_raid_01") && (ACR_RetrieveQuestState("hawk_raid
 	}
 	
 	
-if((GetTag(OBJECT_SELF) == "hawk_raid_02") && (ACR_RetrieveQuestState("hawk_raid_02", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
- 	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
+if((GetTag(OBJECT_SELF) == "hawk_raid_02") && (ACR_RetrieveQuestState("hawk_raid_02", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalString(OBJECT_SELF, GetName(oQuester)) != GetName(oQuester)))
+ 	{SetLocalString(OBJECT_SELF, GetName(oQuester), GetName(oQuester));
+	DelayCommand(3600.0, SetLocalString(OBJECT_SELF, GetName(oQuester), ""));
 	FloatingTextStringOnCreature("Shadows move amid the rockfall. A rock clatters.", oQuester);
 	object oSkyPonySpawn = GetWaypointByTag("hawk_raid_02_wp");
 	object oSkyPony = CreateObject(OBJECT_TYPE_CREATURE, "003_cr_uthgardt_skypony_quest", GetLocation(oSkyPonySpawn));
@@ -77,10 +79,10 @@ if((GetTag(OBJECT_SELF) == "hawk_raid_02") && (ACR_RetrieveQuestState("hawk_raid
 	}
 	
 if((GetTag(OBJECT_SELF) == "hawk_raid_03") && (GetIsPC(oQuester)))
- 	{if((GetLocalInt(OBJECT_SELF, "Triggered") != 1)&& (ACR_RetrieveQuestState("hawk_raid_03", oQuester) == 1))
-	   {SetLocalInt(OBJECT_SELF, "Triggered", 1);
-		SetLocalObject(OBJECT_SELF, "Quester", oQuester);
-		DelayCommand(600.0, SetLocalInt(OBJECT_SELF, "Triggered", 0));
+ 	{if((GetLocalString(OBJECT_SELF, GetName(oQuester)) != GetName(oQuester)) && (ACR_RetrieveQuestState("hawk_raid_03", oQuester) == 1))
+	   {SetLocalString(OBJECT_SELF, GetName(oQuester), GetName(oQuester));
+	    DelayCommand(3600.0, SetLocalString(OBJECT_SELF, GetName(oQuester), ""));
+	    SetLocalObject(OBJECT_SELF, "Quester", oQuester);
 		FloatingTextStringOnCreature("Battle is already joined!", oQuester);
 		object oOrcSpawn = GetNearestObjectByTag("ACR_SPAWN_WP", OBJECT_SELF, 4);
 		object oKnightSpawn = GetNearestObjectByTag("ACR_SPAWN_WP", OBJECT_SELF, 3);
@@ -150,9 +152,9 @@ if((GetTag(OBJECT_SELF) == "hawk_raid_03") && (GetIsPC(oQuester)))
 	}	
 	
 	
-if((GetTag(OBJECT_SELF) == "hawk_scout_01") && (ACR_RetrieveQuestState("hawk_scout_01", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
- 	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
-	 DelayCommand(1800.0, SetLocalInt(OBJECT_SELF, "Triggered", 0));
+if((GetTag(OBJECT_SELF) == "hawk_scout_01") && (ACR_RetrieveQuestState("hawk_scout_01", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalString(OBJECT_SELF, GetName(oQuester)) != GetName(oQuester)))
+ 	{SetLocalString(OBJECT_SELF, GetName(oQuester), GetName(oQuester));
+	 DelayCommand(3600.0, SetLocalString(OBJECT_SELF, GetName(oQuester), ""));
 	if((GetIsSkillSuccessful(oQuester, SKILL_HIDE, 15, TRUE)) && (GetIsSkillSuccessful(oQuester, SKILL_MOVE_SILENTLY, 15, TRUE)))
 		{SendMessageToPC(oQuester, "A hooded figure in robes bearing Auril's symbol is throwing raw meat down to ledge below. You hear a high, thin howl echoeing in the canyons, a howl that somehow freezes your heart and drives the cold of the surroundings deep into your flesh. A winter wolf is coming to feed! It is doubtful you would remain hidden should that predator arrive to find you still here.");
 		object oAcolyteSpawn=GetWaypointByTag("hawk_scout_01_wp");
@@ -166,16 +168,18 @@ if((GetTag(OBJECT_SELF) == "hawk_scout_01") && (ACR_RetrieveQuestState("hawk_sco
 		}
 	}
 
-if((GetTag(OBJECT_SELF) == "hawk_scout_02") && (ACR_RetrieveQuestState("hawk_scout_02", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
- 	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
-	SendMessageToPC(oQuester, "You have found the entrance to the Halls of Artifice. The crystals beside and on top of the cave are about the same height as the cave entrance, which is as high as Sergeant Filion said they should be.");
-	ACR_AddPersistentJournalQuestEntry("hawk_scout_02", 2, oQuester);
+if((GetTag(OBJECT_SELF) == "hawk_scout_02") && (ACR_RetrieveQuestState("hawk_scout_02", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalString(OBJECT_SELF, GetName(oQuester)) != GetName(oQuester)))
+ 	{SetLocalString(OBJECT_SELF, GetName(oQuester), GetName(oQuester));
+	 DelayCommand(3600.0, SetLocalString(OBJECT_SELF, GetName(oQuester), ""));
+	 SendMessageToPC(oQuester, "You have found the entrance to the Halls of Artifice. The crystals beside and on top of the cave are about the same height as the cave entrance, which is as high as Sergeant Filion said they should be.");
+	 ACR_AddPersistentJournalQuestEntry("hawk_scout_02", 2, oQuester);
      }
 	 
-if((GetTag(OBJECT_SELF) == "hawk_scout_03") && (ACR_RetrieveQuestState("hawk_scout_03", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalInt(OBJECT_SELF, "Triggered") !=1))
- 	{SetLocalInt(OBJECT_SELF, "Triggered", 1);
-	SendMessageToPC(oQuester, "You have found your way into the crypt beneath Coal Dark Keep. Return to Sergeant Filion with a headcount of any ogres you have spotted.");
-	ACR_AddPersistentJournalQuestEntry("hawk_scout_03", 2, oQuester);
+if((GetTag(OBJECT_SELF) == "hawk_scout_03") && (ACR_RetrieveQuestState("hawk_scout_03", oQuester) == 1)&& (GetIsPC(oQuester)) && (GetLocalString(OBJECT_SELF, GetName(oQuester)) != GetName(oQuester)))
+ 	{SetLocalString(OBJECT_SELF, GetName(oQuester), GetName(oQuester));
+	 DelayCommand(3600.0, SetLocalString(OBJECT_SELF, GetName(oQuester), ""));
+	 SendMessageToPC(oQuester, "You have found your way into the crypt beneath Coal Dark Keep. Return to Sergeant Filion with a headcount of any ogres you have spotted.");
+	 ACR_AddPersistentJournalQuestEntry("hawk_scout_03", 2, oQuester);
      }
 
 	
