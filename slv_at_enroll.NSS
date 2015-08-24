@@ -12,7 +12,7 @@ void main()
     {oStudent = GetLocalObject(OBJECT_SELF, "oStudent");
     }
 
-    else if ((GetTag(OBJECT_SELF) == "003_cr_slv_registrar") || (GetTag(OBJECT_SELF) == "003_cr_slv_recordsclerk"))  
+    else if ((GetTag(OBJECT_SELF) == "003_cr_slv_registrar") || (GetTag(OBJECT_SELF) == "003_cr_slv_registrar_Wand")|| (GetTag(OBJECT_SELF) == "003_cr_slv_librarian")|| (GetTag(OBJECT_SELF) == "003_cr_slv_librarian_Wand"))  
     {oStudent = GetPCSpeaker();
     }
 
