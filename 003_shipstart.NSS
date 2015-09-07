@@ -10,6 +10,7 @@
 // =======================================================================================
 
 #include "acr_area_instance_i"
+#include "003_silverymoon_i"
 
 void CreateObjectNoReturn(int a, string b, location c, int d, string e)
 {
@@ -158,7 +159,10 @@ void ManageShip(string startWP, string endWP, object oPC, float tripLength, obje
 	if(!GetIsObjectValid(oShip)) return;
 	object oWP = GetShipWaypoint(oShip, oPC, oShipboardWP);
 	if(!GetIsObjectValid(oWP)) return;
+	// Remove Silverymoon's wards.
+	RemoveSilverymoonWards( oPC );
 	AssignCommand(oPC, JumpToObject(oWP));
+	
 }
 
 void main(string startWP, string endWP, float tripLength, string shipboardWP)
