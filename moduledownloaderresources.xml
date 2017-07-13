@@ -1002,7 +1002,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="215FE4157CE8DA98B0CBA821CCFECBFF32485C45" downloadHash="41D46428C9207D4596DD1582BA943E11027DA2B3" name="6e_int_khelb_caves_waterfall.trx" dlsize="284915" size="2006628" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="18B7645366BEE645019D35D5F6FFC09D307E1AF7" downloadHash="697617D95750CCDB9B1382BCDFBDBF59370441DC" name="6e_int_khelb_caves_waterfall.trx" dlsize="315867" size="2038681" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1914,6 +1914,21 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="A89E89BFF5DFE466AAEBCC32B3B540A13C4FE5C9" downloadHash="EED6068F70EAE59201CCF0F02C67E1BE12A94019" name="003_travel_caravan.trx" dlsize="15220" size="15252" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="22E19584C4C5AEBF97EA62DF2C765A8D1BCE4D0A" downloadHash="193031E2C993104D11F1591E9E703F6CB550FC72" name="6e_ext_khelb_silvypass_west.trx" dlsize="4183730" size="16650445" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="12ED8E82ED3076B8A22EC6329C707CC1077E76BC" downloadHash="E1F3C0597107B37D2079477336E91B84F63E0233" name="6e_int_khelb_derochelle_manor.trx" dlsize="374946" size="826494" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="6DD97B4BB002957352B329BF0D42B4110FCA057F" downloadHash="074BBB601E89FC33600B7DF550E3BE16D75E792E" name="grp_sm_dbl_bed_wm1.UEN" dlsize="433" size="1223" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
