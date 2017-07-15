@@ -294,7 +294,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="3D299718A26CA239B18DE0A2F672C9079F469EA4" downloadHash="937FE18DCBE2E4D3E6CABB5A0F8CB6B1E8E6CA9C" name="6b_int_rivmoot_interiors.trx" dlsize="244223" size="245212" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="FF64513C9D03B39F156FECE5FAC7A080D4F374CD" downloadHash="75EC754DEF2B1E331C8F983E83027899CFE01F07" name="6b_int_rivmoot_interiors.trx" dlsize="295827" size="297304" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -834,7 +834,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="7C95EB30FF3F3819F9E022EBA8CCC4EB18A1C32E" downloadHash="3183FD7A43F265AABAD4A14127502BFCE5000573" name="6b_ext_rivmoot.trx" dlsize="4363093" size="21403921" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="E965F4E4AF4DC76483922B4088865CC3FF0F8192" downloadHash="7C8B72D9B4356AD1085AA951FE66A2962BBF1B79" name="6b_ext_rivmoot.trx" dlsize="4350966" size="21392013" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
