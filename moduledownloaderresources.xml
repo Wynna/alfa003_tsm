@@ -294,7 +294,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="225976694C4F7422F806D25607B921FD865B9580" downloadHash="A9031682E8890FEE164749444C88FEAC89E8CF9A" name="6b_int_rivmoot_interiors.trx" dlsize="242291" size="243246" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="3D299718A26CA239B18DE0A2F672C9079F469EA4" downloadHash="937FE18DCBE2E4D3E6CABB5A0F8CB6B1E8E6CA9C" name="6b_int_rivmoot_interiors.trx" dlsize="244223" size="245212" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -372,7 +372,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="038B62079D5D887084BD3ACE8C469E740818FEB5" downloadHash="691D32BF79AE03881180E1050019FFB1B3A45472" name="6b_int_rivmoot_inn_upstairs.trx" dlsize="30223" size="30371" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="D4FC1AE441703F18C18A32B46F4606B19F66A66C" downloadHash="CDE18A6AB01AA3B5B20E9D194A64C7161BD92213" name="6b_int_rivmoot_inn_upstairs.trx" dlsize="49595" size="49631" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -570,7 +570,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="8514C229CAEC4D72B68039E29BA322CB3A605A19" downloadHash="D2D046C599267EC10BF60E2420C4C670FA7E7FA6" name="6b_int_rivmoot_caves_northtun.trx" dlsize="302132" size="4650172" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="93296748379E0CD1114B7BB9905812CE835C6416" downloadHash="1E6668E7BBDE7DD4D32AE35FAF2E468DCB5F7DEA" name="6b_int_rivmoot_caves_northtun.trx" dlsize="285403" size="4641985" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -834,7 +834,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="30801E05E0A469F26BD94AE8C9ABE6A5DC6E5B70" downloadHash="8B1695E5CA3AA4AA48A1ACA70E4879D86191657D" name="6b_ext_rivmoot.trx" dlsize="4382265" size="21425184" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="7C95EB30FF3F3819F9E022EBA8CCC4EB18A1C32E" downloadHash="3183FD7A43F265AABAD4A14127502BFCE5000573" name="6b_ext_rivmoot.trx" dlsize="4363093" size="21403921" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -948,7 +948,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="B57072AEA6D17E4F7C4E71F7C63A2DF4FF8C6F2B" downloadHash="D1F55D4390220EABF1AF55ECD76D8DB3DF69DFBB" name="003_admin.trx" dlsize="43439" size="43600" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="648E2EBB7243BC4379E7C534DF4BF6751CE66FD9" downloadHash="4AF4C19552FED63962239A0EB6B42EAB51253B76" name="003_admin.trx" dlsize="24695" size="24913" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -972,7 +972,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="753CE737C0C4FE753AE2A764F479FA389E742A31" downloadHash="B541CA84C1126283DD301C962AF2158BC82568BD" name="6d_ext_rauvenwatchkeep.trx" dlsize="8689990" size="30523572" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="786EB0321D792A05FEF219D74E26CE87A2F25611" downloadHash="D37FD76887BF4904BD3DFEDC741FBF50F5ED3C2E" name="6d_ext_rauvenwatchkeep.trx" dlsize="8621994" size="30454225" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1918,7 +1918,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="22E19584C4C5AEBF97EA62DF2C765A8D1BCE4D0A" downloadHash="193031E2C993104D11F1591E9E703F6CB550FC72" name="6e_ext_khelb_silvypass_west.trx" dlsize="4183730" size="16650445" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="328E62A82D79F801AB97CFA09A6148444995458C" downloadHash="77E1E95AA32B443E2BAE859558F7EB71B4ED099B" name="6e_ext_khelb_silvypass_west.trx" dlsize="4188561" size="16648033" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
