@@ -36,7 +36,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="460212A52B268B26948BE1CE78C1BCBE7560B2B2" downloadHash="2AFD8FD8D4D69DD1BC6C5B3D8C6B90E097BE9FD0" name="6d_int_silvy_goldenoak_inn.trx" dlsize="533724" size="6592597" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="33C0ABC77F51367A3AA6DB6FDBD909EA2F173F4C" downloadHash="3F51D86C7AF121C95570DC24B7D75EA52AEF9ADF" name="6d_int_silvy_goldenoak_inn.trx" dlsize="520825" size="6578601" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -294,7 +294,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="8CF4924A73F884AF2F2129C5A3A9623FC72F2468" downloadHash="69A991A4971DE4451A0842D751E1EB8E01909087" name="6b_int_rivmoot_interiors.trx" dlsize="295843" size="297304" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="938A4001BDCC62A23E533717936CA63BDE01326B" downloadHash="C4A5DDF6636A8DAAF039F3ABC1A1596DC2D0ABFF" name="6b_int_rivmoot_interiors.trx" dlsize="293883" size="295418" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -948,7 +948,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="648E2EBB7243BC4379E7C534DF4BF6751CE66FD9" downloadHash="4AF4C19552FED63962239A0EB6B42EAB51253B76" name="003_admin.trx" dlsize="24695" size="24913" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="54C40FDF86F25C35D25A7E486CCFBDEE71605236" downloadHash="DD7F8D6E2FB63206B30DFBF40B1E762ACDE18FEF" name="003_admin.trx" dlsize="42463" size="43025" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
