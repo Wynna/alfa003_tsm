@@ -552,7 +552,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="5CAB793EF2B126622324C7C1335DF0283BC8E39A" downloadHash="1C16B57096864DE8BDBBD0FBA1ED8C918DDCEE8D" name="5g_ext_silvypass_east_sundabar.trx" dlsize="6127916" size="25940198" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="AB6EF452CC091F8D226702FF7C7F8E3E8F9D1440" downloadHash="62DDB83B0D264904810DB41402392538718FAFD4" name="5g_ext_silvypass_east_sundabar.trx" dlsize="6139494" size="25925963" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -708,7 +708,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="5446C41DFCED00333F9056C58E738E66568C4366" downloadHash="9402AB5EA4B0464FB5E48B659E5A23795F1A779C" name="6d_int_silvy_everdusk2.trx" dlsize="238969" size="328005" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="5619900E37CC439AB817BBCF16A25FCC4C8C76AD" downloadHash="B60A191985A7E05304C15B9F7A0B5482676A49F4" name="6d_int_silvy_everdusk2.trx" dlsize="237617" size="326692" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1518,7 +1518,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="D1F093A69B712404D337D17633BC17FE6726A968" downloadHash="F1E951199B1E1FE92DFB8D9C8E26F281C0BE2A5C" name="7d_ext_silverwood2_2.trx" dlsize="4489561" size="21881445" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="ADD07BC7F7C3E6B40315D260511E6F41D6F9AD1B" downloadHash="C74C48BB8C4D60E681DDB1C7B86E8D9C487CED1F" name="7d_ext_silverwood2_2.trx" dlsize="4484711" size="21875083" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1929,6 +1929,16 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="6DD97B4BB002957352B329BF0D42B4110FCA057F" downloadHash="074BBB601E89FC33600B7DF550E3BE16D75E792E" name="grp_sm_dbl_bed_wm1.UEN" dlsize="433" size="1223" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="15BFB53A1987372DCA64E8828F6FABE07E665AA4" downloadHash="DD1EA40035F448E1C858DAB6D9D38B94273E6C28" name="7d_ext_silverwood1_2_farm_east.trx" dlsize="5732015" size="24604163" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="DA6B5013649D2B2EDE30A203BAE9FEFD92C7825A" downloadHash="12E5E57DDB16D90489CB4037D0CBC406D18AD229" name="7d_ext_silverwood1_1_farm_west.trx" dlsize="4804034" size="21238064" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
