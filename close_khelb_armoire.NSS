@@ -19,6 +19,10 @@ void main()
         return;
 
     // Close "6e_secret_ladder_to_cave".
-    oTarget = GetObjectByTag("6e_secret_ladder_to_cave");
-     ActionPlayAnimation(ANIMATION_PLACEABLE_CLOSE);
+   // oTarget = GetObjectByTag("6e_secret_ladder_to_cave");
+    // ActionPlayAnimation(ANIMATION_PLACEABLE_CLOSE);
+	 //object oDoorToClose = OBJECT_SELF;
+     object oDoorToClose = GetObjectByTag("6e_secret_ladder_to_cave");
+     DelayCommand(10.f, AssignCommand(oDoorToClose, ActionPlayAnimation(ANIMATION_PLACEABLE_CLOSE)));
+
 }

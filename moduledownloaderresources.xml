@@ -6,7 +6,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="076EF3903A59D0099617E023844AF21B4656E396" downloadHash="642C87CF17FD1FB16BD1FCB8FD48B96F8D0B30C3" name="5b_int_settlestone_inn.trx" dlsize="84586" size="85126" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="4640A00CEFBB3BF1ABBF2C6C8B9488EBE48D92E9" downloadHash="9C8CAF2081466BA6BE1A64423E3EA71244749438" name="5b_int_settlestone_inn.trx" dlsize="202417" size="203267" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -294,7 +294,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="938A4001BDCC62A23E533717936CA63BDE01326B" downloadHash="C4A5DDF6636A8DAAF039F3ABC1A1596DC2D0ABFF" name="6b_int_rivmoot_interiors.trx" dlsize="293883" size="295418" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="FD41681DF6F88365AEE193BB15E7F3AF8E746433" downloadHash="DF62ECB32F3C6EBFAD58E074E5B3F1AE90CE366A" name="6b_int_rivmoot_interiors.trx" dlsize="293928" size="295434" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -522,7 +522,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="F8D6B33987A5DADF2164EEF261E5AFB48CE182EE" downloadHash="C7C74C21277F2C96B3BC4A734B70BBD1595B4A59" name="5b_ext_settlestone.trx" dlsize="6605844" size="27343751" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="2961D239D41B428E207F5C7A18DCF6514EABD6FE" downloadHash="53B6CA8763DBEB8C6CB3232F0F2098D421DEA0CF" name="5b_ext_settlestone.trx" dlsize="6547215" size="27269714" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -576,7 +576,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="5DE7450FCAD56C1ECA8AEA984C5E7F11DF15069E" downloadHash="4062D23770ECDB1FBD73C262AE7D7FE31C492D40" name="6c_int_hh_boatshed.trx" dlsize="81694" size="81848" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="4C3409D612D02F46BF16E610D2518F349078A274" downloadHash="125A5036A219887E2C95A9DAC72CA00C6DBA31CD" name="6c_int_hh_boatshed.trx" dlsize="81828" size="81932" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -834,7 +834,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="E965F4E4AF4DC76483922B4088865CC3FF0F8192" downloadHash="7C8B72D9B4356AD1085AA951FE66A2962BBF1B79" name="6b_ext_rivmoot.trx" dlsize="4350966" size="21392013" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="106E3119E0D4E3383EB096D07DF4A4AAEEF7192B" downloadHash="2ECD5997978C01DA2EABC478114C1ACBEC7CCD26" name="6b_ext_rivmoot.trx" dlsize="4355361" size="21397824" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1056,7 +1056,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="79F64E6C02028CD9DB343655B00C9928869CE61B" downloadHash="0158841FA80DC974792A179723C8238E57580E85" name="6b_int_wands_estate.trx" dlsize="145923" size="189770" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="17A73442CC81AB22A0AD883EEDFC388BAF2F09E3" downloadHash="D4B02335285E865DED399830345FBA16E65312EE" name="6b_int_wands_estate.trx" dlsize="149897" size="193814" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1923,7 +1923,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="E5DF3A1929A0999F37CCE56149E1CE92AA4B82DD" downloadHash="7AFDF5ED45C029322BFBD3CC09EF0C5670A2B2E9" name="6e_int_khelb_derochelle_manor.trx" dlsize="373719" size="824605" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="4554058706BCB735DE6822BC46F33927B392A36E" downloadHash="97F122848E6C3E86FB30524D178E47CC9329887E" name="6e_int_khelb_derochelle_manor.trx" dlsize="372722" size="823612" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
