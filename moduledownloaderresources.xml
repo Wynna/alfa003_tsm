@@ -66,7 +66,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="0E78BF4F7B516F802F0B75EF9FE17625A5B0E048" downloadHash="A17504B5DF18333720EBC78FB57C42452D094952" name="6d_int_silvy_fochlucan.trx" dlsize="434330" size="930816" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="375746A535FD5FBE1B52F6A24F689430DBBA2DEF" downloadHash="AA24974D785E351AEDACC49E47E94D5D25BE5BDB" name="6d_int_silvy_fochlucan.trx" dlsize="444640" size="941318" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -252,7 +252,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="45A3B058EC2A3D3425BEC58F8AD15BF40712239A" downloadHash="065163BAB34D2697CA9B4E67FCE31F2027AA31C1" name="6d_ext_silverymoon_south.trx" dlsize="3564042" size="19238502" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="56D024259C33E82B8F24475FCC482350160C689F" downloadHash="EBF63A17BEE02C5A519934064759D0EE70F8C56C" name="6d_ext_silverymoon_south.trx" dlsize="3599161" size="19273598" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -726,7 +726,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="711139580BB337E229DF0C80CE623BEF3905E1B7" downloadHash="A6A057EA5C764536CB14488670072C8ACB3417C8" name="5b_ext_frosthills_road.trx" dlsize="4190487" size="21459139" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="137AB57C558D4918638DC473F2E174532EE34170" downloadHash="D9AA6D959AF84986EAFFCE17B24FB882DC3411EA" name="5b_ext_frosthills_road.trx" dlsize="4213331" size="21468977" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -870,7 +870,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="B60156D23BCC7AC9371FDB3475ED35548E9A7F2B" downloadHash="B4C97C8B3CBE8BAF00A9479713535F4EE553F0C7" name="6d_ext_silverymoon_northwest.trx" dlsize="3922701" size="18930058" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="AC8484128CA1EFD06E15CE57E4FD1C9260771BE2" downloadHash="58636957575862BBFFC54662F4A12D1FFEC33A3A" name="6d_ext_silverymoon_northwest.trx" dlsize="4058482" size="19060752" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1918,7 +1918,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="328E62A82D79F801AB97CFA09A6148444995458C" downloadHash="77E1E95AA32B443E2BAE859558F7EB71B4ED099B" name="6e_ext_khelb_silvypass_west.trx" dlsize="4188561" size="16648033" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="607C2D06998C0F2EA4A864BB1CFB6BB6F9EC669A" downloadHash="A6D8C2C805F6DCE73C3B1BCB87DA8A31CBA2FB52" name="6e_ext_khelb_silvypass_west.trx" dlsize="4188017" size="16652253" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
