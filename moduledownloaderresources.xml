@@ -84,7 +84,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="6AB72AB9E4346A36F21681DF8D6658EB82C2D3F0" downloadHash="BFE1E1B64325C4E853C351711D6B96DB8762A086" name="6d_ext_silverymoon_northeast.trx" dlsize="3511627" size="17225538" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="70004402C746B025D9324A972F1700994D95C85D" downloadHash="017791BD8EB2875E8C70E4558600C7906696B63B" name="6d_ext_silverymoon_northeast.trx" dlsize="3521347" size="17230647" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -798,7 +798,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="19788DD98EC385291A486E96D2E8A6884CC41E3D" downloadHash="0DCB8C8EEAFC55D4A30485A11BEE8E528F7C6386" name="5b_ext_frosthills_fourthpeak.trx" dlsize="5102500" size="25108754" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="B1B0EE4C631EA75AD8160E4E3F187F6E8F5CD6B7" downloadHash="1D7B56FA11E46E1C61CC73600BC01878625BE995" name="5b_ext_frosthills_fourthpeak.trx" dlsize="5019006" size="24939990" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -870,7 +870,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="AC8484128CA1EFD06E15CE57E4FD1C9260771BE2" downloadHash="58636957575862BBFFC54662F4A12D1FFEC33A3A" name="6d_ext_silverymoon_northwest.trx" dlsize="4058482" size="19060752" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="7C043CBC2BE5D129B71F78F2495492E278BDBF0B" downloadHash="D40F20BA3BB15BD18305C5FBCCEF7B2D1F346FD5" name="6d_ext_silverymoon_northwest.trx" dlsize="4027304" size="19045738" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1254,7 +1254,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="151BD12DB500D1B7DA9A0877480E4F35E2D83A1D" downloadHash="E130E1F8D1F7B46C26E1FEA525FA0CF18EA68B23" name="6d_int_silvy_orphanage.trx" dlsize="67125" size="200575" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="70A3C2940E6AB794A39B7021170C704940EE59BF" downloadHash="1AF68ADC7E181DBBEE5F0FDAF4ED32A00421FF8A" name="6d_int_silvy_orphanage.trx" dlsize="67113" size="200626" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
