@@ -84,7 +84,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="70004402C746B025D9324A972F1700994D95C85D" downloadHash="017791BD8EB2875E8C70E4558600C7906696B63B" name="6d_ext_silverymoon_northeast.trx" dlsize="3521347" size="17230647" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="346BD7FC6B07FD54925DD9B1106120C910D81AE5" downloadHash="45345D69025130A2756130F143B78E03841CB3B0" name="6d_ext_silverymoon_northeast.trx" dlsize="3509547" size="17215931" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -882,7 +882,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="F9238EDE1FD80BC74D73D35EE44317F261FB36D1" downloadHash="B4CB990C07C0EE9BF9EFAF907679FE43B3587E41" name="6b_ext_highway2_wendcrypt_tm.trx" dlsize="1772952" size="7158004" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="398AE9CDBE8B299811E53E60E64981D31AA1D823" downloadHash="799704EF4C48CC1B3A751C78A3CC01387B91B6DA" name="6b_ext_highway2_wendcrypt_tm.trx" dlsize="1773498" size="7157774" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1254,7 +1254,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="70A3C2940E6AB794A39B7021170C704940EE59BF" downloadHash="1AF68ADC7E181DBBEE5F0FDAF4ED32A00421FF8A" name="6d_int_silvy_orphanage.trx" dlsize="67113" size="200626" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="727317C02CB5B7442A6AA0E8E4FC3B8CC52DF204" downloadHash="E555D96099950588D696A916EE5BD32CFC9928DE" name="6d_int_silvy_orphanage.trx" dlsize="68303" size="201011" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
