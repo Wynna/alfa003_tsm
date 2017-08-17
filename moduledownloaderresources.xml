@@ -6,7 +6,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="4640A00CEFBB3BF1ABBF2C6C8B9488EBE48D92E9" downloadHash="9C8CAF2081466BA6BE1A64423E3EA71244749438" name="5b_int_settlestone_inn.trx" dlsize="202417" size="203267" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="20B93202A158A9CAADCB1A3C8714CD66A1F55CD3" downloadHash="C2406A5BC9F308420AF7DBF5262A3729C2064E1D" name="5b_int_settlestone_inn.trx" dlsize="200645" size="201627" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -186,7 +186,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="137A3F23FE733B54FE599EF34D1B3820923B3A75" downloadHash="745A5FBB4DFB6A6CEC500852BCE2E6BF6F1ADCC5" name="6b_int_rivmoot_temple_ruins.trx" dlsize="162794" size="163078" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="DC10F247B9EA29DC7337F8192390CC43D6C28CCD" downloadHash="4E152C4C871A9CABA02EE9F6CC20E5CB5CA363B3" name="6b_int_rivmoot_temple_ruins.trx" dlsize="162810" size="163076" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -198,7 +198,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="8BDCDD4E5A99DD701658B1A8DC0B722594D8EA3F" downloadHash="1B4958FCE0722DB44F35343552F5428DBC98F5FB" name="6b_int_rivmoot_caves_blind_shaft.trx" dlsize="215868" size="217417" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="815D2DBD6176ABFAFAB732928B06FFD9B2A6BDC8" downloadHash="95BABECB68AC9434603C4EEBC04D0759CF8A9813" name="6b_int_rivmoot_caves_blind_shaft.trx" dlsize="205812" size="207349" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -660,7 +660,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="8595E40CD0D6DD1663E094789FB9327C261CFEB6" downloadHash="41130DDA5055E61638E7CF90DA15341654F979F4" name="003_travel_map_west.trx" dlsize="2483740" size="16118969" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="CB29AEC91608D0A8A3B36AAE4ED54E4D210AD7FB" downloadHash="92EFDAE662F32FD8CB2ABBD3EC00F9B023A2046A" name="003_travel_map_west.trx" dlsize="2488699" size="16119502" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -834,7 +834,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="106E3119E0D4E3383EB096D07DF4A4AAEEF7192B" downloadHash="2ECD5997978C01DA2EABC478114C1ACBEC7CCD26" name="6b_ext_rivmoot.trx" dlsize="4355361" size="21397824" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="7663B0AAF5D32C4024DD820EED4FAE96ACBE9E07" downloadHash="45BF05E42F44FF2C8E90EE157092874E13B18513" name="6b_ext_rivmoot.trx" dlsize="4366736" size="21489280" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1939,6 +1939,11 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="DA6B5013649D2B2EDE30A203BAE9FEFD92C7825A" downloadHash="12E5E57DDB16D90489CB4037D0CBC406D18AD229" name="7d_ext_silverwood1_1_farm_west.trx" dlsize="4804034" size="21238064" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="EC7CC57DA86CFF3947D8828B83EF362C6E484849" downloadHash="40B56F2F2606F42781B25C686AC87FE6E8E03BB2" name="6b_int_rivmoot_caves.trx" dlsize="275519" size="282469" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
