@@ -570,7 +570,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="93296748379E0CD1114B7BB9905812CE835C6416" downloadHash="1E6668E7BBDE7DD4D32AE35FAF2E468DCB5F7DEA" name="6b_int_rivmoot_caves_northtun.trx" dlsize="285403" size="4641985" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="B71ECDE9D006573660AEB7571069FC09B36C86A4" downloadHash="7F79AB973281979533C352B3596C2D5B35D74BC7" name="6b_int_rivmoot_caves_northtun.trx" dlsize="289407" size="4641955" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -798,7 +798,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="B1B0EE4C631EA75AD8160E4E3F187F6E8F5CD6B7" downloadHash="1D7B56FA11E46E1C61CC73600BC01878625BE995" name="5b_ext_frosthills_fourthpeak.trx" dlsize="5019006" size="24939990" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="27B35190FD7D91914564C5BDE1AC28206A382564" downloadHash="24DD17FF3412BA7CD2B27823947D5E2E9941888D" name="5b_ext_frosthills_fourthpeak.trx" dlsize="5024873" size="24920022" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -834,7 +834,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="1DCD3822F7AEADFE640F814CE01554E76034995F" downloadHash="0C99A9058F9D3F67B475079CE9AA9667AB9F89CC" name="6b_ext_rivmoot.trx" dlsize="4396685" size="21518386" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="6611F2AD331CDFFB955A02035D04994EE2F7817B" downloadHash="DC02ACA7CB69CB1F8159D351A59E8620B5C232E1" name="6b_ext_rivmoot.trx" dlsize="4372250" size="21491818" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
