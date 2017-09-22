@@ -570,7 +570,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="B71ECDE9D006573660AEB7571069FC09B36C86A4" downloadHash="7F79AB973281979533C352B3596C2D5B35D74BC7" name="6b_int_rivmoot_caves_northtun.trx" dlsize="289407" size="4641955" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="6F768B820EC081580580E911354661BC467DE3CE" downloadHash="FB67BC22DF1D150D885187FCE1ECF3C2DC000876" name="6b_int_rivmoot_caves_northtun.trx" dlsize="300813" size="4655126" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -834,7 +834,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="6611F2AD331CDFFB955A02035D04994EE2F7817B" downloadHash="DC02ACA7CB69CB1F8159D351A59E8620B5C232E1" name="6b_ext_rivmoot.trx" dlsize="4372250" size="21491818" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="A8E53CB1621F3739E35EC30CB883C15A2E77036D" downloadHash="5CD799C508D7CAB27F5D462DD6AC556A3C44D549" name="6b_ext_rivmoot.trx" dlsize="4374580" size="21500054" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
