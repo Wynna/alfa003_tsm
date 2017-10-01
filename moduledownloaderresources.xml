@@ -186,7 +186,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="DC10F247B9EA29DC7337F8192390CC43D6C28CCD" downloadHash="4E152C4C871A9CABA02EE9F6CC20E5CB5CA363B3" name="6b_int_rivmoot_temple_ruins.trx" dlsize="162810" size="163076" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="52B2930D180382AA248BE89F4E115797474C3F68" downloadHash="91D3E5516E4B18538D71DC70AF470A0D81E4C967" name="6b_int_rivmoot_temple_ruins.trx" dlsize="227663" size="230746" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -834,7 +834,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="A8E53CB1621F3739E35EC30CB883C15A2E77036D" downloadHash="5CD799C508D7CAB27F5D462DD6AC556A3C44D549" name="6b_ext_rivmoot.trx" dlsize="4374580" size="21500054" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="8306CABB687A93B7127025A2F2FD66F1EB38A04E" downloadHash="63040F0A3EEB85B2A4BBD59C0444CF4DD2856063" name="6b_ext_rivmoot.trx" dlsize="4381001" size="21500053" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
