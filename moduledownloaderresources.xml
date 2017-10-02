@@ -186,7 +186,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="52B2930D180382AA248BE89F4E115797474C3F68" downloadHash="91D3E5516E4B18538D71DC70AF470A0D81E4C967" name="6b_int_rivmoot_temple_ruins.trx" dlsize="227663" size="230746" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="BD84C6D193693348926693B06EB50EAD495FE7AF" downloadHash="36DCBAEF66618CBCE72B4AA1F8CFE8693F9F6FAF" name="6b_int_rivmoot_temple_ruins.trx" dlsize="230830" size="233255" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -1923,7 +1923,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="4554058706BCB735DE6822BC46F33927B392A36E" downloadHash="97F122848E6C3E86FB30524D178E47CC9329887E" name="6e_int_khelb_derochelle_manor.trx" dlsize="372722" size="823612" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="2697108991DF2C81D1741298AB3FD9E50F05B7DE" downloadHash="E0192BF0192696608F5E4A1F8E0D574FB35A654E" name="6e_int_khelb_derochelle_manor.trx" dlsize="373379" size="732969" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
