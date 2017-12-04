@@ -480,7 +480,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="8E7A9B5AF5706CB8350C0E563F59946C175A5586" downloadHash="9EDA88E38B549381CE48DB14441E5D14799DF0D1" name="6c_ext_highhold.trx" dlsize="4757615" size="22576329" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="FD46F151209DF92EA8BAE6039085188E54843FBA" downloadHash="9EDA88E38B549381CE48DB14441E5D14799DF0D1" name="6c_ext_highhold.trx" dlsize="4757615" size="22567926" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
