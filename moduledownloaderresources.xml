@@ -948,7 +948,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="5737AF88F4A7C6D7BF24173FAEFD0A2B076045E6" downloadHash="70EACB234B449DC55A6F642B24B328D7A8ED9CCD" name="003_admin.trx" dlsize="42440" size="43043" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="DE9E56E6DA1FEE3794A9E51A550D121B64A4347C" downloadHash="C6C77500E1213D6878A01C1E73AC6F1836C68B96" name="003_admin.trx" dlsize="42450" size="43043" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
