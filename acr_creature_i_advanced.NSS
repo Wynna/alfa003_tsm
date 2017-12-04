@@ -69,7 +69,7 @@ const string _CRE_NO_AI2 = "ACR_CRE_NO_AI";
 // Function Prototypes /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// The ACR's Creature event handler.
+/*// The ACR's Creature event handler.
 void ACR_CreatureOnSpawnIn();
 
 // The ACR's Creature event handler.
@@ -363,7 +363,7 @@ void ACR_CreatureOnHeartBeat()
     {
         // apply any effects on the creature
         ACR_VFXOnHeartBeat(OBJECT_SELF);
-    */
+    
 	if (GetLocalInt(OBJECT_SELF, _CRE_NO_AI2) == FALSE) {
 		//if we are using smart AI, call the OE associate script
 		if (GetIsSmart())
@@ -407,7 +407,7 @@ void ACR_CreatureOnUserDefined()
     	// still call the Obsidian script for AI for now.
     	ExecuteScript("nw_c2_defaultd", OBJECT_SELF);
 	}
-}
+}*/
 
 void ACR_CreatureIdentify(object oPC, object oTarget)
 {

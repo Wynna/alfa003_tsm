@@ -480,7 +480,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="450E9594BF2896539F3DC8B827338851BCFF0D55" downloadHash="553FE0EBEEF5C60F61E60038FBBE1B3ECA574F49" name="6c_ext_highhold.trx" dlsize="4776177" size="22573031" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="8E7A9B5AF5706CB8350C0E563F59946C175A5586" downloadHash="9EDA88E38B549381CE48DB14441E5D14799DF0D1" name="6c_ext_highhold.trx" dlsize="4757615" size="22576329" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -834,7 +834,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="8306CABB687A93B7127025A2F2FD66F1EB38A04E" downloadHash="63040F0A3EEB85B2A4BBD59C0444CF4DD2856063" name="6b_ext_rivmoot.trx" dlsize="4381001" size="21500053" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="AF8058FE70C45BE2B99FE23B71DAE8E73D7AD21F" downloadHash="055E0FADB82CD3F24EBFAB3073DF67FFEAB196EF" name="6b_ext_rivmoot.trx" dlsize="4381763" size="21500460" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
@@ -948,7 +948,7 @@
       <string>2</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="54C40FDF86F25C35D25A7E486CCFBDEE71605236" downloadHash="DD7F8D6E2FB63206B30DFBF40B1E762ACDE18FEF" name="003_admin.trx" dlsize="42463" size="43025" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="5737AF88F4A7C6D7BF24173FAEFD0A2B076045E6" downloadHash="70EACB234B449DC55A6F642B24B328D7A8ED9CCD" name="003_admin.trx" dlsize="42440" size="43043" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
       <string>2</string>
