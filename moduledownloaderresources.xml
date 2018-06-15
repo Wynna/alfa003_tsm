@@ -170,7 +170,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="346BD7FC6B07FD54925DD9B1106120C910D81AE5" downloadHash="45345D69025130A2756130F143B78E03841CB3B0" name="6d_ext_silverymoon_northeast.trx" dlsize="3509547" size="17215931" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="86F1D4642321DD5FDA7DE825386258D0AD1D9310" downloadHash="765697949062BEBBD3CEEC973FD8BC45F2B125EC" name="6d_ext_silverymoon_northeast.trx" dlsize="3532214" size="17238838" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -575,7 +575,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="EA1830C80939745A5B3090D5C3E4779B266D6A68" downloadHash="A9302F2AC5BFEF0C48A89593D501C42FEAEA698E" name="6e_ext_khelb_silvypass_west.trx" dlsize="4197876" size="16661812" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="3E346549B6E119313AC916DB9A4BE297DB958EB3" downloadHash="B65046204401AAABF5EE5F94618F31A64EB9D0B5" name="6e_ext_khelb_silvypass_west.trx" dlsize="4187180" size="16651469" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
