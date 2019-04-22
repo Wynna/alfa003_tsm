@@ -10,7 +10,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="Hak" hash="30EAAFC15071F6C1E44361AD720F32D3404E5B63" downloadHash="63FD11A78AE7D04C8779DCDF73BB149A5FE3FA1B" name="alfa2_acr.hak" dlsize="4087704" size="133573264" critical="false" exclude="false" urlOverride="">
+  <resource type="Hak" hash="209A8F416C70996089B306EFD54B5F3189755605" downloadHash="80B7C0687EBB213271A0E71CFA7DA94F508D9FD4" name="alfa2_acr.hak" dlsize="4092957" size="133574800" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1665,7 +1665,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="3647C1E74174BC40C4530A022B0CAC2C02DB8A1B" downloadHash="D9DB851F7F17C0326600A2F4BCF5E87362B565F5" name="6e_ext_khelb_town_int.trx" dlsize="222937" size="226768" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="26355EE3C3C7FD87EE8C909A3FE61B752EC3249B" downloadHash="F34E3F6E336BDCE906B77D487E0B93E7DF770F42" name="6e_ext_khelb_town_int.trx" dlsize="231826" size="235351" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
