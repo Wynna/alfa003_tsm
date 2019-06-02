@@ -36,7 +36,7 @@
 //							- added random generation for equipment and sizing
 // 2015/05/22   Wynna - fixed compile error caused by constant name duplicating one in acr_creature_i
 ////////////////////////////////////////////////////////////////////////////////
-
+/*
 ////////////////////////////////////////////////////////////////////////////////
 // Includes ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -69,7 +69,8 @@ const string _CRE_NO_AI2 = "ACR_CRE_NO_AI";
 // Function Prototypes /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-/*// The ACR's Creature event handler.
+/*
+// The ACR's Creature event handler.
 void ACR_CreatureOnSpawnIn();
 
 // The ACR's Creature event handler.
@@ -311,6 +312,8 @@ void ACR_CreatureOnInventoryDisturbed()
 
 void ACR_CreatureOnHeartBeat()
 {
+*/
+
     // if this is a pc, check if they perceive any creatures
     // AcadiusLost - deleted for now
     /*
@@ -409,7 +412,7 @@ void ACR_CreatureOnUserDefined()
 	}
 }*/
 
-void ACR_CreatureIdentify(object oPC, object oTarget)
+/*void ACR_CreatureIdentify(object oPC, object oTarget)
 {
 	// first, determine which Knowledge skill applies.
 	int nKnowSkill = GetKnowlegeSkillOfRace(GetRacialType(oTarget));
@@ -456,4 +459,6 @@ void ACR_CreatureIdentify(object oPC, object oTarget)
     // report the filtered creature name
     SendMessageToPC(oPC, "You recognize the creature - <color=Magenta><i>" + sName + "!</i></color>");
 	SetFirstName(oTarget, sDisplayName);
-}
+	
+	
+}*/

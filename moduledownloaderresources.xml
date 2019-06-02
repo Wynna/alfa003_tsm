@@ -95,7 +95,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="D0A74DB4EADF3B77143F835E3026D511C70BD1C0" downloadHash="D0893001DA37609D22AF61B6FE82C9A1F4A86E67" name="5g_int_felbarr_tr_gnoll_cave.trx" dlsize="1061459" size="1090480" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="11169D88F3A92FFDE0F9F6F0B78191C4C63D3E86" downloadHash="35F5056491CEC61CD27B68C7A248FE4FC27B3A55" name="5g_int_felbarr_tr_gnoll_cave.trx" dlsize="1061452" size="1090518" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -135,7 +135,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="1B248153EFA686925E836FCFFD653442A0988669" downloadHash="8D54662102C2AE38FD0433D2E70FE5BC050BD30A" name="5g_int_felbarr_1_south.trx" dlsize="1061345" size="1102507" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="EC4E3D0D542240E0FF390C269608698A3E420120" downloadHash="C6BC7039E9CD609C87EB7F56895E999DB70ED3A6" name="5g_int_felbarr_1_south.trx" dlsize="1110162" size="1152125" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -175,7 +175,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="0D339D70B281EF8AF1DE97CA0BD80902D8469C45" downloadHash="FDF14A5B36267CF09B921612577D25521D618E5B" name="6c_int_hh_keep.trx" dlsize="120444" size="120685" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="4C208CCC6B66A611A3F7B51E701339FA703D4328" downloadHash="C1B3EC534BBD3F59DFE414019A0C0E70CD158640" name="6c_int_hh_keep.trx" dlsize="119951" size="120234" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -195,7 +195,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="CF9A76EED931D03886BE45D783380D6D51D7CA24" downloadHash="2144C6B7161409B3636B7092F671C7FCA0044449" name="6d_int_silvy_hi_upperfloor.trx" dlsize="639519" size="642427" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="5D41D387EDB4E31E3E5587E2517CDD4906FDF434" downloadHash="B42C0AD205EEEF039BB9FB6DA439C8509FC79D1E" name="6d_int_silvy_hi_upperfloor.trx" dlsize="593148" size="596551" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -205,7 +205,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="71D66189A6364AFE8D448B03EB92706B478D2FC8" downloadHash="D40D040956B9E6918E19240892875943545F49CE" name="5d_int_quaervarr_submerged_dun.trx" dlsize="127967" size="2986738" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="E80813B22531F0559D1EF13B2F53D04812598C03" downloadHash="01BE18370DED5FEBEF30A8FBF64AE93B62503F22" name="5d_int_quaervarr_submerged_dun.trx" dlsize="125891" size="2989762" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -245,7 +245,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="1467CDB6F88B422E9364995A5FE0CA548CB2A3D0" downloadHash="F9EC5DC1B8B519370E8632E008C27C9E09131550" name="6c_int_hh_angler's_inn.trx" dlsize="51858" size="51974" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="0EB77410D998CB04CBF51044830BBEDB303F0EE4" downloadHash="F078B8020D47CA14146A42650898664F57219847" name="6c_int_hh_angler's_inn.trx" dlsize="49962" size="50130" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -265,7 +265,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="54A357D7354418651ECDAC3452905AF73F97C891" downloadHash="E20C33636417B1B75F79B88D45386857F45F99A3" name="5h_int_sundabar_wwing.trx" dlsize="68808" size="69017" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="593592FB9E0A942924B263E56B0406F453F93365" downloadHash="E68C8D825A8875479AEA3EBB312745B6BA703E5C" name="5h_int_sundabar_wwing.trx" dlsize="67031" size="67211" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -360,7 +360,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="5126844E444A00426B2E6AABB8C43ED5D349C0A9" downloadHash="D9CCB38F95B927F058D2CEAD834390453DED5671" name="5g_ext_felbarr.trx" dlsize="5910630" size="29995024" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="2F62DB0EAB8AE80248FC8C0D301FF80A093E992A" downloadHash="A471311F0E73B1BE06F0D7A700F4DB6B4A4F8EA6" name="5g_ext_felbarr.trx" dlsize="5801707" size="29793826" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -375,7 +375,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="3FDE96EA20CDE0E0FAA9EAADF466032AD24F1861" downloadHash="3A4FA0E91EF57C431FC04C829234BE60306ABBA0" name="6e_int_silvypass_delzo_lowrd_08a.trx" dlsize="644190" size="5332416" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="99DDE88A2B8CDC5F4D289D470D875D6A7C4E73F6" downloadHash="FCC6C01A7AFEB6F534F3E0A2B1082D21A65D7BC2" name="6e_int_silvypass_delzo_lowrd_08a.trx" dlsize="648714" size="5332416" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -385,12 +385,12 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="3CD8F633F47BA77D37D2B190A0D1878C2565E1F0" downloadHash="89A65788E340055CA4C71BFB6CC5DB80A960A2F6" name="6e_int_silvypass_delzoun_04a.trx" dlsize="837403" size="867088" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="AAA5579919DC1AE8D675E239AE1E71C92D66ABA4" downloadHash="FBEE778B7DB3EDCE813234A9D11BE59F648F400F" name="6e_int_silvypass_delzoun_04a.trx" dlsize="838553" size="867733" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="5942755504C23EB777F173E78240EB848DD64FC4" downloadHash="89E6C8A45784CAEE7E792BE799DA656CC8DB1433" name="6d_int_silvy_templeloyalfury.trx" dlsize="151644" size="152557" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="CBFA5979F659E6C4D3DD62CC295A0FC8AC2B03A3" downloadHash="50FAB42C40F2E20248B2E82A94A0FE1DCF59022A" name="6d_int_silvy_templeloyalfury.trx" dlsize="153072" size="154032" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -475,12 +475,12 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="B05964AF846F48580935CDD0FB9B72AD3A6239B2" downloadHash="AE41F850BAE38A1287DE61F8DD9D674259E8D8C1" name="6e_int_silvypass_delzo_lowrd_08b.trx" dlsize="1259345" size="8497427" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="CEDB3AF4B9F741A178AB617BA861E2DA2A938DBF" downloadHash="059FCAD32B054D7304FE6638604495D20375DDCF" name="6e_int_silvypass_delzo_lowrd_08b.trx" dlsize="1270532" size="8497432" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="97DDC739DFE8FEF3C61B24436D2E9ACA7E5413E5" downloadHash="E326D3BB6FBECB6688A1C6BC238CA91C2EA33D8D" name="6e_int_silvypass_delzoun_03b.trx" dlsize="1232703" size="1272836" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="4F06E3A22FDD60F78F2E577D5A1822FB533A4458" downloadHash="5E77347279A834BCAB10B9E4E2689DE57E11912F" name="6e_int_silvypass_delzoun_03b.trx" dlsize="1209738" size="1248017" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -515,7 +515,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="286172D7E1A6DF0C9397B559432D630FF687F5F9" downloadHash="8E579BE38C72E7847FC4B6A9C5EB1F811F46FC69" name="6e_ext_nether_foothills.trx" dlsize="4124530" size="18603237" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="8232FC5F1EA22564CB5FA24C7720D2BF17572694" downloadHash="F3CCD21359AF34C2AD4725A208CECBBF266722CD" name="6e_ext_nether_foothills.trx" dlsize="4107920" size="18586945" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -530,7 +530,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="CEAE857ACA291293C46293B06DFDFFB5C52CC67A" downloadHash="A0669A4F291797E30841878D70DD084653E9EFA6" name="7d_int_silverwood_1_2_kis_post.trx" dlsize="13386" size="13402" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="2B235F98BBBB0C12C0A9740BA84B9D574CD18418" downloadHash="385B61F7D0C5C23E93FF9EBE33B8788C2BF88B43" name="7d_int_silverwood_1_2_kis_post.trx" dlsize="13173" size="13207" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -605,7 +605,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="FD3B8C59F012BD1773481CE2059B796E61654871" downloadHash="28819F5FE0E7B5F65675C721C04F5902C01556D7" name="6d_int_silvy_ladycol_grd_lvl.trx" dlsize="1019267" size="1208320" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="746DB92ED34ECDF94EF4BEDF21FAB04649D439F2" downloadHash="D0F2F9D8AB6350CFEE021DFCF2238E777EAEE798" name="6d_int_silvy_ladycol_grd_lvl.trx" dlsize="1094233" size="1279868" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -615,7 +615,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="FD41681DF6F88365AEE193BB15E7F3AF8E746433" downloadHash="DF62ECB32F3C6EBFAD58E074E5B3F1AE90CE366A" name="6b_int_rivmoot_interiors.trx" dlsize="293928" size="295434" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="FE3286601B2F1C52D9A72791788DE05E516D84AE" downloadHash="989C4D79669A665E18ECD4C1336D7DC93A67B56F" name="6b_int_rivmoot_interiors.trx" dlsize="292769" size="294361" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -695,7 +695,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="2197F130C22DEA3E23E6C3B38B8D0B82D64D7C24" downloadHash="FA07559936BABFB08D98F62FE9F980A14EA73002" name="6e_int_silvypass_path_elevation.trx" dlsize="1121285" size="1140352" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="031CEEFED9FB8F46F04BD3AB7EDAB869349A593E" downloadHash="0F20227ACDE23C9C18DA1234B045AB632FFA2468" name="6e_int_silvypass_path_elevation.trx" dlsize="1105687" size="1125740" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -720,7 +720,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="1B205E1B093F1C8FEE7717E707DF41BCF73CD30E" downloadHash="35603030810A6DEA29D28BF7E09CEA16CEC29549" name="6d_int_silvy_handfulstars.trx" dlsize="90609" size="90729" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="28BEA52150DACE926126C5164EE0C97BA1705C8D" downloadHash="4B6D134921E9BE938A4CBADDA6B2F79D5B492C8A" name="6d_int_silvy_handfulstars.trx" dlsize="91013" size="91090" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -740,7 +740,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="51624D56156B613B232066FFA2192E5B6CA4A880" downloadHash="1AC7D2CE016911A3FC1C52A8C0DDF4DE1A9E8D14" name="6d_int_silvy_palace.trx" dlsize="506625" size="643602" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="2145D034B42231228A71F341A95742FCAE1198FD" downloadHash="6651C32B128C423111B0C84B4090553D131E3AE8" name="6d_int_silvy_palace.trx" dlsize="512021" size="650189" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -750,7 +750,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="9F1B786170C5233B394C8DABA34EB8530537C0FC" downloadHash="62A9111849C7169E4F1CC5B363E9246E88AE6823" name="6d_int_silvy_templebalance_priv.trx" dlsize="1556431" size="3021444" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="2E24CE46EA229248F2ED4841FE26EB3A3829305C" downloadHash="064A4921B9CD1010D0C783CF36C8879F6D862D49" name="6d_int_silvy_templebalance_priv.trx" dlsize="1538065" size="2987205" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -770,7 +770,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="15BFB53A1987372DCA64E8828F6FABE07E665AA4" downloadHash="DD1EA40035F448E1C858DAB6D9D38B94273E6C28" name="7d_ext_silverwood1_2_farm_east.trx" dlsize="5732015" size="24604163" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="FD8B71BA94CD7DFA12F5FE3790EFA8C1ECC225C7" downloadHash="7F6FA6D859F3C1265A98110CFD95B6FC3ED0F9F8" name="7d_ext_silverwood1_2_farm_east.trx" dlsize="5705162" size="24583856" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -790,7 +790,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="C031DF0D2E29B85CDB128CAD9AA171A625F73A25" downloadHash="9092E96B99B3201533F24F6DE7E3999C03623FFD" name="5c_ext_moonwood wintersedge.trx" dlsize="4333775" size="24371385" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="5179F43B852B6B775A74617C70D10054CFE72637" downloadHash="22EB347DD1AD61EA01FF7F2AAAA032CBE70DC89D" name="5c_ext_moonwood wintersedge.trx" dlsize="4300696" size="24314686" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -815,7 +815,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="B5D8395F82475E6C5B8D3AAD5150961D346B21AB" downloadHash="D77EBE4362F8F9194FAD353EADD8CCA023F333C8" name="6d_int_silvy_palace_lower.trx" dlsize="285774" size="287348" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="D7ED74A4A4566BC6B616B65FE651597C7DDCB82D" downloadHash="951F5604FC1109848F52902D598D683A4EA35E20" name="6d_int_silvy_palace_lower.trx" dlsize="282317" size="283787" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -865,7 +865,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="BE7957F1D3163FDA88747EFF9C50EF5E28CE0A19" downloadHash="C7CB540C6E061B4C967C75574058CBB6765DCE07" name="6e_int_silvypass_old_west_mine.trx" dlsize="837844" size="849810" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="2BE80381FE7E6603B526EB76DB599C51E29911DA" downloadHash="9DED4E771C77533B82664B55DE511387C93A2B38" name="6e_int_silvypass_old_west_mine.trx" dlsize="844343" size="856065" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -900,7 +900,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="20267A1191C76BF7094E65BA3A856A452D6A0B56" downloadHash="D7C6C88377E9019B166344CC4EE082CEAE974B9E" name="6e_int_silvypass_hall_dugmaren.trx" dlsize="530897" size="541974" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="BD2ED7C63AB836CDD09A97E197597415C1C9EFEA" downloadHash="86F25A5FAD022A029952FEE1ACAF518B57F66CF2" name="6e_int_silvypass_hall_dugmaren.trx" dlsize="542988" size="554272" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -920,7 +920,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="EEF0C7F6DB3882B1222FFABE304AF3287DE9E100" downloadHash="1E48108F087731D67C2B8A1329DCF62C48FB1C52" name="6d_int_silvy_everdusk3.trx" dlsize="31420" size="31397" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="9BC48007E4E5E72F9B3A370D73EF43FBD7192195" downloadHash="717697054267E56FE05AB7700988F2D6F54BCF91" name="6d_int_silvy_everdusk3.trx" dlsize="28052" size="28046" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -955,7 +955,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="F1D65920AA0FD5166DEB18F1BC291E750FD74117" downloadHash="A320C470FE0241A8E80551CC3F9FE8D5D4BEDB33" name="5b_ext_settlestone.trx" dlsize="6507739" size="27235059" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="8CF50EB0D5260AC2F1DF10C6CC772164BD591447" downloadHash="1C915ACE25E1C523BD2A68BF9770C064D266771F" name="5b_ext_settlestone.trx" dlsize="6510862" size="27235051" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -965,7 +965,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="4E9FBC38E96F97712286329570D8C31A9B77A8E9" downloadHash="487F1D4C59E2F75743BD4518C08EEEEC2A04049D" name="6d_int_silvy_fochlucan.trx" dlsize="513339" size="920339" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="549EFCFA218372939EC12676779A9BF75F4BFD15" downloadHash="3260CDBB65D5930FBCE287144B9F1975FFC8743B" name="6d_int_silvy_fochlucan.trx" dlsize="510663" size="917698" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -995,7 +995,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="1C4BCFE623E1F53C79F51312191ED4A0B5F4F8E9" downloadHash="7BB049BE5B3EC22E5A702EA59FCBE835202BE8D0" name="5g_int_felbarr_drunken_dragon.trx" dlsize="422297" size="425683" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="18F33D588E52D371C289740640A60E42C19188BB" downloadHash="1E8B03BD9E972A9E0E0C330B0E70DFE5963FDC59" name="5g_int_felbarr_drunken_dragon.trx" dlsize="358757" size="362013" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1130,12 +1130,12 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="8E28865E08A83A839713469CFD4698C611CF893D" downloadHash="0251D22E362F12A7F87315A237BB307F13B12727" name="5g_int_felbarr_1_shrines.trx" dlsize="1292696" size="1345932" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="6827DAECF027F57DAEBCD20A2514765ED4062C2A" downloadHash="E24D3C5DE87CB572ECD84C974D75EE7DAAB9EB9C" name="5g_int_felbarr_1_shrines.trx" dlsize="1250984" size="1308712" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="4881843A8B04B6CACFCF9FB8C201F59871B86AF7" downloadHash="7E047D356BDE6BDEF05FB5CC6206C2BE840BC79E" name="5f_int_nether_dt_commons.trx" dlsize="711538" size="721324" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="A54B7EC67CBDDB190B33348A4E29C2E021BE274E" downloadHash="3AC070009E9437543107FDC94967773C3D81A48D" name="5f_int_nether_dt_commons.trx" dlsize="708364" size="717806" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1150,7 +1150,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="3DA2E6A4018A80B8461FFF0C6CA87D133AB3051D" downloadHash="FAC3A880325F7C80F7282988FFC1F859557D6DE8" name="6e_int_silvypass_spiderhole.trx" dlsize="1461847" size="1499391" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="B7AEA3C1DB709A3E16A7195698146D24D6060B8F" downloadHash="CE2D33031E99F8699578BDDC9B4AEDF501EB6F50" name="6e_int_silvypass_spiderhole.trx" dlsize="1424557" size="1461151" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1200,7 +1200,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="003AEADC5AC14AE754E26CF2FDD4B0EEE7A3B7C4" downloadHash="FA64E90CD581FBB3BF3B325E0E173599F6943DFB" name="6e_int_silvypass_crystal_cavern.trx" dlsize="1184655" size="9223695" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="C46FB596727284F317E65A2ADC53C8F07B357834" downloadHash="EDBEC9DBD51B0A84A54A97418D9180465C2B47E3" name="6e_int_silvypass_crystal_cavern.trx" dlsize="1167540" size="9204534" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1220,7 +1220,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="4E93A84A2A01AB453CFA28AFE021BAEE8339434F" downloadHash="FFD6EFF6608215036F9EB9DB5CF3C88FA43704EC" name="5g_int_felbarr_tr_cave.trx" dlsize="1110808" size="1130401" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="B64B0214B50AA001A499FF8401B77E6BB0ECD16A" downloadHash="F1554A7646F30CCF612CCA46943E075E46777160" name="5g_int_felbarr_tr_cave.trx" dlsize="1017898" size="1039581" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1240,12 +1240,12 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="8405EE155F5511C92BA6377F6EDC1188EC590ACB" downloadHash="1B2DA301FBC4D2F36D9332E23C997FA46E790AEB" name="6e_int_silvypass_crystal_temple.trx" dlsize="643821" size="650809" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="FEC2028B16779B8379DF9C99B739928CECBBC72A" downloadHash="9550878CFD51A6688CC8E3A664E0E121EDD914FB" name="6e_int_silvypass_crystal_temple.trx" dlsize="654256" size="660098" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="5619900E37CC439AB817BBCF16A25FCC4C8C76AD" downloadHash="B60A191985A7E05304C15B9F7A0B5482676A49F4" name="6d_int_silvy_everdusk2.trx" dlsize="237617" size="326692" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="0CDBB562771D73DA2CC1F9B838980C66520F4F99" downloadHash="EDD78BAE69EFBC18E6EBEB812B76B49E25F1D0C7" name="6d_int_silvy_everdusk2.trx" dlsize="230370" size="319538" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1270,7 +1270,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="DDAC3F6A223C9AA41577E18958BF77BB1C70DB71" downloadHash="E46FE5B266EF2D41585E7ECD7E5D864EF9BA5701" name="003_startarea.trx" dlsize="48738" size="48858" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="5D4C78BB9B19AF863FC18D5E3A34CC8C2A043E7D" downloadHash="0E547EA515C15C5B930D537058F1A1907C0F648D" name="003_startarea.trx" dlsize="48763" size="48863" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1360,7 +1360,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="D87A7C26660E7B060A62B859D61276FD3DA05C6C" downloadHash="324E2FE3B12C2C24F3F177821C1111964AF364A8" name="6b_int_rivmoot_caves_tuskcave.trx" dlsize="204882" size="205958" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="40A18A1657A2A742DB41EB014F9EEC01E3E76B83" downloadHash="0F5046785704F073778CA05B9653C0613D7DBE0A" name="6b_int_rivmoot_caves_tuskcave.trx" dlsize="215930" size="216884" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1375,7 +1375,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="C4F325C249382AEDAE2C950AF9866BBDDA988404" downloadHash="1E666758F8E1F5EF3A78E7B4230AAC0241D69F5E" name="6d_int_silvy_hi_towers.trx" dlsize="818408" size="1408881" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="30A1222148BA059FA255FD676D4CB643C2358538" downloadHash="C28B875BAA9F16C4BF15EF02EC1257F8DDA26E70" name="6d_int_silvy_hi_towers.trx" dlsize="656488" size="1243097" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1400,7 +1400,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="34C5B324CCF1FF50F146560AA5ED41072E1D8300" downloadHash="166C18B5137DDCAFC3650E67A56CFFE30E4CF7EB" name="6e_int_silvypass_delzo_lowrd_07.trx" dlsize="636520" size="2946282" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="77545D799F2FF178803B5E70185C978FCA8F249D" downloadHash="F245EE0A60626631B13D7CE3DAF3A061008F9E62" name="6e_int_silvypass_delzo_lowrd_07.trx" dlsize="658989" size="2972988" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1425,12 +1425,12 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="30D054295FAB723AB0712117938A8F8F046E0B94" downloadHash="E38E3654A7994D038EC3B3F4B1E16F33763CE3AE" name="6e_int_silvypass_delzo_lowrd_08d.trx" dlsize="858657" size="1775405" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="E5A90A814CDBC871696158AA813FD12EFCE05FF3" downloadHash="97F2E32BE664D1AB246FE6F195524858C5C9983D" name="6e_int_silvypass_delzo_lowrd_08d.trx" dlsize="858423" size="1774413" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="AF8058FE70C45BE2B99FE23B71DAE8E73D7AD21F" downloadHash="055E0FADB82CD3F24EBFAB3073DF67FFEAB196EF" name="6b_ext_rivmoot.trx" dlsize="4381763" size="21500460" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="D10AA76FEB35BB5946C844D44067E44208C26DF7" downloadHash="62BD9E6B0B973CFBC552051CA088379831E18F75" name="6b_ext_rivmoot.trx" dlsize="4371750" size="21489896" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1450,17 +1450,17 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="C79A2AE89C0039AC8D689A32AEED9E05D3CF2D64" downloadHash="439A74BBEB1B90FFA9BAE978D0A821816B617811" name="5b_int_fourthpeak_cave_ogre.trx" dlsize="287203" size="290847" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="CA28E4EECCF19EA154B113E3444F26848C0498F5" downloadHash="E234D920290F2F1E7F6F2F73AF8FD8353A0FE33B" name="5b_int_fourthpeak_cave_ogre.trx" dlsize="284043" size="287881" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="DA6B5013649D2B2EDE30A203BAE9FEFD92C7825A" downloadHash="12E5E57DDB16D90489CB4037D0CBC406D18AD229" name="7d_ext_silverwood1_1_farm_west.trx" dlsize="4804034" size="21238064" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="733994FB372B219318408242ABB8E265510A50D1" downloadHash="5231A76B8DA7373819C2BBE30EC807729D501BCF" name="7d_ext_silverwood1_1_farm_west.trx" dlsize="4814961" size="21254360" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="727317C02CB5B7442A6AA0E8E4FC3B8CC52DF204" downloadHash="E555D96099950588D696A916EE5BD32CFC9928DE" name="6d_int_silvy_orphanage.trx" dlsize="68303" size="201011" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="6C915669F6F38E6074A114299E7F5A746B616DC6" downloadHash="2E376CC39B5BDF3476A3BB80D057241A686FFE9D" name="6d_int_silvy_orphanage.trx" dlsize="66919" size="199865" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1470,7 +1470,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="6279745F14322424C032F966BFCE7EEE2D04A890" downloadHash="0AC950534BD6E29F6D2DA61EA1329B9723C09FC9" name="5g_int_felbarr_lowroad_entrance.trx" dlsize="1252966" size="1289013" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="4B9291AAE29F6800AB19410BD0EA4CAAE9CD8908" downloadHash="F57E372849A2A5DE0B27DCA1785C2C46266D27B9" name="5g_int_felbarr_lowroad_entrance.trx" dlsize="1274361" size="1299210" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1490,7 +1490,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="C84D7DF827FB960FE9650EB1750DE63C3FD798DE" downloadHash="990DF32179BC9DE8C54DA6365ECBA030DEDAA832" name="6d_ext_silverymoon_northwest.trx" dlsize="4225562" size="19656086" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="57DCDDEBD3C71F10D16ADEDBEA555720BCB41A91" downloadHash="6148CD91A848FBF6C8785D9649F34FDC7F97E068" name="6d_ext_silverymoon_northwest.trx" dlsize="4221295" size="19648206" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1520,12 +1520,12 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="127FE7CE08777DFACF4E66D6FEEFBB57A161DF65" downloadHash="AEF26520399D35190CA0CC6675625C15DDA20335" name="6e_int_silvypass_delzoun_01a.trx" dlsize="736099" size="766449" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="3A86699A540233073B9C1AF1FD2A44FBC78344AC" downloadHash="F9A6F44915E081B7F31FD0049259AFBD8B17742F" name="6e_int_silvypass_delzoun_01a.trx" dlsize="805264" size="840622" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="372F70F3F67113C2D9193ECCCBBCE47B54F1BD58" downloadHash="EC9CEE63041A90312E52A64E570D4532D82129D3" name="6e_int_silvypass_old_east_mine.trx" dlsize="744896" size="761807" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="48763FE305F7C001396A8BF7CD4BB2A55F777C60" downloadHash="BDE5FA48FC3F47BBE82940E063925052E32F4B0A" name="6e_int_silvypass_old_east_mine.trx" dlsize="733084" size="749686" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1540,7 +1540,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="43D359E6035D51E23EE46BAFF9B6D3F57D8304F0" downloadHash="829978954CDDD3442CFDD1CBFAA95675FB2B4F28" name="6e_int_silvypass_delzoun_04cmit.trx" dlsize="594966" size="3099905" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="67E83D9AC1ACD76577A975B5ED96382F2FF9BCBA" downloadHash="8FADC770DAECEBE169E1AD41ECD5168FC00DDEF8" name="6e_int_silvypass_delzoun_04cmit.trx" dlsize="598749" size="3099943" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1595,7 +1595,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="9AC09B09A173911CF7734DEF4E770BEF8BB87EBB" downloadHash="B78B924539A327A4C3C9DAD3E12793D4F3B7C1D3" name="5f_int_nether_dt_nobles.trx" dlsize="532749" size="539335" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="A3C48E2F4763CE2A821F23A6DD06D72D842E6312" downloadHash="960080F8AE64B9C01CFE0F92000C1CBB036DF188" name="5f_int_nether_dt_nobles.trx" dlsize="527450" size="533804" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1625,12 +1625,12 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="BDDEAA0DEE493BDA56AE578B5B9147DF0B8420EE" downloadHash="ACD57075F3058886F99B4FEAC17BC7A6AA2103FA" name="6d_int_silvy_hi_topfloor.trx" dlsize="287583" size="330615" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="B873B22EA75027107AA4C6E6497BD0FE85EE86CE" downloadHash="89CA2E43F1F40312E5121278D19EAB68A2B4FE05" name="6d_int_silvy_hi_topfloor.trx" dlsize="276974" size="320251" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="DE9E56E6DA1FEE3794A9E51A550D121B64A4347C" downloadHash="C6C77500E1213D6878A01C1E73AC6F1836C68B96" name="003_admin.trx" dlsize="42450" size="43043" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="8BDB48B0CE8641CF36778DDA1B3660F15CD6B634" downloadHash="53B3E5978C697DDED6C1243B0B583A57F2B4F923" name="003_admin.trx" dlsize="42451" size="43043" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
