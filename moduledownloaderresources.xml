@@ -350,7 +350,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="47BEE6AC824CD362B9331182C6C2272D6DD95D97" downloadHash="A289D65A0D9B6F49A9D58A60503D2ECE42608F70" name="6d_int_silvy_templesilvst.trx" dlsize="77031" size="77206" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="EE01B4EC2D32064AADBBCB4B69A87354A035DAD9" downloadHash="5C2B818D96B6B3FF1B854DF49FF4DDC2E521A094" name="6d_int_silvy_templesilvst.trx" dlsize="77023" size="77207" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -440,7 +440,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="842F2830A216082D107635C62E818E67B04938C8" downloadHash="6B31A8FE92D337CA2A032A46700F4D65AF815D3E" name="6d_int_silvy_templerhymat.trx" dlsize="445367" size="451475" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="EE99E00207A3C309A6FE2076767A53432ED68C95" downloadHash="98755A96A6B3E10532470D8C4F92A9CAD531D7B7" name="6d_int_silvy_templerhymat.trx" dlsize="445428" size="451488" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -525,7 +525,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="0308CCFAEB39410B98A26B1FA9A88201EB15AAE1" downloadHash="B935E6BB1DE70D56AB7942DF86AB766C899C72DC" name="6d_int_silvy_theldymirs.trx" dlsize="56757" size="56996" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="9F56D08BB73D27A9D5114E45A4CC16F175EF504F" downloadHash="12833F0779DA26E94EC89171E3E8716060018133" name="6d_int_silvy_theldymirs.trx" dlsize="55100" size="55250" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
