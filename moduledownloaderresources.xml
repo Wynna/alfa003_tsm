@@ -95,7 +95,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="11169D88F3A92FFDE0F9F6F0B78191C4C63D3E86" downloadHash="35F5056491CEC61CD27B68C7A248FE4FC27B3A55" name="5g_int_felbarr_tr_gnoll_cave.trx" dlsize="1061452" size="1090518" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="AD4CCF7536DBE262BFAF34DB2E630439572E132B" downloadHash="CC929B443058EA61EE4E5A47EA498290D464D773" name="5g_int_felbarr_tr_gnoll_cave.trx" dlsize="1026922" size="1056474" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
