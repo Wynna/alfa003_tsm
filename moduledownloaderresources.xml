@@ -1490,7 +1490,7 @@
       <string>0</string>
     </server-ref>
   </resource>
-  <resource type="DirectoryEntry" hash="57DCDDEBD3C71F10D16ADEDBEA555720BCB41A91" downloadHash="6148CD91A848FBF6C8785D9649F34FDC7F97E068" name="6d_ext_silverymoon_northwest.trx" dlsize="4221295" size="19648206" critical="false" exclude="false" urlOverride="">
+  <resource type="DirectoryEntry" hash="5C4F53F12A485B737D37BE7129BD40E355A13989" downloadHash="C82D7F1180B8FB20FC452F1145794B9C75B24CEB" name="6d_ext_silverymoon_northwest.trx" dlsize="4197884" size="19645534" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
@@ -1666,6 +1666,11 @@
     </server-ref>
   </resource>
   <resource type="DirectoryEntry" hash="26355EE3C3C7FD87EE8C909A3FE61B752EC3249B" downloadHash="F34E3F6E336BDCE906B77D487E0B93E7DF770F42" name="6e_ext_khelb_town_int.trx" dlsize="231826" size="235351" critical="false" exclude="false" urlOverride="">
+    <server-ref>
+      <string>0</string>
+    </server-ref>
+  </resource>
+  <resource type="DirectoryEntry" hash="D10AB8E4D4EFCD346862B627400482A2C7444E5F" downloadHash="08638F6BF8824854D55F26ED7CF7D3E831579E97" name="6d_int_silvy_nw_keys.trx" dlsize="12427" size="12411" critical="false" exclude="false" urlOverride="">
     <server-ref>
       <string>0</string>
     </server-ref>
